@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint client server --ext ts,tsx",
-    "build": "babel server --out-dir dist --extensions .ts",
-    "start": "node dist/index.js"
+    "dev:client": "parcel client/index.html --out-dir dist/client",
+    "dev:server": "nodemon",
+    "build:client": "parcel build client/index.html --out-dir dist/client",
+    "build:server": "babel server --out-dir dist/server --extensions .ts",
+    "build": "yarn build:server && yarn build:client",
+    "start": "node dist/server/index.js"
   },
   "author": "robtf9",
   "license": "ISC",
@@ -39,6 +43,7 @@
     "eslint-plugin-testing-library": "^3.10.1",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
   "dependencies": {

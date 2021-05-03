@@ -1,11 +1,10 @@
 import express from 'express';
-import { join } from 'path';
-import Bundler from 'parcel-bundler';
+import path from 'path';
 
 const app = express();
 
-const file = join(__dirname, '..', 'client', 'index.html');
-const bundler = new Bundler(file);
-app.use(bundler.middleware());
+app.get('/', function (_, res) {
+  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+});
 
 app.listen(3000);
