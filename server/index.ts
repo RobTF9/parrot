@@ -3,6 +3,8 @@ import path from 'path';
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, '..', 'client')));
+
 app.get('/', function (_, res) {
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 });
