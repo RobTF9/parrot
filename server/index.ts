@@ -9,4 +9,8 @@ app.get('/', function (_, res) {
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 });
 
+app.get('/api/hello', function (_, res) {
+  res.json({ message: 'no' });
+});
+
 app.listen(3000);
