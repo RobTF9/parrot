@@ -8,10 +8,10 @@
     "lint": "eslint client server --ext ts,tsx",
     "dev:client": "parcel client/index.html --out-dir dist/client",
     "dev:server": "nodemon",
-    "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
+    "dev": "rimraf dist && concurrently \"yarn dev:server\" \"yarn dev:client\"",
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:server": "babel server --out-dir dist/server --extensions .ts",
-    "build": "yarn build:server && yarn build:client",
+    "build": "rimraf dist && yarn build:server && yarn build:client",
     "start": "node dist/server/index.js"
   },
   "author": "robtf9",
@@ -45,6 +45,7 @@
     "eslint-plugin-testing-library": "^3.10.1",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
