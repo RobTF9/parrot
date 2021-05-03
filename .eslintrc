@@ -20,6 +20,11 @@
     "react/prop-types": 0
   },
   "ignorePatterns": "/dist",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "overrides": [
     {
       "files": ["tests/**/*.{ts,tsx}"],
@@ -34,11 +39,6 @@
       "parserOptions": {
         "ecmaFeatures": {
           "jsx": true
-        }
-      },
-      "settings": {
-        "react": {
-          "version": "detect"
         }
       }
     }
