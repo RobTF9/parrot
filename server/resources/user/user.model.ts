@@ -32,15 +32,32 @@ const userSchema = new Schema<UserDocument, Model<UserDocument>>(
 
 userSchema.methods.checkPassword = function (password) {
   const passwordHash = this.password;
+
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, passwordHash, (error, same) => {
       if (error) {
         reject(error);
       }
+
       resolve(same);
     });
   });
 };
+
+userSchema.pre('save', function (next) {
+  if (!this.isModified('password')) {
+    next();
+  }
+
+  bcrypt.hash(this.password, 8, (error, hash) => {
+    if (error) {
+      next(error);
+    }
+
+    this.password = hash;
+    next();
+  });
+});
 
 const User = model('user', userSchema);
 
