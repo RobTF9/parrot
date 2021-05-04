@@ -2,10 +2,9 @@ import express from 'express';
 import { json, urlencoded } from 'body-parser';
 import morgan from 'morgan';
 import path from 'path';
-import mongoose from 'mongoose';
-import env from 'dotenv';
-
-env.config();
+import connect from './utils/database';
+import userRouter from './resources/user/user.router';
+import config from './config';
 
 const app = express();
 
@@ -13,30 +12,22 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-app.get('/api/hello', (_, res) => {
-  res.json({ message: 'hello' });
-});
+app.use('/api/user', userRouter);
 
 // Serve react app
 const clientPath = path.join(__dirname, '..', 'client');
 app.use(express.static(clientPath));
 app.use('*', express.static(clientPath));
 
-// Connect database
-if (typeof process.env.MONGO_URI === 'string') {
-  console.log('Connecting to database...');
-  mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  });
+const start = async () => {
+  try {
+    await connect();
+    app.listen(config.port, () =>
+      console.log(`Server running on ${config.port}`)
+    );
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-  mongoose.connection.on('connected', () =>
-    console.log('Connected to database')
-  );
-}
-
-// Start server
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server running on ${port}`));
+start();
