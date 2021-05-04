@@ -1,0 +1,11 @@
+{
+  "resetMocks": true,
+  "setupFilesAfterEnv": ["<rootDir>/tests/client/_setup.ts"],
+  "collectCoverageFrom": [
+    "client/**/*.ts",
+    "client/**/*.tsx",
+    "!client/**/*.styles.ts",
+    "!client/**/index.ts",
+    "!client/types/**"
+  ]
+}
