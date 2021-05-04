@@ -1,6 +1,7 @@
 export interface IAuthContext {
   signIn: (details: ISignIn) => void;
   signUp: (details: ISignUp) => void;
+  signOut: () => void;
   authenticated?: boolean;
 }
 

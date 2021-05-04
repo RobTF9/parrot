@@ -10,4 +10,5 @@ export const SUCCESS_MESSAGE = {
   SIGN_IN_SUCCESSFUL: 'Signed in successfully',
   SIGN_UP_SUCCESSFUL: 'Signed up successful',
   AUTHORIZED: 'Authorized',
+  SIGNED_OUT_SUCCESSFULLY: 'Signed out successfully',
 };

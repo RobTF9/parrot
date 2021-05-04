@@ -6,7 +6,7 @@ import path from 'path';
 import connect from './utils/database';
 import userRouter from './resources/user/user.router';
 import config from './config';
-import { checkAuth, protect, signIn, signUp } from './utils/auth';
+import { checkAuth, protect, signIn, signOut, signUp } from './utils/auth';
 import errorHandler from './utils/errorHandler';
 
 declare module 'express-session' {
@@ -33,6 +33,7 @@ app.use(
 app.post('/auth/signin', signIn);
 app.post('/auth/signup', signUp);
 app.get('/auth', checkAuth);
+app.get('/auth/signout', signOut);
 
 app.use('/api/user', protect, userRouter);
 

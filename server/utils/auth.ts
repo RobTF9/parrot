@@ -84,6 +84,19 @@ export const checkAuth: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const signOut: RequestHandler = async (req, res, next) => {
+  try {
+    req.session.destroy(() =>
+      res.json({
+        auth: false,
+        message: SUCCESS_MESSAGE.SIGNED_OUT_SUCCESSFULLY,
+      })
+    );
+  } catch (error) {
+    next(new Error(error));
+  }
+};
+
 export const protect: RequestHandler = async (req, res, next) => {
   try {
     if (!req.session.user) {

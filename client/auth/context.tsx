@@ -6,6 +6,7 @@ const AuthContext = createContext<IAuthContext>({
   authenticated: false,
   signIn: () => null,
   signUp: () => null,
+  signOut: () => null,
 });
 
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
@@ -18,15 +19,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       const response = await post<
         ISignIn,
         { auth?: boolean; message?: string }
-      >('/auth/signin', details, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.auth) {
-        setAuthenticated(response.auth);
-      }
+      >('/auth/signin', details);
+      setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);
     }
@@ -39,15 +33,19 @@ export const AuthProvider: React.FC = ({ children }) => {
       const response = await post<
         ISignUp,
         { auth?: boolean; message?: string }
-      >('/auth/signup', details, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      >('/auth/signup', details);
+      setAuthenticated(response.auth);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-      if (response.auth) {
-        setAuthenticated(response.auth);
-      }
+  const signOut = async () => {
+    try {
+      const response = await get<{ auth?: boolean; message?: string }>(
+        '/auth/signout'
+      );
+      setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);
     }
@@ -56,9 +54,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const checkAuth = async () => {
     try {
       const response = await get<{ auth?: boolean; message?: string }>('/auth');
-      if (response.auth) {
-        setAuthenticated(response.auth);
-      }
+      setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);
     }
@@ -69,7 +65,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authenticated, signIn, signUp }}>
+    <AuthContext.Provider value={{ authenticated, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
