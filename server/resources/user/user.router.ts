@@ -1,15 +1,8 @@
 import { Router } from 'express';
+import { getUser } from './user.controllers';
 
 const router = Router();
 
-router.get('/', async (_, res, next) => {
-  try {
-    res.send({
-      message: 'User',
-    });
-  } catch (error) {
-    next(new Error(error));
-  }
-});
+router.get('/', getUser);
 
 export default router;

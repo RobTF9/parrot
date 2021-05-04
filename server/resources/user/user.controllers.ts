@@ -1,6 +1,21 @@
-import { User } from './user.model';
+import { RequestHandler } from 'express';
 
-export async function getOne(req, res, next) {
+export const getUser: RequestHandler = async (_, res, next) => {
   try {
-  } catch (error) {}
-}
+    res.send({
+      message: 'User',
+    });
+  } catch (error) {
+    next(new Error(error));
+  }
+};
+
+export const updateUser: RequestHandler = async (_, res, next) => {
+  try {
+    res.send({
+      message: 'User',
+    });
+  } catch (error) {
+    next(new Error(error));
+  }
+};
