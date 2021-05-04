@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../../context/Auth';
+import { useAuthContext } from '../../auth/context';
 
 const SignIn: React.FC = () => {
   const { signIn } = useAuthContext();
-
   const [details, setDetails] = useState({ email: '', password: '' });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthProvider } from './context/Auth';
+import { AuthProvider } from './auth/context';
 import Router from './routes';
 
 const App: React.FC = () => {

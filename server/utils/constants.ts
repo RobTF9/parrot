@@ -7,5 +7,7 @@ export const ERROR_MESSAGE = {
 };
 
 export const SUCCESS_MESSAGE = {
-  NEED_EMAIL_AND_PASSWORD: 'Need email and password',
+  SIGN_IN_SUCCESSFUL: 'Signed in succesfully',
+  SIGN_UP_SUCCESSFUL: 'Signed up succesfull',
+  AUTHORIZED: 'Authorized',
 };
