@@ -12,7 +12,7 @@
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:server": "babel server --out-dir dist/server --extensions .ts",
     "build": "rimraf dist && yarn build:server && yarn build:client",
-    "test:client": "jest --config ./jest.config.json --detectOpenHandles --verbose --coverage",
+    "test:client": "jest --config ./jest.client.json --detectOpenHandles --verbose --coverage",
     "start": "node dist/server/index.js"
   },
   "author": "robtf9",
