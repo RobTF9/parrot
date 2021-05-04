@@ -7,7 +7,7 @@ export const ERROR_MESSAGE = {
 };
 
 export const SUCCESS_MESSAGE = {
-  SIGN_IN_SUCCESSFUL: 'Signed in succesfully',
-  SIGN_UP_SUCCESSFUL: 'Signed up succesfull',
+  SIGN_IN_SUCCESSFUL: 'Signed in successfully',
+  SIGN_UP_SUCCESSFUL: 'Signed up successful',
   AUTHORIZED: 'Authorized',
 };

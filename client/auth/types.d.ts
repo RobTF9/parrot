@@ -1,6 +1,7 @@
 export interface IAuthContext {
   signIn: (details: ISignIn) => void;
-  authenticated: boolean;
+  signUp: (details: ISignUp) => void;
+  authenticated?: boolean;
 }
 
 export interface ISignIn {

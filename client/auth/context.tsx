@@ -1,16 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { IAuthContext, ISignIn, ISignUp } from './types';
+import { IAuthContext, ISignIn, ISignUp } from './types.d';
 import { get, post } from '../utils/fetch';
 
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,
   signIn: () => null,
+  signUp: () => null,
 });
 
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState<boolean | undefined>();
 
   const signIn = async (details: ISignIn) => {
     try {
@@ -22,6 +23,7 @@ export const AuthProvider: React.FC = ({ children }) => {
           'Content-Type': 'application/json',
         },
       });
+
       if (response.auth) {
         setAuthenticated(response.auth);
       }
@@ -42,9 +44,12 @@ export const AuthProvider: React.FC = ({ children }) => {
           'Content-Type': 'application/json',
         },
       });
-      return response;
+
+      if (response.auth) {
+        setAuthenticated(response.auth);
+      }
     } catch (error) {
-      return console.error(error);
+      console.error(error);
     }
   };
 
@@ -64,7 +69,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authenticated, signIn }}>
+    <AuthContext.Provider value={{ authenticated, signIn, signUp }}>
       {children}
     </AuthContext.Provider>
   );

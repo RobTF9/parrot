@@ -8,6 +8,10 @@ import SignIn from './Authentication/SignIn';
 const Router: React.FC = () => {
   const { authenticated } = useAuthContext();
 
+  if (authenticated === undefined) {
+    return <p>Loading</p>;
+  }
+
   return (
     <BrowserRouter>
       {authenticated ? (
