@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useAuthContext } from '../auth/context';
+import { useAuthContext } from '../context/Auth';
 import Profile from './Account/Profile';
 import CreateAccount from './Authentication/CreateAccount';
 import SignIn from './Authentication/SignIn';

@@ -1,6 +1,23 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { IAuthContext, ISignIn, ISignUp } from './types.d';
 import { get, post } from '../utils/fetch';
+
+export interface IAuthContext {
+  signIn: (details: ISignIn) => void;
+  signUp: (details: ISignUp) => void;
+  signOut: () => void;
+  authenticated?: boolean;
+}
+
+export interface ISignIn {
+  email: string;
+  password: string;
+}
+
+export interface ISignUp {
+  email: string;
+  password: string;
+  username: string;
+}
 
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,

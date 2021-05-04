@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../../auth/context';
+import { useAuthContext } from '../../context/Auth';
 
 const SignIn: React.FC = () => {
   const { signIn } = useAuthContext();

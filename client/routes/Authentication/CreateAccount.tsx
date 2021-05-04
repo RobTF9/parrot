@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../../context/Auth';
 
 const CreateAccount: React.FC = () => {
+  const { signUp } = useAuthContext();
+
   const [details, setDetails] = useState({
     email: '',
     password: '',
@@ -11,8 +14,13 @@ const CreateAccount: React.FC = () => {
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDetails({ ...details, [event.target.name]: event.target.value });
 
+  const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    signUp(details);
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <label htmlFor="email">
         <p>Email</p>
         <input

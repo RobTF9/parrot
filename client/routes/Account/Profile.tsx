@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuthContext } from '../../auth/context';
+import { useAuthContext } from '../../context/Auth';
 
 const Profile: React.FC = () => {
   const { signOut } = useAuthContext();
