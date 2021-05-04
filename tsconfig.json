@@ -13,7 +13,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "stripInternal": true,
-    "types": ["node"]
+    "types": ["node"],
+    "paths": { "*": ["./types/*.d.ts"] }
   },
   "include": ["client", "server"]
 }
