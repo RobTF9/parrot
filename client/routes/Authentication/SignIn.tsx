@@ -12,7 +12,7 @@ const SignIn: React.FC = () => {
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    signIn();
+    signIn(details);
   };
 
   return (

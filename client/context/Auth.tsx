@@ -1,9 +1,15 @@
 import React, { createContext, useContext, useState } from 'react';
+import { post } from '../utils/fetch';
 
 interface IAuthContext {
-  signIn: () => void;
+  signIn: (details: ISignIn) => void;
   signOut: () => void;
   authenticated: boolean;
+}
+
+interface ISignIn {
+  email: string;
+  password: string;
 }
 
 const AuthContext = createContext<IAuthContext>({
@@ -17,8 +23,25 @@ export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 export const AuthProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
 
-  const signIn = () => {
-    setAuthenticated(true);
+  const signIn = async (details: ISignIn) => {
+    try {
+      const response = await post<
+        ISignIn,
+        { auth?: boolean; message?: string }
+      >('/auth/signin', details, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.auth) {
+        setAuthenticated(true);
+      } else {
+        console.log(response.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const signOut = () => {
