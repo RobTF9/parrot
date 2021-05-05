@@ -9,6 +9,7 @@ export const ERROR_MESSAGE = {
   EMAIL_ADDRESS_DOESNT_EXIST: 'Email address does not exist',
   CANNOT_RESET_PASSWORD: 'Cannot reset password',
   EMAIL_ADDRESS_REQUIRED: 'Email address required',
+  RESOURCE_NOT_FOUND: 'Resource not found',
 };
 
 export const SUCCESS_MESSAGE = {
@@ -18,4 +19,5 @@ export const SUCCESS_MESSAGE = {
   SIGNED_OUT_SUCCESSFULLY: 'Signed out successfully',
   PASSWORD_RESET_SUCCESSFULLY: 'Password reset successfully',
   RESET_LINK_SENT: 'Reset link sent',
+  LEXICON_ACTIVATED: 'Lexicon activated',
 };

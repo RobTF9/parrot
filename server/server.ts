@@ -7,6 +7,7 @@ import userRouter from './resources/user/user.router';
 import config from './config';
 import { protect } from './services/auth/auth.middleware';
 import authRouter from './services/auth/auth.router';
+import lexiconRouter from './resources/lexicon/lexicon.router';
 import errorHandler from './utils/errorHandler';
 import authSession from './utils/session';
 
@@ -19,7 +20,9 @@ app.use(morgan('dev', { skip: () => process.env.NODE_ENV === 'test' }));
 app.use(authSession);
 
 app.use('/auth', authRouter);
-app.use('/api/user', protect, userRouter);
+app.use('/api', protect);
+app.use('/api/user', userRouter);
+app.use('/api/lexicon', lexiconRouter);
 
 // Serve client
 const clientPath = path.join(__dirname, '..', 'client');

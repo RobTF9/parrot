@@ -4,6 +4,7 @@ import config from '../config';
 declare module 'express-session' {
   export interface SessionData {
     user: { [key: string]: string };
+    lexicon: { [key: string]: string };
   }
 }
 
