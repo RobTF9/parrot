@@ -1,9 +1,9 @@
 import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import renderWithRouter from './_renderWithRouter';
-import App from '../../client/App';
-import { authServer } from './_servers';
+import renderWithRouter from '../_renderWithRouter';
+import App from '../../../client/App';
+import { authServer } from '../_servers';
 
 beforeAll(() => authServer.listen());
 afterEach(() => authServer.resetHandlers());
