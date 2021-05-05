@@ -12,7 +12,7 @@ const createUser = async () => {
   });
 };
 
-describe('Auth utils...', () => {
+describe('Auth service...', () => {
   test('can sign up new user', async () => {
     const response = await request(app).post('/auth/signup').send({
       username: 'user',

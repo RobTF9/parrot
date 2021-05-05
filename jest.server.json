@@ -3,5 +3,10 @@
   "testEnvironment": "node",
   "setupFilesAfterEnv": ["<rootDir>/tests/server/_database.ts"],
   "testPathIgnorePatterns": ["dist/", "client/"],
-  "restoreMocks": true
+  "restoreMocks": true,
+  "collectCoverageFrom": [
+    "server/**/*.ts",
+    "!server/**/index.ts",
+    "!server/utils/**"
+  ]
 }

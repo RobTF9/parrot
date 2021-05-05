@@ -13,13 +13,3 @@ export const getUser: RequestHandler = async (req, res, next) => {
     next(new Error(error));
   }
 };
-
-export const updateUser: RequestHandler = async (_, res, next) => {
-  try {
-    res.send({
-      message: 'User',
-    });
-  } catch (error) {
-    next(new Error(error));
-  }
-};
