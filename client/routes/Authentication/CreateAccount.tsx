@@ -4,6 +4,7 @@ import Input from '../../components/Input';
 import { useAuthContext } from '../../context/Auth';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
+import { validateSignup, ISignUpErrors } from '../../utils/userValidators';
 
 const CreateAccount: React.FC = () => {
   const { signUp } = useAuthContext();
@@ -14,12 +15,22 @@ const CreateAccount: React.FC = () => {
     username: '',
   });
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+  const [errors, setErrors] = useState<ISignUpErrors>({});
+
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setErrors({});
     setDetails({ ...details, [event.target.name]: event.target.value });
+  };
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    signUp(details);
+    const validationErrors = validateSignup(details);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      signUp(details);
+    }
   };
 
   return (
@@ -34,6 +45,7 @@ const CreateAccount: React.FC = () => {
             label: 'Email',
             name: 'email',
             value: details.email,
+            error: errors.email,
             onChange,
           }}
         />
@@ -42,6 +54,7 @@ const CreateAccount: React.FC = () => {
             label: 'Username',
             name: 'username',
             value: details.username,
+            error: errors.username,
             onChange,
           }}
         />
@@ -50,6 +63,7 @@ const CreateAccount: React.FC = () => {
             label: 'Password',
             name: 'password',
             value: details.password,
+            error: errors.password,
             type: 'password',
             onChange,
           }}
