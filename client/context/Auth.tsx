@@ -40,7 +40,14 @@ export const AuthProvider: React.FC = ({ children }) => {
         { auth?: boolean; message?: string }
       >('/auth/signin', details);
 
-      setAuthenticated(response.auth);
+      if (response.auth) {
+        setAuthenticated(response.auth);
+      }
+
+      if (!response.auth && response.message) {
+        setAuthenticated(response.auth);
+        setErrorMessage(response.message);
+      }
     } catch (error) {
       console.error(error);
     }

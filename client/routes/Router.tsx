@@ -4,6 +4,8 @@ import { useAuthContext } from '../context/Auth';
 import { Loading } from '../styles/Animations.styles';
 import Profile from './Account/Profile';
 import CreateAccount from './Authentication/CreateAccount';
+import ForgotPassword from './Authentication/ForgotPassword';
+import ResetPassword from './Authentication/ResetPassword';
 import SignIn from './Authentication/SignIn';
 
 const Router: React.FC = () => {
@@ -23,6 +25,12 @@ const Router: React.FC = () => {
         </Switch>
       ) : (
         <Switch>
+          <Route path="/reset">
+            <ResetPassword />
+          </Route>
+          <Route path="/forgot-password">
+            <ForgotPassword />
+          </Route>
           <Route path="/sign-in">
             <SignIn />
           </Route>

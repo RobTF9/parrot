@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
-import Message from '../../components/Message/Message';
+import Message from '../../components/Message';
 import { useAuthContext } from '../../context/Auth';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
