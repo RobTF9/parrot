@@ -17,7 +17,9 @@ const validEmail = (email: string) => {
   return re.test(String(email).toLowerCase());
 };
 
-export const validateSignup = (d: ISignUpErrors): ISignUpErrors => {
+export const validateSignup = (
+  d: Username & Email & Password
+): ISignUpErrors => {
   let errors = {};
 
   if (!d.password || d.password.trim() === '') {

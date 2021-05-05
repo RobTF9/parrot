@@ -21,7 +21,7 @@ export const InputWrapper = styled.label`
 
   em {
     bottom: calc(var(--medium) * -1);
-    color: var(--bengali-red);
+    color: var(--error-dark);
     font-size: 1.2rem;
     position: absolute;
     right: 0;
