@@ -28,3 +28,11 @@ declare interface LexiconResource {
   createdBy: string;
   sharedWith: string[];
 }
+
+declare interface LexiconSubmission {
+  language: {
+    name: string;
+    htmlCode: string;
+    langCode: string;
+  };
+}
