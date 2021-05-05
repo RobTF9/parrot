@@ -4,7 +4,6 @@
   "description": "Lanuguages library and game builder",
   "main": " index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint client server --ext ts,tsx",
     "dev:client": "parcel watch client/index.html --out-dir dist/client",
     "dev:server": "nodemon",
@@ -14,6 +13,8 @@
     "build": "rimraf dist && yarn build:server && yarn build:client",
     "test:client": "jest --config ./jest.client.json --detectOpenHandles --verbose --coverage",
     "test:server": "jest --config ./jest.server.json --detectOpenHandles --verbose --coverage",
+    "test": "yarn test:client && yarn test:server",
+    "test:watch": "concurrently \"jest --config ./jest.client.json --watchAll\" \"jest --config ./jest.server.json --watchAll\"",
     "start": "node dist/server/index.js"
   },
   "author": "robtf9",

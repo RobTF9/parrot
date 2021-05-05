@@ -1,8 +1,8 @@
 import request from 'supertest';
 import session from 'supertest-session';
-import User from '../../server/resources/user/user.model';
-import { app } from '../../server/server';
-import { ERROR_MESSAGE } from '../../server/utils/constants';
+import User from '../../../server/resources/user/user.model';
+import { app } from '../../../server/server';
+import { ERROR_MESSAGE } from '../../../server/utils/constants';
 
 const createUser = async () => {
   await User.create({
@@ -69,7 +69,7 @@ describe('Auth utils...', () => {
     expect(response.body.auth).toBe(false);
   });
 
-  test('protects routes', async () => {
+  test('protects routes if not signed in', async () => {
     const response = await request(app).get('/api/user');
 
     expect(response.body.message).toBe(ERROR_MESSAGE.NOT_AUTHORIZED);
