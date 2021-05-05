@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useAuthContext } from '../context/Auth';
 import { Loading } from '../styles/Animations.styles';
-import Profile from './Account/Profile';
+import Profile from './Account/Account';
 import CreateAccount from './Authentication/CreateAccount';
 import ForgotPassword from './Authentication/ForgotPassword';
 import ResetPassword from './Authentication/ResetPassword';

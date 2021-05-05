@@ -17,3 +17,14 @@ declare interface UserSubmission {
   password?: string;
   username?: string;
 }
+
+declare interface LexiconResource {
+  _id: string;
+  language: {
+    name: string;
+    htmlCode: string;
+    langCode: string;
+  };
+  createdBy: string;
+  sharedWith: string[];
+}
