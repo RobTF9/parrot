@@ -27,6 +27,20 @@ describe('Auth service...', () => {
     expect(createdUser).toBeTruthy();
   });
 
+  test('error on sign up if no username, email or password', async () => {
+    const response = await request(app).post('/auth/signup').send({
+      username: '',
+      email: '',
+      password: '',
+    });
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toBe(
+      ERROR_MESSAGE.NEED_EMAIL_PASSWORD_USERNAME
+    );
+    expect(response.statusCode).toBe(400);
+  });
+
   test('can sign in as existing user', async () => {
     await createUser();
 
@@ -37,6 +51,54 @@ describe('Auth service...', () => {
 
     expect(response.body.auth).toBe(true);
     expect(response.statusCode).toBe(201);
+  });
+
+  test('error message if no password or email on sign in', async () => {
+    const response = await request(app).post('/auth/signin').send({
+      email: '',
+      password: '',
+    });
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toBe(ERROR_MESSAGE.NEED_EMAIL_AND_PASSWORD);
+    expect(response.statusCode).toBe(400);
+  });
+
+  test('error message if user does not exist on sign in', async () => {
+    const response = await request(app).post('/auth/signin').send({
+      email: 'hi@email.com',
+      password: 'password',
+    });
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toBe(
+      ERROR_MESSAGE.INVALID_EMAIL_AND_PASSWORD
+    );
+    expect(response.statusCode).toBe(401);
+  });
+
+  test('error message if password invalid on sign in', async () => {
+    await createUser();
+
+    const response = await request(app).post('/auth/signin').send({
+      email: 'email@email.com',
+      password: 'wrong',
+    });
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toBe(
+      ERROR_MESSAGE.INVALID_EMAIL_AND_PASSWORD
+    );
+    expect(response.statusCode).toBe(401);
+  });
+
+  test('auth returns false if no session active', async () => {
+    const authSession = session(app);
+    const response = await authSession.get('/auth');
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toBe(ERROR_MESSAGE.NOT_AUTHORIZED);
+    expect(response.statusCode).toBe(401);
   });
 
   test('session persists after log in', async () => {
