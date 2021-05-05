@@ -4,8 +4,7 @@ import { RequestHandler } from 'express';
 import User from '../../resources/user/user.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import config from '../../config';
-import { sendEmail } from '../email/nodemailer';
-import { resetPassword } from '../email/templates';
+import { resetPasswordEmail } from '../email/email.senders';
 
 export const signIn: RequestHandler = async (req, res, next) => {
   try {
@@ -149,12 +148,7 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
       await user.save();
 
       const link = `${config.client}reset/?token=${resetToken}&id=${user._id}`;
-
-      sendEmail(
-        user.email,
-        'Password reset',
-        resetPassword(user.username, link)
-      );
+      resetPasswordEmail(user.email, link, user.username);
 
       res.send({ auth: false, message: SUCCESS_MESSAGE.RESET_LINK_SENT });
     }
