@@ -123,7 +123,7 @@ export const signOut: RequestHandler = async (req, res, next) => {
 export const requestPasswordReset: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.email) {
-      res.status(400).send({ message: 'Email address required' });
+      res.status(400).send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_REQUIRED });
     }
 
     const user = await User.findOne({ email: req.body.email });
@@ -131,7 +131,7 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
     if (!user) {
       res
         .status(400)
-        .send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_DOESNT_EXISIT });
+        .send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_DOESNT_EXIST });
     }
 
     if (user && user.token) {
@@ -156,7 +156,7 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
         resetPassword(user.username, link)
       );
 
-      res.send({ auth: false, message: 'Reset link sent' });
+      res.send({ auth: false, message: SUCCESS_MESSAGE.RESET_LINK_SENT });
     }
   } catch (error) {
     next(new Error(error));
@@ -167,13 +167,13 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
   try {
     const user = await User.findOne({ _id: req.body._id });
 
-    if (!user || !user.token) {
-      res.status(400).send({ message: 'Invalid' });
+    if (!user || !user.token || user.token === null) {
+      res.status(400).json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
     } else {
       const tokenValid = await bcrypt.compare(req.body.token, user.token.value);
 
       if (!tokenValid) {
-        res.status(400).send({ message: 'Invalid' });
+        res.status(400).send({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
       }
 
       const hash = await bcrypt.hash(req.body.password, 8);
@@ -186,7 +186,9 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
         { new: true }
       );
 
-      res.status(200).json({ message: 'Sucess', auth: true });
+      res.status(200).json({
+        message: SUCCESS_MESSAGE.PASSWORD_RESET_SUCCESSFULLY,
+      });
     }
   } catch (error) {
     next(new Error(error));

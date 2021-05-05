@@ -30,13 +30,17 @@ const ResetPassword: React.FC = () => {
       if (details.token === null || details._id === null) {
         setMessage({ text: "Can't find correct parameters", type: 'error' });
       }
+
       const response = await post<
         { password: string; token: string; _id: string },
         { message: string }
       >('/auth/reset', details);
+
+      console.log(response);
+
       setMessage({ text: response.message, type: 'success' });
     } catch (error) {
-      setMessage({ text: error, type: 'error' });
+      console.error(error);
     }
   };
 
