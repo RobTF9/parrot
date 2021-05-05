@@ -1,21 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div<{ bg?: string }>`
+export const Container = styled.div<{ bg?: string; half?: boolean }>`
   margin: 0 auto;
   overflow: hidden;
-  padding: var(--medium);
+  padding: 0 var(--medium);
   position: relative;
   min-height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: var(--${({ bg }) => (!bg ? `core-lightest` : `${bg}`)});
-`;
+  background: var(--${({ bg }) => (!bg ? `core-lightest` : `${bg}`)});
+  z-index: 1;
 
-export const Card = styled.div`
-  background-color: var(---core-white);
-  box-shadow: var(--card-shadow);
-  border-radius: var(--small);
-  padding: var(--medium);
+  ${({ half }) =>
+    half &&
+    css`
+      background: linear-gradient(
+        0deg,
+        var(--core-lightest) 50%,
+        var(--core-dark) 50%
+      );
+    `}
 `;
 
 export const Modal = styled.div`

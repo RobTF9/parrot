@@ -12,45 +12,72 @@ const Typography = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 1.6rem;
     line-height: 1.4;
     color: var(--core-dark);
   }
 
+  strong,
+  .bold {
+    font-weight: 800;
+    font-size: inherit;
+    color: inherit;
+  }
+
   h1,
-  .xxxl {
+  .xxxlarge {
     font-size: 3.6rem;
   }
 
   h2,
-  .xxl {
+  .xxlarge {
     font-size: 2.8rem;
   }
 
   h3,
-  .xl {
+  .xlarge {
     font-size: 2.4rem;
   }
 
   h4,
-  .l {
+  .large {
     font-size: 1.8rem;
   }
 
   p,
-  .m {
+  .medium {
     font-size: 1.6rem;
   }
 
   h5,
-  .s {
+  .small {
     font-size: 1.2rem;
   }
 
-  strong,
-  .b {
-    font-weight: 800;
+  .center {
+    text-align: center;
+  }
+
+  .lightest {
+    color: var(--core-lightest);
+  }
+
+  .buffer {
+    margin: var(--large) 0;
+  }
+
+  .border {
+    &--top {
+      padding-top: var(--large);
+      border-top: 0.1rem solid var(--core-dark-10);
+    }
+
+    &--bottom {
+      padding-bottom: var(--large);
+      margin-bottom: var(--large);
+      border-bottom: 0.1rem solid var(--core-dark-10);
+    }
   }
 
   a {

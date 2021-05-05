@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Input from '../../components/Input';
 import { useAuthContext } from '../../context/Auth';
+import { Container, Modal } from '../../styles/Layout.styles';
 
 const CreateAccount: React.FC = () => {
   const { signUp } = useAuthContext();
@@ -20,42 +22,43 @@ const CreateAccount: React.FC = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor="email">
-        <p>Email</p>
-        <input
-          onChange={onChange}
-          type="text"
-          name="email"
-          id="email"
-          value={details.email}
+    <Container half>
+      <h1 className="xlarge center lightest buffer">
+        Welcome to <span className="bold">Parrot</span>
+      </h1>
+      <Modal as="form" onSubmit={onSubmit}>
+        <h2 className="xxlarge bold border--bottom">Create your account</h2>
+        <Input
+          {...{
+            label: 'Email',
+            name: 'email',
+            value: details.email,
+            onChange,
+          }}
         />
-      </label>
-      <label htmlFor="username">
-        <p>Username</p>
-        <input
-          onChange={onChange}
-          type="text"
-          name="username"
-          id="username"
-          value={details.username}
+        <Input
+          {...{
+            label: 'Username',
+            name: 'username',
+            value: details.username,
+            onChange,
+          }}
         />
-      </label>
-      <label htmlFor="password">
-        <p>Password</p>
-        <input
-          onChange={onChange}
-          type="password"
-          name="password"
-          id="password"
-          value={details.password}
+        <Input
+          {...{
+            label: 'Password',
+            name: 'password',
+            value: details.password,
+            type: 'password',
+            onChange,
+          }}
         />
-      </label>
-      <button type="submit">Create account</button>
-      <p>
-        Already have an account? <Link to="/sign-in">Sign in</Link>
-      </p>
-    </form>
+        <button type="submit">Create account</button>
+        <p>
+          Already have an account? <Link to="/sign-in">Sign in</Link>
+        </p>
+      </Modal>
+    </Container>
   );
 };
 
