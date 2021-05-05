@@ -26,8 +26,7 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "import/extensions": 0,
     "no-underscore-dangle": 0,
-    "no-console": 0,
-    "import/prefer-default-export": 0
+    "no-console": 0
   },
   "ignorePatterns": "/dist",
   "settings": {
@@ -48,7 +47,8 @@
     {
       "files": ["server/**/*.{ts,tsx}"],
       "rules": {
-        "func-names": 0
+        "func-names": 0,
+        "import/prefer-default-export": 0
       }
     },
     {
