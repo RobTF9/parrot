@@ -5,11 +5,11 @@ import Message from '../../components/Message/Message';
 import { useAuthContext } from '../../context/Auth';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
-import { validateSignup, ISignUpErrors } from '../../utils/userValidators';
+import { validateSignup } from '../../utils/userValidators';
 
 const CreateAccount: React.FC = () => {
   const { signUp, errorMessage } = useAuthContext();
-  const [errors, setErrors] = useState<ISignUpErrors>({});
+  const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({
     email: '',
     password: '',
@@ -38,7 +38,7 @@ const CreateAccount: React.FC = () => {
         Welcome to <span className="bold">Parrot</span>
       </h1>
       <Modal as="form" onSubmit={onSubmit}>
-        <h2 className="xxlarge bold border--bottom">Create your account</h2>
+        <h2 className="xxlarge bold border-b">Create your account</h2>
         {errorMessage && (
           <Message {...{ type: 'error', message: errorMessage }} />
         )}
@@ -71,7 +71,7 @@ const CreateAccount: React.FC = () => {
           }}
         />
         <Button type="submit">Create account</Button>
-        <p className="border--top center">
+        <p className="border-t center">
           Already have an account? <Link to="/sign-in">Sign in</Link>
         </p>
       </Modal>

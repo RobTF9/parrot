@@ -20,12 +20,6 @@ export interface ISignUp {
   username: string;
 }
 
-export interface IRes<D = void> {
-  auth: boolean;
-  message?: string;
-  data?: D;
-}
-
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,
   signIn: () => null,
@@ -52,7 +46,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
   };
 
-  const signUp = async (details: ISignUp): Promise<IRes | void> => {
+  const signUp = async (details: ISignUp): Promise<ServerReponse | void> => {
     try {
       const response = await post<
         ISignUp,
@@ -74,7 +68,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = async () => {
     try {
-      const response = await get<Promise<IRes>>('/auth/signout');
+      const response = await get<Promise<ServerReponse>>('/auth/signout');
 
       setAuthenticated(response.auth);
     } catch (error) {
@@ -84,7 +78,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const response = await get<Promise<IRes>>('/auth');
+      const response = await get<Promise<ServerReponse>>('/auth');
       setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);

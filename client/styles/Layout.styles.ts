@@ -37,3 +37,30 @@ export const Modal = styled.div`
     padding: var(--large) var(--medium);
   }
 `;
+
+export const Grid = styled.div<{
+  columns: string;
+  breakpoints?: { width: string; columns: string }[];
+}>`
+  display: grid;
+  grid-template-columns: ${({ columns }) => columns};
+  gap: var(--medium);
+  position: relative;
+
+  ${({ breakpoints }) =>
+    breakpoints &&
+    breakpoints.map(
+      ({ width, columns }) => css`
+        @media (max-width: ${width}) {
+          grid-template-columns: ${columns};
+        }
+      `
+    )}
+`;
+
+export const Card = styled.div`
+  background-color: var(--core-white);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--small);
+  padding: var(--medium);
+`;

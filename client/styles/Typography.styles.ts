@@ -68,16 +68,22 @@ const Typography = createGlobalStyle`
   }
 
   .border {
-    &--top {
+    &-t {
       padding-top: var(--large);
       margin-top: var(--large);
       border-top: 0.1rem solid var(--core-dark-10);
     }
 
-    &--bottom {
+    &-b {
       padding-bottom: var(--large);
       margin-bottom: var(--large);
       border-bottom: 0.1rem solid var(--core-dark-10);
+
+      &-s {
+        padding-bottom: var(--medium);
+        margin-bottom: var(--medium);
+        border-bottom: 0.1rem solid var(--core-dark-10);
+      }
     }
   }
 

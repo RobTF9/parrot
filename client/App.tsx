@@ -1,5 +1,6 @@
 import React from 'react';
 import { AuthProvider } from './context/Auth';
+import QueryContext from './context/Query';
 import Router from './routes';
 import Color from './styles/Color.styles';
 import Reset from './styles/Reset.styles';
@@ -10,12 +11,14 @@ import Typography from './styles/Typography.styles';
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <Reset />
-      <Color />
-      <Spacings />
-      <Typography />
-      <Shadows />
-      <Router />
+      <QueryContext>
+        <Reset />
+        <Color />
+        <Spacings />
+        <Typography />
+        <Shadows />
+        <Router />
+      </QueryContext>
     </AuthProvider>
   );
 };
