@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
+import Message from '../../components/Message/Message';
 import { useAuthContext } from '../../context/Auth';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
 import { validateSignup, ISignUpErrors } from '../../utils/userValidators';
 
 const CreateAccount: React.FC = () => {
-  const { signUp } = useAuthContext();
-
+  const { signUp, errorMessage } = useAuthContext();
+  const [errors, setErrors] = useState<ISignUpErrors>({});
   const [details, setDetails] = useState({
     email: '',
     password: '',
     username: '',
   });
-
-  const [errors, setErrors] = useState<ISignUpErrors>({});
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setErrors({});
@@ -40,6 +39,9 @@ const CreateAccount: React.FC = () => {
       </h1>
       <Modal as="form" onSubmit={onSubmit}>
         <h2 className="xxlarge bold border--bottom">Create your account</h2>
+        {errorMessage && (
+          <Message {...{ type: 'error', message: errorMessage }} />
+        )}
         <Input
           {...{
             label: 'Email',

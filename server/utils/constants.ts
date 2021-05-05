@@ -4,6 +4,8 @@ export const ERROR_MESSAGE = {
   NEED_EMAIL_PASSWORD_USERNAME:
     'You need to provide an email, password and username',
   NOT_AUTHORIZED: 'Not authorised',
+  EMAIL_IN_USE: 'Email address is already in use',
+  USERNAME_IN_USE: 'Username is already in use',
 };
 
 export const SUCCESS_MESSAGE = {

@@ -48,6 +48,24 @@ export const signUp: RequestHandler = async (req, res, next) => {
       });
     }
 
+    const emailExists = await User.findOne({ email: req.body.email });
+
+    if (emailExists) {
+      res.status(400).json({
+        auth: false,
+        message: ERROR_MESSAGE.EMAIL_IN_USE,
+      });
+    }
+
+    const usernameExists = await User.findOne({ username: req.body.username });
+
+    if (usernameExists) {
+      res.status(400).json({
+        auth: false,
+        message: ERROR_MESSAGE.USERNAME_IN_USE,
+      });
+    }
+
     const user = await User.create(req.body);
     req.session.user = user._id;
 

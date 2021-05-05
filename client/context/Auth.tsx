@@ -6,6 +6,7 @@ export interface IAuthContext {
   signUp: (details: ISignUp) => void;
   signOut: () => void;
   authenticated?: boolean;
+  errorMessage?: string;
 }
 
 export interface ISignIn {
@@ -19,6 +20,12 @@ export interface ISignUp {
   username: string;
 }
 
+export interface IRes<D = void> {
+  auth: boolean;
+  message?: string;
+  data?: D;
+}
+
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,
   signIn: () => null,
@@ -30,6 +37,7 @@ export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
+  const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
   const signIn = async (details: ISignIn) => {
     try {
@@ -37,21 +45,28 @@ export const AuthProvider: React.FC = ({ children }) => {
         ISignIn,
         { auth?: boolean; message?: string }
       >('/auth/signin', details);
+
       setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const signUp = async (
-    details: ISignUp
-  ): Promise<{ auth?: boolean; message?: string } | void> => {
+  const signUp = async (details: ISignUp): Promise<IRes | void> => {
     try {
       const response = await post<
         ISignUp,
         { auth?: boolean; message?: string }
       >('/auth/signup', details);
-      setAuthenticated(response.auth);
+
+      if (response.auth) {
+        setAuthenticated(response.auth);
+      }
+
+      if (!response.auth && response.message) {
+        setAuthenticated(response.auth);
+        setErrorMessage(response.message);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -59,9 +74,8 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = async () => {
     try {
-      const response = await get<{ auth?: boolean; message?: string }>(
-        '/auth/signout'
-      );
+      const response = await get<Promise<IRes>>('/auth/signout');
+
       setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);
@@ -70,7 +84,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const response = await get<{ auth?: boolean; message?: string }>('/auth');
+      const response = await get<Promise<IRes>>('/auth');
       setAuthenticated(response.auth);
     } catch (error) {
       console.error(error);
@@ -82,7 +96,9 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authenticated, signIn, signUp, signOut }}>
+    <AuthContext.Provider
+      value={{ authenticated, signIn, signUp, signOut, errorMessage }}
+    >
       {children}
     </AuthContext.Provider>
   );
