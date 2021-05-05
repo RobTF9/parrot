@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useAuthContext } from '../context/Auth';
 import { Loading } from '../styles/Animations.styles';
 import Profile from './Account/Account';
+import NoLexicon from './Account/NoLexicon';
 import CreateAccount from './Authentication/CreateAccount';
 import ForgotPassword from './Authentication/ForgotPassword';
 import ResetPassword from './Authentication/ResetPassword';
@@ -19,6 +20,9 @@ const Router: React.FC = () => {
     <BrowserRouter>
       {authenticated ? (
         <Switch>
+          <Route path="/no-lexicon">
+            <NoLexicon />
+          </Route>
           <Route path="/">
             <Profile />
           </Route>

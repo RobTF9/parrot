@@ -17,6 +17,7 @@ export const createOne: RequestHandler = async (req, res, next) => {
 
 export const getYours: RequestHandler = async (req, res, next) => {
   try {
+    console.log(req.session.user);
     const lexicons = await Lexicon.find({ createdBy: req.session.user })
       .sort({ createdAt: 'desc' })
       .lean()
