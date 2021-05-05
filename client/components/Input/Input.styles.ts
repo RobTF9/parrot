@@ -14,7 +14,7 @@ export const InputWrapper = styled.label`
     margin: var(--smaller) 0 var(--small);
 
     &:focus {
-      box-shadow: var(--input-focus);
+      box-shadow: var(--focus-border);
       outline: none;
     }
   }

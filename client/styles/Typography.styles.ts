@@ -70,6 +70,7 @@ const Typography = createGlobalStyle`
   .border {
     &--top {
       padding-top: var(--large);
+      margin-top: var(--large);
       border-top: 0.1rem solid var(--core-dark-10);
     }
 
@@ -83,9 +84,14 @@ const Typography = createGlobalStyle`
   a {
     font-weight: 600;
     color: var(--core-mid);
+    transition: color 0.3s ease;
 
     &:hover {
-      color: var(--core-light);
+      color: var(--core-dark);
+    }
+
+    &:focus {
+      box-shadow: var(--focus-border);
     }
   }
 `;

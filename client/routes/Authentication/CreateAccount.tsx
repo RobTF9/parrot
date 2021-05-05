@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import { useAuthContext } from '../../context/Auth';
+import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
 
 const CreateAccount: React.FC = () => {
@@ -53,8 +54,8 @@ const CreateAccount: React.FC = () => {
             onChange,
           }}
         />
-        <button type="submit">Create account</button>
-        <p>
+        <Button type="submit">Create account</Button>
+        <p className="border--top center">
           Already have an account? <Link to="/sign-in">Sign in</Link>
         </p>
       </Modal>
