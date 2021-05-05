@@ -51,7 +51,6 @@ const Profile: React.FC = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      console.log('here');
       mutate(details);
     }
   };
