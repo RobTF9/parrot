@@ -162,3 +162,33 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
     next(new Error(error));
   }
 };
+
+export const passwordReset: RequestHandler = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ _id: req.body._id });
+
+    if (!user || !user.token) {
+      res.status(400).send({ message: 'Invalid' });
+    } else {
+      const tokenValid = await bcrypt.compare(req.body.token, user.token.value);
+
+      if (!tokenValid) {
+        res.status(400).send({ message: 'Invalid' });
+      }
+
+      const hash = await bcrypt.hash(req.body.password, 8);
+
+      await User.updateOne(
+        {
+          _id: req.body._id,
+        },
+        { $set: { password: hash, token: undefined } },
+        { new: true }
+      );
+
+      res.status(200).json({ message: 'Sucess' });
+    }
+  } catch (error) {
+    next(new Error(error));
+  }
+};
