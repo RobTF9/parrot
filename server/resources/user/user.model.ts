@@ -6,6 +6,10 @@ interface UserDocument extends Document {
   email: string;
   password: string;
   checkPassword: (password: string) => boolean;
+  token?: {
+    value: string;
+    createdAt: number;
+  };
 }
 
 const userSchema = new Schema<UserDocument, Model<UserDocument>>(
@@ -25,6 +29,16 @@ const userSchema = new Schema<UserDocument, Model<UserDocument>>(
     password: {
       type: String,
       required: true,
+    },
+    token: {
+      value: {
+        type: String,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        expires: 3600,
+      },
     },
   },
   { timestamps: true }

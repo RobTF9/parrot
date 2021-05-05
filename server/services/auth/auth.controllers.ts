@@ -1,6 +1,11 @@
+import crypto from 'crypto';
+import bcrypt from 'bcryptjs';
 import { RequestHandler } from 'express';
 import User from '../../resources/user/user.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
+import config from '../../config';
+import { sendEmail } from '../email/nodemailer';
+import { resetPassword } from '../email/templates';
 
 export const signIn: RequestHandler = async (req, res, next) => {
   try {
@@ -110,6 +115,49 @@ export const signOut: RequestHandler = async (req, res, next) => {
         message: SUCCESS_MESSAGE.SIGNED_OUT_SUCCESSFULLY,
       })
     );
+  } catch (error) {
+    next(new Error(error));
+  }
+};
+
+export const requestPasswordReset: RequestHandler = async (req, res, next) => {
+  try {
+    if (!req.body.email) {
+      res.status(400).send({ message: 'Email address required' });
+    }
+
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+      res
+        .status(400)
+        .send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_DOESNT_EXISIT });
+    }
+
+    if (user && user.token) {
+      user.token = undefined;
+      await user.save();
+
+      const resetToken = crypto.randomBytes(32).toString('hex');
+      const hash = await bcrypt.hash(resetToken, 8);
+
+      user.token = {
+        value: hash,
+        createdAt: Date.now(),
+      };
+
+      await user.save();
+
+      const link = `${config.client}reset/?token=${resetToken}&id=${user._id}`;
+
+      sendEmail(
+        user.email,
+        'Password reset',
+        resetPassword(user.username, link)
+      );
+
+      res.send({ auth: false, message: 'Reset link sent' });
+    }
   } catch (error) {
     next(new Error(error));
   }
