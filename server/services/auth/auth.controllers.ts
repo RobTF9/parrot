@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import User from '../resources/user/user.model';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from './constants';
+import User from '../../resources/user/user.model';
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 
 export const signIn: RequestHandler = async (req, res, next) => {
   try {
@@ -92,28 +92,6 @@ export const signOut: RequestHandler = async (req, res, next) => {
         message: SUCCESS_MESSAGE.SIGNED_OUT_SUCCESSFULLY,
       })
     );
-  } catch (error) {
-    next(new Error(error));
-  }
-};
-
-export const protect: RequestHandler = async (req, res, next) => {
-  try {
-    if (!req.session.user) {
-      res
-        .status(401)
-        .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
-    } else {
-      const user = await User.findById(req.session.user);
-
-      if (!user) {
-        res
-          .status(401)
-          .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
-      } else {
-        next();
-      }
-    }
   } catch (error) {
     next(new Error(error));
   }

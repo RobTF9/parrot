@@ -1,40 +1,24 @@
 import express from 'express';
-import session from 'express-session';
 import { json, urlencoded } from 'body-parser';
 import morgan from 'morgan';
 import path from 'path';
 import connect from './utils/database';
 import userRouter from './resources/user/user.router';
 import config from './config';
-import { checkAuth, protect, signIn, signOut, signUp } from './utils/auth';
+import { protect } from './services/auth/auth.middleware';
+import authRouter from './services/auth/auth.router';
 import errorHandler from './utils/errorHandler';
+import authSession from './utils/session';
 
-declare module 'express-session' {
-  export interface SessionData {
-    user: { [key: string]: string };
-  }
-}
-
-const app = express();
+export const app = express();
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-app.use(
-  session({
-    secret: config.sessionSecret,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: config.isProd },
-  })
-);
+app.use(authSession);
 
-app.post('/auth/signin', signIn);
-app.post('/auth/signup', signUp);
-app.get('/auth', checkAuth);
-app.get('/auth/signout', signOut);
-
+app.use('/auth', authRouter);
 app.use('/api/user', protect, userRouter);
 
 // Serve client
