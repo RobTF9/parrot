@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthProvider } from './context/Auth';
 import QueryContext from './context/Query';
-import Router from './routes';
+import Router from './containers';
 import Color from './styles/Color.styles';
 import Reset from './styles/Reset.styles';
 import Shadows from './styles/Shadows.styles';

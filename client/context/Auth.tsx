@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { get, post } from '../utils/fetch';
+import { get, post } from '../api/fetch';
 
 export interface IAuthContext {
   signIn: (details: ISignIn) => void;

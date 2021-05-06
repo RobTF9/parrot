@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Modal } from '../../styles/Layout.styles';
 import { validateEmail } from '../../utils/userValidators';
 import Input from '../../components/Input';
-import { post } from '../../utils/fetch';
+import { post } from '../../api/fetch';
 import Message from '../../components/Message';
 import { Button } from '../../styles/Buttons.styles';
 

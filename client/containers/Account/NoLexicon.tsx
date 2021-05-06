@@ -4,10 +4,10 @@ import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
 import { LANGUAGES } from '../../utils/constants';
-import lexiconResource from './data/lexiconResource';
+import { createLexicon } from '../../api/resources/lexicon';
 
 const CreateLexicon: React.FC = () => {
-  const { createOne, createLoading } = lexiconResource();
+  const [createOne, createLoading] = createLexicon();
 
   const [lang, setLang] = useState<
     { name: string; htmlCode: string; langCode: string } | undefined

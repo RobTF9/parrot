@@ -4,7 +4,7 @@ import { Container, Modal } from '../../styles/Layout.styles';
 import Message from '../../components/Message';
 import { Button } from '../../styles/Buttons.styles';
 import Input from '../../components/Input';
-import { post } from '../../utils/fetch';
+import { post } from '../../api/fetch';
 import { validatePassword } from '../../utils/userValidators';
 
 function useQuery() {
