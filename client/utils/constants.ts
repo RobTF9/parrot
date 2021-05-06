@@ -1,6 +1,7 @@
 export const CACHE = {
   USER: 'user',
   LEXICON: 'lexicon',
+  SHARED_LEXICON: 'share-lexicon',
 };
 
 export const LANGUAGES = [

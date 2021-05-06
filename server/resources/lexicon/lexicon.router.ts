@@ -1,10 +1,18 @@
 import { Router } from 'express';
-import { createOne, getYours, setActive } from './lexicon.controllers';
+import {
+  createOne,
+  getShared,
+  getYours,
+  setActive,
+  shareLexicon,
+} from './lexicon.controllers';
 
 const router = Router();
 
 router.route('/').post(createOne).get(getYours);
 
-router.route('/:id').get(setActive);
+router.route('/shared').get(getShared);
+
+router.route('/:id').get(setActive).patch(shareLexicon);
 
 export default router;

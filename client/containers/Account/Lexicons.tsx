@@ -3,16 +3,27 @@ import { Redirect } from 'react-router-dom';
 import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Card, Grid } from '../../styles/Layout.styles';
-import { getLexicons } from '../../api/resources/lexicon';
+import { getLexicons, getShared } from '../../api/resources/lexicon';
 import { useLexiconContext } from '../../context/Lexicon';
 import Select from '../../components/Select';
-
 import useCreateLexicon from '../../hooks/useCreateLexicon';
 
 const Lexicons: React.FC = () => {
   const { lexicon, activateLexicon } = useLexiconContext();
   const [lexicons, getLoading] = getLexicons();
+  const [sharedLexicons, sharedLoading] = getShared();
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon();
+
+  if (
+    lexicons &&
+    lexicons.data.length === 0 &&
+    sharedLexicons &&
+    sharedLexicons.data.length === 0 &&
+    !getLoading &&
+    !sharedLoading
+  ) {
+    <Redirect to="/no-lexicon" />;
+  }
 
   return (
     <Grid>
@@ -37,16 +48,36 @@ const Lexicons: React.FC = () => {
         {getLoading && <Loading bg />}
         <h2 className="large bold border-b-s">Your Lexicons</h2>
         <ul>
-          {lexicons && lexicons.data.length > 0
-            ? lexicons.data.map(({ language, _id }) => (
-                <li key={_id}>
-                  {lexicon === _id && 'Active: '}
-                  <button type="button" onClick={() => activateLexicon(_id)}>
-                    {language.name}
-                  </button>
-                </li>
-              ))
-            : !getLoading && <Redirect to="/no-lexicon" />}
+          {lexicons && lexicons.data.length > 0 ? (
+            lexicons.data.map(({ language, _id }) => (
+              <li key={_id}>
+                {lexicon === _id && 'Active: '}
+                <button type="button" onClick={() => activateLexicon(_id)}>
+                  {language.name}
+                </button>
+              </li>
+            ))
+          ) : (
+            <p>You haven&apos;t created any lexicons</p>
+          )}
+        </ul>
+      </Card>
+      <Card>
+        {sharedLoading && <Loading bg />}
+        <h2 className="large bold border-b-s">Lexicons shared with you</h2>
+        <ul>
+          {sharedLexicons && sharedLexicons.data.length > 0 ? (
+            sharedLexicons.data.map(({ language, _id }) => (
+              <li key={_id}>
+                {lexicon === _id && 'Active: '}
+                <button type="button" onClick={() => activateLexicon(_id)}>
+                  {language.name}
+                </button>
+              </li>
+            ))
+          ) : (
+            <p>No one has shared a lexicon with you</p>
+          )}
         </ul>
       </Card>
     </Grid>
