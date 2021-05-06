@@ -77,7 +77,9 @@ export const shareLexicon: RequestHandler = async (req, res, next) => {
         res.status(404).json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
       }
 
-      res.status(200).json({ data: lexicon });
+      res
+        .status(200)
+        .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_SHARED });
     }
   } catch (error) {
     next(new Error(error));

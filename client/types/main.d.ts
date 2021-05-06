@@ -1,5 +1,5 @@
 declare interface ServerReponse<D = void> {
-  auth: boolean;
+  auth?: boolean;
   message?: string;
   data?: D;
   lexicon?: string;

@@ -20,4 +20,5 @@ export const SUCCESS_MESSAGE = {
   PASSWORD_RESET_SUCCESSFULLY: 'Password reset successfully',
   RESET_LINK_SENT: 'Reset link sent',
   LEXICON_ACTIVATED: 'Lexicon activated',
+  LEXICON_SHARED: 'Lexicon shared succesfully',
 };

@@ -25,7 +25,7 @@ export function getOne<T>(
 }
 
 export interface APIGiver<T, U> {
-  (id?: string): [
+  (id?: string, callback?: (res: ServerReponse<U>) => void): [
     mutate: UseMutateFunction<{ data: U }, unknown, T, unknown>,
     isLoading: boolean
   ];
@@ -51,7 +51,8 @@ export function createOne<T, U>(
 
 export function updateOne<T, U>(
   cache: string,
-  endpoint: string
+  endpoint: string,
+  callback?: (res: ServerReponse<U>) => void
 ): [
   mutate: UseMutateFunction<{ data: U; message: string }, unknown, T, unknown>,
   isLoading: boolean
@@ -63,8 +64,11 @@ export function updateOne<T, U>(
         updatedAt: undefined,
       }),
     {
-      onSuccess: () => {
+      onSuccess: (res) => {
         queryClient.invalidateQueries(cache);
+        if (callback && res) {
+          callback(res);
+        }
       },
     }
   );
