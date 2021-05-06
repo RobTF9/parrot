@@ -3,8 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { Loading } from '../../styles/Animations.styles';
 import { Card } from '../../styles/Layout.styles';
 import { getLexicons } from '../../api/resources/lexicon';
+import { useLexiconContext } from '../../context/Lexicon';
 
 const Lexicons: React.FC = () => {
+  const { lexicon, activateLexicon } = useLexiconContext();
   const [lexicons, getLoading] = getLexicons();
 
   return (
@@ -14,7 +16,12 @@ const Lexicons: React.FC = () => {
       <ul>
         {lexicons && lexicons.data.length > 0
           ? lexicons.data.map(({ language, _id }) => (
-              <li key={_id}>{language.name}</li>
+              <li key={_id}>
+                {lexicon === _id && 'Active: '}
+                <button type="button" onClick={() => activateLexicon(_id)}>
+                  {language.name}
+                </button>
+              </li>
             ))
           : !getLoading && <Redirect to="/no-lexicon" />}
       </ul>

@@ -5,6 +5,6 @@ const router = Router();
 
 router.route('/').post(createOne).get(getYours);
 
-router.route('/:id').put(setActive);
+router.route('/:id').get(setActive);
 
 export default router;

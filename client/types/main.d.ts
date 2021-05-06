@@ -2,6 +2,7 @@ declare interface ServerReponse<D = void> {
   auth: boolean;
   message?: string;
   data?: D;
+  lexicon?: string;
 }
 
 declare interface UserResource {

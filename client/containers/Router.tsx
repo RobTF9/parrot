@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useAuthContext } from '../context/Auth';
 import { Loading } from '../styles/Animations.styles';
 import Profile from './Account/Account';
@@ -16,34 +16,30 @@ const Router: React.FC = () => {
     return <Loading bg />;
   }
 
-  return (
-    <BrowserRouter>
-      {authenticated ? (
-        <Switch>
-          <Route path="/no-lexicon">
-            <NoLexicon />
-          </Route>
-          <Route path="/">
-            <Profile />
-          </Route>
-        </Switch>
-      ) : (
-        <Switch>
-          <Route path="/reset">
-            <ResetPassword />
-          </Route>
-          <Route path="/forgot-password">
-            <ForgotPassword />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/">
-            <CreateAccount />
-          </Route>
-        </Switch>
-      )}
-    </BrowserRouter>
+  return authenticated ? (
+    <Switch>
+      <Route path="/no-lexicon">
+        <NoLexicon />
+      </Route>
+      <Route path="/">
+        <Profile />
+      </Route>
+    </Switch>
+  ) : (
+    <Switch>
+      <Route path="/reset">
+        <ResetPassword />
+      </Route>
+      <Route path="/forgot-password">
+        <ForgotPassword />
+      </Route>
+      <Route path="/sign-in">
+        <SignIn />
+      </Route>
+      <Route path="/">
+        <CreateAccount />
+      </Route>
+    </Switch>
   );
 };
 

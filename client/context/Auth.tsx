@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { get, post } from '../api/fetch';
+import { useLexiconContext } from './Lexicon';
 
 export interface IAuthContext {
   signIn: (details: ISignIn) => void;
@@ -30,6 +31,7 @@ const AuthContext = createContext<IAuthContext>({
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const { activateLexicon } = useLexiconContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
@@ -87,6 +89,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     try {
       const response = await get<Promise<ServerReponse>>('/auth');
       setAuthenticated(response.auth);
+
+      if (response.lexicon) {
+        activateLexicon(response.lexicon);
+      }
     } catch (error) {
       console.error(error);
     }
