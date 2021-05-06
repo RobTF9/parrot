@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Select from '../../components/Select';
 import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
@@ -7,6 +8,7 @@ import { LANGUAGES } from '../../utils/constants';
 import { createLexicon } from '../../api/resources/lexicon';
 
 const CreateLexicon: React.FC = () => {
+  const { push } = useHistory();
   const [createOne, createLoading] = createLexicon();
 
   const [lang, setLang] = useState<
@@ -22,6 +24,7 @@ const CreateLexicon: React.FC = () => {
 
     if (lang && lang.name && lang.htmlCode && lang.langCode) {
       createOne({ language: { ...lang } });
+      push('/');
     }
   };
 
@@ -35,7 +38,7 @@ const CreateLexicon: React.FC = () => {
         <h2 className="xxlarge bold border-b-s">
           Create a lexicon to get started
         </h2>
-        <p className="">
+        <p className="margin-b">
           Lexicons are collections of words, sentences and games. You can keep
           them to yourself or share them with others
         </p>

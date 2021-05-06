@@ -87,6 +87,16 @@ const Typography = createGlobalStyle`
     }
   }
 
+  .margin {
+    &-t {
+      margin-top: var(--medium);
+    }
+
+    &-b {
+      margin-bottom: var(--medium);
+    }
+  }
+
   a {
     font-weight: 600;
     color: var(--core-mid);
