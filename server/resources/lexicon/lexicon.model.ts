@@ -17,7 +17,7 @@ export interface LexiconDocument extends Document {
   sharedWith: ObjectId[];
 }
 
-const lexiconsSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
+const lexiconSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
   {
     language: {
       name: {
@@ -36,11 +36,14 @@ const lexiconsSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
     createdBy: {
       type: SchemaTypes.ObjectId,
       required: true,
+      ref: 'user',
     },
-    sharedWith: [{ type: SchemaTypes.ObjectId }],
+    sharedWith: [{ type: SchemaTypes.ObjectId, ref: 'user' }],
   },
   { timestamps: true }
 );
 
-const Lexicon = model<LexiconDocument>('lexicon', lexiconsSchema);
+lexiconSchema.index({ createdBy: 1, language: { name: 1 } }, { unique: true });
+
+const Lexicon = model<LexiconDocument>('lexicon', lexiconSchema);
 export default Lexicon;

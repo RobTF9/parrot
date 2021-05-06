@@ -36,7 +36,7 @@ const CreateLexicon: React.FC = () => {
               copy: name,
             })),
             name: 'lang',
-            defaultValue: '',
+            defaultValue: 'Bengali',
             label: 'Pick a language',
             onChange,
           }}

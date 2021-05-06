@@ -23,7 +23,7 @@ const Lexicons: React.FC = () => {
     !getLoading &&
     !sharedLoading
   ) {
-    <Redirect to="/no-lexicon" />;
+    return <Redirect to="/no-lexicon" />;
   }
 
   return (
@@ -38,7 +38,7 @@ const Lexicons: React.FC = () => {
               copy: name,
             })),
             name: 'lang',
-            defaultValue: '',
+            defaultValue: 'Bengali',
             label: 'Pick a language',
             onChange,
           }}
