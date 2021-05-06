@@ -1,32 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Select from '../../components/Select';
 import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
-import { LANGUAGES } from '../../utils/constants';
-import { createLexicon } from '../../api/resources/lexicon';
+import useCreateLexicon from '../../hooks/useCreateLexicon';
 
 const CreateLexicon: React.FC = () => {
   const { push } = useHistory();
-  const [createOne, createLoading] = createLexicon();
-
-  const [lang, setLang] = useState<
-    { name: string; htmlCode: string; langCode: string } | undefined
-  >();
-
-  const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setLang(LANGUAGES.find(({ name }) => event.target.value === name));
-  };
-
-  const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (lang && lang.name && lang.htmlCode && lang.langCode) {
-      createOne({ language: { ...lang } });
-      push('/');
-    }
-  };
+  const {
+    createLoading,
+    onChange,
+    onSubmit,
+    LANGUAGES,
+  } = useCreateLexicon(() => push('/'));
 
   return (
     <Container half>

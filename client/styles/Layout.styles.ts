@@ -39,13 +39,14 @@ export const Modal = styled.div`
 `;
 
 export const Grid = styled.div<{
-  columns: string;
+  columns?: string;
   breakpoints?: { width: string; columns: string }[];
 }>`
   display: grid;
-  grid-template-columns: ${({ columns }) => columns};
+  grid-template-columns: ${({ columns }) => columns || '1fr'};
   gap: var(--medium);
   position: relative;
+  align-items: start;
 
   ${({ breakpoints }) =>
     breakpoints &&
