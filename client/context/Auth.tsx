@@ -31,7 +31,7 @@ const AuthContext = createContext<IAuthContext>({
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const { activateLexicon } = useLexiconContext();
+  const { activateLexicon, deactivateLexicon } = useLexiconContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
@@ -80,6 +80,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       const response = await get<Promise<ServerReponse>>('/auth/signout');
 
       setAuthenticated(response.auth);
+      deactivateLexicon();
     } catch (error) {
       console.error(error);
     }

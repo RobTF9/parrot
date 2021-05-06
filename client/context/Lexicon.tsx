@@ -4,10 +4,12 @@ import { get } from '../api/fetch';
 interface ILexiconContext {
   lexicon?: string;
   activateLexicon: (l: string) => void;
+  deactivateLexicon: () => void;
 }
 
 const LexiconContext = createContext<ILexiconContext>({
   activateLexicon: () => null,
+  deactivateLexicon: () => null,
 });
 
 export const useLexiconContext = (): ILexiconContext =>
@@ -28,8 +30,12 @@ export const LexiconProvider: React.FC = ({ children }) => {
     }
   };
 
+  const deactivateLexicon = () => setLexicon(undefined);
+
   return (
-    <LexiconContext.Provider value={{ lexicon, activateLexicon }}>
+    <LexiconContext.Provider
+      value={{ lexicon, activateLexicon, deactivateLexicon }}
+    >
       {children}
     </LexiconContext.Provider>
   );

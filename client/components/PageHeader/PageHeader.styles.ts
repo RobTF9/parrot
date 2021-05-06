@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const PageHeaderWrapper = styled.header`
   margin-bottom: var(--large);
-  padding: var(--larger) 0 var(--larger);
+  padding: var(--large) 0 var(--larger);
   position: relative;
   z-index: 0;
 
