@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import User from '../user/user.model';
-import Lexicon from './lexicon.model';
+import Lexicon, { LexiconDocument } from './lexicon.model';
 
 export const createOne: RequestHandler = async (req, res, next) => {
   try {
@@ -90,7 +90,20 @@ export const getShared: RequestHandler = async (req, res, next) => {
     const lexicons = await Lexicon.find({
       sharedWith: user,
     });
-    res.status(200).json({ data: lexicons });
+
+    type Shared = LexiconDocument | { user: string };
+
+    const data: Shared[] = [];
+
+    lexicons.forEach(async (lexicon) => {
+      const u = await User.findById(lexicon.createdBy);
+
+      if (u) {
+        data.push({ ...lexicon, user: u.username });
+      }
+    });
+
+    res.status(200).json({ data });
   } catch (error) {
     next(new Error(error));
   }

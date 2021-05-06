@@ -7,6 +7,7 @@ import { getLexicons, getShared } from '../../api/resources/lexicon';
 import { useLexiconContext } from '../../context/Lexicon';
 import Select from '../../components/Select';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
+import LexiconList from '../../components/LexiconList';
 
 const Lexicons: React.FC = () => {
   const { lexicon, activateLexicon } = useLexiconContext();
@@ -48,17 +49,16 @@ const Lexicons: React.FC = () => {
         {getLoading && <Loading bg />}
         <h2 className="large bold border-b-s">Your Lexicons</h2>
         <ul>
-          {lexicons && lexicons.data.length > 0 ? (
-            lexicons.data.map(({ language, _id }) => (
-              <li key={_id}>
-                {lexicon === _id && 'Active: '}
-                <button type="button" onClick={() => activateLexicon(_id)}>
-                  {language.name}
-                </button>
-              </li>
-            ))
-          ) : (
-            <p>You haven&apos;t created any lexicons</p>
+          {lexicons && (
+            <LexiconList
+              {...{
+                lexicon,
+                lexicons,
+                activate: activateLexicon,
+                emptyMessage: "You haven't created any lexicons",
+                share: () => console.log('Sharing'),
+              }}
+            />
           )}
         </ul>
       </Card>

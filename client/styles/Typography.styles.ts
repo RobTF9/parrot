@@ -25,6 +25,10 @@ const Typography = createGlobalStyle`
     color: inherit;
   }
 
+  .medium {
+    font-weight: 400;
+  }
+
   h1,
   .xxxlarge {
     font-size: 3.6rem;
