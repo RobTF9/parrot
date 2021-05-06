@@ -56,7 +56,7 @@ const Lexicons: React.FC = () => {
                 lexicons,
                 activate: activateLexicon,
                 emptyMessage: "You haven't created any lexicons",
-                share: () => console.log('Sharing'),
+                share: true,
               }}
             />
           )}

@@ -38,7 +38,7 @@ const lexiconSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
       required: true,
       ref: 'user',
     },
-    sharedWith: [{ type: SchemaTypes.ObjectId, ref: 'user' }],
+    sharedWith: [{ type: SchemaTypes.ObjectId }],
   },
   { timestamps: true }
 );

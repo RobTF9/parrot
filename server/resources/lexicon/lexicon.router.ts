@@ -13,6 +13,6 @@ router.route('/').post(createOne).get(getYours);
 
 router.route('/shared').get(getShared);
 
-router.route('/:id').get(setActive).patch(shareLexicon);
+router.route('/:id').get(setActive).put(shareLexicon);
 
 export default router;

@@ -25,7 +25,7 @@ export function getOne<T>(
 }
 
 export interface APIGiver<T, U> {
-  (): [
+  (id?: string): [
     mutate: UseMutateFunction<{ data: U }, unknown, T, unknown>,
     isLoading: boolean
   ];
