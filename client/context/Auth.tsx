@@ -6,11 +6,14 @@ import { useMessageContext } from './Message';
 type Email = { email: string };
 type Password = { password: string };
 type Username = { username: string };
+type Token = { token: string };
+type Id = { _id: string };
 
 export interface IAuthContext {
   signIn: (details: Email & Password) => void;
   signUp: (details: Email & Password & Username) => void;
   resetPasswordEmail: (details: Email) => void;
+  resetPassword: (details: Token & Password & Id) => void;
   signOut: () => void;
   authenticated?: boolean;
   hideMessage: () => void;
@@ -22,6 +25,7 @@ const AuthContext = createContext<IAuthContext>({
   signUp: () => null,
   signOut: () => null,
   resetPasswordEmail: () => null,
+  resetPassword: () => null,
   hideMessage: () => null,
 });
 
@@ -89,6 +93,27 @@ export const AuthProvider: React.FC = ({ children }) => {
     });
   };
 
+  const resetPassword = async (details: Id & Token & Password) => {
+    if (details.token === null || details._id === null) {
+      updateMessage({
+        message: "Can't find correct parameters",
+        type: 'error',
+        visible: true,
+      });
+    }
+
+    const response = await post<Id & Token & Password, { message: string }>(
+      '/auth/reset',
+      details
+    );
+
+    updateMessage({
+      message: response.message,
+      type: 'success',
+      visible: true,
+    });
+  };
+
   const checkAuth = async () => {
     const response = await get<Promise<ServerReponse>>('/auth');
     setAuthenticated(response.auth);
@@ -108,6 +133,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         signOut,
         hideMessage,
         resetPasswordEmail,
+        resetPassword,
       }}
     >
       {children}

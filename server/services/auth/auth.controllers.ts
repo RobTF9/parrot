@@ -173,6 +173,12 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
 
 export const passwordReset: RequestHandler = async (req, res, next) => {
   try {
+    if (!req.body.password || !req.body.token || !req.body._id) {
+      return res
+        .status(400)
+        .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
+    }
+
     const user = await User.findOne({ _id: req.body._id });
 
     if (!user || !user.token || user.token === null) {

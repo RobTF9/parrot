@@ -13,8 +13,8 @@ import { MessageProvider } from './context/Message';
 
 const App: React.FC = () => {
   return (
-    <MessageProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <MessageProvider>
         <LexiconProvider>
           <AuthProvider>
             <QueryContext>
@@ -27,8 +27,8 @@ const App: React.FC = () => {
             </QueryContext>
           </AuthProvider>
         </LexiconProvider>
-      </BrowserRouter>
-    </MessageProvider>
+      </MessageProvider>
+    </BrowserRouter>
   );
 };
 
