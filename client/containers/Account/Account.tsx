@@ -18,7 +18,7 @@ const Profile: React.FC = () => {
       </PageHeader>
       <Grid {...{ columns: '40rem 1fr' }}>
         <UpdateUser />
-        {/* <Lexicons /> */}
+        <Lexicons />
       </Grid>
     </Container>
   );
