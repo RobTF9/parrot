@@ -22,8 +22,8 @@ store.on('error', function (error) {
 
 const authSession = session({
   secret: config.sessionSecret,
-  resave: false,
-  saveUninitialized: true,
+  resave: true,
+  saveUninitialized: false,
   cookie: { secure: config.isProd },
   store,
 });
