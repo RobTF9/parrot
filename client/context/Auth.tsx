@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { get, post } from '../api/fetch';
 import { useLexiconContext } from './Lexicon';
+import { useMessageContext } from './Message';
 
 export interface IAuthContext {
   signIn: (details: ISignIn) => void;
@@ -8,6 +9,7 @@ export interface IAuthContext {
   signOut: () => void;
   authenticated?: boolean;
   errorMessage?: string;
+  removeErrorMessage: () => void;
 }
 
 export interface ISignIn {
@@ -26,11 +28,13 @@ const AuthContext = createContext<IAuthContext>({
   signIn: () => null,
   signUp: () => null,
   signOut: () => null,
+  removeErrorMessage: () => null,
 });
 
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const { updateMessage, hideMessage } = useMessageContext();
   const { activateLexicon, deactivateLexicon } = useLexiconContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -103,9 +107,27 @@ export const AuthProvider: React.FC = ({ children }) => {
     checkAuth();
   }, []);
 
+  useEffect(() => {
+    if (errorMessage) {
+      updateMessage({ message: errorMessage, visible: true, type: 'error' });
+    }
+    if (!errorMessage) {
+      hideMessage();
+    }
+  }, [errorMessage]);
+
+  const removeErrorMessage = () => setErrorMessage(undefined);
+
   return (
     <AuthContext.Provider
-      value={{ authenticated, signIn, signUp, signOut, errorMessage }}
+      value={{
+        authenticated,
+        signIn,
+        signUp,
+        signOut,
+        errorMessage,
+        removeErrorMessage,
+      }}
     >
       {children}
     </AuthContext.Provider>

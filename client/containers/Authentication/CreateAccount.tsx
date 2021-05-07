@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
-import Message from '../../components/Message';
 import { useAuthContext } from '../../context/Auth';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
 import { validateSignup } from '../../utils/userValidators';
 
 const CreateAccount: React.FC = () => {
-  const { signUp, errorMessage } = useAuthContext();
+  const { signUp, removeErrorMessage } = useAuthContext();
   const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({
     email: '',
@@ -18,12 +17,14 @@ const CreateAccount: React.FC = () => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setErrors({});
+    removeErrorMessage();
     setDetails({ ...details, [event.target.name]: event.target.value });
   };
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validateSignup(details);
+    removeErrorMessage();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -39,9 +40,6 @@ const CreateAccount: React.FC = () => {
       </h1>
       <Modal as="form" onSubmit={onSubmit}>
         <h2 className="xxlarge bold border-b">Create your account</h2>
-        {errorMessage && (
-          <Message {...{ type: 'error', message: errorMessage }} />
-        )}
         <Input
           {...{
             label: 'Email',

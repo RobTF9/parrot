@@ -5,37 +5,36 @@ import { Container, Modal } from '../../styles/Layout.styles';
 import Input from '../../components/Input';
 import { Button } from '../../styles/Buttons.styles';
 import { validateSignIn } from '../../utils/userValidators';
-import Message from '../../components/Message';
 
 const SignIn: React.FC = () => {
-  const { signIn, errorMessage } = useAuthContext();
+  const { signIn, removeErrorMessage } = useAuthContext();
   const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({ email: '', password: '' });
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDetails({ ...details, [event.target.name]: event.target.value });
+    setErrors({});
+    removeErrorMessage();
+  };
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validateSignIn(details);
+    removeErrorMessage();
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       signIn(details);
     }
   };
-
   return (
     <Container half>
       <h1 className="xlarge center lightest buffer">
         Welcome to <span className="bold">Parrot</span>
       </h1>
-
       <Modal as="form" onSubmit={onSubmit}>
         <h2 className="xxlarge bold border-b">Sign in</h2>
-        {errorMessage && (
-          <Message {...{ type: 'error', message: errorMessage }} />
-        )}
         <Input
           {...{
             label: 'Email',
