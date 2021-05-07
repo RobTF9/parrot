@@ -44,7 +44,6 @@ export function createOne<T, U>(
     {
       onSuccess: (res) => {
         queryClient.invalidateQueries(cache);
-        console.log('Fired');
         if (callback && res) {
           callback(res);
         }

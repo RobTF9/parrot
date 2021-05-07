@@ -12,10 +12,12 @@ const CreateLexicon: React.FC = () => {
   const { updateMessage } = useMessageContext();
 
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
-    async (res: ServerReponse<LexiconResource>) => {
+    (res: ServerReponse<LexiconResource>) => {
       if (res.message) {
         updateMessage(res.message);
-        push('/');
+        setTimeout(() => {
+          push('/');
+        }, 2000);
       }
     }
   );
