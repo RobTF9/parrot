@@ -1,24 +1,41 @@
+const errorMessage = (message: string) => ({
+  type: 'error',
+  message,
+  visible: true,
+});
+
 export const ERROR_MESSAGE = {
-  NEED_EMAIL_AND_PASSWORD: 'Email and password required',
-  INVALID_EMAIL_AND_PASSWORD: 'Invalid email and password combination',
-  NEED_EMAIL_PASSWORD_USERNAME:
-    'You need to provide an email, password and username',
-  NOT_AUTHORIZED: 'Not authorised',
-  EMAIL_IN_USE: 'Email address is already in use',
-  USERNAME_IN_USE: 'Username is already in use',
-  EMAIL_ADDRESS_DOESNT_EXIST: 'Email address does not exist',
-  CANNOT_RESET_PASSWORD: 'Cannot reset password',
-  EMAIL_ADDRESS_REQUIRED: 'Email address required',
-  RESOURCE_NOT_FOUND: 'Resource not found',
+  NEED_EMAIL_AND_PASSWORD: errorMessage('Email and password required'),
+  INVALID_EMAIL_AND_PASSWORD: errorMessage(
+    'Invalid email and password combination'
+  ),
+  NEED_EMAIL_PASSWORD_USERNAME: errorMessage(
+    'You need to provide an email, password and username'
+  ),
+  NOT_AUTHORIZED: errorMessage('Not authorised'),
+  EMAIL_IN_USE: errorMessage('Email address is already in use'),
+  USERNAME_IN_USE: errorMessage('Username is already in use'),
+  EMAIL_ADDRESS_DOESNT_EXIST: errorMessage('Email address does not exist'),
+  CANNOT_RESET_PASSWORD: errorMessage('Cannot reset password'),
+  EMAIL_ADDRESS_REQUIRED: errorMessage('Email address required'),
+  RESOURCE_NOT_FOUND: errorMessage('Resource not found'),
+  LEXICON_EXISTS: errorMessage('You already have a Lexicon for this language'),
 };
 
+const succesMessage = (message: string) => ({
+  type: 'success',
+  message,
+  visible: true,
+});
+
 export const SUCCESS_MESSAGE = {
-  SIGN_IN_SUCCESSFUL: 'Signed in successfully',
-  SIGN_UP_SUCCESSFUL: 'Signed up successful',
-  AUTHORIZED: 'Authorized',
-  SIGNED_OUT_SUCCESSFULLY: 'Signed out successfully',
-  PASSWORD_RESET_SUCCESSFULLY: 'Password reset successfully',
-  RESET_LINK_SENT: 'Reset link sent',
-  LEXICON_ACTIVATED: 'Lexicon activated',
-  LEXICON_SHARED: 'Lexicon shared succesfully',
+  SIGN_IN_SUCCESSFUL: succesMessage('Signed in successfully'),
+  SIGN_UP_SUCCESSFUL: succesMessage('Signed up successful'),
+  AUTHORIZED: succesMessage('Authorized'),
+  SIGNED_OUT_SUCCESSFULLY: succesMessage('Signed out successfully'),
+  PASSWORD_RESET_SUCCESSFULLY: succesMessage('Password reset successfully'),
+  RESET_LINK_SENT: succesMessage('Reset link sent'),
+  LEXICON_ACTIVATED: succesMessage('Lexicon activated'),
+  LEXICON_SHARED: succesMessage('Lexicon shared succesfully'),
+  LEXICON_CREATED: succesMessage('Lexicon created succesfully'),
 };

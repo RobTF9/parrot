@@ -37,40 +37,30 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
 
   const signIn = async (details: Email & Password) => {
-    const response = await post<
-      Email & Password,
-      { auth?: boolean; message?: string }
-    >('/auth/signin', details);
+    const response = await post<Email & Password, ServerReponse>(
+      '/auth/signin',
+      details
+    );
 
     if (response.auth) setAuthenticated(response.auth);
 
     if (!response.auth && response.message) {
       setAuthenticated(response.auth);
-      updateMessage({
-        message: response.message,
-        type: 'error',
-        visible: true,
-      });
+      updateMessage(response.message);
     }
   };
 
-  const signUp = async (
-    details: Email & Password & Username
-  ): Promise<ServerReponse | void> => {
-    const response = await post<
-      Email & Password & Username,
-      { auth?: boolean; message?: string }
-    >('/auth/signup', details);
+  const signUp = async (details: Email & Password & Username) => {
+    const response = await post<Email & Password & Username, ServerReponse>(
+      '/auth/signup',
+      details
+    );
 
     if (response.auth) setAuthenticated(response.auth);
 
     if (!response.auth && response.message) {
       setAuthenticated(response.auth);
-      updateMessage({
-        message: response.message,
-        type: 'error',
-        visible: true,
-      });
+      updateMessage(response.message);
     }
   };
 
@@ -81,16 +71,9 @@ export const AuthProvider: React.FC = ({ children }) => {
   };
 
   const resetPasswordEmail = async (details: Email) => {
-    const response = await post<Email, { message: string }>(
-      '/auth/forgot',
-      details
-    );
+    const response = await post<Email, ServerReponse>('/auth/forgot', details);
 
-    updateMessage({
-      message: response.message,
-      type: 'success',
-      visible: true,
-    });
+    if (response.message) updateMessage(response.message);
   };
 
   const resetPassword = async (details: Id & Token & Password) => {
@@ -102,16 +85,12 @@ export const AuthProvider: React.FC = ({ children }) => {
       });
     }
 
-    const response = await post<Id & Token & Password, { message: string }>(
+    const response = await post<Id & Token & Password, ServerReponse>(
       '/auth/reset',
       details
     );
 
-    updateMessage({
-      message: response.message,
-      type: 'success',
-      visible: true,
-    });
+    if (response.message) updateMessage(response.message);
   };
 
   const checkAuth = async () => {

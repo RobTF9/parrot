@@ -7,8 +7,15 @@ export const getLexicons: APIReciever<LexiconResource[]> = () =>
 export const getShared: APIReciever<LexiconResource[]> = () =>
   getMany<LexiconResource>(CACHE.SHARED_LEXICON, '/api/lexicon/shared');
 
-export const createLexicon: APIGiver<LexiconSubmission, LexiconResource> = () =>
-  createOne<LexiconSubmission, LexiconResource>(CACHE.LEXICON, '/api/lexicon');
+export const createLexicon: APIGiver<LexiconSubmission, LexiconResource> = (
+  _,
+  callback?: (res: ServerReponse<LexiconResource>) => void
+) =>
+  createOne<LexiconSubmission, LexiconResource>(
+    CACHE.LEXICON,
+    '/api/lexicon',
+    callback
+  );
 
 export const shareLexicon: APIGiver<{ email: string }, LexiconResource> = (
   id?: string,

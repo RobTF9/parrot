@@ -5,15 +5,23 @@ import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
+import { useMessageContext } from '../../context/Message';
 
 const CreateLexicon: React.FC = () => {
   const { push } = useHistory();
-  const {
-    createLoading,
-    onChange,
-    onSubmit,
-    LANGUAGES,
-  } = useCreateLexicon(() => push('/'));
+  const { updateMessage } = useMessageContext();
+
+  const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
+    async (res: ServerReponse<LexiconResource>) => {
+      const { message } = await res;
+      console.log(res);
+      if (message) {
+        console.log(message);
+        updateMessage(message);
+        push('/');
+      }
+    }
+  );
 
   return (
     <Container half>
@@ -36,7 +44,7 @@ const CreateLexicon: React.FC = () => {
               copy: name,
             })),
             name: 'lang',
-            defaultValue: 'Bengali',
+            defaultValue: LANGUAGES[0].name,
             label: 'Pick a language',
             onChange,
           }}

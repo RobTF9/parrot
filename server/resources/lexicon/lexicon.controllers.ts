@@ -5,14 +5,29 @@ import Lexicon from './lexicon.model';
 
 export const createOne: RequestHandler = async (req, res, next) => {
   try {
+    const lexicons = await Lexicon.find({
+      createdBy: req.session.user,
+      language: req.body.language,
+    })
+      .lean()
+      .exec();
+
+    if (lexicons.length > 0) {
+      console.log('Exists');
+      return res.status(400).json({ message: ERROR_MESSAGE.LEXICON_EXISTS });
+    }
+
     const lexicon = await Lexicon.create({
       ...req.body,
       createdBy: req.session.user,
       updatedBy: req.session.user,
     });
-    res.status(201).json({ data: lexicon });
+
+    return res
+      .status(201)
+      .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_CREATED });
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
 

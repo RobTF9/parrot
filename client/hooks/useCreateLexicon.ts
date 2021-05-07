@@ -3,7 +3,7 @@ import { createLexicon } from '../api/resources/lexicon';
 import { LANGUAGES } from '../utils/constants';
 
 function useCreateLexicon(
-  callback?: () => void
+  callback?: (res: ServerReponse<LexiconResource>) => void
 ): {
   createLoading: boolean;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -14,9 +14,10 @@ function useCreateLexicon(
     langCode: string;
   }[];
 } {
-  const [createOne, createLoading] = createLexicon();
-
-  const [lang, setLang] = useState<LexiconSubmission | undefined>();
+  const [createOne, createLoading] = createLexicon(undefined, callback);
+  const [lang, setLang] = useState<LexiconSubmission>({
+    language: LANGUAGES[0],
+  });
 
   const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const foundLanguage = LANGUAGES.find(
@@ -37,9 +38,6 @@ function useCreateLexicon(
       lang.language.langCode
     ) {
       createOne(lang);
-      if (callback) {
-        callback();
-      }
     }
   };
 

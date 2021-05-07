@@ -8,12 +8,18 @@ import { useLexiconContext } from '../../context/Lexicon';
 import Select from '../../components/Select';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
 import LexiconList from '../../components/LexiconList';
+import { useMessageContext } from '../../context/Message';
 
 const Lexicons: React.FC = () => {
   const { lexicon, activateLexicon } = useLexiconContext();
+  const { updateMessage } = useMessageContext();
   const [lexicons, getLoading] = getLexicons();
   const [sharedLexicons, sharedLoading] = getShared();
-  const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon();
+  const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
+    (res: ServerReponse<LexiconResource>) => {
+      if (res.message) updateMessage(res.message);
+    }
+  );
 
   if (
     lexicons &&
