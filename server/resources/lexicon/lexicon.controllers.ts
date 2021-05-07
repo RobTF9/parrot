@@ -66,37 +66,65 @@ export const setActive: RequestHandler = async (req, res, next) => {
 export const shareLexicon: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.email) {
-      res.status(400).json({ message: ERROR_MESSAGE.EMAIL_ADDRESS_REQUIRED });
+      return res
+        .status(400)
+        .json({ message: ERROR_MESSAGE.EMAIL_ADDRESS_REQUIRED });
     }
 
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      res
+      return res
         .status(400)
         .json({ message: ERROR_MESSAGE.EMAIL_ADDRESS_DOESNT_EXIST });
-    } else {
-      const lexicon = await Lexicon.findOneAndUpdate(
-        {
-          _id: req.params.id,
-          createdBy: req.session.user,
-        },
-        { $push: { sharedWith: user._id } },
-        { new: true, runValidators: true }
-      )
-        .lean()
-        .exec();
-
-      if (!lexicon) {
-        res.status(404).json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
-      }
-
-      res
-        .status(200)
-        .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_SHARED });
     }
+
+    const createdBy = await Lexicon.findOne({
+      _id: req.params.id,
+      createdBy: user._id,
+    })
+      .lean()
+      .exec();
+
+    if (createdBy) {
+      return res
+        .status(400)
+        .json({ message: ERROR_MESSAGE.CANT_SHARE_WITH_SELF });
+    }
+
+    const alreadyShared = await Lexicon.findOne({
+      _id: req.params.id,
+      sharedWith: user._id,
+    })
+      .lean()
+      .exec();
+
+    if (alreadyShared) {
+      return res.status(400).json({ message: ERROR_MESSAGE.ALREADY_SHARED });
+    }
+
+    const lexicon = await Lexicon.findOneAndUpdate(
+      {
+        _id: req.params.id,
+        createdBy: req.session.user,
+      },
+      { $push: { sharedWith: user._id } },
+      { new: true, runValidators: true }
+    )
+      .lean()
+      .exec();
+
+    if (!lexicon) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    return res
+      .status(200)
+      .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_SHARED });
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
 

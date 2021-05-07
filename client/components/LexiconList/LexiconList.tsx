@@ -4,7 +4,7 @@ import { Button } from '../../styles/Buttons.styles';
 import Input from '../Input';
 import { ListWrapper, Action, ShareForm } from './LexiconList.styles';
 import { shareLexicon } from '../../api/resources/lexicon';
-import Message from '../Message';
+import { useMessageContext } from '../../context/Message';
 
 interface ItemProps {
   _id: string;
@@ -25,23 +25,11 @@ const LexiconItem: React.FC<ItemProps> = ({
 }) => {
   const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
-  const [response, setResponse] = useState<
-    | {
-        message: string;
-        error: boolean;
-      }
-    | undefined
-  >();
-
-  const updateFromResponse = (res: ServerReponse<LexiconResource>) => {
-    if (res.message && !res.data) {
-      setResponse({ message: res.message, error: true });
-    } else if (res.message) {
-      setResponse({ message: res.message, error: false });
-    }
-  };
-
-  const [update] = shareLexicon(_id, updateFromResponse);
+  const { updateMessage, hideMessage } = useMessageContext();
+  const [update] = shareLexicon(
+    _id,
+    (res) => res.message && updateMessage(res.message)
+  );
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -50,7 +38,7 @@ const LexiconItem: React.FC<ItemProps> = ({
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setResponse(undefined);
+    hideMessage();
     setEmail(event.target.value);
   };
 
@@ -86,38 +74,17 @@ const LexiconItem: React.FC<ItemProps> = ({
         </div>
       </li>
       {shareField && (
-        <>
-          {response?.message && response?.error === true && (
-            <Message
-              {...{
-                message: response.message,
-                type: 'error',
-                size: 'medium',
-              }}
-            />
-          )}
-          {response?.message && response?.error === false ? (
-            <Message
-              {...{
-                message: response.message,
-                type: 'success',
-                size: 'medium',
-              }}
-            />
-          ) : (
-            <ShareForm onSubmit={onSubmit}>
-              <Input
-                {...{
-                  label: `Share ${language.name} via email`,
-                  value: email,
-                  name: 'email',
-                  onChange,
-                }}
-              />
-              <Button type="submit">Share</Button>
-            </ShareForm>
-          )}
-        </>
+        <ShareForm onSubmit={onSubmit}>
+          <Input
+            {...{
+              label: `Share ${language.name} via email`,
+              value: email,
+              name: 'email',
+              onChange,
+            }}
+          />
+          <Button type="submit">Share</Button>
+        </ShareForm>
       )}
     </>
   );

@@ -20,6 +20,10 @@ export const ERROR_MESSAGE = {
   EMAIL_ADDRESS_REQUIRED: errorMessage('Email address required'),
   RESOURCE_NOT_FOUND: errorMessage('Resource not found'),
   LEXICON_EXISTS: errorMessage('You already have a Lexicon for this language'),
+  ALREADY_SHARED: errorMessage(
+    "You've already shared this Lexicon with the user"
+  ),
+  CANT_SHARE_WITH_SELF: errorMessage("You can't share this with yourself"),
 };
 
 const succesMessage = (message: string) => ({

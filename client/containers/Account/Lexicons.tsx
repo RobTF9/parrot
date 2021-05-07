@@ -15,6 +15,7 @@ const Lexicons: React.FC = () => {
   const { updateMessage } = useMessageContext();
   const [lexicons, getLoading] = getLexicons();
   const [sharedLexicons, sharedLoading] = getShared();
+
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
     (res: ServerReponse<LexiconResource>) => {
       if (res.message) updateMessage(res.message);
