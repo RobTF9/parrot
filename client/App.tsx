@@ -9,23 +9,26 @@ import Reset from './styles/Reset.styles';
 import Shadows from './styles/Shadows.styles';
 import Spacings from './styles/Spacings.styles';
 import Typography from './styles/Typography.styles';
+import { MessageProvider } from './context/Message';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <LexiconProvider>
-        <AuthProvider>
-          <QueryContext>
-            <Reset />
-            <Color />
-            <Spacings />
-            <Typography />
-            <Shadows />
-            <Router />
-          </QueryContext>
-        </AuthProvider>
-      </LexiconProvider>
-    </BrowserRouter>
+    <MessageProvider>
+      <BrowserRouter>
+        <LexiconProvider>
+          <AuthProvider>
+            <QueryContext>
+              <Reset />
+              <Color />
+              <Spacings />
+              <Typography />
+              <Shadows />
+              <Router />
+            </QueryContext>
+          </AuthProvider>
+        </LexiconProvider>
+      </BrowserRouter>
+    </MessageProvider>
   );
 };
 

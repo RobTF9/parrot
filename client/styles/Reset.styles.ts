@@ -13,6 +13,7 @@ const Reset = createGlobalStyle`
   button:focus {
     outline: none;
     border: none;
+    cursor: pointer;
   }
 
   a,
@@ -20,6 +21,7 @@ const Reset = createGlobalStyle`
   a:focus {
     color: inherit;
     outline: none;
+    cursor: pointer;
   }
 
   html {
