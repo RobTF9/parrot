@@ -29,7 +29,7 @@
     "no-console": 0,
     "import/prefer-default-export": 0
   },
-  "ignorePatterns": "/dist",
+  "ignorePatterns": ["/dist", "/scripts"],
   "settings": {
     "react": {
       "version": "detect"

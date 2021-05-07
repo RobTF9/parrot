@@ -15,7 +15,8 @@
     "test:server": "jest --config ./jest.server.json --detectOpenHandles --verbose --coverage",
     "test": "yarn test:client && yarn test:server",
     "test:watch": "concurrently \"jest --config ./jest.client.json --watchAll\" \"jest --config ./jest.server.json --watchAll\"",
-    "start": "node dist/server/index.js"
+    "start": "node dist/server/index.js",
+    "seed": "node scripts/seed.js"
   },
   "author": "robtf9",
   "license": "ISC",

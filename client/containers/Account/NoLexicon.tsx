@@ -13,11 +13,8 @@ const CreateLexicon: React.FC = () => {
 
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
     async (res: ServerReponse<LexiconResource>) => {
-      const { message } = await res;
-      console.log(res);
-      if (message) {
-        console.log(message);
-        updateMessage(message);
+      if (res.message) {
+        updateMessage(res.message);
         push('/');
       }
     }

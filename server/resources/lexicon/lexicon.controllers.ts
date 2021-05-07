@@ -13,7 +13,6 @@ export const createOne: RequestHandler = async (req, res, next) => {
       .exec();
 
     if (lexicons.length > 0) {
-      console.log('Exists');
       return res.status(400).json({ message: ERROR_MESSAGE.LEXICON_EXISTS });
     }
 
