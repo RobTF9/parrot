@@ -59,7 +59,6 @@ userSchema.methods.checkPassword = function (password) {
 };
 
 userSchema.pre('save', function (next) {
-  console.log('Here');
   if (!this.isModified('password')) {
     next();
   }
