@@ -24,7 +24,7 @@ const authSession = session({
   secret: config.sessionSecret,
   resave: true,
   saveUninitialized: false,
-  cookie: { secure: config.isProd },
+  cookie: { secure: false },
   store,
 });
 
