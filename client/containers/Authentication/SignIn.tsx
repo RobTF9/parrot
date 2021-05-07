@@ -7,20 +7,20 @@ import { Button } from '../../styles/Buttons.styles';
 import { validateSignIn } from '../../utils/userValidators';
 
 const SignIn: React.FC = () => {
-  const { signIn, removeErrorMessage } = useAuthContext();
+  const { signIn, hideMessage } = useAuthContext();
   const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({ email: '', password: '' });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDetails({ ...details, [event.target.name]: event.target.value });
     setErrors({});
-    removeErrorMessage();
+    hideMessage();
   };
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validateSignIn(details);
-    removeErrorMessage();
+    hideMessage();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -28,6 +28,7 @@ const SignIn: React.FC = () => {
       signIn(details);
     }
   };
+
   return (
     <Container half>
       <h1 className="xlarge center lightest buffer">

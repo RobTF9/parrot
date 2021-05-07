@@ -3,24 +3,17 @@ import { get, post } from '../api/fetch';
 import { useLexiconContext } from './Lexicon';
 import { useMessageContext } from './Message';
 
+type Email = { email: string };
+type Password = { password: string };
+type Username = { username: string };
+
 export interface IAuthContext {
-  signIn: (details: ISignIn) => void;
-  signUp: (details: ISignUp) => void;
+  signIn: (details: Email & Password) => void;
+  signUp: (details: Email & Password & Username) => void;
+  resetPasswordEmail: (details: Email) => void;
   signOut: () => void;
   authenticated?: boolean;
-  errorMessage?: string;
-  removeErrorMessage: () => void;
-}
-
-export interface ISignIn {
-  email: string;
-  password: string;
-}
-
-export interface ISignUp {
-  email: string;
-  password: string;
-  username: string;
+  hideMessage: () => void;
 }
 
 const AuthContext = createContext<IAuthContext>({
@@ -28,7 +21,8 @@ const AuthContext = createContext<IAuthContext>({
   signIn: () => null,
   signUp: () => null,
   signOut: () => null,
-  removeErrorMessage: () => null,
+  resetPasswordEmail: () => null,
+  hideMessage: () => null,
 });
 
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
@@ -37,86 +31,73 @@ export const AuthProvider: React.FC = ({ children }) => {
   const { updateMessage, hideMessage } = useMessageContext();
   const { activateLexicon, deactivateLexicon } = useLexiconContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
-  const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
-  const signIn = async (details: ISignIn) => {
-    try {
-      const response = await post<
-        ISignIn,
-        { auth?: boolean; message?: string }
-      >('/auth/signin', details);
+  const signIn = async (details: Email & Password) => {
+    const response = await post<
+      Email & Password,
+      { auth?: boolean; message?: string }
+    >('/auth/signin', details);
 
-      if (response.auth) {
-        setAuthenticated(response.auth);
-      }
+    if (response.auth) setAuthenticated(response.auth);
 
-      if (!response.auth && response.message) {
-        setAuthenticated(response.auth);
-        setErrorMessage(response.message);
-      }
-    } catch (error) {
-      console.error(error);
+    if (!response.auth && response.message) {
+      setAuthenticated(response.auth);
+      updateMessage({
+        message: response.message,
+        type: 'error',
+        visible: true,
+      });
     }
   };
 
-  const signUp = async (details: ISignUp): Promise<ServerReponse | void> => {
-    try {
-      const response = await post<
-        ISignUp,
-        { auth?: boolean; message?: string }
-      >('/auth/signup', details);
+  const signUp = async (
+    details: Email & Password & Username
+  ): Promise<ServerReponse | void> => {
+    const response = await post<
+      Email & Password & Username,
+      { auth?: boolean; message?: string }
+    >('/auth/signup', details);
 
-      if (response.auth) {
-        setAuthenticated(response.auth);
-      }
+    if (response.auth) setAuthenticated(response.auth);
 
-      if (!response.auth && response.message) {
-        setAuthenticated(response.auth);
-        setErrorMessage(response.message);
-      }
-    } catch (error) {
-      console.error(error);
+    if (!response.auth && response.message) {
+      setAuthenticated(response.auth);
+      updateMessage({
+        message: response.message,
+        type: 'error',
+        visible: true,
+      });
     }
   };
 
   const signOut = async () => {
-    try {
-      const response = await get<Promise<ServerReponse>>('/auth/signout');
+    const response = await get<Promise<ServerReponse>>('/auth/signout');
+    setAuthenticated(response.auth);
+    deactivateLexicon();
+  };
 
-      setAuthenticated(response.auth);
-      deactivateLexicon();
-    } catch (error) {
-      console.error(error);
-    }
+  const resetPasswordEmail = async (details: Email) => {
+    const response = await post<Email, { message: string }>(
+      '/auth/forgot',
+      details
+    );
+
+    updateMessage({
+      message: response.message,
+      type: 'success',
+      visible: true,
+    });
   };
 
   const checkAuth = async () => {
-    try {
-      const response = await get<Promise<ServerReponse>>('/auth');
-      setAuthenticated(response.auth);
-
-      if (response.lexicon) {
-        activateLexicon(response.lexicon);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    const response = await get<Promise<ServerReponse>>('/auth');
+    setAuthenticated(response.auth);
+    if (response.lexicon) activateLexicon(response.lexicon);
   };
 
   useEffect(() => {
     checkAuth();
   }, []);
-
-  useEffect(() => {
-    if (errorMessage) {
-      updateMessage({ message: errorMessage, visible: true, type: 'error' });
-    }
-    if (!errorMessage) {
-      hideMessage();
-    }
-  }, [errorMessage]);
-
-  const removeErrorMessage = () => setErrorMessage(undefined);
 
   return (
     <AuthContext.Provider
@@ -125,8 +106,8 @@ export const AuthProvider: React.FC = ({ children }) => {
         signIn,
         signUp,
         signOut,
-        errorMessage,
-        removeErrorMessage,
+        hideMessage,
+        resetPasswordEmail,
       }}
     >
       {children}

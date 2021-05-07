@@ -7,7 +7,7 @@ import { Container, Modal } from '../../styles/Layout.styles';
 import { validateSignup } from '../../utils/userValidators';
 
 const CreateAccount: React.FC = () => {
-  const { signUp, removeErrorMessage } = useAuthContext();
+  const { signUp, hideMessage } = useAuthContext();
   const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({
     email: '',
@@ -17,14 +17,14 @@ const CreateAccount: React.FC = () => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setErrors({});
-    removeErrorMessage();
+    hideMessage();
     setDetails({ ...details, [event.target.name]: event.target.value });
   };
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validateSignup(details);
-    removeErrorMessage();
+    hideMessage();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);

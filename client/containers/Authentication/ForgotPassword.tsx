@@ -3,33 +3,17 @@ import { Link } from 'react-router-dom';
 import { Container, Modal } from '../../styles/Layout.styles';
 import { validateEmail } from '../../utils/userValidators';
 import Input from '../../components/Input';
-import { post } from '../../api/fetch';
-import Message from '../../components/Message';
 import { Button } from '../../styles/Buttons.styles';
+import { useAuthContext } from '../../context/Auth';
 
 const ForgotPassword: React.FC = () => {
+  const { resetPasswordEmail } = useAuthContext();
   const [errors, setErrors] = useState<{ email?: string }>({});
   const [details, setDetails] = useState({ email: '' });
-
-  const [message, setMessage] = useState<
-    { text: string; type: string } | undefined
-  >();
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setErrors({});
     setDetails({ ...details, [event.target.name]: event.target.value });
-  };
-
-  const sendEmailForReset = async () => {
-    try {
-      const response = await post<{ email: string }, { message: string }>(
-        '/auth/forgot',
-        details
-      );
-      setMessage({ text: response.message, type: 'success' });
-    } catch (error) {
-      setMessage({ text: error, type: 'error' });
-    }
   };
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -39,7 +23,7 @@ const ForgotPassword: React.FC = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      sendEmailForReset();
+      resetPasswordEmail(details);
     }
   };
 
@@ -50,9 +34,6 @@ const ForgotPassword: React.FC = () => {
       </h1>
       <Modal as="form" onSubmit={onSubmit}>
         <h2 className="xxlarge bold border-b">Reset your password</h2>
-        {message && (
-          <Message {...{ type: message.type, message: message.text }} />
-        )}
         <Input
           {...{
             label: 'Email',
