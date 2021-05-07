@@ -5,6 +5,7 @@ import Input from '../Input';
 import { ListWrapper, Action, ShareForm } from './LexiconList.styles';
 import { shareLexicon } from '../../api/resources/lexicon';
 import { useMessageContext } from '../../context/Message';
+import { Loading } from '../../styles/Animations.styles';
 
 interface ItemProps {
   _id: string;
@@ -26,7 +27,7 @@ const LexiconItem: React.FC<ItemProps> = ({
   const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
   const { updateMessage, hideMessage } = useMessageContext();
-  const [update] = shareLexicon(
+  const [update, updateLoading] = shareLexicon(
     _id,
     (res) => res.message && updateMessage(res.message)
   );
@@ -44,6 +45,7 @@ const LexiconItem: React.FC<ItemProps> = ({
 
   return (
     <>
+      {updateLoading && <Loading bg />}
       <li className={lexicon === _id ? 'active' : ''}>
         <p>{language.name}</p>
         <div>
