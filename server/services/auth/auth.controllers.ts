@@ -26,7 +26,7 @@ export const signIn: RequestHandler = async (req, res, next) => {
     const match = user && (await user.checkPassword(req.body.password));
 
     if (!match) {
-      res.status(401).json({
+      return res.status(401).json({
         message: ERROR_MESSAGE.INVALID_EMAIL_AND_PASSWORD,
         auth: false,
       });
@@ -46,7 +46,7 @@ export const signIn: RequestHandler = async (req, res, next) => {
 export const signUp: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.email || !req.body.password || !req.body.username) {
-      res.status(400).json({
+      return res.status(400).json({
         message: ERROR_MESSAGE.NEED_EMAIL_PASSWORD_USERNAME,
         auth: false,
       });
@@ -55,7 +55,7 @@ export const signUp: RequestHandler = async (req, res, next) => {
     const emailExists = await User.findOne({ email: req.body.email });
 
     if (emailExists) {
-      res.status(400).json({
+      return res.status(400).json({
         auth: false,
         message: ERROR_MESSAGE.EMAIL_IN_USE,
       });
@@ -64,7 +64,7 @@ export const signUp: RequestHandler = async (req, res, next) => {
     const usernameExists = await User.findOne({ username: req.body.username });
 
     if (usernameExists) {
-      res.status(400).json({
+      return res.status(400).json({
         auth: false,
         message: ERROR_MESSAGE.USERNAME_IN_USE,
       });
@@ -73,94 +73,101 @@ export const signUp: RequestHandler = async (req, res, next) => {
     const user = await User.create(req.body);
     req.session.user = user._id;
 
-    res.status(201).send({
+    return res.status(201).send({
       auth: true,
       message: SUCCESS_MESSAGE.SIGN_UP_SUCCESSFUL,
     });
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
 
 export const checkAuth: RequestHandler = async (req, res, next) => {
   try {
     if (!req.session.user) {
-      res
+      return res
         .status(401)
         .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
-    } else {
-      const user = await User.findById(req.session.user);
-
-      if (!user) {
-        res
-          .status(401)
-          .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
-      } else {
-        if (req.session.lexicon) {
-          res.status(200).json({
-            auth: true,
-            message: SUCCESS_MESSAGE.AUTHORIZED,
-            lexicon: req.session.lexicon,
-          });
-        }
-        res
-          .status(200)
-          .json({ auth: true, message: SUCCESS_MESSAGE.AUTHORIZED });
-      }
     }
+    const user = await User.findById(req.session.user);
+
+    if (!user) {
+      return res
+        .status(401)
+        .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
+    }
+
+    if (req.session.lexicon) {
+      return res.status(200).json({
+        auth: true,
+        message: SUCCESS_MESSAGE.AUTHORIZED,
+        lexicon: req.session.lexicon,
+      });
+    }
+
+    return res
+      .status(200)
+      .json({ auth: true, message: SUCCESS_MESSAGE.AUTHORIZED });
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
 
 export const signOut: RequestHandler = async (req, res, next) => {
   try {
-    req.session.destroy(() =>
+    return req.session.destroy(() =>
       res.json({
         auth: false,
         message: SUCCESS_MESSAGE.SIGNED_OUT_SUCCESSFULLY,
       })
     );
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
 
 export const requestPasswordReset: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.email) {
-      res.status(400).send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_REQUIRED });
+      return res
+        .status(400)
+        .send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_REQUIRED });
     }
 
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      res
+      return res
         .status(400)
         .send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_DOESNT_EXIST });
     }
 
-    if (user && user.token) {
-      user.token = undefined;
-      await user.save();
-
-      const resetToken = crypto.randomBytes(32).toString('hex');
-      const hash = await bcrypt.hash(resetToken, 8);
-
-      user.token = {
-        value: hash,
-        createdAt: Date.now(),
-      };
-
-      await user.save();
-
-      const link = `${config.client}reset/?token=${resetToken}&id=${user._id}`;
-      resetPasswordEmail(user.email, link, user.username);
-
-      res.send({ auth: false, message: SUCCESS_MESSAGE.RESET_LINK_SENT });
+    if (!user.token) {
+      return res.status(401).json({ message: ERROR_MESSAGE.NOT_AUTHORIZED });
     }
+
+    user.token = undefined;
+    await user.save();
+
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    const hash = await bcrypt.hash(resetToken, 8);
+
+    user.token = {
+      value: hash,
+      createdAt: Date.now(),
+    };
+
+    await user.save();
+
+    const link = `${config.client}reset/?token=${resetToken}&id=${user._id}`;
+    resetPasswordEmail(user.email, link, user.username);
+
+    return res.send({
+      auth: false,
+      message: SUCCESS_MESSAGE.RESET_LINK_SENT,
+    });
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
 
@@ -169,29 +176,30 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
     const user = await User.findOne({ _id: req.body._id });
 
     if (!user || !user.token || user.token === null) {
-      res.status(400).json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
-    } else {
-      const tokenValid = await bcrypt.compare(req.body.token, user.token.value);
-
-      if (!tokenValid) {
-        res.status(400).send({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
-      }
-
-      const hash = await bcrypt.hash(req.body.password, 8);
-
-      await User.updateOne(
-        {
-          _id: req.body._id,
-        },
-        { $set: { password: hash, token: undefined } },
-        { new: true }
-      );
-
-      res.status(200).json({
-        message: SUCCESS_MESSAGE.PASSWORD_RESET_SUCCESSFULLY,
-      });
+      return res
+        .status(400)
+        .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
     }
+    const tokenValid = await bcrypt.compare(req.body.token, user.token.value);
+
+    if (!tokenValid) {
+      res.status(400).send({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
+    }
+
+    const hash = await bcrypt.hash(req.body.password, 8);
+
+    await User.updateOne(
+      {
+        _id: req.body._id,
+      },
+      { $set: { password: hash, token: undefined } },
+      { new: true }
+    );
+
+    return res.status(200).json({
+      message: SUCCESS_MESSAGE.PASSWORD_RESET_SUCCESSFULLY,
+    });
   } catch (error) {
-    next(new Error(error));
+    return next(new Error(error));
   }
 };
