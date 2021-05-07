@@ -1,4 +1,5 @@
 import session from 'express-session';
+import MongoStore from 'connect-mongo';
 import config from '../config';
 
 declare module 'express-session' {
@@ -13,6 +14,7 @@ const authSession = session({
   resave: false,
   saveUninitialized: true,
   cookie: { secure: config.isProd },
+  store: MongoStore.create({ mongoUrl: config.databaseUrl }),
 });
 
 export default authSession;
