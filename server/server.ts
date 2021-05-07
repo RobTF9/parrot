@@ -17,6 +17,7 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev', { skip: () => process.env.NODE_ENV === 'test' }));
 
+app.set('trust proxy', 1);
 app.use(authSession);
 
 app.use('/auth', authRouter);
