@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Card } from '../../styles/Layout.styles';
 import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import Input from '../../components/Input';
@@ -45,7 +44,7 @@ const UpdateUser: React.FC = () => {
   };
 
   return (
-    <Card as="form" onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       {(getLoading || updateLoading) && <Loading bg />}
       <h2 className="large bold border-b-s">Update your details</h2>
       <Input
@@ -67,7 +66,7 @@ const UpdateUser: React.FC = () => {
         }}
       />
       <Button type="submit">Save changes</Button>
-    </Card>
+    </form>
   );
 };
 

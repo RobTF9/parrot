@@ -33,7 +33,7 @@ const Lexicons: React.FC = () => {
 
   return (
     <>
-      <h2 className="bold xxlarge border-b-s">Your lexicons</h2>
+      <h2 className="bold xxlarge margin-b">Your lexicons</h2>
       <form onSubmit={onSubmit}>
         {(getLoading || createLoading) && <Loading bg />}
         <h2 className="large bold border-b-s">Create a new Lexicon</h2>
@@ -51,41 +51,39 @@ const Lexicons: React.FC = () => {
         />
         <Button type="submit">Create lexicon</Button>
       </form>
-      <form>
-        {getLoading && <Loading bg />}
-        <h2 className="large bold border-b-s">Your Lexicons</h2>
-        <ul>
-          {lexicons && (
-            <LexiconList
-              {...{
-                lexicon,
-                lexicons,
-                activate: activateLexicon,
-                emptyMessage: "You haven't created any lexicons",
-                share: true,
-              }}
-            />
-          )}
-        </ul>
-      </form>
-      <form>
-        {sharedLoading && <Loading bg />}
-        <h2 className="large bold border-b-s">Lexicons shared with you</h2>
-        <ul>
-          {sharedLexicons && sharedLexicons.data.length > 0 ? (
-            sharedLexicons.data.map(({ language, _id }) => (
-              <li key={_id}>
-                {lexicon === _id && 'Active: '}
-                <button type="button" onClick={() => activateLexicon(_id)}>
-                  {language.name}
-                </button>
-              </li>
-            ))
-          ) : (
-            <p>No one has shared a lexicon with you</p>
-          )}
-        </ul>
-      </form>
+
+      {getLoading && <Loading bg />}
+      <h2 className="large bold border-b-s">Your Lexicons</h2>
+      <ul>
+        {lexicons && (
+          <LexiconList
+            {...{
+              lexicon,
+              lexicons,
+              activate: activateLexicon,
+              emptyMessage: "You haven't created any lexicons",
+              share: true,
+            }}
+          />
+        )}
+      </ul>
+
+      {sharedLoading && <Loading bg />}
+      <h2 className="large bold border-b-s">Lexicons shared with you</h2>
+      <ul>
+        {sharedLexicons && sharedLexicons.data.length > 0 ? (
+          sharedLexicons.data.map(({ language, _id }) => (
+            <li key={_id}>
+              {lexicon === _id && 'Active: '}
+              <button type="button" onClick={() => activateLexicon(_id)}>
+                {language.name}
+              </button>
+            </li>
+          ))
+        ) : (
+          <p>No one has shared a lexicon with you</p>
+        )}
+      </ul>
     </>
   );
 };

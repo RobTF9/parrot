@@ -8,6 +8,7 @@ const Account: React.FC = () => {
 
   return (
     <>
+      <h1 className="xxlarge bold margin-b">Your account</h1>
       <UpdateUser />
       <Button type="button" onClick={signOut}>
         Logout

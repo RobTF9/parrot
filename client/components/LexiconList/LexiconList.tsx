@@ -27,10 +27,11 @@ const LexiconItem: React.FC<ItemProps> = ({
   const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
   const { updateMessage, hideMessage } = useMessageContext();
-  const [update, updateLoading] = shareLexicon(
-    _id,
-    (res) => res.message && updateMessage(res.message)
-  );
+  const [update, updateLoading] = shareLexicon(_id, (res) => {
+    if (res.message) {
+      updateMessage(res.message);
+    }
+  });
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,7 +39,6 @@ const LexiconItem: React.FC<ItemProps> = ({
   };
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
     hideMessage();
     setEmail(event.target.value);
   };
