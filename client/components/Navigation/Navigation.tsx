@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiDatabase, FiUser } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 import { NavWrapper } from './Navigation.styles';
 
@@ -10,17 +11,11 @@ interface Props {
 const Navigation: React.FC<Props> = ({ lexicon, authenticated }) => {
   return (
     <NavWrapper>
-      <p>Parrot</p>
-      <ul>
-        {authenticated && (
-          <li>
-            <NavLink exact to="/">
-              Account
-            </NavLink>
-          </li>
-        )}
+      <div>
+        <p>Parrot</p>
+        {authenticated && <p>Select your lexicon</p>}
         {lexicon && (
-          <>
+          <ul>
             <li>
               <NavLink exact to="/words">
                 Words
@@ -36,9 +31,26 @@ const Navigation: React.FC<Props> = ({ lexicon, authenticated }) => {
                 Games
               </NavLink>
             </li>
-          </>
+          </ul>
         )}
-      </ul>
+      </div>
+
+      {authenticated && (
+        <ul>
+          <li>
+            <button type="button">
+              <FiUser />
+              Account
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <FiDatabase />
+              Lexicons
+            </button>
+          </li>
+        </ul>
+      )}
     </NavWrapper>
   );
 };

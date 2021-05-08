@@ -4,9 +4,8 @@ import { Container, Grid } from '../../styles/Layout.styles';
 import PageHeader from '../../components/PageHeader';
 import { Button } from '../../styles/Buttons.styles';
 import UpdateUser from './UpdateUser';
-import Lexicons from './Lexicons';
 
-const Profile: React.FC = () => {
+const Account: React.FC = () => {
   const { signOut } = useAuthContext();
 
   return (
@@ -16,12 +15,11 @@ const Profile: React.FC = () => {
           Logout
         </Button>
       </PageHeader>
-      <Grid {...{ columns: '40rem 1fr' }}>
+      <Grid {...{ columns: '1fr' }}>
         <UpdateUser />
-        <Lexicons />
       </Grid>
     </Container>
   );
 };
 
-export default Profile;
+export default Account;

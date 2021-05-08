@@ -4,12 +4,13 @@ import Navigation from '../components/Navigation';
 import { useAuthContext } from '../context/Auth';
 import { useLexiconContext } from '../context/Lexicon';
 import { Loading } from '../styles/Animations.styles';
-import Profile from './Account/Account';
-import NoLexicon from './Account/NoLexicon';
+import Account from './Account';
+import NoLexicon from './Lexicons/NoLexicon';
 import CreateAccount from './Authentication/CreateAccount';
 import ForgotPassword from './Authentication/ForgotPassword';
 import ResetPassword from './Authentication/ResetPassword';
 import SignIn from './Authentication/SignIn';
+import Lexicons from './Lexicons/Lexicons';
 
 const Router: React.FC = () => {
   const { authenticated } = useAuthContext();
@@ -27,8 +28,11 @@ const Router: React.FC = () => {
           <Route path="/no-lexicon">
             <NoLexicon />
           </Route>
+          <Route path="/lexicons">
+            <Lexicons />
+          </Route>
           <Route path="/">
-            <Profile />
+            <Account />
           </Route>
         </Switch>
       ) : (
