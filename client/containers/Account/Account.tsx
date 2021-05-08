@@ -9,8 +9,8 @@ const Account: React.FC = () => {
 
   return (
     <>
-      <Flex>
-        <h1 className="xxlarge bold">Your account</h1>
+      <Flex as="header">
+        <h2 className="xxlarge bold">Your account</h2>
         <TextButton type="button" onClick={signOut}>
           Logout
         </TextButton>

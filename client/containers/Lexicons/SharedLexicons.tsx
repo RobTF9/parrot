@@ -14,7 +14,7 @@ const SharedLexicons: React.FC = () => {
   return (
     <>
       {sharedLoading && <Loading bg />}
-      <h3 className="large bold border-b-s">Your Lexicons</h3>
+      <h3 className="large bold border-b-s">Shared with you</h3>
       {sharedLexicons && (
         <LexiconList
           {...{
