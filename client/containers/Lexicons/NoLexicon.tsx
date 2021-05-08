@@ -9,12 +9,12 @@ import { useMessageContext } from '../../context/Message';
 
 const NoLexicon: React.FC = () => {
   const { push } = useHistory();
-  const { updateMessage } = useMessageContext();
+  const { showMessage } = useMessageContext();
 
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
     (res: ServerReponse<LexiconResource>) => {
       if (res.message) {
-        updateMessage(res.message);
+        showMessage(res.message);
         setTimeout(() => {
           push('/');
         }, 2000);

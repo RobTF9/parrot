@@ -16,7 +16,7 @@ const AuthContext = createContext<IAuthContext>({
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const { updateMessage, hideMessage } = useMessageContext();
+  const { showMessage, hideMessage } = useMessageContext();
   const { activateLexicon, deactivateLexicon } = useLexiconContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
 
@@ -30,7 +30,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     if (!response.auth && response.message) {
       setAuthenticated(response.auth);
-      updateMessage(response.message);
+      showMessage(response.message);
     }
   };
 
@@ -44,7 +44,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     if (!response.auth && response.message) {
       setAuthenticated(response.auth);
-      updateMessage(response.message);
+      showMessage(response.message);
     }
   };
 
@@ -57,12 +57,12 @@ export const AuthProvider: React.FC = ({ children }) => {
   const resetPasswordEmail = async (details: Email) => {
     const response = await post<Email, ServerReponse>('/auth/forgot', details);
 
-    if (response.message) updateMessage(response.message);
+    if (response.message) showMessage(response.message);
   };
 
   const resetPassword = async (details: Id & Token & Password) => {
     if (details.token === null || details._id === null) {
-      updateMessage({
+      showMessage({
         message: "Can't find correct parameters",
         type: 'error',
         visible: true,
@@ -74,7 +74,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       details
     );
 
-    if (response.message) updateMessage(response.message);
+    if (response.message) showMessage(response.message);
   };
 
   const checkAuth = async () => {

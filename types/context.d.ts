@@ -23,7 +23,7 @@ declare global {
   }
 
   interface IMessageContext {
-    updateMessage: (m: Message) => void;
+    showMessage: (m: Message) => void;
     hideMessage: () => void;
   }
 }

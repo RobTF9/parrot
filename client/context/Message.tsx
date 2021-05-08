@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Message from '../components/Message';
 
 const MessageContext = createContext<IMessageContext>({
-  updateMessage: () => null,
+  showMessage: () => null,
   hideMessage: () => null,
 });
 
@@ -18,7 +18,7 @@ export const MessageProvider: React.FC = ({ children }) => {
     message: '',
   });
 
-  const updateMessage = (m: Message) => setMessage(m);
+  const showMessage = (m: Message) => setMessage(m);
 
   const hideMessage = () => setMessage({ ...message, visible: false });
 
@@ -27,7 +27,7 @@ export const MessageProvider: React.FC = ({ children }) => {
   }, [location]);
 
   return (
-    <MessageContext.Provider value={{ updateMessage, hideMessage }}>
+    <MessageContext.Provider value={{ showMessage, hideMessage }}>
       <Message
         {...{
           message: message.message,

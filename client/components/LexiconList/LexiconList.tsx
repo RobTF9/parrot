@@ -26,10 +26,10 @@ const LexiconItem: React.FC<ItemProps> = ({
 }) => {
   const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
-  const { updateMessage, hideMessage } = useMessageContext();
+  const { showMessage, hideMessage } = useMessageContext();
   const [update, updateLoading] = shareLexicon(_id, (res) => {
     if (res.message) {
-      updateMessage(res.message);
+      showMessage(res.message);
     }
   });
 

@@ -17,7 +17,7 @@ export const createLexicon: APIGiver<LexiconSubmission, LexiconResource> = (
     callback
   );
 
-export const shareLexicon: APIGiver<{ email: string }, LexiconResource> = (
+export const shareLexicon: APIGiver<Email, LexiconResource> = (
   id?: string,
   callback?: (res: ServerReponse<LexiconResource>) => void
 ) => updateOne(CACHE.LEXICON, `/api/lexicon/${id}`, callback);

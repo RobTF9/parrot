@@ -6,11 +6,11 @@ import { useMessageContext } from '../../context/Message';
 import { Button } from '../../styles/Buttons.styles';
 
 const CreateLexicon: React.FC = () => {
-  const { updateMessage } = useMessageContext();
+  const { showMessage } = useMessageContext();
 
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
     (res: ServerReponse<LexiconResource>) => {
-      if (res.message) updateMessage(res.message);
+      if (res.message) showMessage(res.message);
     }
   );
 

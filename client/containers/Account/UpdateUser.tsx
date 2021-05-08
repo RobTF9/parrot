@@ -8,10 +8,10 @@ import { useMessageContext } from '../../context/Message';
 
 const UpdateUser: React.FC = () => {
   const [user, getLoading] = getUser();
-  const { updateMessage, hideMessage } = useMessageContext();
+  const { showMessage, hideMessage } = useMessageContext();
   const [update, updateLoading] = updateUser(undefined, (res) => {
     if (res.message) {
-      updateMessage(res.message);
+      showMessage(res.message);
     }
   });
   const [errors, setErrors] = useState<UserSubmission>({});
