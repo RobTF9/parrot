@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { useAuthContext } from '../context/Auth';
 import { useLexiconContext } from '../context/Lexicon';
@@ -11,10 +11,15 @@ import ForgotPassword from './Authentication/ForgotPassword';
 import ResetPassword from './Authentication/ResetPassword';
 import SignIn from './Authentication/SignIn';
 import Lexicons from './Lexicons/Lexicons';
+import useQueryParams from '../hooks/useQueryParams';
+import AnimatedDrawer from '../components/AnimatedDrawer';
 
 const Router: React.FC = () => {
   const { authenticated } = useAuthContext();
   const { lexicon } = useLexiconContext();
+  const params = useQueryParams();
+  const { pathname } = useLocation();
+  const { push } = useHistory();
 
   if (authenticated === undefined) {
     return <Loading bg />;
@@ -24,17 +29,29 @@ const Router: React.FC = () => {
     <>
       <Navigation {...{ authenticated, lexicon }} />
       {authenticated ? (
-        <Switch>
-          <Route path="/no-lexicon">
-            <NoLexicon />
-          </Route>
-          <Route path="/lexicons">
+        <>
+          <AnimatedDrawer
+            {...{
+              condition: params.get('lexicons') === 'open',
+              back: () => push(pathname),
+            }}
+          >
             <Lexicons />
-          </Route>
-          <Route path="/">
+          </AnimatedDrawer>
+          <AnimatedDrawer
+            {...{
+              condition: params.get('account') === 'open',
+              back: () => push(pathname),
+            }}
+          >
             <Account />
-          </Route>
-        </Switch>
+          </AnimatedDrawer>
+          <Switch>
+            <Route path="/no-lexicon">
+              <NoLexicon />
+            </Route>
+          </Switch>
+        </>
       ) : (
         <Switch>
           <Route path="/reset">

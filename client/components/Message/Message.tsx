@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { FiX } from 'react-icons/fi';
+import { slideUp } from '../../utils/animations';
 import { MessageWrapper } from './Message.styles';
 
 interface Props {
@@ -14,14 +15,7 @@ const Message: React.FC<Props> = ({ message, type, visible, hide }) => {
   return (
     <AnimatePresence>
       {visible && (
-        <MessageWrapper
-          {...{
-            initial: { y: '100%' },
-            animate: { y: '0%' },
-            exit: { y: '100%' },
-          }}
-          type={type}
-        >
+        <MessageWrapper {...{ ...slideUp }} type={type}>
           <button type="button" onClick={hide}>
             Hide message <FiX />
           </button>

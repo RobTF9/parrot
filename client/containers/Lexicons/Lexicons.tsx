@@ -1,8 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
-import { Card, Grid } from '../../styles/Layout.styles';
 import { getLexicons, getShared } from '../../api/resources/lexicon';
 import { useLexiconContext } from '../../context/Lexicon';
 import Select from '../../components/Select';
@@ -22,20 +20,21 @@ const Lexicons: React.FC = () => {
     }
   );
 
-  if (
-    lexicons &&
-    lexicons.data.length === 0 &&
-    sharedLexicons &&
-    sharedLexicons.data.length === 0 &&
-    !getLoading &&
-    !sharedLoading
-  ) {
-    return <Redirect to="/no-lexicon" />;
-  }
+  // if (
+  //   lexicons &&
+  //   lexicons.data.length === 0 &&
+  //   sharedLexicons &&
+  //   sharedLexicons.data.length === 0 &&
+  //   !getLoading &&
+  //   !sharedLoading
+  // ) {
+  //   return <Redirect to="/no-lexicon" />;
+  // }
 
   return (
-    <Grid>
-      <Card as="form" onSubmit={onSubmit}>
+    <>
+      <h2 className="bold xxlarge border-b-s">Your lexicons</h2>
+      <form onSubmit={onSubmit}>
         {(getLoading || createLoading) && <Loading bg />}
         <h2 className="large bold border-b-s">Create a new Lexicon</h2>
         <Select
@@ -51,8 +50,8 @@ const Lexicons: React.FC = () => {
           }}
         />
         <Button type="submit">Create lexicon</Button>
-      </Card>
-      <Card>
+      </form>
+      <form>
         {getLoading && <Loading bg />}
         <h2 className="large bold border-b-s">Your Lexicons</h2>
         <ul>
@@ -68,8 +67,8 @@ const Lexicons: React.FC = () => {
             />
           )}
         </ul>
-      </Card>
-      <Card>
+      </form>
+      <form>
         {sharedLoading && <Loading bg />}
         <h2 className="large bold border-b-s">Lexicons shared with you</h2>
         <ul>
@@ -86,8 +85,8 @@ const Lexicons: React.FC = () => {
             <p>No one has shared a lexicon with you</p>
           )}
         </ul>
-      </Card>
-    </Grid>
+      </form>
+    </>
   );
 };
 

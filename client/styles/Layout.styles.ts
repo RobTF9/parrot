@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Container = styled.div<{ bg?: string; half?: boolean }>`
   margin: 0 auto;
@@ -22,7 +23,7 @@ export const Container = styled.div<{ bg?: string; half?: boolean }>`
     `}
 `;
 
-export const Modal = styled.div`
+export const Modal = styled(motion.div)`
   background-color: var(--core-white);
   box-shadow: var(--modal-shadow);
   border-radius: var(--medium);
@@ -59,9 +60,55 @@ export const Grid = styled.div<{
     )}
 `;
 
+export const Overlay = styled(motion.div)`
+  background-color: var(--core-dark-50);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  padding: var(--large);
+  overflow-y: scroll;
+  top: 0;
+  width: 100vw;
+  z-index: 300;
+
+  ${Modal} {
+    padding-bottom: var(--large);
+  }
+
+  @media (max-width: 480px) {
+    padding: var(--medium);
+  }
+`;
+
 export const Card = styled.div`
   background-color: var(--core-white);
   box-shadow: var(--card-shadow);
   border-radius: var(--small);
   padding: var(--medium);
+`;
+
+export const Drawer = styled(Modal)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 60rem;
+  overflow: scroll;
+  border-radius: 0;
+
+  @media (max-width: 700px) {
+    max-width: 90%;
+    padding: var(--large);
+  }
+`;
+
+export const TouchableOpacity = styled.button`
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
 `;

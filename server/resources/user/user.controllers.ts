@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
+import { SUCCESS_MESSAGE } from '../../utils/constants';
 import User from './user.model';
 
 export const getUser: RequestHandler = async (req, res, next) => {

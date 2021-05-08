@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiDatabase, FiUser } from 'react-icons/fi';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { NavWrapper } from './Navigation.styles';
 
 interface Props {
@@ -38,16 +38,22 @@ const Navigation: React.FC<Props> = ({ lexicon, authenticated }) => {
       {authenticated && (
         <ul>
           <li>
-            <button type="button">
+            <Link
+              className="toggle"
+              to={(location) => `${location.pathname}?account=open`}
+            >
               <FiUser />
               Account
-            </button>
+            </Link>
           </li>
           <li>
-            <button type="button">
+            <Link
+              className="toggle"
+              to={(location) => `${location.pathname}?lexicons=open`}
+            >
               <FiDatabase />
               Lexicons
-            </button>
+            </Link>
           </li>
         </ul>
       )}

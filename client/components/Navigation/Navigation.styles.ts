@@ -22,12 +22,9 @@ export const NavWrapper = styled.nav`
     display: flex;
   }
 
-  li {
-    margin-right: var(--small);
-  }
-
   a {
     text-decoration: none;
+    margin-right: var(--small);
 
     &.active {
       color: var(--core-light);
@@ -43,11 +40,11 @@ export const NavWrapper = styled.nav`
     color: var(--core-white);
   }
 
-  button {
-    background: none;
+  .toggle {
     display: flex;
     align-items: center;
     margin-left: var(--medium);
+    margin-right: 0;
 
     svg {
       margin-right: var(--smaller);
