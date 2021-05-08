@@ -60,6 +60,15 @@ export const Grid = styled.div<{
     )}
 `;
 
+export const Flex = styled.div<{ justify?: string }>`
+  ${({ justify }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: ${justify || 'space-between'};
+    margin-bottom: var(--large);
+  `}
+`;
+
 export const Overlay = styled(motion.div)`
   background-color: var(--core-dark-50);
   height: 100vh;

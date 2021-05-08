@@ -35,3 +35,18 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
       background-color: var(--bengali-red);
     `}
 `;
+
+export const TextButton = styled.button`
+  font-weight: 600;
+  color: var(--core-mid);
+  transition: color 0.3s ease;
+  background: none;
+
+  &:hover {
+    color: var(--core-dark);
+  }
+
+  &:focus {
+    box-shadow: var(--focus-border);
+  }
+`;

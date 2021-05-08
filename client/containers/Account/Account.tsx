@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthContext } from '../../context/Auth';
-import { Button } from '../../styles/Buttons.styles';
+import { TextButton } from '../../styles/Buttons.styles';
+import { Flex } from '../../styles/Layout.styles';
 import UpdateUser from './UpdateUser';
 
 const Account: React.FC = () => {
@@ -8,11 +9,13 @@ const Account: React.FC = () => {
 
   return (
     <>
-      <h1 className="xxlarge bold margin-b">Your account</h1>
+      <Flex>
+        <h1 className="xxlarge bold">Your account</h1>
+        <TextButton type="button" onClick={signOut}>
+          Logout
+        </TextButton>
+      </Flex>
       <UpdateUser />
-      <Button type="button" onClick={signOut}>
-        Logout
-      </Button>
     </>
   );
 };
