@@ -27,6 +27,7 @@ const LexiconItem: React.FC<ItemProps> = ({
   const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
   const { showMessage, hideMessage } = useMessageContext();
+
   const [update, updateLoading] = shareLexicon(_id, (res) => {
     if (res.message) {
       showMessage(res.message);
