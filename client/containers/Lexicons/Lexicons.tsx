@@ -68,7 +68,7 @@ const Lexicons: React.FC = () => {
         {sharedLexicons && sharedLexicons.data.length > 0 ? (
           sharedLexicons.data.map(({ language, _id }) => (
             <li key={_id}>
-              {lexicon === _id && 'Active: '}
+              {lexicon?._id === _id && 'Active: '}
               <button type="button" onClick={() => activateLexicon(_id)}>
                 {language.name}
               </button>

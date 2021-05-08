@@ -10,7 +10,7 @@ import { Loading } from '../../styles/Animations.styles';
 interface ItemProps {
   _id: string;
   activate: (_id: string) => void;
-  lexicon?: string;
+  lexicon?: LexiconSession;
   language: {
     name: string;
   };
@@ -46,7 +46,7 @@ const LexiconItem: React.FC<ItemProps> = ({
   return (
     <>
       {updateLoading && <Loading bg />}
-      <li className={lexicon === _id ? 'active' : ''}>
+      <li className={lexicon?._id === _id ? 'active' : ''}>
         <p>{language.name}</p>
         <div>
           <Action
@@ -54,7 +54,7 @@ const LexiconItem: React.FC<ItemProps> = ({
             type="button"
             onClick={() => activate(_id)}
           >
-            {lexicon === _id ? (
+            {lexicon?._id === _id ? (
               <>
                 <FiCheckCircle /> Active
               </>
@@ -99,7 +99,7 @@ interface ListProps {
   activate: (_id: string) => void;
   emptyMessage: string;
   share?: boolean;
-  lexicon?: string;
+  lexicon?: LexiconSession;
 }
 
 const LexiconList: React.FC<ListProps> = ({

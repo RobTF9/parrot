@@ -1,6 +1,14 @@
 export {};
 
 declare global {
+  type LexiconSession = {
+    _id: string;
+    language: {
+      name: string;
+      htmlCode: string;
+      langCode: string;
+    };
+  };
   interface ServerReponse<D = void> {
     auth?: boolean;
     message?: {
@@ -9,7 +17,7 @@ declare global {
       visible: boolean;
     };
     data?: D;
-    lexicon?: string;
+    lexicon?: LexiconSession;
   }
 
   interface UserResource {

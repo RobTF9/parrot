@@ -12,7 +12,7 @@ export const useLexiconContext = (): ILexiconContext =>
   useContext(LexiconContext);
 
 export const LexiconProvider: React.FC = ({ children }) => {
-  const [lexicon, setLexicon] = useState<string | undefined>();
+  const [lexicon, setLexicon] = useState<LexiconSession | undefined>();
   const [yourLexicons, yoursLoading] = getLexicons();
   const [sharedLexicons, sharedLoading] = getShared();
 

@@ -80,7 +80,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const checkAuth = async () => {
     const response = await get<Promise<ServerReponse>>('/auth');
     setAuthenticated(response.auth);
-    if (response.lexicon) activateLexicon(response.lexicon);
+    if (response.lexicon) activateLexicon(response.lexicon._id);
   };
 
   useEffect(() => {

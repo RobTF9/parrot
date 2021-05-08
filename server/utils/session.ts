@@ -5,7 +5,14 @@ import config from '../config';
 declare module 'express-session' {
   export interface SessionData {
     user: { [key: string]: string };
-    lexicon: { [key: string]: string };
+    lexicon: {
+      _id: string;
+      language: {
+        name: string;
+        htmlCode: string;
+        langCode: string;
+      };
+    };
   }
 }
 

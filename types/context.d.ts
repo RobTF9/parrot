@@ -12,7 +12,7 @@ declare global {
   }
 
   interface ILexiconContext {
-    lexicon?: string;
+    lexicon?: LexiconSession;
     activateLexicon: (l: string) => void;
     deactivateLexicon: () => void;
     yourLexicons?: { data: LexiconResource[] };

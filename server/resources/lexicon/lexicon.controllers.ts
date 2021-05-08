@@ -52,10 +52,18 @@ export const setActive: RequestHandler = async (req, res, next) => {
     }
 
     if (lexicon) {
-      req.session.lexicon = lexicon._id;
+      req.session.lexicon = {
+        _id: lexicon._id,
+        language: {
+          name: lexicon.language.name,
+          htmlCode: lexicon.language.htmlCode,
+          langCode: lexicon.language.langCode,
+        },
+      };
+
       res.status(200).json({
         message: SUCCESS_MESSAGE.LEXICON_ACTIVATED,
-        lexicon: lexicon._id,
+        lexicon: req.session.lexicon,
       });
     }
   } catch (error) {
