@@ -5,11 +5,17 @@ import { Button } from '../../styles/Buttons.styles';
 import Input from '../../components/Input';
 import { getUser, updateUser } from '../../api/resources/user';
 import { validateUpdate } from '../../utils/userValidators';
+import { useMessageContext } from '../../context/Message';
 
 const UpdateUser: React.FC = () => {
   const [user, getLoading] = getUser();
-  const [update, updateLoading] = updateUser();
-
+  const { updateMessage, hideMessage } = useMessageContext();
+  const [update, updateLoading] = updateUser(undefined, (res) => {
+    if (res.message) {
+      console.log(res);
+      updateMessage(res.message);
+    }
+  });
   const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({
     email: '',
@@ -24,6 +30,7 @@ const UpdateUser: React.FC = () => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setErrors({});
+    hideMessage();
     setDetails({ ...details, [event.target.name]: event.target.value });
   };
 

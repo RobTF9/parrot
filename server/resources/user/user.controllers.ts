@@ -1,4 +1,5 @@
 import { RequestHandler } from 'express';
+import { SUCCESS_MESSAGE } from '../../utils/constants';
 import User from './user.model';
 
 export const getUser: RequestHandler = async (req, res, next) => {
@@ -26,7 +27,7 @@ export const updateUser: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    res.status(200).json({ data: user });
+    res.status(200).json({ data: user, message: SUCCESS_MESSAGE.USER_UPDATED });
   } catch (error) {
     next(new Error(error));
   }

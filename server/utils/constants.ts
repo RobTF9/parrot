@@ -42,4 +42,5 @@ export const SUCCESS_MESSAGE = {
   LEXICON_ACTIVATED: succesMessage('Lexicon activated'),
   LEXICON_SHARED: succesMessage('Lexicon shared succesfully'),
   LEXICON_CREATED: succesMessage('Lexicon created succesfully'),
+  USER_UPDATED: succesMessage('Your details have been updated'),
 };
