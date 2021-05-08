@@ -3,22 +3,6 @@ import { get, post } from '../api/fetch';
 import { useLexiconContext } from './Lexicon';
 import { useMessageContext } from './Message';
 
-type Email = { email: string };
-type Password = { password: string };
-type Username = { username: string };
-type Token = { token: string };
-type Id = { _id: string };
-
-export interface IAuthContext {
-  signIn: (details: Email & Password) => void;
-  signUp: (details: Email & Password & Username) => void;
-  resetPasswordEmail: (details: Email) => void;
-  resetPassword: (details: Token & Password & Id) => void;
-  signOut: () => void;
-  authenticated?: boolean;
-  hideMessage: () => void;
-}
-
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,
   signIn: () => null,

@@ -1,14 +1,23 @@
 import React from 'react';
 import { InputWrapper } from './Input.styles';
 
-const Input: React.FunctionComponent<{
+interface Props {
   label: string;
   type?: string;
   name: string;
   error?: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}> = ({ label, type = 'text', name, onChange, value, error }) => {
+}
+
+const Input: React.FC<Props> = ({
+  label,
+  type = 'text',
+  name,
+  onChange,
+  value,
+  error,
+}) => {
   return (
     <InputWrapper aria-label={name} htmlFor={name}>
       <p>{label}</p>

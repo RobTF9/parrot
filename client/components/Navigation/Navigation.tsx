@@ -2,10 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavWrapper } from './Navigation.styles';
 
-const Navigation: React.FC<{ lexicon?: string; authenticated: boolean }> = ({
-  lexicon,
-  authenticated,
-}) => {
+interface Props {
+  lexicon?: string;
+  authenticated: boolean;
+}
+
+const Navigation: React.FC<Props> = ({ lexicon, authenticated }) => {
   return (
     <NavWrapper>
       <p>Parrot</p>

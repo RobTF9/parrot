@@ -12,7 +12,6 @@ const UpdateUser: React.FC = () => {
   const { updateMessage, hideMessage } = useMessageContext();
   const [update, updateLoading] = updateUser(undefined, (res) => {
     if (res.message) {
-      console.log(res);
       updateMessage(res.message);
     }
   });

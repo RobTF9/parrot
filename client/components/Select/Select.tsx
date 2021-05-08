@@ -10,7 +10,7 @@ interface Props {
   options: { value: string; copy: string }[];
 }
 
-const Select: React.FunctionComponent<Props> = ({
+const Select: React.FC<Props> = ({
   label,
   name,
   defaultValue,

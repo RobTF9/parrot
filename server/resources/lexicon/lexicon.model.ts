@@ -7,7 +7,7 @@ import {
   SchemaTypes,
 } from 'mongoose';
 
-export interface LexiconDocument extends Document {
+interface LexiconDocument extends Document {
   language: {
     name: string;
     htmlCode: string;

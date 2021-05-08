@@ -14,7 +14,7 @@
     "noImplicitReturns": true,
     "stripInternal": true,
     "types": ["node"],
-    "paths": { "*": ["./client/types/*.d.ts"] }
+    "paths": { "*": ["../types/*.d.ts"] }
   },
   "include": ["client", "server", "types"]
 }

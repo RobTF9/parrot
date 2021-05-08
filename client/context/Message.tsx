@@ -2,17 +2,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Message from '../components/Message';
 
-type Message = {
-  type: string;
-  visible: boolean;
-  message: string;
-};
-
-interface IMessageContext {
-  updateMessage: (m: Message) => void;
-  hideMessage: () => void;
-}
-
 const MessageContext = createContext<IMessageContext>({
   updateMessage: () => null,
   hideMessage: () => null,

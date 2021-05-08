@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["jest", "parcel-bundler"]
   },
-  "include": ["client", "server", "tests"]
+  "include": ["client", "server", "tests", "types"]
 }

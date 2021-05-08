@@ -1,12 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { get } from '../api/fetch';
 
-interface ILexiconContext {
-  lexicon?: string;
-  activateLexicon: (l: string) => void;
-  deactivateLexicon: () => void;
-}
-
 const LexiconContext = createContext<ILexiconContext>({
   activateLexicon: () => null,
   deactivateLexicon: () => null,
