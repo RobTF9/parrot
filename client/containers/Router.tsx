@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { useAuthContext } from '../context/Auth';
 import { useLexiconContext } from '../context/Lexicon';
@@ -18,8 +18,6 @@ const Router: React.FC = () => {
   const { authenticated } = useAuthContext();
   const { lexicon } = useLexiconContext();
   const params = useQueryParams();
-  const { pathname } = useLocation();
-  const { push } = useHistory();
 
   if (authenticated === undefined) {
     return <Loading bg />;
@@ -30,20 +28,10 @@ const Router: React.FC = () => {
       <Navigation {...{ authenticated, lexicon }} />
       {authenticated ? (
         <>
-          <AnimatedDrawer
-            {...{
-              condition: params.get('lexicons') === 'open',
-              back: () => push(pathname),
-            }}
-          >
+          <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
             <Lexicons />
           </AnimatedDrawer>
-          <AnimatedDrawer
-            {...{
-              condition: params.get('account') === 'open',
-              back: () => push(pathname),
-            }}
-          >
+          <AnimatedDrawer condition={params.get('account') === 'open'}>
             <Account />
           </AnimatedDrawer>
           <Switch>
