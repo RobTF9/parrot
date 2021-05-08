@@ -1,7 +1,6 @@
 import React from 'react';
 import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
-import { getLexicons, getShared } from '../../api/resources/lexicon';
 import { useLexiconContext } from '../../context/Lexicon';
 import Select from '../../components/Select';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
@@ -9,10 +8,16 @@ import LexiconList from '../../components/LexiconList';
 import { useMessageContext } from '../../context/Message';
 
 const Lexicons: React.FC = () => {
-  const { lexicon, activateLexicon } = useLexiconContext();
+  const {
+    lexicon,
+    activateLexicon,
+    yourLexicons,
+    sharedLexicons,
+    yoursLoading,
+    sharedLoading,
+  } = useLexiconContext();
+
   const { updateMessage } = useMessageContext();
-  const [lexicons, getLoading] = getLexicons();
-  const [sharedLexicons, sharedLoading] = getShared();
 
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
     (res: ServerReponse<LexiconResource>) => {
@@ -20,22 +25,11 @@ const Lexicons: React.FC = () => {
     }
   );
 
-  // if (
-  //   lexicons &&
-  //   lexicons.data.length === 0 &&
-  //   sharedLexicons &&
-  //   sharedLexicons.data.length === 0 &&
-  //   !getLoading &&
-  //   !sharedLoading
-  // ) {
-  //   return <Redirect to="/no-lexicon" />;
-  // }
-
   return (
     <>
       <h2 className="bold xxlarge margin-b">Your lexicons</h2>
       <form onSubmit={onSubmit}>
-        {(getLoading || createLoading) && <Loading bg />}
+        {(yoursLoading || createLoading) && <Loading bg />}
         <h2 className="large bold border-b-s">Create a new Lexicon</h2>
         <Select
           {...{
@@ -52,14 +46,14 @@ const Lexicons: React.FC = () => {
         <Button type="submit">Create lexicon</Button>
       </form>
 
-      {getLoading && <Loading bg />}
+      {yoursLoading && <Loading bg />}
       <h2 className="large bold border-b-s">Your Lexicons</h2>
       <ul>
-        {lexicons && (
+        {yourLexicons && (
           <LexiconList
             {...{
               lexicon,
-              lexicons,
+              lexicons: yourLexicons,
               activate: activateLexicon,
               emptyMessage: "You haven't created any lexicons",
               share: true,

@@ -15,18 +15,18 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <MessageProvider>
-        <LexiconProvider>
-          <AuthProvider>
-            <QueryContext>
+        <QueryContext>
+          <LexiconProvider>
+            <AuthProvider>
               <Reset />
               <Color />
               <Spacings />
               <Typography />
               <Shadows />
               <Router />
-            </QueryContext>
-          </AuthProvider>
-        </LexiconProvider>
+            </AuthProvider>
+          </LexiconProvider>
+        </QueryContext>
       </MessageProvider>
     </BrowserRouter>
   );
