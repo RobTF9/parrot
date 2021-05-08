@@ -19,6 +19,7 @@ declare global {
     sharedLexicons?: { data: LexiconResource[] };
     yoursLoading?: boolean;
     sharedLoading?: boolean;
+    noLexicons?: boolean;
   }
 
   interface IMessageContext {

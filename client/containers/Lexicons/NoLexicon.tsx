@@ -7,7 +7,7 @@ import { Container, Modal } from '../../styles/Layout.styles';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
 import { useMessageContext } from '../../context/Message';
 
-const CreateLexicon: React.FC = () => {
+const NoLexicon: React.FC = () => {
   const { push } = useHistory();
   const { updateMessage } = useMessageContext();
 
@@ -54,4 +54,4 @@ const CreateLexicon: React.FC = () => {
   );
 };
 
-export default CreateLexicon;
+export default NoLexicon;

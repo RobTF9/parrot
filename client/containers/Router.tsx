@@ -16,12 +16,14 @@ import AnimatedDrawer from '../components/AnimatedDrawer';
 
 const Router: React.FC = () => {
   const { authenticated } = useAuthContext();
-  const { lexicon } = useLexiconContext();
+  const { lexicon, noLexicons } = useLexiconContext();
   const params = useQueryParams();
 
   if (authenticated === undefined) {
     return <Loading bg />;
   }
+
+  if (noLexicons) return <NoLexicon />;
 
   return (
     <>
@@ -34,11 +36,6 @@ const Router: React.FC = () => {
           <AnimatedDrawer condition={params.get('account') === 'open'}>
             <Account />
           </AnimatedDrawer>
-          <Switch>
-            <Route path="/no-lexicon">
-              <NoLexicon />
-            </Route>
-          </Switch>
         </>
       ) : (
         <Switch>

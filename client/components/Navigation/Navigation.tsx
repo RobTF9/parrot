@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { NavWrapper } from './Navigation.styles';
 
 interface Props {
-  lexicon?: string;
+  lexicon?: LexiconSession;
   authenticated: boolean;
 }
 

@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { getLexicons, getShared } from '../api/resources/lexicon';
 import { get } from '../api/fetch';
 
 const LexiconContext = createContext<ILexiconContext>({
   activateLexicon: () => null,
   deactivateLexicon: () => null,
+  noLexicons: true,
 });
 
 export const useLexiconContext = (): ILexiconContext =>
@@ -25,16 +25,13 @@ export const LexiconProvider: React.FC = ({ children }) => {
 
   const deactivateLexicon = () => setLexicon(undefined);
 
-  if (
+  const noLexicons =
     yourLexicons &&
     yourLexicons.data.length === 0 &&
     sharedLexicons &&
     sharedLexicons.data.length === 0 &&
     !yoursLoading &&
-    !sharedLoading
-  ) {
-    return <Redirect to="/no-lexicon" />;
-  }
+    !sharedLoading;
 
   return (
     <LexiconContext.Provider
@@ -46,6 +43,7 @@ export const LexiconProvider: React.FC = ({ children }) => {
         sharedLexicons,
         yoursLoading,
         sharedLoading,
+        noLexicons,
       }}
     >
       {children}
