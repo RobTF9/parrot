@@ -28,7 +28,8 @@
     "no-underscore-dangle": 0,
     "no-console": 0,
     "import/prefer-default-export": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/no-onchange": 0
   },
   "ignorePatterns": ["/dist", "/scripts"],
   "settings": {

@@ -16,7 +16,13 @@ import AnimatedDrawer from '../components/AnimatedDrawer';
 
 const Router: React.FC = () => {
   const { authenticated } = useAuthContext();
-  const { lexicon, noLexicons } = useLexiconContext();
+  const {
+    lexicon,
+    noLexicons,
+    yourLexicons,
+    sharedLexicons,
+    activateLexicon,
+  } = useLexiconContext();
   const params = useQueryParams();
 
   if (authenticated === undefined) {
@@ -27,7 +33,15 @@ const Router: React.FC = () => {
 
   return (
     <>
-      <Navigation {...{ authenticated, lexicon }} />
+      <Navigation
+        {...{
+          authenticated,
+          lexicon,
+          yourLexicons,
+          sharedLexicons,
+          activateLexicon,
+        }}
+      />
       {authenticated ? (
         <>
           <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
