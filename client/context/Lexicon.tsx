@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { getLexicons, getShared } from '../api/resources/lexicon';
 import { get } from '../api/fetch';
 
@@ -32,6 +32,13 @@ export const LexiconProvider: React.FC = ({ children }) => {
     sharedLexicons.data.length === 0 &&
     !yoursLoading &&
     !sharedLoading;
+
+  useEffect(() => {
+    if (lexicon && lexicon.language.htmlCode) {
+      const html = document.getElementById('html');
+      html?.setAttribute('lang', lexicon.language.htmlCode);
+    }
+  }, [lexicon]);
 
   return (
     <LexiconContext.Provider
