@@ -22,4 +22,20 @@ const Color = createGlobalStyle`
   }
 `;
 
+export const BengaliColors = createGlobalStyle`
+  :root {
+    --core-dark: rgba(0, 106, 78, 1);
+    --core-dark-10: rgba(0, 106, 78, 0.1);
+    --core-dark-50: rgba(0, 106, 78, 0.5);
+  }
+`;
+
+export const HindiColors = createGlobalStyle`
+  :root {
+    --core-dark: rgba(200, 103, 1, 1);
+    --core-dark-10: rgba(200, 103, 1, 0.1);
+    --core-dark-50: rgba(200, 103, 1, 0.5);
+  }
+`;
+
 export default Color;
