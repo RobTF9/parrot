@@ -16,16 +16,16 @@ const App: React.FC = () => {
     <BrowserRouter>
       <MessageProvider>
         <QueryContext>
-          <AuthProvider>
-            <LexiconProvider>
+          <LexiconProvider>
+            <AuthProvider>
               <Reset />
               <Color />
               <Spacings />
               <Typography />
               <Shadows />
               <Router />
-            </LexiconProvider>
-          </AuthProvider>
+            </AuthProvider>
+          </LexiconProvider>
         </QueryContext>
       </MessageProvider>
     </BrowserRouter>
