@@ -54,7 +54,7 @@ export const NavWrapper = styled.nav`
   }
 `;
 
-export const LexiconSwitch = styled.div`
+export const LexiconSwitch = styled.div<{ show: boolean }>`
   border-right: 0.1rem solid var(--core-lightest-10);
   padding-right: var(--medium);
   margin-right: var(--medium);
@@ -71,6 +71,8 @@ export const LexiconSwitch = styled.div`
     svg {
       margin-bottom: -0.2rem;
       transition: stroke 0.3s ease;
+
+      ${({ show }) => show && `transform: rotate(180deg);`}
     }
 
     &:hover {

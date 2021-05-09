@@ -31,7 +31,7 @@ const Navigation: React.FC<Props> = ({
       <div>
         <p>Parrot</p>
         {authenticated && (
-          <LexiconSwitch>
+          <LexiconSwitch show={showLexicons}>
             <button
               type="button"
               onClick={() => setShowLexicons(!showLexicons)}
