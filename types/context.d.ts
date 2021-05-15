@@ -15,11 +15,6 @@ declare global {
     lexicon?: LexiconSession;
     activateLexicon: (l: string) => void;
     deactivateLexicon: () => void;
-    yourLexicons?: { data: LexiconResource[] };
-    sharedLexicons?: { data: LexiconResource[] };
-    yoursLoading?: boolean;
-    sharedLoading?: boolean;
-    noLexicons?: boolean;
   }
 
   interface IMessageContext {

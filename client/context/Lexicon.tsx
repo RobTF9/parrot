@@ -1,11 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getLexicons, getShared } from '../api/resources/lexicon';
+
 import { get } from '../api/fetch';
 
 const LexiconContext = createContext<ILexiconContext>({
   activateLexicon: () => null,
   deactivateLexicon: () => null,
-  noLexicons: true,
 });
 
 export const useLexiconContext = (): ILexiconContext =>
@@ -13,8 +12,6 @@ export const useLexiconContext = (): ILexiconContext =>
 
 export const LexiconProvider: React.FC = ({ children }) => {
   const [lexicon, setLexicon] = useState<LexiconSession | undefined>();
-  const [yourLexicons, yoursLoading] = getLexicons();
-  const [sharedLexicons, sharedLoading] = getShared();
 
   const activateLexicon = async (id: string) => {
     const response = await get<ServerReponse>(`/api/lexicon/${id}`);
@@ -24,14 +21,6 @@ export const LexiconProvider: React.FC = ({ children }) => {
   };
 
   const deactivateLexicon = () => setLexicon(undefined);
-
-  const noLexicons =
-    yourLexicons &&
-    yourLexicons.data.length === 0 &&
-    sharedLexicons &&
-    sharedLexicons.data.length === 0 &&
-    !yoursLoading &&
-    !sharedLoading;
 
   useEffect(() => {
     if (lexicon && lexicon.language.htmlCode) {
@@ -46,11 +35,6 @@ export const LexiconProvider: React.FC = ({ children }) => {
         lexicon,
         activateLexicon,
         deactivateLexicon,
-        yourLexicons,
-        sharedLexicons,
-        yoursLoading,
-        sharedLoading,
-        noLexicons,
       }}
     >
       {children}

@@ -2,14 +2,11 @@ import React from 'react';
 import LexiconList from '../../components/LexiconList';
 import { Loading } from '../../styles/Animations.styles';
 import { useLexiconContext } from '../../context/Lexicon';
+import { getLexicons } from '../../api/resources/lexicon';
 
 const YourLexicons: React.FC = () => {
-  const {
-    lexicon,
-    activateLexicon,
-    yourLexicons,
-    yoursLoading,
-  } = useLexiconContext();
+  const { lexicon, activateLexicon } = useLexiconContext();
+  const [yourLexicons, yoursLoading] = getLexicons();
 
   return (
     <>

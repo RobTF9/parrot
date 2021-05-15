@@ -13,21 +13,38 @@ import SignIn from './Authentication/SignIn';
 import Lexicons from './Lexicons/Lexicons';
 import useQueryParams from '../hooks/useQueryParams';
 import AnimatedDrawer from '../components/AnimatedDrawer';
+import { getLexicons, getShared } from '../api/resources/lexicon';
 
-const Router: React.FC = () => {
-  const { authenticated } = useAuthContext();
-  const {
-    lexicon,
-    noLexicons,
-    yourLexicons,
-    sharedLexicons,
-    activateLexicon,
-  } = useLexiconContext();
+const NotAuthenticated = () => (
+  <Switch>
+    <Route path="/reset">
+      <ResetPassword />
+    </Route>
+    <Route path="/forgot-password">
+      <ForgotPassword />
+    </Route>
+    <Route path="/sign-in">
+      <SignIn />
+    </Route>
+    <Route path="/">
+      <CreateAccount />
+    </Route>
+  </Switch>
+);
+
+const Authenticated = () => {
+  const { lexicon, activateLexicon } = useLexiconContext();
+  const [yourLexicons, yoursLoading] = getLexicons();
+  const [sharedLexicons, sharedLoading] = getShared();
   const params = useQueryParams();
 
-  if (authenticated === undefined) {
-    return <Loading bg />;
-  }
+  const noLexicons =
+    yourLexicons &&
+    yourLexicons.data.length === 0 &&
+    sharedLexicons &&
+    sharedLexicons.data.length === 0 &&
+    !yoursLoading &&
+    !sharedLoading;
 
   if (noLexicons) return <NoLexicon />;
 
@@ -35,40 +52,29 @@ const Router: React.FC = () => {
     <>
       <Navigation
         {...{
-          authenticated,
           lexicon,
           yourLexicons,
           sharedLexicons,
           activateLexicon,
         }}
       />
-      {authenticated ? (
-        <>
-          <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
-            <Lexicons />
-          </AnimatedDrawer>
-          <AnimatedDrawer condition={params.get('account') === 'open'}>
-            <Account />
-          </AnimatedDrawer>
-        </>
-      ) : (
-        <Switch>
-          <Route path="/reset">
-            <ResetPassword />
-          </Route>
-          <Route path="/forgot-password">
-            <ForgotPassword />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/">
-            <CreateAccount />
-          </Route>
-        </Switch>
-      )}
+      <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
+        <Lexicons />
+      </AnimatedDrawer>
+      <AnimatedDrawer condition={params.get('account') === 'open'}>
+        <Account />
+      </AnimatedDrawer>
     </>
   );
 };
 
+const Router: React.FC = () => {
+  const { authenticated } = useAuthContext();
+
+  if (authenticated === undefined) {
+    return <Loading bg />;
+  }
+
+  return authenticated ? <Authenticated /> : <NotAuthenticated />;
+};
 export default Router;
