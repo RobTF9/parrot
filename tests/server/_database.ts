@@ -34,6 +34,7 @@ beforeEach(async (done) => {
         autoIndex: true,
         useCreateIndex: true,
         useUnifiedTopology: true,
+        useFindAndModify: true,
       });
       await clearDB();
       await Promise.all(Object.keys(models).map((name) => models[name].init()));
