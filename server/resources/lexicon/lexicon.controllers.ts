@@ -122,12 +122,6 @@ export const shareLexicon: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    if (!lexicon) {
-      return res
-        .status(404)
-        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
-    }
-
     return res
       .status(200)
       .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_SHARED });

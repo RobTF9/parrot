@@ -35,7 +35,7 @@ describe('Auth service...', () => {
     });
 
     expect(response.body.auth).toBe(false);
-    expect(response.body.message).toBe(
+    expect(response.body.message).toStrictEqual(
       ERROR_MESSAGE.NEED_EMAIL_PASSWORD_USERNAME
     );
     expect(response.statusCode).toBe(400);
@@ -60,7 +60,9 @@ describe('Auth service...', () => {
     });
 
     expect(response.body.auth).toBe(false);
-    expect(response.body.message).toBe(ERROR_MESSAGE.NEED_EMAIL_AND_PASSWORD);
+    expect(response.body.message).toStrictEqual(
+      ERROR_MESSAGE.NEED_EMAIL_AND_PASSWORD
+    );
     expect(response.statusCode).toBe(400);
   });
 
@@ -71,7 +73,7 @@ describe('Auth service...', () => {
     });
 
     expect(response.body.auth).toBe(false);
-    expect(response.body.message).toBe(
+    expect(response.body.message).toStrictEqual(
       ERROR_MESSAGE.INVALID_EMAIL_AND_PASSWORD
     );
     expect(response.statusCode).toBe(401);
@@ -86,7 +88,7 @@ describe('Auth service...', () => {
     });
 
     expect(response.body.auth).toBe(false);
-    expect(response.body.message).toBe(
+    expect(response.body.message).toStrictEqual(
       ERROR_MESSAGE.INVALID_EMAIL_AND_PASSWORD
     );
     expect(response.statusCode).toBe(401);
@@ -97,7 +99,7 @@ describe('Auth service...', () => {
     const response = await authSession.get('/auth');
 
     expect(response.body.auth).toBe(false);
-    expect(response.body.message).toBe(ERROR_MESSAGE.NOT_AUTHORIZED);
+    expect(response.body.message).toStrictEqual(ERROR_MESSAGE.NOT_AUTHORIZED);
     expect(response.statusCode).toBe(401);
   });
 
@@ -134,7 +136,7 @@ describe('Auth service...', () => {
   test('protects routes if not signed in', async () => {
     const response = await request(app).get('/api/user');
 
-    expect(response.body.message).toBe(ERROR_MESSAGE.NOT_AUTHORIZED);
+    expect(response.body.message).toStrictEqual(ERROR_MESSAGE.NOT_AUTHORIZED);
     expect(response.statusCode).toBe(401);
   });
 });
