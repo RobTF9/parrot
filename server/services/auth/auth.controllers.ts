@@ -89,6 +89,7 @@ export const checkAuth: RequestHandler = async (req, res, next) => {
         .status(401)
         .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
     }
+
     const user = await User.findById(req.session.user);
 
     if (!user) {

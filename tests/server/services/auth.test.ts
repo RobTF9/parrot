@@ -1,8 +1,13 @@
 import request from 'supertest';
 import session from 'supertest-session';
+import nodemailer from 'nodemailer';
+import nodemailerMock from 'nodemailer-mock';
+import Lexicon from '../../../server/resources/lexicon/lexicon.model';
 import User from '../../../server/resources/user/user.model';
 import { app } from '../../../server/server';
 import { ERROR_MESSAGE } from '../../../server/utils/constants';
+
+nodemailerMock.getMockFor(nodemailer);
 
 const createUser = async () => {
   await User.create({
@@ -38,6 +43,32 @@ describe('Auth service...', () => {
     expect(response.body.message).toStrictEqual(
       ERROR_MESSAGE.NEED_EMAIL_PASSWORD_USERNAME
     );
+    expect(response.statusCode).toBe(400);
+  });
+
+  test('error on sign up if email already exists', async () => {
+    await createUser();
+    const response = await request(app).post('/auth/signup').send({
+      username: 'user',
+      email: 'email@email.com',
+      password: 'password',
+    });
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toStrictEqual(ERROR_MESSAGE.EMAIL_IN_USE);
+    expect(response.statusCode).toBe(400);
+  });
+
+  test('error on sign up if username already exists', async () => {
+    await createUser();
+    const response = await request(app).post('/auth/signup').send({
+      username: 'user',
+      email: 'changed@email.com',
+      password: 'password',
+    });
+
+    expect(response.body.auth).toBe(false);
+    expect(response.body.message).toStrictEqual(ERROR_MESSAGE.USERNAME_IN_USE);
     expect(response.statusCode).toBe(400);
   });
 
@@ -116,6 +147,37 @@ describe('Auth service...', () => {
     const response = await authSession.get('/auth');
     expect(response.statusCode).toBe(200);
     expect(response.body.auth).toBe(true);
+  });
+
+  test('session persists lexicon after log in', async () => {
+    const authSession = session(app);
+
+    const user = await User.create({
+      username: 'user',
+      email: 'email@email.com',
+      password: 'password',
+    });
+
+    const lexicon = await Lexicon.create({
+      createdBy: user._id,
+      language: { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BD' },
+    });
+
+    await authSession.post('/auth/signin').send({
+      email: 'email@email.com',
+      password: 'password',
+    });
+
+    await authSession.get(`/api/lexicon/${lexicon._id}`);
+
+    const response = await authSession.get('/auth');
+    expect(response.statusCode).toBe(200);
+    expect(response.body.auth).toBe(true);
+    expect(response.body.lexicon.language).toStrictEqual({
+      name: 'Bengali',
+      htmlCode: 'bn',
+      langCode: 'bn-BD',
+    });
   });
 
   test('can remove session on sign out', async () => {
