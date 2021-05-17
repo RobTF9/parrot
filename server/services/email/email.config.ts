@@ -2,11 +2,12 @@ import nodemailer from 'nodemailer';
 import config from '../../config';
 
 export const transport = nodemailer.createTransport({
-  service: 'gmail',
+  host: config.emailService,
+  port: 587,
   auth: {
-    user: config.gmail,
-    pass: config.gmailPassword,
+    user: config.email,
+    pass: config.emailPassword,
   },
 });
 
-export const sendAddress = config.gmail;
+export const sendAddress = config.email;
