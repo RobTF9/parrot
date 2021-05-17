@@ -161,7 +161,7 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
     await user.save();
 
     const link = `${config.client}reset/?token=${resetToken}&id=${user._id}`;
-    resetPasswordEmail(user.email, link, user.username);
+    await resetPasswordEmail(user.email, link, user.username);
 
     return res.send({
       auth: false,

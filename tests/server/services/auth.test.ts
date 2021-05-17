@@ -201,4 +201,20 @@ describe('Auth service...', () => {
     expect(response.body.message).toStrictEqual(ERROR_MESSAGE.NOT_AUTHORIZED);
     expect(response.statusCode).toBe(401);
   });
+
+  test('can request password reset', async () => {
+    const authSession = session(app);
+
+    const user = await User.create({
+      username: 'user',
+      email: 'email@email.com',
+      password: 'password',
+    });
+
+    const response = await authSession
+      .post('/auth/forgot')
+      .send({ email: user.email });
+
+    expect(response.statusCode).toBe(200);
+  });
 });
