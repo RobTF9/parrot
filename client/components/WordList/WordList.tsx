@@ -11,7 +11,11 @@ interface Props {
 
 const WordList: React.FC<Props> = ({ words }) => {
   return (
-    <Grid as="ul" columns="repeat(auto-fill, minmax(300px, 1fr))">
+    <Grid
+      as="ul"
+      className="margin-b"
+      columns="repeat(auto-fill, minmax(300px, 1fr))"
+    >
       {words.data.map((word) => (
         <WordWrapper as={Link} key={word._id} to={`/words/${word._id}`}>
           <p className="border-b-s">
