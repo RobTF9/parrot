@@ -47,6 +47,7 @@ export const SUCCESS_MESSAGE = {
   USER_UPDATED: succesMessage('Your details have been updated'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
   WORD_CREATED: succesMessage('Word created succesfully'),
+  WORD_UPDATED: succesMessage('Word updated succesfully'),
 };
 
 export const CLASS = {
