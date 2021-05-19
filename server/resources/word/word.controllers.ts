@@ -73,7 +73,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
             const found = await Tag.findById(tag);
 
             if (found) {
-              tags.push(found.tag);
+              tags.push({ text: found.tag, color: found.color });
             }
 
             data.push({ ...word, tags });
@@ -106,7 +106,7 @@ export const getOne: RequestHandler = async (req, res, next) => {
       const found = await Tag.findById(tag).lean().exec();
 
       if (found) {
-        tags.push(found.tag);
+        tags.push({ text: found.tag, color: found.color });
       }
     }
 

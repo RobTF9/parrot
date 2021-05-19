@@ -76,6 +76,12 @@ const Typography = createGlobalStyle`
       padding-top: var(--large);
       margin-top: var(--large);
       border-top: 0.1rem solid var(--core-dark-10);
+
+      &-s {
+        padding-top: var(--medium);
+        margin-top: var(--medium);
+        border-top: 0.1rem solid var(--core-dark-10);
+      }
     }
 
     &-b {

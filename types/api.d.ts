@@ -58,7 +58,7 @@ declare global {
     lexicon: string;
     createdBy: string;
     updatedBy: string;
-    tags: string[];
+    tags: { text: string; color: string }[];
     createdAt: string;
     updatedAt: string;
     lang: string;
