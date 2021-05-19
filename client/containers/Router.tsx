@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation';
 import { useAuthContext } from '../context/Auth';
 import { useLexiconContext } from '../context/Lexicon';
 import { Loading } from '../styles/Animations.styles';
-import Account from './Account';
+import Account from './Account/Account';
 import NoLexicon from './Lexicons/NoLexicon';
 import CreateAccount from './Authentication/CreateAccount';
 import ForgotPassword from './Authentication/ForgotPassword';
@@ -14,6 +14,7 @@ import Lexicons from './Lexicons/Lexicons';
 import useQueryParams from '../hooks/useQueryParams';
 import AnimatedDrawer from '../components/AnimatedDrawer';
 import { getLexicons, getShared } from '../api/resources/lexicon';
+import Words from './Words/Words';
 
 const NotAuthenticated = () => (
   <Switch>
@@ -64,6 +65,13 @@ const Authenticated = () => {
       <AnimatedDrawer condition={params.get('account') === 'open'}>
         <Account />
       </AnimatedDrawer>
+      {lexicon && (
+        <Switch>
+          <Route path="/">
+            <Words />
+          </Route>
+        </Switch>
+      )}
     </>
   );
 };

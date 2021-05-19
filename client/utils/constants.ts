@@ -1,6 +1,7 @@
 export const CACHE = {
   USER: 'user',
   LEXICON: 'lexicon',
+  WORD: 'word',
   SHARED_LEXICON: 'share-lexicon',
 };
 
