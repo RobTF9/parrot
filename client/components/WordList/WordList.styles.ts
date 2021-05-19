@@ -14,12 +14,3 @@ export const WordWrapper = styled(Card)`
     transform: scale(1.05);
   }
 `;
-
-export const Tag = styled.li<{ color?: string }>`
-  background-color: ${({ color }) => color};
-  color: var(--core-white);
-  border-radius: 0.2rem;
-  padding: var(--smaller) var(--smaller) 0.2rem;
-  display: inline;
-  text-transform: capitalize;
-`;

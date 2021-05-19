@@ -59,6 +59,7 @@ export const LexiconSwitch = styled.div<{ show: boolean }>`
   padding-right: var(--medium);
   margin-right: var(--medium);
   position: relative;
+  z-index: 1000;
 
   & > button {
     background: none;

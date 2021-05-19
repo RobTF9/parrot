@@ -76,4 +76,13 @@ declare global {
     pron: string;
     tran: string;
   }
+
+  interface TagResource {
+    _id: string;
+    lexicon: string;
+    createdBy: string;
+    updatedBy: string;
+    tag: string;
+    color: string;
+  }
 }

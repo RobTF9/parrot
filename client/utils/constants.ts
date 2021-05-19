@@ -3,6 +3,7 @@ export const CACHE = {
   LEXICON: 'lexicon',
   WORD: 'word',
   SHARED_LEXICON: 'share-lexicon',
+  TAG: 'tag',
 };
 
 export const LANGUAGES = [

@@ -50,3 +50,17 @@ export const TextButton = styled.button`
     box-shadow: var(--focus-border);
   }
 `;
+
+export const Tag = styled.li<{ color?: string }>`
+  background-color: ${({ color }) => color};
+  color: var(--core-white);
+  border-radius: 0.2rem;
+  padding: var(--smaller) var(--smaller) 0.2rem;
+  display: inline;
+  text-transform: capitalize;
+  margin: 0 var(--smaller) var(--smaller) 0;
+
+  * {
+    color: var(--core-white);
+  }
+`;

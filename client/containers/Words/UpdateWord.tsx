@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { getTags } from '../../api/resources/tags';
 import { getWord, updateWord } from '../../api/resources/word';
 import AnimatedModal from '../../components/AnimatedModal';
 import WordForm from '../../components/WordForm/WordForm';
@@ -10,11 +11,12 @@ import { Loading } from '../../styles/Animations.styles';
 const UpdateWord: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { push } = useHistory();
+
   const { showMessage } = useMessageContext();
   const { lexicon } = useLexiconContext();
 
+  const [tags, tagsLoading] = getTags();
   const [word, wordLoading] = getWord(id);
-
   const [update, updateLoading] = updateWord(id, (res) => {
     if (res.message) {
       showMessage(res.message);
@@ -26,11 +28,16 @@ const UpdateWord: React.FC = () => {
 
   return (
     <AnimatedModal back="/words">
-      {wordLoading && updateLoading && <Loading bg />}
+      {(wordLoading || updateLoading || tagsLoading) && <Loading bg />}
       <h3 className="bold border-b-s xlarge">Update word</h3>
-      {word && lexicon && (
+      {word && lexicon && tags && (
         <WordForm
-          {...{ initialWord: word.data, tags: [], lexicon, mutate: update }}
+          {...{
+            initialWord: word.data,
+            tags: tags.data,
+            lexicon,
+            mutate: update,
+          }}
         />
       )}
     </AnimatedModal>

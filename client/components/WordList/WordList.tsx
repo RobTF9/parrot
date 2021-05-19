@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from '../../styles/Layout.styles';
-import { Tag, WordWrapper } from './WordList.styles';
+import { Tag } from '../../styles/Buttons.styles';
+import { WordWrapper } from './WordList.styles';
 
 interface Props {
   words: {
@@ -24,7 +25,7 @@ const WordList: React.FC<Props> = ({ words }) => {
           <p>{word.tran}</p>
           <ul className="margin-t">
             {word.tags.map((tag) => (
-              <Tag className="small" key={tag.text} color={tag.color}>
+              <Tag as="li" className="small" key={tag.text} color={tag.color}>
                 {tag.text}
               </Tag>
             ))}
