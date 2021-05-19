@@ -9,7 +9,7 @@ const users = [
   },
 ];
 
-export const authServer = setupServer(
+export const authControllers = [
   rest.get('/auth', (req, res, ctx) => {
     return res(
       ctx.json({
@@ -57,7 +57,27 @@ export const authServer = setupServer(
     return res(
       ctx.json({ auth: true, message: SUCCESS_MESSAGE.SIGN_IN_SUCCESSFUL })
     );
-  })
-);
+  }),
+];
+
+export const emptyLexicons = [
+  rest.get('/api/lexicon', (req, res, ctx) => {
+    return res(
+      ctx.json({
+        data: [],
+      })
+    );
+  }),
+
+  rest.get('/api/lexicon/shared', (req, res, ctx) => {
+    return res(
+      ctx.json({
+        data: [],
+      })
+    );
+  }),
+];
+
+export const authServer = setupServer(...authControllers, ...emptyLexicons);
 
 export const lexiconServer = '';
