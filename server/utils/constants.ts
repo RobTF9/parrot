@@ -49,15 +49,3 @@ export const SUCCESS_MESSAGE = {
   WORD_CREATED: succesMessage('Word created succesfully'),
   WORD_UPDATED: succesMessage('Word updated succesfully'),
 };
-
-export const CLASS = {
-  NOUN: 'Noun',
-  ADJECTIVE: 'Adjective',
-  CONJUNCTION: 'Conjunction',
-  DETERMINER: 'Determiner',
-  EXCLAMATION: 'Exclamation',
-  PREPOSITION: 'Prepostion',
-  PRONOUN: 'Pronoun',
-  VERB: 'Verb',
-  ADVERB: 'Adverb',
-};
