@@ -11,6 +11,7 @@ import lexiconRouter from './resources/lexicon/lexicon.router';
 import errorHandler from './utils/errorHandler';
 import authSession from './utils/session';
 import tagRouter from './resources/tag/tag.router';
+import wordRouter from './resources/word/word.router';
 
 export const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api', protect);
 app.use('/api/user', userRouter);
 app.use('/api/lexicon', lexiconRouter);
 app.use('/api/tag', tagRouter);
+app.use('/api/word', wordRouter);
 
 // Serve client
 const clientPath = path.join(__dirname, '..', 'client');

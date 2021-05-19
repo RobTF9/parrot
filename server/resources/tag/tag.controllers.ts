@@ -5,7 +5,6 @@ import Tag from './tag.model';
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
     const tags = await Tag.find({
-      createdBy: req.session.user,
       lexicon: req.session.lexicon?._id,
     });
 

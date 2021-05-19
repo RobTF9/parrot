@@ -46,6 +46,7 @@ export const SUCCESS_MESSAGE = {
   LEXICON_CREATED: succesMessage('Lexicon created succesfully'),
   USER_UPDATED: succesMessage('Your details have been updated'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
+  WORD_CREATED: succesMessage('Word created succesfully'),
 };
 
 export const CLASS = {
