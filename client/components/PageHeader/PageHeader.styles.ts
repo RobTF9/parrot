@@ -7,7 +7,6 @@ export const PageHeaderWrapper = styled.header`
   z-index: 0;
 
   * {
-    color: var(--core-light);
     max-width: 45rem;
   }
 

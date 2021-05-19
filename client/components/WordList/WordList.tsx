@@ -13,7 +13,7 @@ const WordList: React.FC<Props> = ({ words }) => {
   return (
     <Grid
       as="ul"
-      className="margin-b"
+      className="margin-b-xl"
       columns="repeat(auto-fill, minmax(300px, 1fr))"
     >
       {words.data.map((word) => (

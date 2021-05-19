@@ -3,7 +3,7 @@ import { get, post, put } from './fetch';
 import { queryClient } from '../context/Query';
 
 export interface APIReciever<T> {
-  (): [data: { data: T } | undefined, isLoading: boolean];
+  (id?: string): [data: { data: T } | undefined, isLoading: boolean];
 }
 
 export function getMany<T>(

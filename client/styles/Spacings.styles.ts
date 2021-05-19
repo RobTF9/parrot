@@ -8,6 +8,22 @@ const Spacings = createGlobalStyle`
     --large: 4rem;
     --larger: 8rem;
   }
+
+
+  .margin {
+    &-t {
+      margin-top: var(--medium);
+    }
+
+    &-b {
+      margin-bottom: var(--medium);
+
+      &-xl {
+      margin-bottom: var(--larger);
+    }
+    }
+  }
+
 `;
 
 export default Spacings;
