@@ -26,6 +26,7 @@ export const ERROR_MESSAGE = {
   CANT_SHARE_WITH_SELF: errorMessage("You can't share this with yourself"),
   NO_LEXICON_ACTIVE: errorMessage('No lexicon active'),
   TAG_EMPTY: errorMessage('You need to provide text for a tag'),
+  NO_WORDS: errorMessage('Please provide at least one word'),
 };
 
 const succesMessage = (message: string) => ({

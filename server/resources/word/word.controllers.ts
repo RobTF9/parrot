@@ -3,20 +3,28 @@ import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import Tag from '../tag/tag.model';
 import Word from './word.model';
 
-export const createOne: RequestHandler = async (req, res, next) => {
+export const createWords: RequestHandler = async (req, res, next) => {
   try {
-    // TODO: add validators for better error messaging
+    const data = [];
 
-    const word = await Word.create({
-      ...req.body,
-      createdBy: req.session.user,
-      updatedBy: req.session.user,
-      lexicon: req.session.lexicon?._id,
-    });
+    if (req.body.length > 0) {
+      for (const word of req.body) {
+        const created = await Word.create({
+          ...word,
+          createdBy: req.session.user,
+          updatedBy: req.session.user,
+          lexicon: req.session.lexicon?._id,
+        });
+
+        data.push(created);
+      }
+    } else {
+      return res.status(400).json({ message: ERROR_MESSAGE.NO_WORDS });
+    }
 
     return res
       .status(200)
-      .json({ data: word, message: SUCCESS_MESSAGE.WORD_CREATED });
+      .json({ message: SUCCESS_MESSAGE.WORD_CREATED, data });
   } catch (error) {
     return next(new Error(error));
   }
@@ -24,9 +32,13 @@ export const createOne: RequestHandler = async (req, res, next) => {
 
 export const updateOne: RequestHandler = async (req, res, next) => {
   try {
-    const word = await Word.findOneAndUpdate({ _id: req.params.id }, req.body, {
-      new: true,
-    });
+    const word = await Word.findOneAndUpdate(
+      { _id: req.params.id },
+      { ...req.body, updatedAt: undefined },
+      {
+        new: true,
+      }
+    );
 
     if (!word) {
       return res
