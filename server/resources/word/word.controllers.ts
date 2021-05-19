@@ -89,3 +89,29 @@ export const getMany: RequestHandler = async (req, res, next) => {
     return next(new Error(error));
   }
 };
+
+export const getOne: RequestHandler = async (req, res, next) => {
+  try {
+    const word = await Word.findById(req.params.id).lean().exec();
+
+    if (!word) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    const tags = [];
+
+    for (const tag of word.tags) {
+      const found = await Tag.findById(tag).lean().exec();
+
+      if (found) {
+        tags.push(found.tag);
+      }
+    }
+
+    return res.status(200).json({ data: { ...word, tags } });
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
