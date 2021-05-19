@@ -6,7 +6,7 @@ declare module 'express-session' {
   export interface SessionData {
     user: { [key: string]: string };
     lexicon: {
-      _id: string;
+      _id: { [key: string]: string };
       language: {
         name: string;
         htmlCode: string;

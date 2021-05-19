@@ -24,4 +24,16 @@ export const protect: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const lexiconActive: RequestHandler = async (req, res, next) => {
+  try {
+    if (!req.session.lexicon) {
+      res.status(400).json({ message: ERROR_MESSAGE.NO_LEXICON_ACTIVE });
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(new Error(error));
+  }
+};
+
 export default protect;

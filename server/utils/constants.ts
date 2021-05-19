@@ -24,6 +24,8 @@ export const ERROR_MESSAGE = {
     "You've already shared this Lexicon with the user"
   ),
   CANT_SHARE_WITH_SELF: errorMessage("You can't share this with yourself"),
+  NO_LEXICON_ACTIVE: errorMessage('No lexicon active'),
+  TAG_EMPTY: errorMessage('You need to provide text for a tag'),
 };
 
 const succesMessage = (message: string) => ({
@@ -43,4 +45,17 @@ export const SUCCESS_MESSAGE = {
   LEXICON_SHARED: succesMessage('Lexicon shared succesfully'),
   LEXICON_CREATED: succesMessage('Lexicon created succesfully'),
   USER_UPDATED: succesMessage('Your details have been updated'),
+  TAG_CREATED: succesMessage('Tag created succesfully'),
+};
+
+export const CLASS = {
+  NOUN: 'Noun',
+  ADJECTIVE: 'Adjective',
+  CONJUNCTION: 'Conjunction',
+  DETERMINER: 'Determiner',
+  EXCLAMATION: 'Exclamation',
+  PREPOSITION: 'Prepostion',
+  PRONOUN: 'Pronoun',
+  VERB: 'Verb',
+  ADVERB: 'Adverb',
 };

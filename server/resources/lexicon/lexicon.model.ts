@@ -46,4 +46,5 @@ const lexiconSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
 lexiconSchema.index({ createdBy: 1, language: { name: 1 } }, { unique: true });
 
 const Lexicon = model<LexiconDocument>('lexicon', lexiconSchema);
+
 export default Lexicon;
