@@ -67,7 +67,7 @@ const Authenticated = () => {
       </AnimatedDrawer>
       {lexicon && (
         <Switch>
-          <Route path="/">
+          <Route path="/words">
             <Words />
           </Route>
         </Switch>
@@ -85,4 +85,5 @@ const Router: React.FC = () => {
 
   return authenticated ? <Authenticated /> : <NotAuthenticated />;
 };
+
 export default Router;

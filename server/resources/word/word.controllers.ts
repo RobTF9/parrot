@@ -32,12 +32,14 @@ export const createWords: RequestHandler = async (req, res, next) => {
 
 export const updateOne: RequestHandler = async (req, res, next) => {
   try {
+    if (req.body.tags) {
+      delete req.body.tags;
+    }
+
     const word = await Word.findOneAndUpdate(
       { _id: req.params.id },
       { ...req.body, updatedAt: undefined },
-      {
-        new: true,
-      }
+      { new: true }
     );
 
     if (!word) {

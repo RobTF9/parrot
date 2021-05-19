@@ -53,6 +53,17 @@ declare global {
     };
   }
 
+  interface WordSubmission {
+    lexicon: string;
+    createdBy: string;
+    updatedBy: string;
+    tags: { text: string; color: string }[];
+    createdAt: string;
+    updatedAt: string;
+    lang: string;
+    pron: string;
+    tran: string;
+  }
   interface WordResource {
     _id: string;
     lexicon: string;
