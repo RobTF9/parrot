@@ -18,10 +18,13 @@ interface Props {
 }
 
 const WordForm: React.FC<Props> = ({ initialWord, mutate, lexicon, tags }) => {
-  const { word, errors, changeHandler, submitHandler } = useWordForm(
-    mutate,
-    initialWord
-  );
+  const {
+    word,
+    errors,
+    changeHandler,
+    submitHandler,
+    tagChangeHandler,
+  } = useWordForm(mutate, initialWord);
 
   return (
     <form onSubmit={submitHandler}>
@@ -59,9 +62,9 @@ const WordForm: React.FC<Props> = ({ initialWord, mutate, lexicon, tags }) => {
               <input
                 type="checkbox"
                 id={tag._id}
-                defaultChecked={
-                  !!word.tags.find(({ text }) => text === tag.tag)
-                }
+                value={tag._id}
+                defaultChecked={!!word.tags.find((t) => t === tag._id)}
+                onChange={tagChangeHandler}
               />
               {tag.tag}
             </label>

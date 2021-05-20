@@ -1,6 +1,5 @@
 import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
-import Tag from '../tag/tag.model';
 import Word from './word.model';
 
 export const createWords: RequestHandler = async (req, res, next) => {
@@ -32,10 +31,6 @@ export const createWords: RequestHandler = async (req, res, next) => {
 
 export const updateOne: RequestHandler = async (req, res, next) => {
   try {
-    if (req.body.tags) {
-      delete req.body.tags;
-    }
-
     const word = await Word.findOneAndUpdate(
       { _id: req.params.id },
       { ...req.body, updatedAt: undefined },
@@ -64,29 +59,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    const data = [];
-
-    if (words.length > 0) {
-      for (const word of words) {
-        if (word.tags.length > 0) {
-          const tags = [];
-
-          for (const tag of word.tags) {
-            const found = await Tag.findById(tag);
-
-            if (found) {
-              tags.push({ text: found.tag, color: found.color });
-            }
-
-            data.push({ ...word, tags });
-          }
-        } else {
-          data.push(word);
-        }
-      }
-    }
-
-    return res.status(200).json({ data });
+    return res.status(200).json({ data: words });
   } catch (error) {
     return next(new Error(error));
   }
@@ -102,17 +75,7 @@ export const getOne: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    const tags = [];
-
-    for (const tag of word.tags) {
-      const found = await Tag.findById(tag).lean().exec();
-
-      if (found) {
-        tags.push({ text: found.tag, color: found.color });
-      }
-    }
-
-    return res.status(200).json({ data: { ...word, tags } });
+    return res.status(200).json({ data: word });
   } catch (error) {
     return next(new Error(error));
   }

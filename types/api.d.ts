@@ -57,7 +57,7 @@ declare global {
     lexicon: string;
     createdBy: string;
     updatedBy: string;
-    tags: { text: string; color: string }[];
+    tags: string[];
     createdAt: string;
     updatedAt: string;
     lang: string;
@@ -69,7 +69,7 @@ declare global {
     lexicon: string;
     createdBy: string;
     updatedBy: string;
-    tags: { text: string; color: string }[];
+    tags: string[];
     createdAt: string;
     updatedAt: string;
     lang: string;

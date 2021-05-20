@@ -8,9 +8,12 @@ interface Props {
   words: {
     data: WordResource[];
   };
+  tags: {
+    data: TagResource[];
+  };
 }
 
-const WordList: React.FC<Props> = ({ words }) => {
+const WordList: React.FC<Props> = ({ words, tags }) => {
   return (
     <Grid
       as="ul"
@@ -24,11 +27,17 @@ const WordList: React.FC<Props> = ({ words }) => {
           </p>
           <p>{word.tran}</p>
           <ul className="margin-t">
-            {word.tags.map((tag) => (
-              <Tag as="li" className="small" key={tag.text} color={tag.color}>
-                {tag.text}
-              </Tag>
-            ))}
+            {word.tags.map((tag) => {
+              const t = tags.data.find(({ _id }) => tag === _id);
+              if (t) {
+                return (
+                  <Tag as="li" className="small" key={tag} color={t.color}>
+                    {t.tag}
+                  </Tag>
+                );
+              }
+              return null;
+            })}
           </ul>
         </WordWrapper>
       ))}

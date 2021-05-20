@@ -7,9 +7,11 @@ import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Container } from '../../styles/Layout.styles';
 import UpdateWord from './UpdateWord';
+import { getTags } from '../../api/resources/tags';
 
 const Words: React.FC = () => {
   const [words, wordsLoading] = getWords();
+  const [tags, tagsLoading] = getTags();
 
   return (
     <>
@@ -20,8 +22,8 @@ const Words: React.FC = () => {
         <PageHeader title="Words">
           <Button>Add a new word</Button>
         </PageHeader>
-        {wordsLoading && <Loading bg />}
-        {words && <WordList {...{ words }} />}
+        {(wordsLoading || tagsLoading) && <Loading bg />}
+        {words && tags && <WordList {...{ words, tags }} />}
       </Container>
     </>
   );

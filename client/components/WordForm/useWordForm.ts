@@ -10,6 +10,10 @@ declare global {
     (event: React.ChangeEvent<HTMLInputElement>): void;
   }
 
+  interface WordFormTagChangeHandler {
+    (event: React.ChangeEvent<HTMLInputElement>): void;
+  }
+
   interface WordFormChangeArray {
     (event: React.ChangeEvent<HTMLInputElement>): void;
   }
@@ -29,6 +33,7 @@ export function useWordForm(
   errors: WordFormErrors;
   submitHandler: WordFormSubmitHandler;
   changeHandler: WordFormChangeHandler;
+  tagChangeHandler: WordFormTagChangeHandler;
 } {
   const [errors, setErrors] = useState({});
   const [word, setWord] = useState<WordSubmission>(w);
@@ -52,5 +57,16 @@ export function useWordForm(
     }
   };
 
-  return { word, errors, changeHandler, submitHandler };
+  const tagChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setWord({ ...word, tags: [...word.tags, event.target.value] });
+    } else {
+      setWord({
+        ...word,
+        tags: word.tags.filter((t) => t !== event.target.value),
+      });
+    }
+  };
+
+  return { word, errors, changeHandler, submitHandler, tagChangeHandler };
 }
