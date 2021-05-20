@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 import { get } from '../api/fetch';
+import { queryClient } from './Query';
 
 const LexiconContext = createContext<ILexiconContext>({
   activateLexicon: () => null,
@@ -26,6 +27,7 @@ export const LexiconProvider: React.FC = ({ children }) => {
     if (lexicon && lexicon.language.htmlCode) {
       const html = document.getElementById('html');
       html?.setAttribute('lang', lexicon.language.htmlCode);
+      queryClient.invalidateQueries();
     }
   }, [lexicon]);
 

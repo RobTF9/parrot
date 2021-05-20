@@ -11,6 +11,7 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
   padding: var(--medium) var(--large);
   text-align: center;
   transition: all 0.3s ease;
+  text-decoration: none;
 
   &:hover,
   &:active {
