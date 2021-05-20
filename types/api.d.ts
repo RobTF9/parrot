@@ -77,6 +77,11 @@ declare global {
     tran: string;
   }
 
+  interface TagSubmission {
+    tag: string;
+    color: string;
+  }
+
   interface TagResource {
     _id: string;
     lexicon: string;

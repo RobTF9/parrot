@@ -52,8 +52,8 @@ export const TextButton = styled.button`
 `;
 
 export const Tag = styled.li<{ color?: string }>`
-  background-color: ${({ color }) => color};
-  color: var(--core-white);
+  background-color: var(--core-light);
+  color: var(--core-dark);
   border-radius: 0.2rem;
   padding: var(--smaller) var(--smaller) 0.2rem;
   display: inline;
@@ -61,6 +61,6 @@ export const Tag = styled.li<{ color?: string }>`
   margin: 0 var(--smaller) var(--smaller) 0;
 
   * {
-    color: var(--core-white);
+    color: var(--core-dark);
   }
 `;

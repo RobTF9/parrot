@@ -10,4 +10,4 @@ export const getWord: APIReciever<WordResource> = (id) =>
 export const updateWord: APIGiver<WordSubmission, WordResource> = (
   id,
   callback
-) => updateOne(CACHE.WORD + id, `/api/word/${id}`, callback);
+) => updateOne(CACHE.WORD, `/api/word/${id}`, callback);

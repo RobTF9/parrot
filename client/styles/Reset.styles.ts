@@ -37,6 +37,10 @@ const Reset = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  label, input {
+    cursor: pointer;
+  }
 `;
 
 export default Reset;

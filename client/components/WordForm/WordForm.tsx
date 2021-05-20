@@ -2,6 +2,7 @@ import React from 'react';
 import { UseMutateFunction } from 'react-query';
 import { Button, Tag } from '../../styles/Buttons.styles';
 import Input from '../Input';
+import TagCreator from '../TagCreator';
 import { useWordForm } from './useWordForm';
 import { TagList } from './WordForm.styles';
 
@@ -15,9 +16,21 @@ interface Props {
     WordSubmission,
     unknown
   >;
+  tagMutate: UseMutateFunction<
+    ServerReponse<TagResource>,
+    unknown,
+    TagSubmission,
+    unknown
+  >;
 }
 
-const WordForm: React.FC<Props> = ({ initialWord, mutate, lexicon, tags }) => {
+const WordForm: React.FC<Props> = ({
+  initialWord,
+  mutate,
+  lexicon,
+  tags,
+  tagMutate,
+}) => {
   const {
     word,
     errors,
@@ -55,10 +68,11 @@ const WordForm: React.FC<Props> = ({ initialWord, mutate, lexicon, tags }) => {
           error: errors.tran,
         }}
       />
+      <TagCreator {...{ tagMutate }} />
       <TagList>
         {tags.map((tag) => (
-          <Tag key={tag._id} style={{ backgroundColor: tag.color }}>
-            <label htmlFor={tag._id}>
+          <Tag key={tag._id}>
+            <label htmlFor={tag._id} className="small">
               <input
                 type="checkbox"
                 id={tag._id}
