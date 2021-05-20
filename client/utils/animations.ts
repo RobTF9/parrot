@@ -45,7 +45,22 @@ export const slideUp = presenceAnimation(
   },
   {
     opacity: 0,
-    y: '200%',
+    y: '100%',
+  }
+);
+
+export const bumpUp = presenceAnimation(
+  {
+    opacity: 0,
+    y: '25%',
+  },
+  {
+    opacity: 1,
+    y: '0%',
+  },
+  {
+    opacity: 0,
+    y: '25%',
   }
 );
 

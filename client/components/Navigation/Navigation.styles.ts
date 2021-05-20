@@ -70,7 +70,7 @@ export const LexiconSwitch = styled.div<{ show: boolean }>`
     }
 
     svg {
-      margin-bottom: -0.2rem;
+      margin-bottom: -0.3rem;
       transition: stroke 0.3s ease;
 
       ${({ show }) => show && `transform: rotate(180deg);`}
@@ -87,16 +87,19 @@ export const LexiconSwitch = styled.div<{ show: boolean }>`
 
   & > ul {
     position: absolute;
-    padding: var(--small);
+    padding: var(--medium);
     background: var(--core-white);
     box-shadow: var(--card-shadow);
+    border-radius: var(--small);
     display: flex;
     flex-direction: column;
-    width: calc(100% - var(--medium));
+    width: calc(100% + var(--medium));
+    left: calc(var(--medium) * -1);
+    top: calc(100% + var(--small));
 
     li,
     & > p {
-      margin-bottom: var(--smaller);
+      margin-bottom: var(--small);
 
       svg {
         margin-bottom: -0.25rem;

@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fi';
 import { Link, NavLink } from 'react-router-dom';
 import { NavWrapper, LexiconSwitch } from './Navigation.styles';
+import { bumpUp } from '../../utils/animations';
 
 interface Props {
   lexicon?: LexiconSession;
@@ -29,7 +30,6 @@ const Navigation: React.FC<Props> = ({
     <NavWrapper>
       <div>
         <p>Parrot</p>
-
         <LexiconSwitch show={showLexicons}>
           <button type="button" onClick={() => setShowLexicons(!showLexicons)}>
             Active Lexicon:{' '}
@@ -38,7 +38,7 @@ const Navigation: React.FC<Props> = ({
           </button>
           <AnimatePresence>
             {showLexicons && (
-              <motion.ul>
+              <motion.ul {...{ ...bumpUp }}>
                 {yourLexicons && yourLexicons.data.length > 0 && (
                   <>
                     <p className="small">Yours</p>
