@@ -2,28 +2,18 @@ import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import Word from './word.model';
 
-export const createWords: RequestHandler = async (req, res, next) => {
+export const createWord: RequestHandler = async (req, res, next) => {
   try {
-    const data = [];
-
-    if (req.body.length > 0) {
-      for (const word of req.body) {
-        const created = await Word.create({
-          ...word,
-          createdBy: req.session.user,
-          updatedBy: req.session.user,
-          lexicon: req.session.lexicon?._id,
-        });
-
-        data.push(created);
-      }
-    } else {
-      return res.status(400).json({ message: ERROR_MESSAGE.NO_WORDS });
-    }
+    const word = await Word.create({
+      ...req.body,
+      createdBy: req.session.user,
+      updatedBy: req.session.user,
+      lexicon: req.session.lexicon?._id,
+    });
 
     return res
       .status(200)
-      .json({ message: SUCCESS_MESSAGE.WORD_CREATED, data });
+      .json({ message: SUCCESS_MESSAGE.WORD_CREATED, data: word });
   } catch (error) {
     return next(new Error(error));
   }
@@ -56,6 +46,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
     const words = await Word.find({
       lexicon: req.session.lexicon?._id,
     })
+      .sort({ createdAt: 'desc' })
       .lean()
       .exec();
 

@@ -1,5 +1,12 @@
 import { CACHE } from '../../utils/constants';
-import { APIGiver, APIReciever, getMany, getOne, updateOne } from '../crud';
+import {
+  APIGiver,
+  APIReciever,
+  createOne,
+  getMany,
+  getOne,
+  updateOne,
+} from '../crud';
 
 export const getWords: APIReciever<WordResource[]> = () =>
   getMany(CACHE.WORD, '/api/word');
@@ -11,3 +18,8 @@ export const updateWord: APIGiver<WordSubmission, WordResource> = (
   id,
   callback
 ) => updateOne(CACHE.WORD, `/api/word/${id}`, callback);
+
+export const createWord: APIGiver<WordSubmission, WordResource> = (
+  _,
+  callback
+) => createOne(CACHE.WORD, `/api/word/`, callback);

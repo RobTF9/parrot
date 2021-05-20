@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Switch } from 'react-router-dom';
 import { getWords } from '../../api/resources/word';
 import AnimatedRoute from '../../components/AnimateRoute';
 import PageHeader from '../../components/PageHeader';
@@ -7,6 +8,7 @@ import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Container } from '../../styles/Layout.styles';
 import UpdateWord from './UpdateWord';
+import CreateWord from './CreateWord';
 import { getTags } from '../../api/resources/tags';
 
 const Words: React.FC = () => {
@@ -15,12 +17,19 @@ const Words: React.FC = () => {
 
   return (
     <>
-      <AnimatedRoute path="/words/:id">
-        <UpdateWord />
-      </AnimatedRoute>
+      <Switch>
+        <AnimatedRoute exact path="/words/new">
+          <CreateWord />
+        </AnimatedRoute>
+        <AnimatedRoute path="/words/:id">
+          <UpdateWord />
+        </AnimatedRoute>
+      </Switch>
       <Container>
         <PageHeader title="Words">
-          <Button>Add a new word</Button>
+          <Button as={Link} to="/words/new">
+            Add a new word
+          </Button>
         </PageHeader>
         {(wordsLoading || tagsLoading) && <Loading bg />}
         {words && tags && <WordList {...{ words, tags }} />}

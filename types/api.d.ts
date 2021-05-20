@@ -54,12 +54,7 @@ declare global {
   }
 
   interface WordSubmission {
-    lexicon: string;
-    createdBy: string;
-    updatedBy: string;
     tags: string[];
-    createdAt: string;
-    updatedAt: string;
     lang: string;
     pron: string;
     tran: string;
