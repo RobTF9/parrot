@@ -51,7 +51,10 @@ const Navigation: React.FC<Props> = ({
                         ) : (
                           <button
                             type="button"
-                            onClick={() => activateLexicon(l._id)}
+                            onClick={() => {
+                              activateLexicon(l._id);
+                              setShowLexicons(false);
+                            }}
                           >
                             <FiCircle /> {l.language.name}
                           </button>
