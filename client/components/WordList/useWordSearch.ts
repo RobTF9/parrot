@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
-const useWordSearch = (
-  words: Array<WordResource>,
-  tags: Array<TagResource>
-): {
-  filtered: Array<WordResource>;
-  changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  search: string;
-  filter: string;
-  selectChangeHandler: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-} => {
+interface SearchChangeHandler {
+  (event: React.ChangeEvent<HTMLInputElement>): void;
+}
+
+interface SelectChangeHandler {
+  (event: React.ChangeEvent<HTMLSelectElement>): void;
+}
+interface UseWordSearch {
+  (words: WordResource[], tags: TagResource[]): {
+    filtered: Array<WordResource>;
+    search: string;
+    filter: string;
+    changeHandler: SearchChangeHandler;
+    selectChangeHandler: SelectChangeHandler;
+  };
+}
+
+const useWordSearch: UseWordSearch = (words, tags) => {
   const [filtered, setFiltered] = useState(words);
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) =>
+  const changeHandler: SearchChangeHandler = (event) =>
     setSearch(event.target.value);
 
-  const selectChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) =>
+  const selectChangeHandler: SelectChangeHandler = (event) =>
     setFilter(event.target.value);
 
   useEffect(() => {
