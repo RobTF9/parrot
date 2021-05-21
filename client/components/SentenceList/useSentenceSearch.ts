@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const useWordSearch = (
+const useSentenceSearch = (
   sentences: Array<SentenceResource>,
   tags: Array<TagResource>
 ): {
-  filtered: Array<WordResource>;
+  filtered: Array<SentenceResource>;
   changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
   search: string;
   filter: string;
@@ -33,7 +33,7 @@ const useWordSearch = (
   useEffect(() => {
     if (!sentences) return;
     setFiltered(
-      filtered.filter((sentence) => {
+      sentences.filter((sentence) => {
         if (
           sentence.pron.toUpperCase().includes(search.toUpperCase()) ||
           sentence.tran.toUpperCase().includes(search.toUpperCase()) ||
@@ -58,4 +58,4 @@ const useWordSearch = (
   return { filtered, changeHandler, search, filter, selectChangeHandler };
 };
 
-export default useWordSearch;
+export default useSentenceSearch;

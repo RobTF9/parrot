@@ -32,7 +32,7 @@ const useWordSearch = (
     if (!words) return;
     const terms = search.split(' ');
     setFiltered(
-      filtered.filter((word) =>
+      words.filter((word) =>
         terms.some((term) => {
           if (
             word.pron.toUpperCase().includes(term.toUpperCase()) ||
