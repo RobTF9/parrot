@@ -24,7 +24,7 @@ const useWordSearch = (
     if (filter === 'All') {
       setFiltered(words);
     } else {
-      setFiltered(filtered.filter((word) => word.tags.includes(filter)));
+      setFiltered(words.filter((word) => word.tags.includes(filter)));
     }
   }, [filter]);
 
@@ -32,7 +32,7 @@ const useWordSearch = (
     if (!words) return;
     const terms = search.split(' ');
     setFiltered(
-      words.filter((word) =>
+      filtered.filter((word) =>
         terms.some((term) => {
           if (
             word.pron.toUpperCase().includes(term.toUpperCase()) ||

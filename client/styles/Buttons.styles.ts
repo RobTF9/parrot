@@ -7,7 +7,7 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
   cursor: pointer;
   overflow: auto;
   display: inline-block;
-  font-weight: 400;
+  font-weight: 600;
   padding: var(--medium) var(--large);
   text-align: center;
   transition: all 0.3s ease;
