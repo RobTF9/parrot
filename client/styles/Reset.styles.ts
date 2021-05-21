@@ -38,7 +38,7 @@ const Reset = createGlobalStyle`
     border-spacing: 0;
   }
 
-  label, input {
+  label, input[type=checkbox]{
     cursor: pointer;
   }
 `;
