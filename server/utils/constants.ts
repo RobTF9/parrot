@@ -49,4 +49,5 @@ export const SUCCESS_MESSAGE = {
   TAG_CREATED: succesMessage('Tag created succesfully'),
   WORD_CREATED: succesMessage('Word created succesfully'),
   WORD_UPDATED: succesMessage('Word updated succesfully'),
+  SENTENCE_CREATED: succesMessage('Sentence created succesfully'),
 };
