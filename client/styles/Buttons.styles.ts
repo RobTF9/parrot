@@ -53,15 +53,20 @@ export const TextButton = styled.button`
 `;
 
 export const Tag = styled.li<{ color?: string }>`
-  background-color: var(--core-light);
-  color: var(--core-dark);
-  border-radius: 0.2rem;
+  background-color: ${({ color = 'var(--core-mid)' }) => color};
+  color: var(--core-white);
+  border-radius: var(--smaller);
   padding: var(--smaller) var(--smaller) 0.2rem;
   display: inline;
   text-transform: capitalize;
   margin: 0 var(--smaller) var(--smaller) 0;
 
   * {
-    color: var(--core-dark);
+    color: var(--core-white);
+  }
+
+  &:focus-within {
+    background-color: var(--core-dark);
+    box-shadow: var(--focus-border);
   }
 `;

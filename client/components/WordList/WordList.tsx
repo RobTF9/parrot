@@ -65,7 +65,7 @@ const WordList: React.FC<Props> = ({ words, tags }) => {
                 const t = tags.data.find(({ _id }) => tag === _id);
                 if (t) {
                   return (
-                    <Tag as="li" className="small" key={tag} color={t.color}>
+                    <Tag as="li" className="small" key={tag}>
                       {t.tag}
                     </Tag>
                   );

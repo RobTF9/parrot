@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiCheckCircle, FiCircle } from 'react-icons/fi';
 import { UseMutateFunction } from 'react-query';
 import { Button, Tag } from '../../styles/Buttons.styles';
 import Input from '../Input';
@@ -69,10 +70,13 @@ const WordForm: React.FC<Props> = ({
         }}
       />
       <TagCreator {...{ tagMutate }} />
-      <TagList>
+      <TagList className="border-b-s">
         {tags.map((tag) => (
-          <Tag key={tag._id}>
-            <label htmlFor={tag._id} className="small">
+          <Tag
+            key={tag._id}
+            color={word.tags.find((t) => t === tag._id) && 'var(--core-dark)'}
+          >
+            <label htmlFor={tag._id}>
               <input
                 type="checkbox"
                 id={tag._id}
@@ -80,6 +84,11 @@ const WordForm: React.FC<Props> = ({
                 defaultChecked={!!word.tags.find((t) => t === tag._id)}
                 onChange={tagChangeHandler}
               />
+              {word.tags.find((t) => t === tag._id) ? (
+                <FiCheckCircle />
+              ) : (
+                <FiCircle />
+              )}
               {tag.tag}
             </label>
           </Tag>

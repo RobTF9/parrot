@@ -23,7 +23,7 @@ export const Filter = styled(Card)`
   position: relative;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 20px;
+  gap: var(--medium);
 
   ${InputWrapper}, ${SelectWrapper} {
     margin: 0;
