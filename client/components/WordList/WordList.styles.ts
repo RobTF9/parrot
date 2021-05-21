@@ -6,6 +6,7 @@ import { SelectWrapper } from '../Select/Select.styles';
 export const WordWrapper = styled(Card)`
   text-decoration: none;
   transition: transform 0.2s ease-in-out;
+  position: relative;
 
   p:last-of-type {
     color: var(--core-mid);

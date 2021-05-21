@@ -1,5 +1,6 @@
 import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
+import User from '../user/user.model';
 import Word from './word.model';
 
 export const createWord: RequestHandler = async (req, res, next) => {
@@ -23,7 +24,7 @@ export const updateOne: RequestHandler = async (req, res, next) => {
   try {
     const word = await Word.findOneAndUpdate(
       { _id: req.params.id },
-      { ...req.body, updatedAt: undefined },
+      { ...req.body, updatedAt: undefined, updatedBy: req.session.user },
       { new: true }
     );
 
@@ -49,6 +50,14 @@ export const getMany: RequestHandler = async (req, res, next) => {
       .sort({ createdAt: 'desc' })
       .lean()
       .exec();
+
+    for (const word of words) {
+      const user = await User.findOne({ _id: word.updatedBy }).lean().exec();
+
+      if (user) {
+        word.updatedBy = user.username;
+      }
+    }
 
     return res.status(200).json({ data: words });
   } catch (error) {

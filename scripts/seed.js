@@ -22,3 +22,4 @@ postCollection('users');
 postCollection('lexicons');
 postCollection('tags');
 postCollection('words');
+postCollection('sentences');

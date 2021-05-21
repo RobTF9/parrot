@@ -13,6 +13,10 @@ const Spacings = createGlobalStyle`
   .margin {
     &-t {
       margin-top: var(--medium);
+
+      &-xl {
+      margin-bottom: var(--larger);
+    }
     }
 
     &-b {

@@ -6,6 +6,7 @@ import { WordWrapper, Filter } from './WordList.styles';
 import Input from '../Input';
 import useWordSearch from './useWordSearch';
 import Select from '../Select';
+import formatDate from '../../utils/formatDate';
 
 interface Props {
   words: {
@@ -60,7 +61,7 @@ const WordList: React.FC<Props> = ({ words, tags }) => {
               <span className="bold">{word.lang}</span> – {word.pron}
             </p>
             <p>{word.tran}</p>
-            <ul className="margin-t">
+            <ul className={`margin-t ${word.updatedBy && 'margin-b'}`}>
               {word.tags.map((tag) => {
                 const t = tags.data.find(({ _id }) => tag === _id);
                 if (t) {
@@ -73,6 +74,11 @@ const WordList: React.FC<Props> = ({ words, tags }) => {
                 return null;
               })}
             </ul>
+            {word.updatedBy && (
+              <em className="small">
+                {word.updatedBy} updated at {formatDate(word.updatedAt)}
+              </em>
+            )}
           </WordWrapper>
         ))}
       </Grid>

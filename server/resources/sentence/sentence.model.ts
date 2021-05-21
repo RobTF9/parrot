@@ -13,7 +13,7 @@ interface SentenceDocument extends Document {
   tran: string;
   lexicon: ObjectId;
   createdBy: ObjectId;
-  updatedBy: ObjectId;
+  updatedBy: ObjectId | string;
   tags: ObjectId[];
 }
 
@@ -32,6 +32,11 @@ const sentenceSchema = new Schema<SentenceDocument, Model<SentenceDocument>>(
       required: true,
     },
     createdBy: {
+      type: SchemaTypes.ObjectId,
+      required: true,
+      ref: 'user',
+    },
+    updatedBy: {
       type: SchemaTypes.ObjectId,
       required: true,
       ref: 'user',

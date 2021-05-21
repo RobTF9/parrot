@@ -6,6 +6,7 @@ import { SentenceWrapper, Filter } from './SentenceList.styles';
 import Input from '../Input';
 import Select from '../Select';
 import useSentenceSearch from './useSentenceSearch';
+import formatDate from '../../utils/formatDate';
 
 interface Props {
   sentences: {
@@ -63,7 +64,7 @@ const SentenceList: React.FC<Props> = ({ sentences, tags }) => {
             <p className="bold">{sentence.lang}</p>
             <p className="border-b-s">{sentence.pron}</p>
             <p>{sentence.tran}</p>
-            <ul className="margin-t">
+            <ul className={`margin-t ${sentence.updatedBy && 'margin-b'}`}>
               {sentence.tags.map((tag) => {
                 const t = tags.data.find(({ _id }) => tag === _id);
                 if (t) {
@@ -76,6 +77,11 @@ const SentenceList: React.FC<Props> = ({ sentences, tags }) => {
                 return null;
               })}
             </ul>
+            {sentence.updatedBy && (
+              <em className="small">
+                {sentence.updatedBy} updated at {formatDate(sentence.updatedAt)}
+              </em>
+            )}
           </SentenceWrapper>
         ))}
       </Grid>{' '}
