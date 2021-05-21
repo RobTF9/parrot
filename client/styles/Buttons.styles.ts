@@ -37,6 +37,13 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
     `}
 `;
 
+export const StrokeButton = styled(Button)`
+  background-color: transparent;
+  box-shadow: 0 0 0 0.1rem var(--core-mid);
+  color: var(--core-mid);
+  box-sizing: border-box;
+`;
+
 export const TextButton = styled.button`
   font-weight: 600;
   color: var(--core-mid);

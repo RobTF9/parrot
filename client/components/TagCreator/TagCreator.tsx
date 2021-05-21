@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UseMutateFunction } from 'react-query';
-import { Button } from '../../styles/Buttons.styles';
+import { StrokeButton } from '../../styles/Buttons.styles';
 import { TagCreatorWrapper } from './TagCreator.styles';
 import Input from '../Input';
 
@@ -24,9 +24,9 @@ const TagCreator: React.FC<Props> = ({ tagMutate }) => {
       <Input
         {...{ label: 'Add a new tag', value: tag.tag, onChange, name: 'tag' }}
       />
-      <Button {...{ onClick: () => tagMutate(tag), type: 'button' }}>
+      <StrokeButton {...{ onClick: () => tagMutate(tag), type: 'button' }}>
         Add tag
-      </Button>
+      </StrokeButton>
     </TagCreatorWrapper>
   );
 };
