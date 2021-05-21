@@ -22,4 +22,4 @@ export const updateSentence: APIGiver<SentenceSubmission, SentenceResource> = (
 export const createSentence: APIGiver<SentenceSubmission, SentenceResource> = (
   _,
   callback
-) => createOne(CACHE.SENTENCE, `/api/sentence/`, callback);
+) => createOne(CACHE.SENTENCE, `/api/sentence`, callback);

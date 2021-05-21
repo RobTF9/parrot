@@ -36,6 +36,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
 
 export const getOne: RequestHandler = async (req, res, next) => {
   try {
+    console.log(req.params.id);
     const sentence = await Sentence.findById(req.params.id).lean().exec();
 
     if (!sentence) {

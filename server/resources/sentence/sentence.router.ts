@@ -1,7 +1,11 @@
 import { Router } from 'express';
 import { lexiconActive } from '../../services/auth/auth.middleware';
-import { getOne, updateOne } from '../word/word.controllers';
-import { createSentence, getMany } from './sentence.controllers';
+import {
+  createSentence,
+  getMany,
+  getOne,
+  updateOne,
+} from './sentence.controllers';
 
 const router = Router();
 
