@@ -15,6 +15,7 @@ import useQueryParams from '../hooks/useQueryParams';
 import AnimatedDrawer from '../components/AnimatedDrawer';
 import { getLexicons, getShared } from '../api/resources/lexicon';
 import Words from './Words/Words';
+import Sentences from './Sentences/Sentences';
 
 const NotAuthenticated = () => (
   <Switch>
@@ -69,6 +70,9 @@ const Authenticated = () => {
         <Switch>
           <Route path="/words">
             <Words />
+          </Route>
+          <Route path="/sentences">
+            <Sentences />
           </Route>
         </Switch>
       )}

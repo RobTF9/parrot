@@ -72,6 +72,25 @@ declare global {
     tran: string;
   }
 
+  interface SentenceSubmission {
+    tags: string[];
+    lang: string;
+    pron: string;
+    tran: string;
+  }
+  interface SentenceResource {
+    _id: string;
+    lexicon: string;
+    createdBy: string;
+    updatedBy: string;
+    tags: string[];
+    createdAt: string;
+    updatedAt: string;
+    lang: string;
+    pron: string;
+    tran: string;
+  }
+
   interface TagSubmission {
     tag: string;
     color: string;

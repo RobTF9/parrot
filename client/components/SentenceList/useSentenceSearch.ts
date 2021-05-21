@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const useWordSearch = (
-  words: Array<WordResource>,
+  sentences: Array<SentenceResource>,
   tags: Array<TagResource>
 ): {
   filtered: Array<WordResource>;
@@ -10,7 +10,7 @@ const useWordSearch = (
   filter: string;
   selectChangeHandler: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 } => {
-  const [filtered, setFiltered] = useState(words);
+  const [filtered, setFiltered] = useState(sentences);
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
 
@@ -22,39 +22,38 @@ const useWordSearch = (
 
   useEffect(() => {
     if (filter === 'All') {
-      setFiltered(words);
+      setFiltered(sentences);
     } else {
-      setFiltered(words.filter((word) => word.tags.includes(filter)));
+      setFiltered(
+        sentences.filter((sentence) => sentence.tags.includes(filter))
+      );
     }
   }, [filter]);
 
   useEffect(() => {
-    if (!words) return;
-    const terms = search.split(' ');
+    if (!sentences) return;
     setFiltered(
-      filtered.filter((word) =>
-        terms.some((term) => {
+      filtered.filter((sentence) => {
+        if (
+          sentence.pron.toUpperCase().includes(search.toUpperCase()) ||
+          sentence.tran.toUpperCase().includes(search.toUpperCase()) ||
+          sentence.lang.includes(search)
+        ) {
+          return sentence;
+        }
+        if (sentence.tags) {
           if (
-            word.pron.toUpperCase().includes(term.toUpperCase()) ||
-            word.tran.toUpperCase().includes(term.toUpperCase()) ||
-            word.lang.includes(term)
+            sentence.tags
+              .map((tag) => tags.find((t) => t._id === tag)?.tag)
+              .includes(search)
           ) {
-            return word;
+            return sentence;
           }
-          if (word.tags) {
-            if (
-              word.tags
-                .map((tag) => tags.find((t) => t._id === tag)?.tag)
-                .includes(term)
-            ) {
-              return word;
-            }
-          }
-          return null;
-        })
-      )
+        }
+        return null;
+      })
     );
-  }, [search, words]);
+  }, [search, sentences]);
 
   return { filtered, changeHandler, search, filter, selectChangeHandler };
 };

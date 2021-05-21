@@ -4,6 +4,7 @@ export const CACHE = {
   WORD: 'word',
   SHARED_LEXICON: 'share-lexicon',
   TAG: 'tag',
+  SENTENCE: 'sentence',
 };
 
 export const LANGUAGES = [
