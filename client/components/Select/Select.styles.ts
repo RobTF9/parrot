@@ -20,6 +20,7 @@ export const SelectWrapper = styled.label`
     cursor: pointer;
     background-color: var(--core-dark-10);
     border: none;
+    height: 6rem;
     border-radius: var(--smaller);
     padding: var(--medium) var(--small);
     margin: var(--smaller) 0 var(--small);

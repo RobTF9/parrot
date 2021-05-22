@@ -10,6 +10,7 @@ export const InputWrapper = styled.label`
     background-color: var(--core-dark-10);
     border: none;
     border-radius: var(--smaller);
+    height: 6rem;
     padding: var(--medium) var(--small);
     margin: var(--smaller) 0 var(--small);
 

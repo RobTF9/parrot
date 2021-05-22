@@ -60,7 +60,7 @@ const Authenticated = () => {
           yourLexicons,
           sharedLexicons,
           activateLexicon,
-          user: user.data,
+          user: user?.data,
         }}
       />
       <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
