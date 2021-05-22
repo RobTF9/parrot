@@ -7,6 +7,7 @@ export const WordWrapper = styled(Card)`
   text-decoration: none;
   transition: transform 0.2s ease-in-out;
   position: relative;
+  height: 100%;
 
   p:last-of-type {
     color: var(--core-mid);

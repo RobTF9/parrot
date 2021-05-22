@@ -6,6 +6,7 @@ export const TagCreatorWrapper = styled.div`
 
   label {
     flex-grow: 1;
+    margin-top: 0;
   }
 
   button {

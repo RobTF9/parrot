@@ -8,6 +8,6 @@ export const CACHE = {
 };
 
 export const LANGUAGES = [
-  { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BD' },
-  { name: 'Hindi', htmlCode: 'bn', langCode: 'bn-BD' },
+  { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BN' },
+  { name: 'Hindi', htmlCode: 'hi', langCode: 'hi-IN' },
 ];

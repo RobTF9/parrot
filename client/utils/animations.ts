@@ -2,6 +2,7 @@ type properties = {
   opacity?: number;
   x?: string;
   y?: string;
+  height?: string | number;
 };
 
 function presenceAnimation(
@@ -76,6 +77,21 @@ export const slideDown = presenceAnimation(
   {
     opacity: 0,
     y: '-200%',
+  }
+);
+
+export const heightExpand = presenceAnimation(
+  {
+    opacity: 0,
+    height: 0,
+  },
+  {
+    opacity: 1,
+    height: 'auto',
+  },
+  {
+    opacity: 0,
+    height: 0,
   }
 );
 
