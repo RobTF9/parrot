@@ -1,11 +1,20 @@
-import React from 'react';
-import { FiCheckCircle, FiCircle } from 'react-icons/fi';
+import React, { createRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+  FiCheckCircle,
+  FiCircle,
+  FiMic,
+  FiMicOff,
+  FiPlay,
+} from 'react-icons/fi';
 import { UseMutateFunction } from 'react-query';
 import { Button, Tag } from '../../styles/Buttons.styles';
 import Input from '../Input';
 import TagCreator from '../TagCreator';
 import { useSentenceForm } from './useSentenceForm';
-import { TagList } from './SentenceForm.styles';
+import { TagList, SentenceTest } from './SentenceForm.styles';
+import useSpeechTest from '../../hooks/useSpeechTest';
+import { heightExpand } from '../../utils/animations';
 
 interface Props {
   initialSentence: SentenceSubmission;
@@ -32,6 +41,8 @@ const SentenceForm: React.FC<Props> = ({
   tags,
   tagMutate,
 }) => {
+  const audioEl = createRef<HTMLAudioElement>();
+
   const {
     sentence,
     errors,
@@ -40,17 +51,50 @@ const SentenceForm: React.FC<Props> = ({
     tagChangeHandler,
   } = useSentenceForm(mutate, initialSentence);
 
+  const {
+    transcript,
+    startListening,
+    correct,
+    listening,
+    canListen,
+  } = useSpeechTest(sentence.lang);
+
+  const play = () => {
+    if (audioEl.current) {
+      audioEl.current.play();
+    }
+  };
+
   return (
     <form onSubmit={submitHandler}>
-      <Input
-        {...{
-          label: lexicon.language.name,
-          value: sentence.lang,
-          name: 'lang',
-          onChange: changeHandler,
-          error: errors.lang,
-        }}
-      />
+      <SentenceTest>
+        <Input
+          {...{
+            label: lexicon.language.name,
+            value: sentence.lang,
+            name: 'lang',
+            onChange: changeHandler,
+            error: errors.lang,
+          }}
+        />
+        <Button disabled={!canListen} type="button" onClick={startListening}>
+          {canListen ? <FiMic /> : <FiMicOff />}
+        </Button>
+        <Button type="button" onClick={play}>
+          <FiPlay />
+        </Button>
+        <audio
+          ref={audioEl}
+          src={`https://translate.google.com/translate_tts?ie=UTF-8&tl=${lexicon.language.langCode}&client=tw-ob&q=${sentence.lang}`}
+        />
+      </SentenceTest>
+      <AnimatePresence>
+        {(listening || correct) && (
+          <motion.div layout {...{ ...heightExpand }}>
+            {correct ? 'Correct!' : 'Listening...'} {transcript}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Input
         {...{
           label: "How's it pronounced?",

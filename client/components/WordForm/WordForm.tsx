@@ -12,9 +12,9 @@ import { Button, Tag } from '../../styles/Buttons.styles';
 import { heightExpand } from '../../utils/animations';
 import Input from '../Input';
 import TagCreator from '../TagCreator';
-import useSpeechTest from './useSpeechTest';
+import useSpeechTest from '../../hooks/useSpeechTest';
 import { useWordForm } from './useWordForm';
-import { TagList, WordWrapper } from './WordForm.styles';
+import { TagList, WordTest } from './WordForm.styles';
 
 interface Props {
   initialWord: WordSubmission;
@@ -67,7 +67,7 @@ const WordForm: React.FC<Props> = ({
 
   return (
     <form onSubmit={submitHandler}>
-      <WordWrapper>
+      <WordTest>
         <Input
           {...{
             label: lexicon.language.name,
@@ -87,7 +87,7 @@ const WordForm: React.FC<Props> = ({
           ref={audioEl}
           src={`https://translate.google.com/translate_tts?ie=UTF-8&tl=${lexicon.language.langCode}&client=tw-ob&q=${word.lang}`}
         />
-      </WordWrapper>
+      </WordTest>
       <AnimatePresence>
         {(listening || correct) && (
           <motion.div layout {...{ ...heightExpand }}>

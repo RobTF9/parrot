@@ -2,11 +2,11 @@ import { useState } from 'react';
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
-import { useLexiconContext } from '../../context/Lexicon';
-import fuzzyMatchingThreshold from '../../utils/fuzzyMatchThreshold';
+import { useLexiconContext } from '../context/Lexicon';
+import fuzzyMatchingThreshold from '../utils/fuzzyMatchThreshold';
 
 interface UseSpeechTest {
-  (word: string): {
+  (input: string): {
     transcript: string;
     startListening: () => void;
     correct: boolean;
@@ -15,7 +15,7 @@ interface UseSpeechTest {
   };
 }
 
-const useSpeechTest: UseSpeechTest = (word) => {
+const useSpeechTest: UseSpeechTest = (input) => {
   const [correct, setCorrect] = useState(false);
   const { lexicon } = useLexiconContext();
   const language = lexicon?.language.langCode;
@@ -25,11 +25,11 @@ const useSpeechTest: UseSpeechTest = (word) => {
   const { listening, transcript } = useSpeechRecognition({
     commands: [
       {
-        command: word,
+        command: input,
         callback: () => setCorrect(true),
         matchInterim: true,
         isFuzzyMatch: true,
-        fuzzyMatchingThreshold: fuzzyMatchingThreshold(word),
+        fuzzyMatchingThreshold: fuzzyMatchingThreshold(input),
       },
     ],
   });

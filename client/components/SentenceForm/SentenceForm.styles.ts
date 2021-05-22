@@ -27,3 +27,33 @@ export const TagList = styled.ul`
     }
   }
 `;
+
+export const SentenceTest = styled.div`
+  display: flex;
+  align-items: flex-end;
+
+  label {
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  button {
+    flex-grow: 0;
+    margin-bottom: var(--small);
+    margin-left: var(--small);
+    padding: var(--medium);
+
+    svg {
+      stroke: var(--core-white);
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background-color: var(--error-light);
+
+      svg {
+        stroke: var(--error-dark);
+      }
+    }
+  }
+`;

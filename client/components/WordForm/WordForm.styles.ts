@@ -45,7 +45,15 @@ export const WordWrapper = styled.div`
 
     svg {
       stroke: var(--core-white);
-      transform: translateY(0.3rem);
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background-color: var(--error-light);
+
+      svg {
+        stroke: var(--error-dark);
+      }
     }
   }
 `;
