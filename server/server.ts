@@ -13,6 +13,7 @@ import authSession from './utils/session';
 import tagRouter from './resources/tag/tag.router';
 import wordRouter from './resources/word/word.router';
 import sentenceRouter from './resources/sentence/sentence.router';
+import notificationRouter from './resources/notification/notification.router';
 
 export const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api/lexicon', lexiconRouter);
 app.use('/api/tag', tagRouter);
 app.use('/api/word', wordRouter);
 app.use('/api/sentence', sentenceRouter);
+app.use('/api/notification', notificationRouter);
 
 // Serve client
 const clientPath = path.join(__dirname, '..', 'client');

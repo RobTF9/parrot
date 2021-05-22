@@ -33,8 +33,11 @@ const notificationSchema = new Schema<
     resource: {
       type: SchemaTypes.ObjectId,
       required: true,
+      ref: 'word' || 'sentence',
     },
     read: {
+      type: Boolean,
+      required: true,
       default: false,
     },
     message: {

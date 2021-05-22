@@ -1,3 +1,4 @@
+import { RequestHandler } from 'express';
 import { ObjectId } from 'mongoose';
 import Notification from './notification.model';
 
@@ -13,4 +14,19 @@ export const createNotification = async (
     resource,
     message,
   });
+};
+
+export const getNotifications: RequestHandler = async (req, res, next) => {
+  try {
+    const notifications = await Notification.find({
+      recipient: req.session.user,
+    })
+      .populate({ path: 'resource' })
+      .lean()
+      .exec();
+
+    return res.status(200).json({ data: notifications });
+  } catch (error) {
+    return next(new Error(error));
+  }
 };

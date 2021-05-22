@@ -1,6 +1,7 @@
 import { RequestHandler } from 'express';
 import { SUCCESS_MESSAGE, ERROR_MESSAGE } from '../../utils/constants';
 import Sentence from './sentence.model';
+import { createNotification } from '../notification/notification.controllers';
 
 export const createSentence: RequestHandler = async (req, res, next) => {
   try {
@@ -65,6 +66,13 @@ export const updateOne: RequestHandler = async (req, res, next) => {
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
+
+    createNotification(
+      sentence.createdBy,
+      req.session.user,
+      sentence._id,
+      'Sentence updated'
+    );
 
     return res
       .status(200)
