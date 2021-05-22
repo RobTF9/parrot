@@ -49,7 +49,7 @@ const SentenceList: React.FC<Props> = ({ sentences, tags }) => {
             ],
           }}
         />
-      </Filter>{' '}
+      </Filter>
       <Grid
         as="ul"
         className="margin-b-xl"
@@ -79,7 +79,8 @@ const SentenceList: React.FC<Props> = ({ sentences, tags }) => {
             </ul>
             {sentence.updatedBy && (
               <em className="small">
-                {sentence.updatedBy} updated at {formatDate(sentence.updatedAt)}
+                {sentence.updatedBy.username} updated at{' '}
+                {formatDate(sentence.updatedAt)}
               </em>
             )}
           </SentenceWrapper>

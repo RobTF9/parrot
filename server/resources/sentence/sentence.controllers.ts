@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express';
 import { SUCCESS_MESSAGE, ERROR_MESSAGE } from '../../utils/constants';
 import Sentence from './sentence.model';
-import User from '../user/user.model';
 
 export const createSentence: RequestHandler = async (req, res, next) => {
   try {
@@ -25,19 +24,10 @@ export const getMany: RequestHandler = async (req, res, next) => {
     const sentences = await Sentence.find({
       lexicon: req.session.lexicon?._id,
     })
+      .populate({ path: 'updatedBy', select: 'username' })
       .sort({ createdAt: 'desc' })
       .lean()
       .exec();
-
-    for (const sentence of sentences) {
-      const user = await User.findOne({ _id: sentence.updatedBy })
-        .lean()
-        .exec();
-
-      if (user) {
-        sentence.updatedBy = user.username;
-      }
-    }
 
     return res.status(200).json({ data: sentences });
   } catch (error) {
