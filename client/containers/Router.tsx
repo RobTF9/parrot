@@ -16,6 +16,7 @@ import AnimatedDrawer from '../components/AnimatedDrawer';
 import { getLexicons, getShared } from '../api/resources/lexicon';
 import Words from './Words/Words';
 import Sentences from './Sentences/Sentences';
+import { getUser } from '../api/resources/user';
 
 const NotAuthenticated = () => (
   <Switch>
@@ -38,15 +39,16 @@ const Authenticated = () => {
   const { lexicon, activateLexicon } = useLexiconContext();
   const [yourLexicons, yoursLoading] = getLexicons();
   const [sharedLexicons, sharedLoading] = getShared();
+  const [user, userLoading] = getUser();
   const params = useQueryParams();
+
+  if (yoursLoading || sharedLoading || userLoading) return <Loading bg />;
 
   const noLexicons =
     yourLexicons &&
     yourLexicons.data.length === 0 &&
     sharedLexicons &&
-    sharedLexicons.data.length === 0 &&
-    !yoursLoading &&
-    !sharedLoading;
+    sharedLexicons.data.length === 0;
 
   if (noLexicons) return <NoLexicon />;
 
@@ -58,6 +60,7 @@ const Authenticated = () => {
           yourLexicons,
           sharedLexicons,
           activateLexicon,
+          user: user.data,
         }}
       />
       <AnimatedDrawer condition={params.get('lexicons') === 'open'}>

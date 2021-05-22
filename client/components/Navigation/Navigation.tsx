@@ -16,6 +16,7 @@ interface Props {
   yourLexicons?: { data: LexiconResource[] };
   sharedLexicons?: { data: LexiconResource[] };
   activateLexicon: (id: string) => void;
+  user?: UserResource;
 }
 
 const Navigation: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const Navigation: React.FC<Props> = ({
   yourLexicons,
   sharedLexicons,
   activateLexicon,
+  user,
 }) => {
   const [showLexicons, setShowLexicons] = useState(false);
 
@@ -119,7 +121,7 @@ const Navigation: React.FC<Props> = ({
             to={(location) => `${location.pathname}?account=open`}
           >
             <FiUser />
-            Account
+            {user ? user.username : 'Account'}
           </Link>
         </li>
         <li>
