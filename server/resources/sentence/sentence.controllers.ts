@@ -67,16 +67,18 @@ export const updateOne: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    createNotification(
-      sentence.createdBy,
-      req.session.user,
-      sentence._id,
-      'Sentence updated'
-    );
+    if (`${req.session.user}` !== `${sentence.createdBy}`) {
+      createNotification(
+        sentence.createdBy,
+        req.session.user,
+        'Sentence updated',
+        sentence._id
+      );
+    }
 
     return res
       .status(200)
-      .json({ data: sentence, message: SUCCESS_MESSAGE.WORD_UPDATED });
+      .json({ data: sentence, message: SUCCESS_MESSAGE.SENTENCE_UPDATED });
   } catch (error) {
     return next(new Error(error));
   }

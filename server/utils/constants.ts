@@ -50,4 +50,6 @@ export const SUCCESS_MESSAGE = {
   WORD_CREATED: succesMessage('Word created succesfully'),
   WORD_UPDATED: succesMessage('Word updated succesfully'),
   SENTENCE_CREATED: succesMessage('Sentence created succesfully'),
+  SENTENCE_UPDATED: succesMessage('Sentence updated succesfully'),
+  NOTIFICATIONS_READ: succesMessage('Notifications marked as read'),
 };

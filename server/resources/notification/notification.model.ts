@@ -10,7 +10,7 @@ import {
 interface NotificationDocument extends Document {
   sender: ObjectId;
   recipient: ObjectId;
-  resource: string;
+  url: string;
   read: boolean;
   message: string;
 }
@@ -30,17 +30,16 @@ const notificationSchema = new Schema<
       required: true,
       ref: 'user',
     },
-    resource: {
-      type: SchemaTypes.ObjectId,
-      required: true,
-      ref: 'word' || 'sentence',
-    },
     read: {
       type: Boolean,
       required: true,
       default: false,
     },
     message: {
+      type: String,
+      required: true,
+    },
+    url: {
       type: String,
       required: true,
     },
