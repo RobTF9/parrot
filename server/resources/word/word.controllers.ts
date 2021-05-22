@@ -2,6 +2,7 @@ import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import User from '../user/user.model';
 import Word from './word.model';
+import { createNotification } from '../notification/notification.controllers';
 
 export const createWord: RequestHandler = async (req, res, next) => {
   try {
@@ -33,6 +34,13 @@ export const updateOne: RequestHandler = async (req, res, next) => {
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
+
+    createNotification(
+      word.createdBy,
+      req.session.user,
+      word._id,
+      'Word updated'
+    );
 
     return res
       .status(200)
