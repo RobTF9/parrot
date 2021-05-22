@@ -1,6 +1,5 @@
 import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
-import User from '../user/user.model';
 import Word from './word.model';
 import { createNotification } from '../notification/notification.controllers';
 
@@ -55,17 +54,10 @@ export const getMany: RequestHandler = async (req, res, next) => {
     const words = await Word.find({
       lexicon: req.session.lexicon?._id,
     })
+      .populate({ path: 'updatedBy', select: 'username' })
       .sort({ createdAt: 'desc' })
       .lean()
       .exec();
-
-    for (const word of words) {
-      const user = await User.findOne({ _id: word.updatedBy }).lean().exec();
-
-      if (user) {
-        word.updatedBy = user.username;
-      }
-    }
 
     return res.status(200).json({ data: words });
   } catch (error) {

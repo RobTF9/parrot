@@ -76,7 +76,8 @@ const WordList: React.FC<Props> = ({ words, tags }) => {
             </ul>
             {word.updatedBy && (
               <em className="small">
-                {word.updatedBy} updated at {formatDate(word.updatedAt)}
+                {word.updatedBy.username} updated at{' '}
+                {formatDate(word.updatedAt)}
               </em>
             )}
           </WordWrapper>

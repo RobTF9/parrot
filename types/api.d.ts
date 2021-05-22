@@ -63,7 +63,10 @@ declare global {
     _id: string;
     lexicon: string;
     createdBy: string;
-    updatedBy: string;
+    updatedBy: {
+      _id: string;
+      username: string;
+    };
     tags: string[];
     createdAt: string;
     updatedAt: string;
