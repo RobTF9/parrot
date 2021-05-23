@@ -34,5 +34,16 @@ export const MessageWrapper = styled(motion.div)<{
     p {
       color: var(--${type}-dark);
     }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+
+      button {
+        margin-top: var(--small);
+        position: relative;
+        top: auto;
+        right: auto;
+      }
+    }
   `}
 `;

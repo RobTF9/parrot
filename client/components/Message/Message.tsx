@@ -16,10 +16,10 @@ const Message: React.FC<Props> = ({ message, type, visible, hide }) => {
     <AnimatePresence>
       {visible && (
         <MessageWrapper {...{ ...slideUp }} type={type}>
+          <p className="bold">{message}</p>
           <button type="button" onClick={hide}>
             Hide message <FiX />
           </button>
-          <p className="bold">{message}</p>
         </MessageWrapper>
       )}
     </AnimatePresence>
