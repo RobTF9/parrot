@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const NavWrapper = styled.nav`
   position: relative;
@@ -15,6 +15,10 @@ export const NavWrapper = styled.nav`
       border-right: 0.1rem solid var(--core-lightest-10);
       padding-right: var(--medium);
       margin-right: var(--medium);
+
+      @media (max-width: 850px) {
+        display: none;
+      }
     }
   }
 
@@ -46,11 +50,49 @@ export const NavWrapper = styled.nav`
     margin-left: var(--medium);
     margin-right: 0;
 
+    @media (max-width: 660px) {
+      span {
+        display: none;
+      }
+    }
+
     svg {
       margin-right: var(--smaller);
       opacity: 0.5;
       margin-top: -0.2rem;
+
+      @media (max-width: 660px) {
+        margin-top: 0;
+        opacity: 1;
+      }
     }
+  }
+`;
+
+export const BurgerButton = styled.button`
+  background-color: transparent;
+  display: none;
+  height: 100%;
+
+  @media (max-width: 460px) {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+export const LinksWrapper = styled.div`
+  position: relative;
+`;
+
+export const MainLinks = styled.ul<{ mobileDropdown: boolean }>`
+  @media (max-width: 460px) {
+    flex-direction: column;
+    position: absolute;
+    z-index: 100;
+
+    ${({ mobileDropdown }) => css`
+      opacity: ${mobileDropdown ? 1 : 0};
+    `}
   }
 `;
 
