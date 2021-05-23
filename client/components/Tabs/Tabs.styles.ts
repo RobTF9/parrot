@@ -11,4 +11,14 @@ export const TabsWrapper = styled.ul`
   p {
     text-decoration: underline;
   }
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    margin: 0 0 var(--medium);
+
+    li {
+      margin-right: 0;
+      margin-bottom: var(--medium);
+    }
+  }
 `;
