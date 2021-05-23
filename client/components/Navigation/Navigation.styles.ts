@@ -136,6 +136,7 @@ export const LexiconSwitch = styled.div<{ show: boolean }>`
     display: flex;
     flex-direction: column;
     width: calc(100% + var(--medium));
+    min-width: 20rem;
     left: calc(var(--medium) * -1);
     top: calc(100% + var(--small));
 

@@ -32,4 +32,8 @@ export const Filter = styled(Card)`
   ${InputWrapper}, ${SelectWrapper} {
     margin: 0;
   }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;

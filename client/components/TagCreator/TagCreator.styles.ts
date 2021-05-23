@@ -14,4 +14,14 @@ export const TagCreatorWrapper = styled.div`
     margin-bottom: calc(var(--small) + var(--medium));
     margin-left: var(--small);
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      flex-grow: 1;
+      margin-left: 0;
+    }
+  }
 `;
