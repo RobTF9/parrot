@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthContext } from '../../context/Auth';
 import { TextButton } from '../../styles/Buttons.styles';
 import { Flex } from '../../styles/Layout.styles';
 import UpdateUser from './UpdateUser';
+import Tabs from '../../components/Tabs';
+import Notifications from './Notifications';
 
 const Account: React.FC = () => {
   const { signOut } = useAuthContext();
+  const [tab, setTab] = useState('Update');
 
   return (
     <>
@@ -15,7 +18,24 @@ const Account: React.FC = () => {
           Logout
         </TextButton>
       </Flex>
-      <UpdateUser />
+      <Tabs
+        {...{
+          set: setTab,
+          state: tab,
+          tabs: [
+            {
+              setting: 'Update',
+              text: 'Update details',
+            },
+            {
+              setting: 'Notifications',
+              text: 'Notifications',
+            },
+          ],
+        }}
+      />
+      {tab === 'Update' && <UpdateUser />}
+      {tab === 'Notifications' && <Notifications />}
     </>
   );
 };

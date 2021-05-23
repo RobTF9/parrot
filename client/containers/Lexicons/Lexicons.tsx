@@ -3,7 +3,7 @@ import YourLexicons from './YourLexicons';
 import CreateLexicon from './CreateLexicon';
 import SharedLexicons from './SharedLexicons';
 import { Flex } from '../../styles/Layout.styles';
-import Tabs from '../../components/Tabs/Tabs';
+import Tabs from '../../components/Tabs';
 
 const Lexicons: React.FC = () => {
   const [tab, setTab] = useState('Yours');

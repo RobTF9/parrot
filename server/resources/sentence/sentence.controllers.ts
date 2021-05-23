@@ -71,8 +71,8 @@ export const updateOne: RequestHandler = async (req, res, next) => {
       createNotification(
         sentence.createdBy,
         req.session.user,
-        'Sentence updated',
-        sentence._id
+        `/sentences/${sentence._id}`,
+        `The sentence "${sentence.lang}" was updated`
       );
     }
 

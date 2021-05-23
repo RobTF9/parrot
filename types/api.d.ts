@@ -110,4 +110,19 @@ declare global {
     tag: string;
     color: string;
   }
+
+  interface NotificationResource {
+    _id: string;
+    sender: {
+      _id: string;
+      username: string;
+    };
+    recipient: {
+      _id: string;
+      username: string;
+    };
+    url: string;
+    message: string;
+    createdAt: string;
+  }
 }

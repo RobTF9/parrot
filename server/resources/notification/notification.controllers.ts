@@ -23,6 +23,10 @@ export const getUnread: RequestHandler = async (req, res, next) => {
       recipient: req.session.user,
       read: false,
     })
+      .populate([
+        { path: 'recipient', select: 'username' },
+        { path: 'sender', select: 'username' },
+      ])
       .lean()
       .exec();
 

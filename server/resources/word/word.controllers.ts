@@ -38,8 +38,8 @@ export const updateOne: RequestHandler = async (req, res, next) => {
       createNotification(
         word.createdBy,
         req.session.user,
-        'Word updated',
-        word._id
+        `/words/${word._id}`,
+        `The word "${word.lang}" was updated`
       );
     }
 
