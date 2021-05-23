@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { createRef } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FiCheckCircle,
   FiCircle,
@@ -15,6 +16,7 @@ import TagCreator from '../TagCreator';
 import useSpeechTest from '../../hooks/useSpeechTest';
 import { useWordForm } from './useWordForm';
 import { TagList, WordTest } from './WordForm.styles';
+import { Flex } from '../../styles/Layout.styles';
 
 interface Props {
   initialWord: WordSubmission;
@@ -138,7 +140,10 @@ const WordForm: React.FC<Props> = ({
           </Tag>
         ))}
       </TagList>
-      <Button type="submit">Save changes</Button>
+      <Flex justify="space-between" noMargin>
+        <Link to="/words">Close</Link>
+        <Button type="submit">Save changes</Button>
+      </Flex>
     </form>
   );
 };

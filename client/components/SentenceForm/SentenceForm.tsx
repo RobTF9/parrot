@@ -7,6 +7,7 @@ import {
   FiMicOff,
   FiPlay,
 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { UseMutateFunction } from 'react-query';
 import { Button, Tag } from '../../styles/Buttons.styles';
 import Input from '../Input';
@@ -15,6 +16,7 @@ import { useSentenceForm } from './useSentenceForm';
 import { TagList, SentenceTest } from './SentenceForm.styles';
 import useSpeechTest from '../../hooks/useSpeechTest';
 import { heightExpand } from '../../utils/animations';
+import { Flex } from '../../styles/Layout.styles';
 
 interface Props {
   initialSentence: SentenceSubmission;
@@ -140,7 +142,10 @@ const SentenceForm: React.FC<Props> = ({
           </Tag>
         ))}
       </TagList>
-      <Button type="submit">Save changes</Button>
+      <Flex justify="space-between" noMargin>
+        <Link to="/sentences">Close</Link>
+        <Button type="submit">Save changes</Button>
+      </Flex>
     </form>
   );
 };

@@ -35,13 +35,21 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
   ${({ danger }) =>
     danger &&
     css`
-      background-color: var(--bengali-red);
+      background-color: var(--error-light);
+      color: var(--error-dark);
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: var(--error-dark);
+        box-shadow: var(--focus-border);
+        color: var(--error-light);
+      }
     `}
 `;
 
 export const StrokeButton = styled(Button)`
-  background-color: transparent;
-  box-shadow: 0 0 0 0.1rem var(--core-mid);
+  background-color: var(--core-lightest);
   color: var(--core-mid);
   box-sizing: border-box;
 `;

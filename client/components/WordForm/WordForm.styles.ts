@@ -56,4 +56,22 @@ export const WordTest = styled.div`
       }
     }
   }
+
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--small);
+
+    label {
+      grid-column: 1 / -1;
+
+      input {
+        margin-bottom: 0;
+      }
+    }
+
+    button {
+      margin: 0;
+    }
+  }
 `;

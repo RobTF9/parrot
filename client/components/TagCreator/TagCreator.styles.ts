@@ -19,6 +19,14 @@ export const TagCreatorWrapper = styled.div`
     flex-direction: column;
     align-items: stretch;
 
+    label {
+      margin-bottom: var(--small);
+
+      input {
+        margin-bottom: 0;
+      }
+    }
+
     button {
       flex-grow: 1;
       margin-left: 0;

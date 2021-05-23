@@ -60,12 +60,12 @@ export const Grid = styled.div<{
     )}
 `;
 
-export const Flex = styled.div<{ justify?: string }>`
-  ${({ justify }) => css`
+export const Flex = styled.div<{ justify?: string; noMargin?: boolean }>`
+  ${({ justify, noMargin }) => css`
     display: flex;
     align-items: center;
     justify-content: ${justify || 'space-between'};
-    margin-bottom: var(--large);
+    margin-bottom: ${noMargin ? 0 : 'var(--large)'};
   `}
 `;
 
