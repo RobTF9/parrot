@@ -107,7 +107,6 @@ export const Drawer = styled(Modal)`
 
   @media (max-width: 700px) {
     max-width: 90%;
-    padding: var(--large);
   }
 `;
 
