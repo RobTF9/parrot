@@ -27,6 +27,7 @@ export const ERROR_MESSAGE = {
   NO_LEXICON_ACTIVE: errorMessage('No lexicon active'),
   TAG_EMPTY: errorMessage('You need to provide text for a tag'),
   NO_WORDS: errorMessage('Please provide at least one word'),
+  INVALID_MODE: errorMessage('Your game mode is invalid'),
 };
 
 const succesMessage = (message: string) => ({
@@ -48,8 +49,16 @@ export const SUCCESS_MESSAGE = {
   USER_UPDATED: succesMessage('Your details have been updated'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
   WORD_CREATED: succesMessage('Word created succesfully'),
+  GAME_CREATED: succesMessage('Game created succesfully'),
   WORD_UPDATED: succesMessage('Word updated succesfully'),
+  GAME_UPDATED: succesMessage('Game updated succesfully'),
   SENTENCE_CREATED: succesMessage('Sentence created succesfully'),
   SENTENCE_UPDATED: succesMessage('Sentence updated succesfully'),
   NOTIFICATIONS_READ: succesMessage('Notifications marked as read'),
+};
+
+export const GAME_TYPE = {
+  CONVERSATION: 'CONVERSATION',
+  SEQUENCE: 'SEQUENCE',
+  GRID: 'GRID',
 };
