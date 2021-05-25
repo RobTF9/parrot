@@ -17,6 +17,7 @@ import { getLexicons, getShared } from '../api/resources/lexicon';
 import Words from './Words/Words';
 import Sentences from './Sentences/Sentences';
 import { getUser } from '../api/resources/user';
+import Games from './Games/Games';
 
 const NotAuthenticated = () => (
   <Switch>
@@ -76,6 +77,9 @@ const Authenticated = () => {
           </Route>
           <Route path="/sentences">
             <Sentences />
+          </Route>
+          <Route path="/games">
+            <Games />
           </Route>
         </Switch>
       )}

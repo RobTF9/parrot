@@ -6,9 +6,16 @@ export const CACHE = {
   TAG: 'tag',
   SENTENCE: 'sentence',
   NOTIFICATION: 'notification',
+  GAME: 'game',
 };
 
 export const LANGUAGES = [
   { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BN' },
   { name: 'Hindi', htmlCode: 'hi', langCode: 'hi-IN' },
 ];
+
+export const GAME_TYPE = {
+  CONVERSATION: 'CONVERSATION',
+  SEQUENCE: 'SEQUENCE',
+  GRID: 'GRID',
+};

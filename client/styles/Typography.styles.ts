@@ -71,6 +71,10 @@ const Typography = createGlobalStyle`
     margin: var(--large) 0;
   }
 
+  .capitalize {
+    text-transform: capitalize;
+  }
+
   .border {
     &-t {
       padding-top: var(--large);

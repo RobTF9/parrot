@@ -1,6 +1,24 @@
-import { model, Schema, SchemaTypes } from 'mongoose';
+import {
+  Document,
+  Model,
+  model,
+  Schema,
+  ObjectId,
+  SchemaTypes,
+} from 'mongoose';
 
-const gameSchema = new Schema(
+interface GameDocument extends Document {
+  lexicon: ObjectId;
+  createdBy: ObjectId;
+  updatedBy: ObjectId | string;
+  name: string;
+  mode: string;
+  type: string;
+  sentences: ObjectId[];
+  words?: ObjectId[];
+}
+
+const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
   {
     name: {
       type: String,
@@ -25,6 +43,12 @@ const gameSchema = new Schema(
       type: String,
       required: true,
     },
+    results: [
+      {
+        type: SchemaTypes.ObjectId,
+        ref: 'results',
+      },
+    ],
   },
   {
     discriminatorKey: 'type',
@@ -33,12 +57,12 @@ const gameSchema = new Schema(
   }
 );
 
-const Game = model('game', gameSchema);
+const Game = model<GameDocument>('game', gameSchema);
 
 // Conversation mode
 export const Conversation = Game.discriminator(
   'conversation',
-  new Schema({
+  new Schema<GameDocument, Model<GameDocument>>({
     sentences: [
       { type: SchemaTypes.ObjectId, required: true, ref: 'sentence' },
     ],
@@ -48,7 +72,7 @@ export const Conversation = Game.discriminator(
 // Grid or Sequence mode
 export const List = Game.discriminator(
   'list',
-  new Schema({
+  new Schema<GameDocument, Model<GameDocument>>({
     sentences: [
       { type: SchemaTypes.ObjectId, required: true, ref: 'sentence' },
     ],
@@ -57,5 +81,3 @@ export const List = Game.discriminator(
 );
 
 export default Game;
-// ? When you're looking at results don't worry about maintaing two seperate arrays
-// ? Best bet would be to just dump the data as it was during that specific instance of game

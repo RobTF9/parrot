@@ -111,6 +111,17 @@ declare global {
     color: string;
   }
 
+  interface GameResource {
+    _id: string;
+    name: string;
+    mode: string;
+    lexicon: string;
+    createdBy: string;
+    updatedBy: string;
+    sentences: string[];
+    words?: string[];
+  }
+
   interface NotificationResource {
     _id: string;
     sender: {
