@@ -4,25 +4,15 @@ import { createSentence } from '../../api/resources/sentence';
 import AnimatedModal from '../../components/AnimatedModal';
 import SentenceForm from '../../components/SentenceForm';
 import { useLexiconContext } from '../../context/Lexicon';
-import { useMessageContext } from '../../context/Message';
 import { Loading } from '../../styles/Animations.styles';
 
 const CreateSentence: React.FC = () => {
-  const { showMessage } = useMessageContext();
   const { lexicon } = useLexiconContext();
 
   const [tags, tagsLoading] = getTags();
-  const [tagMutate, tagMutateLoading] = createTag(undefined, (res) => {
-    if (res.message) {
-      showMessage(res.message);
-    }
-  });
+  const [tagMutate, tagMutateLoading] = createTag();
 
-  const [create, createLoading] = createSentence(undefined, (res) => {
-    if (res.message) {
-      showMessage(res.message);
-    }
-  });
+  const [create, createLoading] = createSentence();
 
   const sentence = {
     lang: '',

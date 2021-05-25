@@ -5,27 +5,19 @@ import { getWord, updateWord } from '../../api/resources/word';
 import AnimatedModal from '../../components/AnimatedModal';
 import WordForm from '../../components/WordForm/WordForm';
 import { useLexiconContext } from '../../context/Lexicon';
-import { useMessageContext } from '../../context/Message';
 import { Loading } from '../../styles/Animations.styles';
 
 const UpdateWord: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { push } = useHistory();
-
-  const { showMessage } = useMessageContext();
   const { lexicon } = useLexiconContext();
 
   const [tags, tagsLoading] = getTags();
-  const [tagMutate, tagMutateLoading] = createTag(undefined, (res) => {
-    if (res.message) {
-      showMessage(res.message);
-    }
-  });
+  const [tagMutate, tagMutateLoading] = createTag();
 
   const [word, wordLoading] = getWord(id);
   const [update, updateLoading] = updateWord(id, (res) => {
-    if (res.message) {
-      showMessage(res.message);
+    if (res.data) {
       setTimeout(() => {
         push('/words');
       }, 2000);

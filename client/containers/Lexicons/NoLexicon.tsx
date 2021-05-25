@@ -5,16 +5,13 @@ import { Loading } from '../../styles/Animations.styles';
 import { Button } from '../../styles/Buttons.styles';
 import { Container, Modal } from '../../styles/Layout.styles';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
-import { useMessageContext } from '../../context/Message';
 
 const NoLexicon: React.FC = () => {
   const { push } = useHistory();
-  const { showMessage } = useMessageContext();
 
   const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
     (res: ServerReponse<LexiconResource>) => {
-      if (res.message) {
-        showMessage(res.message);
+      if (res.data) {
         setTimeout(() => {
           push('/');
         }, 2000);

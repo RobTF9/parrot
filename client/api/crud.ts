@@ -1,6 +1,7 @@
 import { useQuery, UseMutateFunction, useMutation } from 'react-query';
 import { get, post, put } from './fetch';
 import { queryClient } from '../context/Query';
+import { useMessageContext } from '../context/Message';
 
 export interface APIReciever<T> {
   (id?: string): [data: { data: T } | undefined, isLoading: boolean];
@@ -39,13 +40,19 @@ export function createOne<T, U>(
   mutate: UseMutateFunction<ServerReponse<U>, unknown, T, unknown>,
   isLoading: boolean
 ] {
+  const { showMessage } = useMessageContext();
   const { mutate, isLoading } = useMutation(
     (u: T) => post<T, ServerReponse<U>>(endpoint, u),
     {
       onSuccess: (res) => {
         queryClient.invalidateQueries(cache);
-        if (callback && res) {
-          callback(res);
+        if (res) {
+          if (res.message) {
+            showMessage(res.message);
+          }
+          if (callback) {
+            callback(res);
+          }
         }
       },
     }
@@ -61,6 +68,7 @@ export function updateOne<T, U>(
   mutate: UseMutateFunction<ServerReponse<U>, unknown, T, unknown>,
   isLoading: boolean
 ] {
+  const { showMessage } = useMessageContext();
   const { mutate, isLoading } = useMutation(
     (u: T) =>
       put<T, ServerReponse<U>>(endpoint, {
@@ -70,8 +78,13 @@ export function updateOne<T, U>(
     {
       onSuccess: (res) => {
         queryClient.invalidateQueries(cache);
-        if (callback && res) {
-          callback(res);
+        if (res) {
+          if (res.message) {
+            showMessage(res.message);
+          }
+          if (callback) {
+            callback(res);
+          }
         }
       },
     }

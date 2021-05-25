@@ -2,17 +2,10 @@ import React from 'react';
 import { Loading } from '../../styles/Animations.styles';
 import Select from '../../components/Select';
 import useCreateLexicon from '../../hooks/useCreateLexicon';
-import { useMessageContext } from '../../context/Message';
 import { Button } from '../../styles/Buttons.styles';
 
 const CreateLexicon: React.FC = () => {
-  const { showMessage } = useMessageContext();
-
-  const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon(
-    (res: ServerReponse<LexiconResource>) => {
-      if (res.message) showMessage(res.message);
-    }
-  );
+  const { createLoading, onChange, onSubmit, LANGUAGES } = useCreateLexicon();
 
   return (
     <form onSubmit={onSubmit}>
