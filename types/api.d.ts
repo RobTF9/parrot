@@ -111,6 +111,13 @@ declare global {
     color: string;
   }
 
+  interface GameSubmission {
+    name: string;
+    mode: string;
+    sentences: string[];
+    words?: string[];
+  }
+
   interface GameResource {
     _id: string;
     name: string;
