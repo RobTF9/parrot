@@ -91,8 +91,8 @@ declare global {
   interface GameSubmission {
     name: string;
     mode: string;
-    sentences: string[];
-    words?: string[];
+    order: string;
+    items: string[];
   }
 
   interface GameResource {
@@ -102,8 +102,8 @@ declare global {
     lexicon: string;
     createdBy: string;
     updatedBy: string;
-    sentences: string[];
-    words?: string[];
+    order: string;
+    items: string[];
   }
 
   interface NotificationResource {

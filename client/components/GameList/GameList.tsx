@@ -11,14 +11,10 @@ interface Props {
 const GameList: React.FC<Props> = ({ games }) => {
   function createCopy(game: GameResource) {
     if (game.mode === GAME_TYPE.CONVERSATION) {
-      return `${game.sentences.length} sentences`;
+      return `${game.items.length} sentences`;
     }
 
-    if (game.words) {
-      return `${game.sentences.length + game.words.length} questions`;
-    }
-
-    return `${game.sentences.length} words`;
+    return `${game.items.length} questions`;
   }
 
   return (

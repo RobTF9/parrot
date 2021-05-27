@@ -74,9 +74,14 @@ export const Tag = styled.li<{ color?: string }>`
   color: var(--core-white);
   border-radius: var(--smaller);
   padding: var(--smaller) var(--smaller) 0.2rem;
-  display: inline;
+  display: inline-flex;
+  line-height: 1.2;
   text-transform: capitalize;
   margin: 0 var(--smaller) var(--smaller) 0;
+
+  svg {
+    margin-right: var(--smaller);
+  }
 
   * {
     color: var(--core-white);

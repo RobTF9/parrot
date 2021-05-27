@@ -7,6 +7,7 @@ export const CACHE = {
   SENTENCE: 'sentence',
   NOTIFICATION: 'notification',
   GAME: 'game',
+  ITEM: 'cache',
 };
 
 export const LANGUAGES = [
@@ -18,4 +19,9 @@ export const GAME_TYPE = {
   CONVERSATION: 'CONVERSATION',
   SEQUENCE: 'SEQUENCE',
   GRID: 'GRID',
+};
+
+export const GAME_ORDER = {
+  RANDOM: 'RANDOM',
+  MANUAL: 'MANUAL',
 };

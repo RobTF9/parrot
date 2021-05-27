@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-interface SearchChangeHandler {
+export interface SearchChangeHandler {
   (event: React.ChangeEvent<HTMLInputElement>): void;
 }
 

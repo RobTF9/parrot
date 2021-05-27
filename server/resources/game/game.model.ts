@@ -14,8 +14,7 @@ interface GameDocument extends Document {
   name: string;
   mode: string;
   type: string;
-  sentences: ObjectId[];
-  words?: ObjectId[];
+  items: ObjectId[];
 }
 
 const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
@@ -45,6 +44,10 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
     },
     order: {
       type: String,
+      required: true,
+    },
+    items: {
+      type: [{ type: SchemaTypes.ObjectId, ref: 'item', required: true }],
       required: true,
     },
     results: [
