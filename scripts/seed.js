@@ -21,5 +21,4 @@ function postCollection(collection) {
 postCollection('users');
 postCollection('lexicons');
 postCollection('tags');
-postCollection('words');
-postCollection('sentences');
+postCollection('item');

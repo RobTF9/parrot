@@ -59,7 +59,6 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
 
 const Game = model<GameDocument>('game', gameSchema);
 
-// Conversation mode
 export const Conversation = Game.discriminator(
   'conversation',
   new Schema<GameDocument, Model<GameDocument>>({
@@ -69,7 +68,6 @@ export const Conversation = Game.discriminator(
   })
 );
 
-// Grid or Sequence mode
 export const List = Game.discriminator(
   'list',
   new Schema<GameDocument, Model<GameDocument>>({
