@@ -15,6 +15,7 @@ import wordRouter from './resources/word/word.router';
 import sentenceRouter from './resources/sentence/sentence.router';
 import notificationRouter from './resources/notification/notification.router';
 import gameRouter from './resources/game/game.router';
+import itemRouter from './resources/item/item.router';
 
 export const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api', protect);
 app.use('/api/user', userRouter);
 app.use('/api/lexicon', lexiconRouter);
 app.use('/api/tag', tagRouter);
+app.use('/api/item', itemRouter);
 app.use('/api/word', wordRouter);
 app.use('/api/sentence', sentenceRouter);
 app.use('/api/notification', notificationRouter);

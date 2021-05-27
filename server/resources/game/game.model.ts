@@ -43,10 +43,14 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
       type: String,
       required: true,
     },
+    order: {
+      type: String,
+      required: true,
+    },
     results: [
       {
         type: SchemaTypes.ObjectId,
-        ref: 'results',
+        ref: 'result',
       },
     ],
   },
@@ -58,24 +62,5 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
 );
 
 const Game = model<GameDocument>('game', gameSchema);
-
-export const Conversation = Game.discriminator(
-  'conversation',
-  new Schema<GameDocument, Model<GameDocument>>({
-    sentences: [
-      { type: SchemaTypes.ObjectId, required: true, ref: 'sentence' },
-    ],
-  })
-);
-
-export const List = Game.discriminator(
-  'list',
-  new Schema<GameDocument, Model<GameDocument>>({
-    sentences: [
-      { type: SchemaTypes.ObjectId, required: true, ref: 'sentence' },
-    ],
-    words: [{ type: SchemaTypes.ObjectId, required: true, ref: 'word' }],
-  })
-);
 
 export default Game;

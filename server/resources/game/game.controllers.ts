@@ -1,36 +1,16 @@
 import { RequestHandler } from 'express';
-import Game, { List, Conversation } from './game.model';
-import {
-  ERROR_MESSAGE,
-  GAME_TYPE,
-  SUCCESS_MESSAGE,
-} from '../../utils/constants';
+import Game from './game.model';
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import { createNotification } from '../notification/notification.controllers';
 
 export const createGame: RequestHandler = async (req, res, next) => {
   try {
-    let game;
-    if (req.body.mode === GAME_TYPE.CONVERSATION) {
-      game = await Conversation.create({
-        ...req.body,
-        createdBy: req.session.user,
-        updatedBy: req.session.user,
-        lexicon: req.session.lexicon?._id,
-      });
-    } else if (
-      req.body.mode === GAME_TYPE.GRID ||
-      req.body.mode === GAME_TYPE.SEQUENCE
-    ) {
-      game = await List.create({
-        ...req.body,
-        createdBy: req.session.user,
-        updatedBy: req.session.user,
-        lexicon: req.session.lexicon?._id,
-      });
-    } else {
-      return res.status(400).send({ message: ERROR_MESSAGE.INVALID_MODE });
-    }
-
+    const game = await Game.create({
+      ...req.body,
+      createdBy: req.session.user,
+      updatedBy: req.session.user,
+      lexicon: req.session.lexicon?._id,
+    });
     return res
       .status(201)
       .json({ message: SUCCESS_MESSAGE.GAME_CREATED, data: game });
