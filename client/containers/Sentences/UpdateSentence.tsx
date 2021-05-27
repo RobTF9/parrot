@@ -5,7 +5,7 @@ import { updateSentence, getSentence } from '../../api/resources/sentence';
 import AnimatedModal from '../../components/AnimatedModal';
 import { useLexiconContext } from '../../context/Lexicon';
 import { Loading } from '../../styles/Animations.styles';
-import SentenceForm from '../../components/SentenceForm';
+import ItemForm from '../../components/ItemForm';
 
 const UpdateSentence: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,9 +33,10 @@ const UpdateSentence: React.FC = () => {
         tagMutateLoading) && <Loading bg />}
       <h3 className="bold border-b-s xlarge">Update word</h3>
       {sentence && lexicon && tags && (
-        <SentenceForm
+        <ItemForm
           {...{
-            initialSentence: sentence.data,
+            back: '/sentences',
+            initialItem: sentence.data,
             tags: tags.data,
             lexicon,
             mutate: update,

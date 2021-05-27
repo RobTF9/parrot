@@ -2,7 +2,7 @@ import React from 'react';
 import { createTag, getTags } from '../../api/resources/tags';
 import { createWord } from '../../api/resources/word';
 import AnimatedModal from '../../components/AnimatedModal';
-import WordForm from '../../components/WordForm/WordForm';
+import ItemForm from '../../components/ItemForm';
 import { useLexiconContext } from '../../context/Lexicon';
 import { Loading } from '../../styles/Animations.styles';
 
@@ -24,9 +24,10 @@ const CreateWord: React.FC = () => {
       {(createLoading || tagsLoading || tagMutateLoading) && <Loading bg />}
       <h3 className="bold border-b-s xlarge">Add a new word</h3>
       {lexicon && tags && (
-        <WordForm
+        <ItemForm
           {...{
-            initialWord: word,
+            back: '/words',
+            initialItem: word,
             tags: tags.data,
             lexicon,
             mutate: create,

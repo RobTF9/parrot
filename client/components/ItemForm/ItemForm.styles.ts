@@ -28,7 +28,7 @@ export const TagList = styled.ul`
   }
 `;
 
-export const WordTest = styled.div`
+export const ItemTest = styled.div`
   display: flex;
   align-items: flex-end;
 

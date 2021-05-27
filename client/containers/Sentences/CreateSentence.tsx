@@ -2,9 +2,9 @@ import React from 'react';
 import { createTag, getTags } from '../../api/resources/tags';
 import { createSentence } from '../../api/resources/sentence';
 import AnimatedModal from '../../components/AnimatedModal';
-import SentenceForm from '../../components/SentenceForm';
 import { useLexiconContext } from '../../context/Lexicon';
 import { Loading } from '../../styles/Animations.styles';
+import ItemForm from '../../components/ItemForm';
 
 const CreateSentence: React.FC = () => {
   const { lexicon } = useLexiconContext();
@@ -26,9 +26,10 @@ const CreateSentence: React.FC = () => {
       {(createLoading || tagsLoading || tagMutateLoading) && <Loading bg />}
       <h3 className="bold border-b-s xlarge">Add a new sentence</h3>
       {lexicon && tags && (
-        <SentenceForm
+        <ItemForm
           {...{
-            initialSentence: sentence,
+            back: '/sentence',
+            initialItem: sentence,
             tags: tags.data,
             lexicon,
             mutate: create,

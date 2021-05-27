@@ -1,5 +1,6 @@
-import React, { createRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import React, { createRef } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FiCheckCircle,
   FiCircle,
@@ -7,25 +8,25 @@ import {
   FiMicOff,
   FiPlay,
 } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 import { UseMutateFunction } from 'react-query';
 import { Button, Tag } from '../../styles/Buttons.styles';
+import { heightExpand } from '../../utils/animations';
 import Input from '../Input';
 import TagCreator from '../TagCreator';
-import { useSentenceForm } from './useSentenceForm';
-import { TagList, SentenceTest } from './SentenceForm.styles';
 import useSpeechTest from '../../hooks/useSpeechTest';
-import { heightExpand } from '../../utils/animations';
+import { useItemForm } from './useItemForm';
+import { TagList, ItemTest } from './ItemForm.styles';
 import { Flex } from '../../styles/Layout.styles';
 
 interface Props {
-  initialSentence: SentenceSubmission;
+  initialItem: ItemSubmission;
+  back: string;
   lexicon: LexiconSession;
   tags: TagResource[];
   mutate: UseMutateFunction<
-    ServerReponse<SentenceResource>,
+    ServerReponse<ItemResource>,
     unknown,
-    SentenceSubmission,
+    ItemSubmission,
     unknown
   >;
   tagMutate: UseMutateFunction<
@@ -36,8 +37,9 @@ interface Props {
   >;
 }
 
-const SentenceForm: React.FC<Props> = ({
-  initialSentence,
+const ItemForm: React.FC<Props> = ({
+  initialItem,
+  back,
   mutate,
   lexicon,
   tags,
@@ -46,12 +48,12 @@ const SentenceForm: React.FC<Props> = ({
   const audioEl = createRef<HTMLAudioElement>();
 
   const {
-    sentence,
+    item,
     errors,
     changeHandler,
     submitHandler,
     tagChangeHandler,
-  } = useSentenceForm(mutate, initialSentence);
+  } = useItemForm(mutate, initialItem);
 
   const {
     transcript,
@@ -59,7 +61,7 @@ const SentenceForm: React.FC<Props> = ({
     correct,
     listening,
     canListen,
-  } = useSpeechTest(sentence.lang);
+  } = useSpeechTest(item.lang);
 
   const play = () => {
     if (audioEl.current) {
@@ -69,11 +71,11 @@ const SentenceForm: React.FC<Props> = ({
 
   return (
     <form onSubmit={submitHandler}>
-      <SentenceTest>
+      <ItemTest>
         <Input
           {...{
             label: lexicon.language.name,
-            value: sentence.lang,
+            value: item.lang,
             name: 'lang',
             onChange: changeHandler,
             error: errors.lang,
@@ -87,9 +89,9 @@ const SentenceForm: React.FC<Props> = ({
         </Button>
         <audio
           ref={audioEl}
-          src={`https://translate.google.com/translate_tts?ie=UTF-8&tl=${lexicon.language.langCode}&client=tw-ob&q=${sentence.lang}`}
+          src={`https://translate.google.com/translate_tts?ie=UTF-8&tl=${lexicon.language.langCode}&client=tw-ob&q=${item.lang}`}
         />
-      </SentenceTest>
+      </ItemTest>
       <AnimatePresence>
         {(listening || correct) && (
           <motion.div layout {...{ ...heightExpand }}>
@@ -100,7 +102,7 @@ const SentenceForm: React.FC<Props> = ({
       <Input
         {...{
           label: "How's it pronounced?",
-          value: sentence.pron,
+          value: item.pron,
           name: 'pron',
           onChange: changeHandler,
           error: errors.pron,
@@ -109,7 +111,7 @@ const SentenceForm: React.FC<Props> = ({
       <Input
         {...{
           label: "What's the translation?",
-          value: sentence.tran,
+          value: item.tran,
           name: 'tran',
           onChange: changeHandler,
           error: errors.tran,
@@ -120,19 +122,17 @@ const SentenceForm: React.FC<Props> = ({
         {tags.map((tag) => (
           <Tag
             key={tag._id}
-            color={
-              sentence.tags.find((t) => t === tag._id) && 'var(--core-dark)'
-            }
+            color={item.tags.find((t) => t === tag._id) && 'var(--core-dark)'}
           >
             <label htmlFor={tag._id}>
               <input
                 type="checkbox"
                 id={tag._id}
                 value={tag._id}
-                defaultChecked={!!sentence.tags.find((t) => t === tag._id)}
+                defaultChecked={!!item.tags.find((t) => t === tag._id)}
                 onChange={tagChangeHandler}
               />
-              {sentence.tags.find((t) => t === tag._id) ? (
+              {item.tags.find((t) => t === tag._id) ? (
                 <FiCheckCircle />
               ) : (
                 <FiCircle />
@@ -143,11 +143,11 @@ const SentenceForm: React.FC<Props> = ({
         ))}
       </TagList>
       <Flex justify="space-between" noMargin>
-        <Link to="/sentences">Close</Link>
+        <Link to={back}>Close</Link>
         <Button type="submit">Save changes</Button>
       </Flex>
     </form>
   );
 };
 
-export default SentenceForm;
+export default ItemForm;

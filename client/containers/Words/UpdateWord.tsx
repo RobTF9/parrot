@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { createTag, getTags } from '../../api/resources/tags';
 import { getWord, updateWord } from '../../api/resources/word';
 import AnimatedModal from '../../components/AnimatedModal';
-import WordForm from '../../components/WordForm/WordForm';
+import ItemForm from '../../components/ItemForm';
 import { useLexiconContext } from '../../context/Lexicon';
 import { Loading } from '../../styles/Animations.styles';
 
@@ -31,9 +31,10 @@ const UpdateWord: React.FC = () => {
       )}
       <h3 className="bold border-b-s xlarge">Update word</h3>
       {word && lexicon && tags && (
-        <WordForm
+        <ItemForm
           {...{
-            initialWord: word.data,
+            back: '/words',
+            initialItem: word.data,
             tags: tags.data,
             lexicon,
             mutate: update,

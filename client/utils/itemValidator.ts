@@ -1,5 +1,5 @@
-function validateWord(
-  word: WordSubmission
+function validateItem(
+  word: ItemSubmission
 ): { lang?: string; pron?: string; tran?: string } {
   let errors = {};
 
@@ -20,4 +20,4 @@ function validateWord(
   return errors;
 }
 
-export default validateWord;
+export default validateItem;

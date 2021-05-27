@@ -53,13 +53,13 @@ declare global {
     };
   }
 
-  interface WordSubmission {
+  interface ItemSubmission {
     tags: string[];
     lang: string;
     pron: string;
     tran: string;
   }
-  interface WordResource {
+  interface ItemResource {
     _id: string;
     lexicon: string;
     createdBy: string;
@@ -74,29 +74,6 @@ declare global {
     pron: string;
     tran: string;
   }
-
-  interface SentenceSubmission {
-    tags: string[];
-    lang: string;
-    pron: string;
-    tran: string;
-  }
-  interface SentenceResource {
-    _id: string;
-    lexicon: string;
-    createdBy: string;
-    updatedBy: {
-      _id: string;
-      username: string;
-    };
-    tags: string[];
-    createdAt: string;
-    updatedAt: string;
-    lang: string;
-    pron: string;
-    tran: string;
-  }
-
   interface TagSubmission {
     tag: string;
     color: string;
