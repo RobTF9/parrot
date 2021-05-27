@@ -5,12 +5,12 @@ import { Tag } from '../../styles/Buttons.styles';
 import { SentenceWrapper, Filter } from './SentenceList.styles';
 import Input from '../Input';
 import Select from '../Select';
-import useSentenceSearch from './useSentenceSearch';
+import useSearch from '../../hooks/useSearch';
 import formatDate from '../../utils/formatDate';
 
 interface Props {
   sentences: {
-    data: SentenceResource[];
+    data: ItemResource[];
   };
   tags: {
     data: TagResource[];
@@ -24,7 +24,7 @@ const SentenceList: React.FC<Props> = ({ sentences, tags }) => {
     filter,
     changeHandler,
     selectChangeHandler,
-  } = useSentenceSearch(sentences.data, tags.data);
+  } = useSearch(sentences.data, tags.data);
 
   return (
     <>

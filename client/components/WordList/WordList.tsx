@@ -4,13 +4,13 @@ import { Grid } from '../../styles/Layout.styles';
 import { Tag } from '../../styles/Buttons.styles';
 import { WordWrapper, Filter } from './WordList.styles';
 import Input from '../Input';
-import useWordSearch from './useWordSearch';
+import useSearch from '../../hooks/useSearch';
 import Select from '../Select';
 import formatDate from '../../utils/formatDate';
 
 interface Props {
   words: {
-    data: WordResource[];
+    data: ItemResource[];
   };
   tags: {
     data: TagResource[];
@@ -24,7 +24,7 @@ const WordList: React.FC<Props> = ({ words, tags }) => {
     search,
     filter,
     selectChangeHandler,
-  } = useWordSearch(words.data, tags.data);
+  } = useSearch(words.data, tags.data);
 
   return (
     <>

@@ -8,18 +8,18 @@ import {
   updateOne,
 } from '../crud';
 
-export const getSentences: APIReciever<SentenceResource[]> = () =>
+export const getSentences: APIReciever<ItemResource[]> = () =>
   getMany(CACHE.SENTENCE, '/api/sentence');
 
-export const getSentence: APIReciever<SentenceResource> = (id) =>
+export const getSentence: APIReciever<ItemResource> = (id) =>
   getOne(CACHE.SENTENCE + id, `/api/sentence/${id}`);
 
-export const updateSentence: APIGiver<SentenceSubmission, SentenceResource> = (
+export const updateSentence: APIGiver<ItemSubmission, ItemResource> = (
   id,
   callback
 ) => updateOne(CACHE.SENTENCE, `/api/sentence/${id}`, callback);
 
-export const createSentence: APIGiver<SentenceSubmission, SentenceResource> = (
+export const createSentence: APIGiver<ItemSubmission, ItemResource> = (
   _,
   callback
 ) => createOne(CACHE.SENTENCE, `/api/sentence`, callback);

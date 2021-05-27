@@ -8,9 +8,9 @@ interface SelectChangeHandler {
   (event: React.ChangeEvent<HTMLSelectElement>): void;
 }
 
-interface UseSentenceSearch {
-  (sentences: SentenceResource[], tags: TagResource[]): {
-    filtered: SentenceResource[];
+interface UseSearch {
+  (items: ItemResource[], tags: TagResource[]): {
+    filtered: ItemResource[];
     search: string;
     filter: string;
     changeHandler: SearchChangeHandler;
@@ -18,8 +18,8 @@ interface UseSentenceSearch {
   };
 }
 
-const useSentenceSearch: UseSentenceSearch = (sentences, tags) => {
-  const [filtered, setFiltered] = useState(sentences);
+const useSearch: UseSearch = (items, tags) => {
+  const [filtered, setFiltered] = useState(items);
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
 
@@ -31,40 +31,38 @@ const useSentenceSearch: UseSentenceSearch = (sentences, tags) => {
 
   useEffect(() => {
     if (filter === 'All') {
-      setFiltered(sentences);
+      setFiltered(items);
     } else {
-      setFiltered(
-        sentences.filter((sentence) => sentence.tags.includes(filter))
-      );
+      setFiltered(items.filter((item) => item.tags.includes(filter)));
     }
   }, [filter]);
 
   useEffect(() => {
-    if (!sentences) return;
+    if (!items) return;
     setFiltered(
-      sentences.filter((sentence) => {
+      items.filter((item) => {
         if (
-          sentence.pron.toUpperCase().includes(search.toUpperCase()) ||
-          sentence.tran.toUpperCase().includes(search.toUpperCase()) ||
-          sentence.lang.includes(search)
+          item.pron.toUpperCase().includes(search.toUpperCase()) ||
+          item.tran.toUpperCase().includes(search.toUpperCase()) ||
+          item.lang.includes(search)
         ) {
-          return sentence;
+          return item;
         }
-        if (sentence.tags) {
+        if (item.tags) {
           if (
-            sentence.tags
+            item.tags
               .map((tag) => tags.find((t) => t._id === tag)?.tag)
               .includes(search)
           ) {
-            return sentence;
+            return item;
           }
         }
         return null;
       })
     );
-  }, [search, sentences]);
+  }, [search, items]);
 
   return { filtered, changeHandler, search, filter, selectChangeHandler };
 };
 
-export default useSentenceSearch;
+export default useSearch;
