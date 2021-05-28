@@ -55,6 +55,8 @@ export const SUCCESS_MESSAGE = {
   SENTENCE_CREATED: succesMessage('Sentence created succesfully'),
   SENTENCE_UPDATED: succesMessage('Sentence updated succesfully'),
   NOTIFICATIONS_READ: succesMessage('Notifications marked as read'),
+  GAME_RELOADED: succesMessage('Game progress restored'),
+  GAME_STARTED: succesMessage('New game started!'),
 };
 
 export const GAME_TYPE = {

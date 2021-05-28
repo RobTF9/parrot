@@ -16,6 +16,7 @@ import sentenceRouter from './resources/sentence/sentence.router';
 import notificationRouter from './resources/notification/notification.router';
 import gameRouter from './resources/game/game.router';
 import itemRouter from './resources/item/item.router';
+import resultRouter from './resources/result/result.router';
 
 export const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/word', wordRouter);
 app.use('/api/sentence', sentenceRouter);
 app.use('/api/notification', notificationRouter);
 app.use('/api/game', gameRouter);
+app.use('/api/result', resultRouter);
 
 // Serve client
 const clientPath = path.join(__dirname, '..', 'client');

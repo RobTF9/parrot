@@ -25,19 +25,19 @@ const PlayGame: React.FC = () => {
 
   const [result, setResult] = useState<ResultSubmission>();
 
-  useEffect(() => {
-    if (game) {
-      setResult({
-        game: game.data._id,
-        score: {
-          correct: [],
-          total: game.data.items.length,
-        },
-        finished: false,
-        // items: game.data.items.map((item) => ({ ...item })),
-      });
-    }
-  }, [game]);
+  // useEffect(() => {
+  //   if (game) {
+  //     setResult({
+  //       game: game.data._id,
+  //       score: {
+  //         correct: [],
+  //         total: game.data.items.length,
+  //       },
+  //       finished: false,
+  //       // items: game.data.items.map((item) => ({ ...item })),
+  //     });
+  //   }
+  // }, [game]);
 
   return (
     <Container>

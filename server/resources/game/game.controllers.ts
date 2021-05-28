@@ -36,7 +36,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
 export const getOne: RequestHandler = async (req, res, next) => {
   try {
     const game = await Game.findById(req.params.id)
-      .populate('sentences words')
+      .populate('items')
       .lean()
       .exec();
 
