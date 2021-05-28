@@ -18,6 +18,7 @@ import Words from './Words/Words';
 import Sentences from './Sentences/Sentences';
 import { getUser } from '../api/resources/user';
 import Games from './Games/Games';
+import PlayGame from './Games/PlayGame';
 
 const NotAuthenticated = () => (
   <Switch>
@@ -54,36 +55,41 @@ const Authenticated = () => {
   if (noLexicons) return <NoLexicon />;
 
   return (
-    <>
-      <Navigation
-        {...{
-          lexicon,
-          yourLexicons,
-          sharedLexicons,
-          activateLexicon,
-          user: user?.data,
-        }}
-      />
-      <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
-        <Lexicons />
-      </AnimatedDrawer>
-      <AnimatedDrawer condition={params.get('account') === 'open'}>
-        <Account />
-      </AnimatedDrawer>
-      {lexicon && (
-        <Switch>
-          <Route path="/words">
-            <Words />
-          </Route>
-          <Route path="/sentences">
-            <Sentences />
-          </Route>
-          <Route path="/games">
-            <Games />
-          </Route>
-        </Switch>
-      )}
-    </>
+    <Switch>
+      <Route path="/play/:id">
+        <PlayGame />
+      </Route>
+      <Route path="/">
+        <Navigation
+          {...{
+            lexicon,
+            yourLexicons,
+            sharedLexicons,
+            activateLexicon,
+            user: user?.data,
+          }}
+        />
+        <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
+          <Lexicons />
+        </AnimatedDrawer>
+        <AnimatedDrawer condition={params.get('account') === 'open'}>
+          <Account />
+        </AnimatedDrawer>
+        {lexicon && (
+          <Switch>
+            <Route path="/words">
+              <Words />
+            </Route>
+            <Route path="/sentences">
+              <Sentences />
+            </Route>
+            <Route path="/games">
+              <Games />
+            </Route>
+          </Switch>
+        )}
+      </Route>
+    </Switch>
   );
 };
 

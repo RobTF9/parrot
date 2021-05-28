@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Modal,
-  Overlay,
-  TouchableOpacity,
-} from '../../styles/Layout.styles';
+import { Modal, Overlay, TouchableOpacity } from '../../styles/Layout.styles';
 import { fade, moveUp } from '../../utils/animations';
 
 const AnimatedModal: React.FunctionComponent<{ back: string }> = ({
