@@ -106,6 +106,33 @@ declare global {
     items: string[];
   }
 
+  interface ResultResource {
+    _id: string;
+    lexicon: string;
+    createdBy: string;
+    game: GameResource;
+    score: {
+      correct: string[];
+      total: number;
+    };
+    finished: boolean;
+    items: Array<
+      ItemResource | { attempts: number; correct: boolean; skipped: boolean }
+    >;
+  }
+
+  interface ResultSubmission {
+    game: string;
+    score: {
+      correct: string[];
+      total: number;
+    };
+    finished: boolean;
+    items: Array<
+      ItemResource | { attempts: number; correct: boolean; skipped: boolean }
+    >;
+  }
+
   interface NotificationResource {
     _id: string;
     sender: {

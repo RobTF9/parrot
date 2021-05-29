@@ -10,7 +10,7 @@ import {
 interface ResultDocument extends Document {
   lexicon: ObjectId;
   createdBy: ObjectId;
-  game: ObjectId | string;
+  game: ObjectId;
   score: {
     correct: ObjectId[];
     total: number;

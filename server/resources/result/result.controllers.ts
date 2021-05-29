@@ -9,11 +9,7 @@ export const getResult: RequestHandler = async (req, res, next) => {
       game: req.params.id,
       finished: false,
       createdBy: req.session.user,
-    })
-      .populate({ path: 'game' })
-      .populate({ path: 'items', populate: { path: 'item' } })
-      .lean()
-      .exec();
+    }).populate('game');
 
     if (result) {
       return res

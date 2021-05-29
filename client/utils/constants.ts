@@ -8,6 +8,7 @@ export const CACHE = {
   NOTIFICATION: 'notification',
   GAME: 'game',
   ITEM: 'cache',
+  RESULT: 'result',
 };
 
 export const LANGUAGES = [
