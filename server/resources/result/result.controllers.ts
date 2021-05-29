@@ -5,18 +5,6 @@ import Result from './result.model';
 
 export const getResult: RequestHandler = async (req, res, next) => {
   try {
-    const result = await Result.findOne({
-      game: req.params.id,
-      finished: false,
-      createdBy: req.session.user,
-    }).populate('game');
-
-    if (result) {
-      return res
-        .status(200)
-        .json({ message: SUCCESS_MESSAGE.GAME_RELOADED, data: result });
-    }
-
     const game = await Game.findById(req.params.id).lean().exec();
 
     if (!game) {
@@ -25,7 +13,22 @@ export const getResult: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    const newResult = await Result.create({
+    const result = await Result.findOne({
+      game: game._id,
+      finished: false,
+      createdBy: req.session.user,
+    })
+      .populate({ path: 'game' })
+      .populate({ path: 'items', populate: { path: 'item' } })
+      .exec();
+
+    if (result) {
+      return res
+        .status(200)
+        .json({ message: SUCCESS_MESSAGE.GAME_RELOADED, data: result });
+    }
+
+    let newResult = await Result.create({
       game: game._id,
       lexicon: req.session.lexicon?._id,
       createdBy: req.session.user,
@@ -42,13 +45,14 @@ export const getResult: RequestHandler = async (req, res, next) => {
       })),
     });
 
+    newResult = await newResult
+      .populate({ path: 'game' })
+      .populate({ path: 'items', populate: { path: 'item' } })
+      .execPopulate();
+
     await Game.findByIdAndUpdate(req.params.id, {
       $push: { results: newResult._id },
     });
-
-    await newResult
-      .populate({ path: 'game' })
-      .populate({ path: 'items', populate: { path: 'item' } });
 
     return res
       .status(201)
