@@ -116,9 +116,12 @@ declare global {
       total: number;
     };
     finished: boolean;
-    items: Array<
-      ItemResource | { attempts: number; correct: boolean; skipped: boolean }
-    >;
+    items: {
+      attempts: number;
+      correct: boolean;
+      skipped: boolean;
+      item: ItemResource;
+    }[];
   }
 
   interface ResultSubmission {

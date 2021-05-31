@@ -1,7 +1,81 @@
 import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import Game from '../game/game.model';
+import Item from '../item/item.model';
 import Result from './result.model';
+
+export const updateResult: RequestHandler = async (req, res, next) => {
+  try {
+    const result = await Result.findByIdAndUpdate(
+      req.params.id,
+      {
+        ...req.body,
+        updatedAt: undefined,
+      },
+      { new: true }
+    )
+      .populate({ path: 'game' })
+      .populate({ path: 'items', populate: { path: 'item' } })
+      .exec();
+
+    if (!result) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    return res.status(200).json({ data: result, message: SUCCESS_MESSAGE });
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
+
+export const attemptItem: RequestHandler = async (req, res, next) => {
+  try {
+    const item = await Item.findById(req.body.item);
+    const result = await Result.findById(req.params.id);
+
+    if (!item || !result) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    const index = result.items.findIndex(
+      (i) => i._id.toString() === req.body.instance
+    );
+
+    if (result.items[index].correct) {
+      return res
+        .status(200)
+        .json({ message: SUCCESS_MESSAGE.ITEM_ALREADY_MATCHED });
+    }
+
+    result.items[index].attempts += 1;
+
+    let code = 200;
+    let message = SUCCESS_MESSAGE.ITEM_MATCH;
+
+    if (req.body.answer.trim() !== item.lang) {
+      code = 400;
+      message = ERROR_MESSAGE.NO_ITEM_MATCH;
+    } else {
+      result.items[index].correct = true;
+      result.score.correct.push(req.body.item);
+    }
+
+    await result.save();
+
+    await result
+      .populate({ path: 'game' })
+      .populate({ path: 'items', populate: { path: 'item' } })
+      .execPopulate();
+
+    return res.status(code).send({ message, data: result });
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
 
 export const getResult: RequestHandler = async (req, res, next) => {
   try {

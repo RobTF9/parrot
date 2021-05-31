@@ -17,6 +17,7 @@ interface ResultDocument extends Document {
   };
   finished: boolean;
   items: {
+    _id: ObjectId;
     item: ObjectId;
     attempts: number;
     correct: boolean;

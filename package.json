@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint client server --ext ts,tsx",
     "dev:client": "parcel watch client/index.html --out-dir dist/client",
-    "dev:server": "nodemon",
+    "dev:server": "nodemon --delay 1000ms",
     "dev": "rimraf dist && concurrently \"yarn dev:server\" \"yarn dev:client\"",
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:server": "babel server --out-dir dist/server --extensions .ts",

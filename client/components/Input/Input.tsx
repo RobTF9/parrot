@@ -7,7 +7,7 @@ interface Props {
   name: string;
   error?: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: React.ChangeEventHandler;
 }
 
 const Input: React.FC<Props> = ({

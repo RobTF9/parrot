@@ -28,6 +28,7 @@ export const ERROR_MESSAGE = {
   TAG_EMPTY: errorMessage('You need to provide text for a tag'),
   NO_WORDS: errorMessage('Please provide at least one word'),
   INVALID_MODE: errorMessage('Your game mode is invalid'),
+  NO_ITEM_MATCH: errorMessage('No match, try again!'),
 };
 
 const succesMessage = (message: string) => ({
@@ -57,6 +58,8 @@ export const SUCCESS_MESSAGE = {
   NOTIFICATIONS_READ: succesMessage('Notifications marked as read'),
   GAME_RELOADED: succesMessage('Game progress restored'),
   GAME_STARTED: succesMessage('New game started!'),
+  ITEM_MATCH: succesMessage('Matched, well done!'),
+  ITEM_ALREADY_MATCHED: succesMessage('Already completed!'),
 };
 
 export const GAME_TYPE = {
