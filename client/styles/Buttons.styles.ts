@@ -67,6 +67,7 @@ export const Button = styled.button<{
         color: var(--error-dark);
         box-shadow: none;
         font-style: italic;
+        cursor: not-allowed;
 
         svg {
           stroke: var(--error-dark);
@@ -101,6 +102,7 @@ export const Button = styled.button<{
         color: var(--success-dark);
         box-shadow: none;
         font-style: italic;
+        cursor: not-allowed;
 
         svg {
           stroke: var(--success-dark);
