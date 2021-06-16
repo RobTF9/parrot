@@ -1,11 +1,14 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
+export const Button = styled.button<{
+  danger?: boolean;
+  positive?: boolean;
+  small?: boolean;
+}>`
   background: var(--core-mid);
   border-radius: var(--smaller);
   color: var(--core-white);
   cursor: pointer;
-  overflow: auto;
   display: inline-block;
   height: 6rem;
   flex-grow: 0;
@@ -14,6 +17,11 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
   text-align: center;
   transition: all 0.3s ease;
   text-decoration: none;
+
+  svg {
+    stroke: var(--core-white);
+    transform: translateY(0.2rem);
+  }
 
   &:hover,
   &:active {
@@ -38,12 +46,65 @@ export const Button = styled.button<{ danger?: boolean; small?: boolean }>`
       background-color: var(--error-light);
       color: var(--error-dark);
 
+      svg {
+        stroke: var(--error-dark);
+      }
+
       &:hover,
       &:active,
       &:focus {
         background: var(--error-dark);
         box-shadow: var(--focus-border);
         color: var(--error-light);
+
+        svg {
+          stroke: var(--error-light);
+        }
+      }
+
+      &:disabled {
+        background-color: var(--error-light);
+        color: var(--error-dark);
+        box-shadow: none;
+        font-style: italic;
+
+        svg {
+          stroke: var(--error-dark);
+        }
+      }
+    `}
+
+  ${({ positive }) =>
+    positive &&
+    css`
+      background-color: var(--success-light);
+      color: var(--success-dark);
+
+      svg {
+        stroke: var(--success-dark);
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: var(--success-dark);
+        box-shadow: var(--focus-border);
+        color: var(--success-light);
+
+        svg {
+          stroke: var(--success-light);
+        }
+      }
+
+      &:disabled {
+        background-color: var(--success-light);
+        color: var(--success-dark);
+        box-shadow: none;
+        font-style: italic;
+
+        svg {
+          stroke: var(--success-dark);
+        }
       }
     `}
 `;
