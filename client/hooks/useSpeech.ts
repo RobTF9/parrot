@@ -46,6 +46,12 @@ const useSpeech: UseSpeech = (lang, callback) => {
     }
   }, [listening, correct]);
 
+  useEffect(() => {
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, []);
+
   return {
     transcript,
     listening,
