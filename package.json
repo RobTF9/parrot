@@ -18,7 +18,8 @@
     "start": "node dist/server/index.js",
     "seed": "node scripts/seed.js",
     "docs": "start-storybook -p 3001",
-    "build:docs": "build-storybook"
+    "build:docs": "build-storybook",
+    "new": "node scripts/component.js"
   },
   "author": "robtf9",
   "license": "ISC",
