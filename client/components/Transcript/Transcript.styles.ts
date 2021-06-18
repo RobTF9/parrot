@@ -13,9 +13,9 @@ export const TranscriptWrapper = styled.div`
 
   li {
     background-color: var(--core-lightest);
-    width: var(--smaller);
-    height: var(--smaller);
+    width: var(--small);
+    height: var(--small);
     border-radius: var(--small);
-    margin-right: var(--smaller);
+    margin-right: var(--small);
   }
 `;

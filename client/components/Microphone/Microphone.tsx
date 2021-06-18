@@ -1,14 +1,27 @@
 import React from 'react';
+import { FiCheck, FiMic, FiX } from 'react-icons/fi';
 import { MicrophoneWrapper } from './Microphone.styles';
 
 interface Props {
-  value: string;
+  correct: boolean;
+  incorrect: boolean;
+  listening: boolean;
 }
 
-const Microphone: React.FC<Props> = ({ value }) => {
+const Microphone: React.FC<Props> = ({ correct, incorrect, listening }) => {
+  const icon = (): JSX.Element => {
+    if (correct) {
+      return <FiCheck />;
+    }
+    if (incorrect) {
+      return <FiX />;
+    }
+    return <FiMic />;
+  };
+
   return (
-    <MicrophoneWrapper>
-      <p>{value}</p>
+    <MicrophoneWrapper {...{ correct, incorrect, listening }}>
+      {icon()}
     </MicrophoneWrapper>
   );
 };
