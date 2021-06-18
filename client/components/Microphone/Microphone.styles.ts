@@ -22,7 +22,6 @@ export const MicrophoneWrapper = styled.div<{
   incorrect: boolean;
   listening: boolean;
 }>`
-  position: absolute;
   width: var(--large);
   height: var(--large);
   border-radius: var(--large);
@@ -57,6 +56,6 @@ export const MicrophoneWrapper = styled.div<{
         css`
           box-shadow: 0 0 0 0 var(--core-light);
           transform: scale(1);
-          animation: ${Pulse} 2s infinite;
+          animation: ${Pulse} 1.6s infinite;
         `}
 `;

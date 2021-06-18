@@ -11,6 +11,10 @@ export const ListenerInner = styled.div`
   align-items: center;
   flex-direction: column;
 
+  h3 {
+    margin: var(--medium) 0;
+  }
+
   h3,
   p {
     color: var(--core-white);
