@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import AnimatedModal from '../../components/AnimatedModal';
 import AnimatedRoute from '../../components/AnimateRoute';
 import { getResult, updateResult } from '../../api/resources/results';
 import GridMode from '../../components/GridMode';
-import PageHeader from '../../components/PageHeader';
 import { Loading } from '../../styles/Animations.styles';
 import { Container } from '../../styles/Layout.styles';
-import capitalize from '../../utils/capitalize';
 import { GAME_TYPE } from '../../utils/constants';
 import Listener from '../../components/Listener';
 
@@ -27,9 +25,6 @@ const PlayGame: React.FC = () => {
               <Listener {...{ result: result.data, id: question, update }} />
             </AnimatedModal>
           </AnimatedRoute>
-          <PageHeader title={capitalize(result.data.game.name)}>
-            <Link to="/games">Back</Link>
-          </PageHeader>
           {result.data.game.mode === GAME_TYPE.CONVERSATION && (
             <div>Conversation</div>
           )}

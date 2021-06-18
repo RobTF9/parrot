@@ -10,6 +10,10 @@ export const PageHeaderWrapper = styled.header`
     max-width: 45rem;
   }
 
+  p {
+    color: var(--core-white);
+  }
+
   h1 {
     color: var(--core-lightest);
     position: relative;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { UseMutateFunction } from 'react-query';
 import useSpeech from '../../hooks/useSpeech';
+import { Overlay } from '../../styles/Layout.styles';
+import { ListenerInner } from './Listener.styles';
 
 interface Props {
   result: ResultResource;
@@ -33,11 +35,15 @@ const Listener: React.FC<Props> = ({ result, id, update }) => {
   const { transcript } = useSpeech(item.lang, listenerCallback);
 
   return (
-    <div>
-      <h3 className="xxlarge bold">Can you say {item.lang}</h3>
-      <p>{transcript}</p>
-      {correct && <p>Correct!</p>}
-    </div>
+    <Overlay>
+      <ListenerInner>
+        <h3 className="large">
+          Say <span className="bold">{item.lang}</span>
+        </h3>
+        <p>{transcript}</p>
+        {correct && <p>Correct!</p>}
+      </ListenerInner>
+    </Overlay>
   );
 };
 

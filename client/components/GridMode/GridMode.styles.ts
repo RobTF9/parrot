@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components';
-import { Card } from '../../styles/Layout.styles';
+import { Card, Grid } from '../../styles/Layout.styles';
+
+export const GridModeGrid = styled(Grid)`
+  margin-top: calc(var(--larger) * -1);
+`;
 
 export const GridCard = styled(Card)<{ correct: boolean; skipped: boolean }>`
   position: relative;
   text-align: left;
+  text-decoration: none;
 
   div {
     position: absolute;
