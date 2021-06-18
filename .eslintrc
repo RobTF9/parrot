@@ -32,7 +32,7 @@
     "jsx-a11y/no-onchange": 0,
     "jsx-a11y/media-has-caption": 0
   },
-  "ignorePatterns": ["/dist", "/scripts"],
+  "ignorePatterns": ["/dist", "/scripts", "/docs"],
   "settings": {
     "react": {
       "version": "detect"
