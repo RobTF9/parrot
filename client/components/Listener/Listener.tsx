@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { UseMutateFunction } from 'react-query';
 import useSpeech from '../../hooks/useSpeech';
 import { Overlay } from '../../styles/Layout.styles';
 import { ListenerInner } from './Listener.styles';
 import Microphone from '../Microphone';
+import { bumpUp } from '../../utils/animations';
 
 interface Props {
   result: ResultResource;
@@ -36,7 +38,7 @@ const Listener: React.FC<Props> = ({ result, id, update }) => {
   const { transcript, listening } = useSpeech(item.lang, listenerCallback);
 
   return (
-    <Overlay>
+    <Overlay as={Link} {...{ ...bumpUp }} to={`/play/${result.game._id}`}>
       <ListenerInner>
         <Microphone {...{ listening, correct, incorrect: skipped }} />
         <h3 className="large">

@@ -1,18 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { UseMutateFunction } from 'react-query';
+import { Link, useParams } from 'react-router-dom';
 import { FiCheck, FiMic, FiX } from 'react-icons/fi';
 import { GridCard, GridModeGrid } from './GridMode.styles';
 import attemptText from '../../utils/attemptText';
 import PageHeader from '../PageHeader';
 import capitalize from '../../utils/capitalize';
+import AnimatedRoute from '../AnimateRoute';
+import Listener from '../Listener';
 
 interface Props {
   result: ResultResource;
+  update: UseMutateFunction<
+    ServerReponse<ResultResource>,
+    unknown,
+    ResultSubmission,
+    unknown
+  >;
 }
 
-const GridMode: React.FC<Props> = ({ result }) => {
+const GridMode: React.FC<Props> = ({ result, update }) => {
+  const { question } = useParams<{ game: string; question: string }>();
   return (
     <>
+      <AnimatedRoute path={`/play/${result.game._id}/:question`}>
+        <Listener {...{ result, id: question, update }} />
+      </AnimatedRoute>
       <PageHeader title={capitalize(result.game.name)}>
         <p>Click on a card and say the word or sentence</p>
       </PageHeader>
@@ -23,7 +36,7 @@ const GridMode: React.FC<Props> = ({ result }) => {
             correct={correct}
             skipped={skipped}
             as={Link}
-            to="/"
+            to={`/play/${result.game._id}/${item._id}`}
           >
             <div>{correct ? <FiCheck /> : skipped ? <FiX /> : <FiMic />}</div>
             <p className="bold">{item.lang}</p>
