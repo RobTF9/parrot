@@ -1,8 +1,8 @@
 import React from 'react';
-import { FiCheck } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import { Button } from '../../styles/Buttons.styles';
+import { FiCheck, FiMic, FiX } from 'react-icons/fi';
 import { Grid } from '../../styles/Layout.styles';
+import { GridCard } from './GridMode.styles';
+import attemptText from '../../utils/attemptText';
 
 interface Props {
   result: ResultResource;
@@ -11,22 +11,21 @@ interface Props {
 const GridMode: React.FC<Props> = ({ result }) => {
   return (
     <Grid columns="repeat(auto-fill, minmax(300px, 1fr))">
-      {result.items.map(({ item, correct }) =>
-        correct ? (
-          <Button disabled positive key={item._id}>
-            <FiCheck />
-            {item.lang} – {item.tran} – {item.pron}
-          </Button>
-        ) : (
-          <Button
-            as={Link}
-            key={item._id}
-            to={`/play/${result.game._id}/${item._id}`}
-          >
-            {item.lang} – {item.tran}
-          </Button>
-        )
-      )}
+      {result.items.map(({ item, correct, attempts, skipped }) => (
+        <GridCard
+          key={item._id}
+          correct={correct}
+          skipped={skipped}
+          as="button"
+          type="button"
+          disabled={correct}
+        >
+          <div>{correct ? <FiCheck /> : skipped ? <FiX /> : <FiMic />}</div>
+          <p className="bold">{item.lang}</p>
+          <p className="border-b-s">{item.tran}</p>
+          <p className="small">{attemptText(correct, skipped, attempts)}</p>
+        </GridCard>
+      ))}
     </Grid>
   );
 };

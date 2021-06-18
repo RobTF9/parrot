@@ -48,8 +48,8 @@ const initialResult = {
   createdBy: '6016b9410266200015c5e7f9',
   items: [
     {
-      attempts: 0,
-      correct: false,
+      attempts: 1,
+      correct: true,
       skipped: false,
       _id: '60b1d1d18cebde1a4fb058db',
       item: {
@@ -67,9 +67,9 @@ const initialResult = {
       },
     },
     {
-      attempts: 0,
+      attempts: 3,
       correct: false,
-      skipped: false,
+      skipped: true,
       _id: '60b1d1d18cebde1a4fb058dc',
       item: {
         tags: ['6093e4e3105adf787edeb009'],
