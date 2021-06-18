@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import AnimatedModal from '../../components/AnimatedModal';
 import AnimatedRoute from '../../components/AnimateRoute';
 import { getResult, updateResult } from '../../api/resources/results';
-import GridMode from '../../components/GameModes/GridMode';
+import GridMode from '../../components/GridMode';
 import PageHeader from '../../components/PageHeader';
 import { Loading } from '../../styles/Animations.styles';
 import { Container } from '../../styles/Layout.styles';

@@ -7,5 +7,5 @@ export default {
 };
 
 export const InputWithError = () => (
-  <Input {...{ label: 'Input', error: 'Example of an error' }} />
+  <Input {...{ label: 'Label', error: 'Example of an error' }} />
 );
