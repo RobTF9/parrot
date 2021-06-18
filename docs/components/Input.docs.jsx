@@ -9,3 +9,5 @@ export default {
 export const InputWithError = () => (
   <Input {...{ label: 'Label', error: 'Example of an error' }} />
 );
+
+export const InputStandard = () => <Input {...{ label: 'Label' }} />;

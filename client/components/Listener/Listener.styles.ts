@@ -7,7 +7,9 @@ export const ListenerInner = styled.div`
   left: 0;
   background-color: var(--core-mid);
   padding: var(--large) 0;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   h3,
   p {
