@@ -16,9 +16,10 @@ interface Props {
     ResultSubmission,
     unknown
   >;
+  centered?: boolean;
 }
 
-const Listener: React.FC<Props> = ({ result, id, update }) => {
+const Listener: React.FC<Props> = ({ result, id, update, centered }) => {
   const { push } = useHistory();
   const index = result.items.findIndex((i) => i.item._id === id);
 
@@ -45,6 +46,18 @@ const Listener: React.FC<Props> = ({ result, id, update }) => {
       }, 1000);
     }
   }, [correct]);
+
+  if (centered) {
+    return (
+      <ListenerInner {...{ centered }}>
+        <Microphone {...{ listening, correct, incorrect: skipped }} />
+        <h3 className="large">
+          Say <span className="bold">{item.lang}</span>
+        </h3>
+        <p>{transcript || '...'}</p>
+      </ListenerInner>
+    );
+  }
 
   return (
     <Overlay as={Link} {...{ ...bumpUp }} to={`/play/${result.game._id}`}>

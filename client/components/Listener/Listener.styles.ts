@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const ListenerInner = styled.div`
+export const ListenerInner = styled.div<{ centered?: boolean }>`
   width: 100vw;
   position: fixed;
   bottom: 0;
@@ -10,6 +10,14 @@ export const ListenerInner = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  ${({ centered }) =>
+    centered &&
+    css`
+      height: 100vh;
+      justify-content: center;
+      background-color: transparent;
+    `}
 
   h3 {
     margin: var(--medium) 0;

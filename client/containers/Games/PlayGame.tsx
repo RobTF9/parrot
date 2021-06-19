@@ -7,6 +7,7 @@ import {
 } from '../../api/resources/results';
 import GridMode from '../../components/GridMode';
 import Progress from '../../components/Progress';
+import SequenceMode from '../../components/SequenceMode';
 import { useMessageContext } from '../../context/Message';
 import { Loading } from '../../styles/Animations.styles';
 import { Container } from '../../styles/Layout.styles';
@@ -51,7 +52,9 @@ const PlayGame: React.FC = () => {
           {result.data.game.mode === GAME_TYPE.GRID && (
             <GridMode {...{ result: result.data, update }} />
           )}
-          {result.data.game.mode === GAME_TYPE.SEQUENCE && <div>Sequence</div>}
+          {result.data.game.mode === GAME_TYPE.SEQUENCE && (
+            <SequenceMode {...{ result: result.data, update }} />
+          )}
           <Progress {...{ result: result.data }} />
         </>
       )}
