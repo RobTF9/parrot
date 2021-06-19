@@ -10,10 +10,11 @@ export const Button = styled.button<{
   color: var(--core-white);
   cursor: pointer;
   display: inline-block;
-  height: 6rem;
+  height: ${({ small }) => (small ? '' : '6rem')};
   flex-grow: 0;
   font-weight: 600;
-  padding: var(--medium) var(--large);
+  padding: ${({ small }) =>
+    small ? `var(--smaller) var(--smaller)` : `var(--medium) var(--large)`};
   text-align: center;
   transition: all 0.3s ease;
   text-decoration: none;

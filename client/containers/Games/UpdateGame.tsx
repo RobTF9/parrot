@@ -20,7 +20,7 @@ const UpdateGame: React.FC = () => {
         <>
           <PageHeader title={game.data.name} />
           <Grid
-            columns="60rem 1fr"
+            columns="45rem 1fr"
             breakpoints={[
               { width: '960px', columns: '1fr 1fr' },
               { width: '600px', columns: '1fr' },

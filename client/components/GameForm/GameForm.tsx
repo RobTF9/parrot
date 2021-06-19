@@ -1,11 +1,12 @@
 import React from 'react';
-import { FiCheckCircle, FiCircle } from 'react-icons/fi';
+import { FiMove, FiCircle, FiTrash } from 'react-icons/fi';
 import useGameForm from './useGameForm';
 import Input from '../Input';
 import Select from '../Select';
 import { GAME_TYPE, GAME_ORDER } from '../../utils/constants';
 import capitalize from '../../utils/capitalize';
 import { Button, Tag } from '../../styles/Buttons.styles';
+import { DraggableItem } from './GameForm.styles';
 
 interface Props {
   mutate: (game: GameSubmission) => void;
@@ -72,14 +73,17 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
             const item = items.find((i) => _id === i._id);
             if (item) {
               return (
-                <Tag
-                  onClick={() => removeItem(item)}
-                  as="button"
-                  color="var(--core-dark)"
-                  key={_id}
-                >
-                  <FiCheckCircle /> {item.lang} / {item.pron} / {item.tran}
-                </Tag>
+                <DraggableItem key={_id}>
+                  <button type="button">
+                    <FiMove />
+                  </button>
+                  <p>
+                    {item.lang} / {item.pron} / {item.tran}
+                  </p>
+                  <Button danger small onClick={() => removeItem(item)}>
+                    <FiTrash />
+                  </Button>
+                </DraggableItem>
               );
             }
             return null;
