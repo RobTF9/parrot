@@ -29,4 +29,12 @@ export const ListenerInner = styled.div<{ centered?: boolean }>`
   p {
     color: var(--core-white);
   }
+
+  button {
+    margin-top: var(--medium);
+    background-color: var(--error-light);
+    color: var(--error-dark);
+    padding: 0 var(--smaller);
+    border-radius: var(--smaller);
+  }
 `;

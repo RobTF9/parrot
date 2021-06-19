@@ -37,6 +37,12 @@ const Listener: React.FC<Props> = ({ result, id, update, centered }) => {
     update(newResult);
   };
 
+  const skip = () => {
+    const { items } = result;
+    items[index].skipped = true;
+    update({ ...result, items, game: result.game._id });
+  };
+
   const { transcript, listening } = useSpeech(item.lang, listenerCallback);
 
   useEffect(() => {
@@ -47,27 +53,26 @@ const Listener: React.FC<Props> = ({ result, id, update, centered }) => {
     }
   }, [correct]);
 
+  const Inner = () => (
+    <ListenerInner {...{ centered }}>
+      <Microphone {...{ listening, correct, incorrect: skipped }} />
+      <h3 className="large">
+        Say <span className="bold">{item.lang}</span>
+      </h3>
+      <p>{transcript || '...'}</p>
+      <button type="button" onClick={skip}>
+        Skip
+      </button>
+    </ListenerInner>
+  );
+
   if (centered) {
-    return (
-      <ListenerInner {...{ centered }}>
-        <Microphone {...{ listening, correct, incorrect: skipped }} />
-        <h3 className="large">
-          Say <span className="bold">{item.lang}</span>
-        </h3>
-        <p>{transcript || '...'}</p>
-      </ListenerInner>
-    );
+    return <Inner />;
   }
 
   return (
     <Overlay as={Link} {...{ ...bumpUp }} to={`/play/${result.game._id}`}>
-      <ListenerInner>
-        <Microphone {...{ listening, correct, incorrect: skipped }} />
-        <h3 className="large">
-          Say <span className="bold">{item.lang}</span>
-        </h3>
-        <p>{transcript || '...'}</p>
-      </ListenerInner>
+      <Inner />
     </Overlay>
   );
 };

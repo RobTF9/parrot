@@ -33,20 +33,33 @@ const GridMode: React.FC<Props> = ({ result, update }) => {
         </Link>
       </PageHeader>
       <GridModeGrid columns="repeat(auto-fill, minmax(300px, 1fr))">
-        {result.items.map(({ item, correct, attempts, skipped }) => (
-          <GridCard
-            key={item._id}
-            correct={correct && correct}
-            skipped={skipped && skipped}
-            as={Link}
-            to={`/play/${result.game._id}/${item._id}`}
-          >
-            <div>{correct ? <FiCheck /> : skipped ? <FiX /> : <FiMic />}</div>
-            <p className="bold">{item.lang}</p>
-            <p className="border-b-s">{item.tran}</p>
-            <p className="small">{attemptText(correct, skipped, attempts)}</p>
-          </GridCard>
-        ))}
+        {result.items.map(({ item, correct, attempts, skipped }) =>
+          correct || skipped ? (
+            <GridCard
+              key={item._id}
+              correct={correct && correct}
+              skipped={skipped && skipped}
+            >
+              <div>{correct ? <FiCheck /> : <FiX />}</div>
+              <p className="bold">{item.lang}</p>
+              <p className="border-b-s">{item.tran}</p>
+              <p className="small">{attemptText(correct, skipped, attempts)}</p>
+            </GridCard>
+          ) : (
+            <GridCard
+              key={item._id}
+              as={Link}
+              to={`/play/${result.game._id}/${item._id}`}
+            >
+              <div>
+                <FiMic />
+              </div>
+              <p className="bold">{item.lang}</p>
+              <p className="border-b-s">{item.tran}</p>
+              <p className="small">{attemptText(correct, skipped, attempts)}</p>
+            </GridCard>
+          )
+        )}
       </GridModeGrid>
     </>
   );
