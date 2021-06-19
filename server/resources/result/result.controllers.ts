@@ -23,7 +23,7 @@ export const updateResult: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    return res.status(200).json({ data: result, message: SUCCESS_MESSAGE });
+    return res.status(200).json({ data: result });
   } catch (error) {
     return next(new Error(error));
   }

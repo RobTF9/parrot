@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { UseMutateFunction } from 'react-query';
 import useSpeech from '../../hooks/useSpeech';
 import { Overlay } from '../../styles/Layout.styles';
@@ -19,6 +19,7 @@ interface Props {
 }
 
 const Listener: React.FC<Props> = ({ result, id, update }) => {
+  const { push } = useHistory();
   const index = result.items.findIndex((i) => i.item._id === id);
 
   const { item, correct, skipped } = result.items[index];
@@ -36,6 +37,14 @@ const Listener: React.FC<Props> = ({ result, id, update }) => {
   };
 
   const { transcript, listening } = useSpeech(item.lang, listenerCallback);
+
+  useEffect(() => {
+    if (correct) {
+      setTimeout(() => {
+        push(`/play/${result.game._id}`);
+      }, 1000);
+    }
+  }, [correct]);
 
   return (
     <Overlay as={Link} {...{ ...bumpUp }} to={`/play/${result.game._id}`}>
