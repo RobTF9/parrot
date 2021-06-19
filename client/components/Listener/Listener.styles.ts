@@ -14,7 +14,9 @@ export const ListenerInner = styled.div<{ centered?: boolean }>`
   ${({ centered }) =>
     centered &&
     css`
-      height: 100vh;
+      position: relative;
+      bottom: auto;
+      left: auto;
       justify-content: center;
       background-color: transparent;
     `}

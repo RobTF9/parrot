@@ -53,7 +53,7 @@ const PlayGame: React.FC = () => {
             <GridMode {...{ result: result.data, update }} />
           )}
           {result.data.game.mode === GAME_TYPE.SEQUENCE && (
-            <SequenceMode {...{ result: result.data, update }} />
+            <SequenceMode {...{ result: result.data, update, updateLoading }} />
           )}
           <Progress {...{ result: result.data }} />
         </>
