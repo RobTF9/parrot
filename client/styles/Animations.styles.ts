@@ -14,7 +14,7 @@ export const Loading = styled.div<{ bg?: boolean }>`
   width: 100%;
   height: 100%;
   position: absolute;
-  opacity: 0.8;
+  opacity: 0.5;
   top: 0;
   left: 0;
   z-index: 1000;

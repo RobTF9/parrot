@@ -68,15 +68,15 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
         {game.items.length === 0 ? (
           <em>You haven&apos;t added any words or sentences to this game.</em>
         ) : (
-          game.items.map((id) => {
-            const item = items.find(({ _id }) => _id === id);
+          game.items.map(({ _id }) => {
+            const item = items.find((i) => _id === i._id);
             if (item) {
               return (
                 <Tag
-                  onClick={() => removeItem(item._id)}
+                  onClick={() => removeItem(item)}
                   as="button"
                   color="var(--core-dark)"
-                  key={id}
+                  key={_id}
                 >
                   <FiCheckCircle /> {item.lang} / {item.pron} / {item.tran}
                 </Tag>
@@ -102,7 +102,7 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
               as="button"
               key={item._id}
               type="button"
-              onClick={() => addItem(item._id)}
+              onClick={() => addItem(item)}
             >
               <FiCircle /> {item.lang} / {item.pron} / {item.tran}
             </Tag>

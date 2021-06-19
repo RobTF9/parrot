@@ -26,8 +26,8 @@ interface UseGameForm {
     game: GameSubmission;
     errors: GameFormErrors;
     gameChangeHandler: GameFormChangeHandler;
-    addItem: (item: string) => void;
-    removeItem: (item: string) => void;
+    addItem: (item: ItemResource) => void;
+    removeItem: (item: ItemResource) => void;
     gameSubmitHandler: GameFormSubmitHandler;
     filtered: ItemResource[];
     search: string;
@@ -42,11 +42,11 @@ const useGameForm: UseGameForm = (mutate, init, items) => {
   const gameChangeHandler: GameFormChangeHandler = (event) =>
     setGame({ ...game, [event.target.name]: event.target.value });
 
-  const addItem = (item: string) =>
+  const addItem = (item: ItemResource) =>
     setGame({ ...game, items: [...game.items, item] });
 
-  const removeItem = (item: string) =>
-    setGame({ ...game, items: game.items.filter((i) => i !== item) });
+  const removeItem = (item: ItemResource) =>
+    setGame({ ...game, items: game.items.filter((i) => i._id !== item._id) });
 
   const gameSubmitHandler: GameFormSubmitHandler = (event) => {
     event.preventDefault();
@@ -64,7 +64,7 @@ const useGameForm: UseGameForm = (mutate, init, items) => {
   useEffect(() => {
     if (items) {
       setOtherItems(
-        items.filter((item) => !game.items.some((i) => i === item._id))
+        items.filter((item) => !game.items.some((i) => i._id === item._id))
       );
     }
   }, [game, items]);

@@ -19,6 +19,7 @@ import Sentences from './Sentences/Sentences';
 import { getUser } from '../api/resources/user';
 import Games from './Games/Games';
 import PlayGame from './Games/PlayGame';
+import UpdateGame from './Games/UpdateGame';
 
 const NotAuthenticated = () => (
   <Switch>
@@ -82,6 +83,12 @@ const Authenticated = () => {
             </Route>
             <Route path="/sentences">
               <Sentences />
+            </Route>
+            <Route path="/games/new">
+              <Games />
+            </Route>
+            <Route path="/games/:id">
+              <UpdateGame />
             </Route>
             <Route path="/games">
               <Games />

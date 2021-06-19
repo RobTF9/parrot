@@ -92,7 +92,7 @@ declare global {
     name: string;
     mode: string;
     order: string;
-    items: string[];
+    items: ItemResource[];
   }
 
   interface GameResource {
@@ -103,7 +103,7 @@ declare global {
     createdBy: string;
     updatedBy: string;
     order: string;
-    items: string[];
+    items: ItemResource[];
   }
 
   interface ResultResource {

@@ -1,35 +1,51 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getGame, updateGame } from '../../api/resources/game';
-import AnimatedModal from '../../components/AnimatedModal';
 import { Loading } from '../../styles/Animations.styles';
 import { getItems } from '../../api/resources/items';
 import GameForm from '../../components/GameForm';
+import { Card, Container, Grid } from '../../styles/Layout.styles';
+import PageHeader from '../../components/PageHeader';
 
 const UpdateGame: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { push } = useHistory();
   const [items, itemsLoading] = getItems();
-
   const [game, gameLoading] = getGame(id);
-  const [update, updateLoading] = updateGame(id, (res) => {
-    if (res.data) {
-      setTimeout(() => {
-        push('/games');
-      }, 2000);
-    }
-  });
+  const [update, updateLoading] = updateGame(id);
 
   return (
-    <AnimatedModal back="/games">
+    <Container>
       {(gameLoading || updateLoading || itemsLoading) && <Loading bg />}
-      <h3 className="bold border-b-s xlarge">Update game</h3>
-      {items && game && (
-        <GameForm
-          {...{ initialGame: game.data, items: items.data, mutate: update }}
-        />
+      {game && (
+        <>
+          <PageHeader title={game.data.name} />
+          <Grid
+            columns="60rem 1fr"
+            breakpoints={[
+              { width: '960px', columns: '1fr 1fr' },
+              { width: '600px', columns: '1fr' },
+            ]}
+          >
+            <Card>
+              {items && (
+                <GameForm
+                  {...{
+                    initialGame: game.data,
+                    items: items.data,
+                    mutate: update,
+                  }}
+                />
+              )}
+            </Card>
+            <Grid>
+              {game.data.items.map((item) => (
+                <p key={item._id}>{item._id}</p>
+              ))}
+            </Grid>
+          </Grid>
+        </>
       )}
-    </AnimatedModal>
+    </Container>
   );
 };
 
