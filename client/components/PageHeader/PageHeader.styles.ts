@@ -12,6 +12,7 @@ export const PageHeaderWrapper = styled.header`
 
   p {
     color: var(--core-white);
+    margin-bottom: var(--medium);
   }
 
   h1 {

@@ -9,6 +9,12 @@ export const GridCard = styled(Card)<{ correct: boolean; skipped: boolean }>`
   position: relative;
   text-align: left;
   text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
 
   div {
     position: absolute;
