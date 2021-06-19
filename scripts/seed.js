@@ -22,3 +22,5 @@ postCollection('users');
 postCollection('lexicons');
 postCollection('tags');
 postCollection('item');
+postCollection('game');
+postCollection('results');

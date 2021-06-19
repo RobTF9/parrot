@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/Auth';
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <QueryContext>
           <LexiconProvider>
             <AuthProvider>
+              <ReactQueryDevtools />
               <Styles />
               <Router />
             </AuthProvider>
