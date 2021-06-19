@@ -1,12 +1,13 @@
 import React from 'react';
-import { FiMove, FiCircle, FiTrash } from 'react-icons/fi';
+import { FiCircle } from 'react-icons/fi';
 import useGameForm from './useGameForm';
 import Input from '../Input';
 import Select from '../Select';
 import { GAME_TYPE, GAME_ORDER } from '../../utils/constants';
 import capitalize from '../../utils/capitalize';
 import { Button, Tag } from '../../styles/Buttons.styles';
-import { DraggableItem } from './GameForm.styles';
+import usePositionReorder from './usePositionReorder';
+import Draggable from './Draggable';
 
 interface Props {
   mutate: (game: GameSubmission) => void;
@@ -25,7 +26,12 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
     addItem,
     removeItem,
     gameSubmitHandler,
+    reorderItems,
   } = useGameForm(mutate, initialGame, items);
+
+  const [itemOrder, updateItemPosition, updateItemOrder] = usePositionReorder(
+    game.items
+  );
 
   return (
     <form onSubmit={gameSubmitHandler}>
@@ -69,24 +75,21 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
         {game.items.length === 0 ? (
           <em>You haven&apos;t added any words or sentences to this game.</em>
         ) : (
-          game.items.map(({ _id }) => {
-            const item = items.find((i) => _id === i._id);
-            if (item) {
-              return (
-                <DraggableItem key={_id}>
-                  <button type="button">
-                    <FiMove />
-                  </button>
-                  <p>
-                    {item.lang} / {item.pron} / {item.tran}
-                  </p>
-                  <Button danger small onClick={() => removeItem(item)}>
-                    <FiTrash />
-                  </Button>
-                </DraggableItem>
-              );
-            }
-            return null;
+          itemOrder.map((item, index) => {
+            return (
+              <Draggable
+                key={item._id}
+                {...{
+                  item,
+                  itemOrder,
+                  updateItemPosition,
+                  removeItem,
+                  updateItemOrder,
+                  index,
+                  reorderItems,
+                }}
+              />
+            );
           })
         )}
       </ol>

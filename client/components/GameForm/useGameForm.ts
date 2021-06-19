@@ -28,6 +28,7 @@ interface UseGameForm {
     gameChangeHandler: GameFormChangeHandler;
     addItem: (item: ItemResource) => void;
     removeItem: (item: ItemResource) => void;
+    reorderItems: (order: ItemResource[]) => void;
     gameSubmitHandler: GameFormSubmitHandler;
     filtered: ItemResource[];
     search: string;
@@ -47,6 +48,9 @@ const useGameForm: UseGameForm = (mutate, init, items) => {
 
   const removeItem = (item: ItemResource) =>
     setGame({ ...game, items: game.items.filter((i) => i._id !== item._id) });
+
+  const reorderItems = (order: ItemResource[]) =>
+    setGame({ ...game, items: order });
 
   const gameSubmitHandler: GameFormSubmitHandler = (event) => {
     event.preventDefault();
@@ -84,6 +88,7 @@ const useGameForm: UseGameForm = (mutate, init, items) => {
     addItem,
     removeItem,
     gameSubmitHandler,
+    reorderItems,
   };
 };
 

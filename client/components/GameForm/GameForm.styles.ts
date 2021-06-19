@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const DraggableItem = styled(motion.li)`
+export const DraggableItem = styled(motion.div)<{ isDragging?: boolean }>`
   display: flex;
   justify-content: space-between;
   background-color: var(--core-dark-10);
