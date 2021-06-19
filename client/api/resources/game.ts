@@ -11,8 +11,10 @@ import {
 export const getGames: APIReciever<GameResource[]> = () =>
   getMany(CACHE.GAME, '/api/game');
 
-export const createGame: APIGiver<GameSubmission, GameResource> = () =>
-  createOne(CACHE.GAME, '/api/game');
+export const createGame: APIGiver<GameSubmission, GameResource> = (
+  _,
+  callback
+) => createOne(CACHE.GAME, '/api/game', callback);
 
 export const getGame: APIReciever<GameResource> = (id) =>
   getOne(CACHE.GAME + id, `/api/game/${id}`);

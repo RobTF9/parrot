@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { createGame } from '../../api/resources/game';
 import AnimatedModal from '../../components/AnimatedModal';
 import { GAME_TYPE, GAME_ORDER } from '../../utils/constants';
@@ -7,7 +8,14 @@ import { getItems } from '../../api/resources/items';
 import GameForm from '../../components/GameForm';
 
 const CreateGame: React.FC = () => {
-  const [create, createGameLoading] = createGame();
+  const { push } = useHistory();
+  const [create, createGameLoading] = createGame(undefined, (res) => {
+    if (res.data) {
+      setTimeout(() => {
+        push(`/games/${res.data?._id}`);
+      }, 3000);
+    }
+  });
   const [items, itemsLoading] = getItems();
 
   const initialGame = {
