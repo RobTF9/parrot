@@ -75,6 +75,8 @@ const Typography = createGlobalStyle`
     text-transform: capitalize;
   }
 
+
+
   .border {
     &-t {
       padding-top: var(--large);
@@ -112,6 +114,14 @@ const Typography = createGlobalStyle`
 
     &:focus {
       box-shadow: var(--focus-border);
+    }
+
+    &.light {
+      color: var(--core-light);
+
+      &:hover {
+        color: var(--core-mid);
+      }
     }
   }
 `;

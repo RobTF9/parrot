@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { getResult, updateResult } from '../../api/resources/results';
 import GridMode from '../../components/GridMode';
+import Progress from '../../components/Progress';
 import { Loading } from '../../styles/Animations.styles';
 import { Container } from '../../styles/Layout.styles';
 import { GAME_TYPE } from '../../utils/constants';
@@ -16,13 +17,11 @@ const PlayGame: React.FC = () => {
       {(resultLoading || updateLoading) && <Loading bg />}
       {result && (
         <>
-          {result.data.game.mode === GAME_TYPE.CONVERSATION && (
-            <div>Conversation</div>
-          )}
           {result.data.game.mode === GAME_TYPE.GRID && (
             <GridMode {...{ result: result.data, update }} />
           )}
           {result.data.game.mode === GAME_TYPE.SEQUENCE && <div>Sequence</div>}
+          <Progress {...{ result: result.data }} />
         </>
       )}
     </Container>

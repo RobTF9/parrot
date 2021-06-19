@@ -28,13 +28,16 @@ const GridMode: React.FC<Props> = ({ result, update }) => {
       </AnimatedRoute>
       <PageHeader title={capitalize(result.game.name)}>
         <p>Click on a card and say the word or sentence</p>
+        <Link className="light" to="/games">
+          Back
+        </Link>
       </PageHeader>
       <GridModeGrid columns="repeat(auto-fill, minmax(300px, 1fr))">
         {result.items.map(({ item, correct, attempts, skipped }) => (
           <GridCard
             key={item._id}
-            correct={correct}
-            skipped={skipped}
+            correct={correct && correct}
+            skipped={skipped && skipped}
             as={Link}
             to={`/play/${result.game._id}/${item._id}`}
           >
