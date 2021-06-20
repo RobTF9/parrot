@@ -54,7 +54,7 @@ const Draggable: React.FC<Props> = ({
       <p>
         {item.lang} / {item.pron} / {item.tran}
       </p>
-      <Button danger small onClick={() => removeItem(item)}>
+      <Button type="button" danger small onClick={() => removeItem(item)}>
         <FiTrash />
       </Button>
     </DraggableItem>

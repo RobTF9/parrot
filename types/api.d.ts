@@ -104,6 +104,7 @@ declare global {
     updatedBy: string;
     order: string;
     items: ItemResource[];
+    results: ResultResource[];
   }
 
   interface ResultResource {
@@ -111,6 +112,7 @@ declare global {
     lexicon: string;
     createdBy: string;
     game: GameResource;
+    updatedAt: string;
     score: {
       correct: string[];
       total: number;

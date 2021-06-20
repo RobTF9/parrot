@@ -16,7 +16,12 @@ const TagList: React.FC<Props> = ({ items, tags }) => {
     <TagListWrapper>
       <ul>
         {filtered.map((tag) => (
-          <Tag as="li" key={tag._id}>
+          <Tag
+            color="var(--core-light)"
+            text="var(--core-dark)"
+            as="li"
+            key={tag._id}
+          >
             {tag.tag}
           </Tag>
         ))}

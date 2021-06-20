@@ -133,9 +133,9 @@ export const TextButton = styled.button`
   }
 `;
 
-export const Tag = styled.li<{ color?: string }>`
+export const Tag = styled.li<{ color?: string; text?: string }>`
   background-color: ${({ color = 'var(--core-mid)' }) => color};
-  color: var(--core-white);
+  color: ${({ text = 'var(--core-white)' }) => text};
   border-radius: var(--smaller);
   padding: var(--smaller) var(--smaller) 0.2rem;
   display: inline-flex;

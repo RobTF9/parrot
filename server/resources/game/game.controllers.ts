@@ -36,7 +36,11 @@ export const getMany: RequestHandler = async (req, res, next) => {
 export const getOne: RequestHandler = async (req, res, next) => {
   try {
     const game = await Game.findById(req.params.id)
-      .populate('items')
+      .populate({ path: 'items', populate: { path: 'item' } })
+      .populate({
+        path: 'results',
+        populate: { path: 'items', populate: { path: 'item' } },
+      })
       .lean()
       .exec();
 
