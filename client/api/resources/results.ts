@@ -10,4 +10,4 @@ export const updateResult: APIGiver<ResultSubmission, ResultResource> = (id) =>
 export const finishResult: APIGiver<ResultSubmission, ResultResource> = (
   id,
   callback
-) => updateOne(CACHE.RESULT, `/api/result/${id}`, callback);
+) => updateOne(CACHE.RESULT + id, `/api/result/${id}`, callback);

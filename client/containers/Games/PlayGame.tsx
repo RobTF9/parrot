@@ -28,7 +28,7 @@ const PlayGame: React.FC = () => {
           type: 'success',
         });
         setTimeout(() => {
-          push('/games');
+          push(`/games/${result?.data.game._id}`);
         }, 3000);
       }, 1000);
     }

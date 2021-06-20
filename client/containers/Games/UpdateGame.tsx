@@ -27,7 +27,11 @@ const UpdateGame: React.FC = () => {
         <>
           <PageHeader title={game.data.name}>
             <Button as={Link} to={`/play/${id}`}>
-              Play game
+              {game.data.results.length === 0
+                ? 'Play game'
+                : !game.data.results[game.data.results.length - 1].finished
+                ? 'Resume game'
+                : 'Play game'}
             </Button>
             <TagList items={game.data.items} tags={tags.data} />
           </PageHeader>

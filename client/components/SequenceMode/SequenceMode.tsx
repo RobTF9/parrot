@@ -32,7 +32,7 @@ const SequenceMode: React.FC<Props> = ({ result, update, updateLoading }) => {
   return (
     <SequenceModeWrapper>
       <header>
-        <Link to="/games" className="light">
+        <Link to={`/games/${result.game._id}`} className="light">
           Back
         </Link>
         <h1 className="bold xlarge">{result.game.name}</h1>

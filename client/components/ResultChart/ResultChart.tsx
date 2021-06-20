@@ -20,21 +20,29 @@ const ResultChart: React.FC<Props> = ({ result }) => {
         </span>{' '}
         correct
       </h4>
-      <ul>
-        {result.items.map(({ item, correct, attempts }) => (
-          <li key={item._id}>
-            <p>{item.tran}</p>
-            <Plots correct={correct}>
-              {[...Array(attempts)].map((_, index) => (
-                /* eslint-disable-next-line */
-                <li key={index}>
-                  {index === attempts - 1 && correct ? <FiCheck /> : <FiX />}
-                </li>
-              ))}
-            </Plots>
-          </li>
-        ))}
-      </ul>
+      {!result.finished ? (
+        <p>
+          This game is still in progress, click{' '}
+          <span className="bold">Resume game</span> at the top of the page to
+          continue
+        </p>
+      ) : (
+        <ul>
+          {result.items.map(({ item, correct, attempts }) => (
+            <li key={item._id}>
+              <p>{item.tran}</p>
+              <Plots correct={correct}>
+                {[...Array(attempts)].map((_, index) => (
+                  /* eslint-disable-next-line */
+                  <li key={index}>
+                    {index === attempts - 1 && correct ? <FiCheck /> : <FiX />}
+                  </li>
+                ))}
+              </Plots>
+            </li>
+          ))}
+        </ul>
+      )}
     </ResultChartWrapper>
   );
 };

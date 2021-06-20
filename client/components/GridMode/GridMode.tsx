@@ -28,7 +28,7 @@ const GridMode: React.FC<Props> = ({ result, update }) => {
       </AnimatedRoute>
       <PageHeader title={capitalize(result.game.name)}>
         <p>Click on a card and say the word or sentence</p>
-        <Link className="light" to="/games">
+        <Link className="light" to={`/games/${result.game._id}`}>
           Back
         </Link>
       </PageHeader>
