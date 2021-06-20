@@ -6,19 +6,26 @@ import { getItems } from '../../api/resources/items';
 import GameForm from '../../components/GameForm';
 import { Card, Container, Grid } from '../../styles/Layout.styles';
 import PageHeader from '../../components/PageHeader';
+import TagList from '../../components/TagList';
+import { getTags } from '../../api/resources/tags';
 
 const UpdateGame: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [items, itemsLoading] = getItems();
   const [game, gameLoading] = getGame(id);
+  const [tags, tagsLoading] = getTags();
   const [update, updateLoading] = updateGame(id);
 
   return (
     <Container>
-      {(gameLoading || updateLoading || itemsLoading) && <Loading bg />}
-      {game && (
+      {(gameLoading || updateLoading || itemsLoading || tagsLoading) && (
+        <Loading bg />
+      )}
+      {game && tags && (
         <>
-          <PageHeader title={game.data.name} />
+          <PageHeader title={game.data.name}>
+            <TagList items={game.data.items} tags={tags.data} />
+          </PageHeader>
           <Grid
             columns="45rem 1fr"
             breakpoints={[
