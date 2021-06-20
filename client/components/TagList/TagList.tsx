@@ -15,7 +15,6 @@ const TagList: React.FC<Props> = ({ items, tags }) => {
   return (
     <TagListWrapper>
       <ul>
-        <p>Tags in this game:</p>
         {filtered.map((tag) => (
           <Tag as="li" key={tag._id}>
             {tag.tag}

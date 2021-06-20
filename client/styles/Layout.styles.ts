@@ -48,6 +48,7 @@ export const Grid = styled.div<{
   gap: var(--medium);
   position: relative;
   align-items: start;
+  position: relative;
 
   ${({ breakpoints }) =>
     breakpoints &&
@@ -58,6 +59,11 @@ export const Grid = styled.div<{
         }
       `
     )}
+`;
+
+export const GridOverlap = styled(Grid)`
+  margin-top: calc(var(--larger) * -1);
+  z-index: 10;
 `;
 
 export const Flex = styled.div<{ justify?: string; noMargin?: boolean }>`

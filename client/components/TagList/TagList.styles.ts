@@ -1,4 +1,3 @@
 import styled from 'styled-components';
 
-export const TagListWrapper = styled.div`
-`;
+export const TagListWrapper = styled.div``;
