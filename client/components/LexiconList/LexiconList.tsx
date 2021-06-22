@@ -15,6 +15,7 @@ interface ItemProps {
     name: string;
   };
   share: boolean;
+  buttons?: boolean;
 }
 
 const LexiconItem: React.FC<ItemProps> = ({

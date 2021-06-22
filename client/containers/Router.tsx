@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { useAuthContext } from '../context/Auth';
 import { useLexiconContext } from '../context/Lexicon';
 import { Loading } from '../styles/Animations.styles';
 import Account from './Account/Account';
 import NoLexicon from './Lexicons/NoLexicon';
+import NoActiveLexicon from './Lexicons/NoActiveLexicon';
 import CreateAccount from './Authentication/CreateAccount';
 import ForgotPassword from './Authentication/ForgotPassword';
 import ResetPassword from './Authentication/ResetPassword';
@@ -53,6 +54,8 @@ const Authenticated = () => {
     sharedLexicons &&
     sharedLexicons.data.length === 0;
 
+  if (!lexicon) return <NoActiveLexicon />;
+
   if (noLexicons) return <NoLexicon />;
 
   return (
@@ -92,6 +95,9 @@ const Authenticated = () => {
             </Route>
             <Route path="/games">
               <Games />
+            </Route>
+            <Route path="/">
+              <Redirect to="/words" />
             </Route>
           </Switch>
         )}
