@@ -54,9 +54,9 @@ const Authenticated = () => {
     sharedLexicons &&
     sharedLexicons.data.length === 0;
 
-  if (!lexicon) return <NoActiveLexicon />;
-
   if (noLexicons) return <NoLexicon />;
+
+  if (!lexicon) return <NoActiveLexicon />;
 
   return (
     <Switch>
