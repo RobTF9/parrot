@@ -88,7 +88,7 @@ export const MainLinks = styled.ul<{ mobileDropdown: boolean }>`
   @media (max-width: 460px) {
     flex-direction: column;
     position: absolute;
-    z-index: 100;
+    z-index: 400;
 
     ${({ mobileDropdown }) => css`
       opacity: ${mobileDropdown ? 1 : 0};
@@ -101,7 +101,7 @@ export const LexiconSwitch = styled.div<{ show: boolean }>`
   padding-right: var(--medium);
   margin-right: var(--medium);
   position: relative;
-  z-index: 200;
+  z-index: 500;
 
   & > button {
     background: none;
