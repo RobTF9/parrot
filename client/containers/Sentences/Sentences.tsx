@@ -10,6 +10,7 @@ import AnimatedRoute from '../../components/AnimateRoute';
 import SentenceList from '../../components/SentenceList';
 import CreateSentence from './CreateSentence';
 import UpdateSentence from './UpdateSentence';
+import NoSentences from './NoSentences';
 
 const Sentences: React.FC = () => {
   const [sentences, sentencesLoading] = getSentences();
@@ -17,6 +18,7 @@ const Sentences: React.FC = () => {
 
   return (
     <>
+      {sentences && sentences.data.length === 0 && <NoSentences />}
       <Switch>
         <AnimatedRoute exact path="/sentences/new">
           <CreateSentence />

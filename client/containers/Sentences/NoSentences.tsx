@@ -1,20 +1,20 @@
 import React from 'react';
 import { createTag, getTags } from '../../api/resources/tags';
-import { createWord } from '../../api/resources/word';
+import { createSentence } from '../../api/resources/sentence';
 import AnimatedModal from '../../components/AnimatedModal';
-import ItemForm from '../../components/ItemForm';
 import { useLexiconContext } from '../../context/Lexicon';
 import { Loading } from '../../styles/Animations.styles';
+import ItemForm from '../../components/ItemForm';
 
-const NoWords: React.FC = () => {
+const NoSentences: React.FC = () => {
   const { lexicon } = useLexiconContext();
 
   const [tags, tagsLoading] = getTags();
   const [tagMutate, tagMutateLoading] = createTag();
 
-  const [create, createLoading] = createWord();
+  const [create, createLoading] = createSentence();
 
-  const word = {
+  const sentence = {
     lang: '',
     pron: '',
     tran: '',
@@ -24,15 +24,16 @@ const NoWords: React.FC = () => {
   return (
     <AnimatedModal>
       {(createLoading || tagsLoading || tagMutateLoading) && <Loading bg />}
-      <h3 className="bold xlarge">Add your first word</h3>
+      <h3 className="bold xlarge">Add your first sentence</h3>
       <p className="border-b-s">
-        To add a word you&apos;ll need to enter it in {lexicon?.language.name},
-        a translation to help you pronounce it, and the English translation
+        To add a sentence you&apos;ll need to enter it in{' '}
+        {lexicon?.language.name}, a translation to help you pronounce it, and
+        the English translation
       </p>
       {lexicon && tags && (
         <ItemForm
           {...{
-            initialItem: word,
+            initialItem: sentence,
             tags: tags.data,
             lexicon,
             mutate: create,
@@ -44,4 +45,4 @@ const NoWords: React.FC = () => {
   );
 };
 
-export default NoWords;
+export default NoSentences;
