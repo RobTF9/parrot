@@ -75,7 +75,7 @@ export const Flex = styled.div<{ justify?: string; noMargin?: boolean }>`
   `}
 `;
 
-export const Overlay = styled(motion.div)`
+export const Overlay = styled(motion.div)<{ zIndex?: number }>`
   background-color: var(--core-dark-50);
   min-height: 100vh;
   left: 0;
@@ -84,7 +84,7 @@ export const Overlay = styled(motion.div)`
   overflow-y: scroll;
   top: 0;
   width: 100vw;
-  z-index: 300;
+  z-index: ${({ zIndex }) => zIndex || 300};
 
   ${Modal} {
     padding-bottom: var(--large);

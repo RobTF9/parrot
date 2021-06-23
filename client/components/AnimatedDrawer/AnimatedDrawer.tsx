@@ -17,7 +17,7 @@ const AnimatedDrawer: React.FunctionComponent<Props> = ({
   return (
     <AnimatePresence>
       {condition && (
-        <Overlay {...{ ...fade }}>
+        <Overlay {...{ ...fade, zIndex: 600 }}>
           <Drawer {...{ ...moveIn }}>{children}</Drawer>
           <TouchableOpacity onClick={() => push(pathname)} />
         </Overlay>

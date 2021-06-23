@@ -24,6 +24,8 @@ export const NavWrapper = styled.nav`
 
   ul {
     display: flex;
+    position: relative;
+    z-index: 500;
   }
 
   a {
@@ -73,6 +75,8 @@ export const BurgerButton = styled.button`
   background-color: transparent;
   display: none;
   height: 100%;
+  position: relative;
+  z-index: 500;
 
   @media (max-width: 460px) {
     display: flex;
@@ -85,10 +89,13 @@ export const LinksWrapper = styled.div`
 `;
 
 export const MainLinks = styled.ul<{ mobileDropdown: boolean }>`
+  position: relative;
+  z-index: 500;
+
   @media (max-width: 460px) {
     flex-direction: column;
     position: absolute;
-    z-index: 400;
+    z-index: 500;
 
     ${({ mobileDropdown }) => css`
       opacity: ${mobileDropdown ? 1 : 0};
