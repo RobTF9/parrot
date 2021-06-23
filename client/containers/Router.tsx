@@ -90,7 +90,7 @@ const Authenticated = () => {
             <Route path="/games/new">
               <Games />
             </Route>
-            <Route path="/games/:id">
+            <Route path="/games/:id/:item?">
               <UpdateGame />
             </Route>
             <Route path="/games">

@@ -14,7 +14,7 @@ export const DraggableItem = styled(motion.div)<{ isDragging?: boolean }>`
     line-height: 1;
   }
 
-  p {
+  a {
     align-self: left;
     margin: 0 auto 0 var(--small);
   }

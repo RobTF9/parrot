@@ -13,9 +13,10 @@ interface Props {
   mutate: (game: GameSubmission) => void;
   initialGame: GameSubmission;
   items: ItemResource[];
+  url: string;
 }
 
-const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
+const GameForm: React.FC<Props> = ({ mutate, initialGame, items, url }) => {
   const {
     game,
     errors,
@@ -87,6 +88,7 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
                   updateItemOrder,
                   index,
                   reorderItems,
+                  url,
                 }}
               />
             );

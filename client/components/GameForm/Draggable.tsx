@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiMove, FiTrash } from 'react-icons/fi';
 import { DraggableItem } from './GameForm.styles';
 import { Button } from '../../styles/Buttons.styles';
@@ -19,6 +20,7 @@ interface Props {
   ) => void;
   index: number;
   reorderItems: (order: ItemResource[]) => void;
+  url: string;
 }
 
 const Draggable: React.FC<Props> = ({
@@ -29,6 +31,7 @@ const Draggable: React.FC<Props> = ({
   updateItemOrder,
   index,
   reorderItems,
+  url,
 }) => {
   const [animation, isDragging] = useDragging(index, updateItemOrder, () => {
     reorderItems(itemOrder);
@@ -51,9 +54,9 @@ const Draggable: React.FC<Props> = ({
       <button type="button">
         <FiMove />
       </button>
-      <p>
+      <Link to={`${url}/${item._id}`}>
         {item.lang} / {item.pron} / {item.tran}
-      </p>
+      </Link>
       <Button type="button" danger small onClick={() => removeItem(item)}>
         <FiTrash />
       </Button>
