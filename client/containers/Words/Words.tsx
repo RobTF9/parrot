@@ -10,6 +10,7 @@ import { Container } from '../../styles/Layout.styles';
 import UpdateWord from './UpdateWord';
 import CreateWord from './CreateWord';
 import { getTags } from '../../api/resources/tags';
+import NoWords from './NoWords';
 
 const Words: React.FC = () => {
   const [words, wordsLoading] = getWords();
@@ -17,6 +18,7 @@ const Words: React.FC = () => {
 
   return (
     <>
+      {words && words.data.length === 0 && <NoWords />}
       <Switch>
         <AnimatedRoute exact path="/words/new">
           <CreateWord />

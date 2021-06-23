@@ -20,7 +20,7 @@ import { Flex } from '../../styles/Layout.styles';
 
 interface Props {
   initialItem: ItemSubmission;
-  back: string;
+  back?: string;
   lexicon: LexiconSession;
   tags: TagResource[];
   mutate: UseMutateFunction<
@@ -143,7 +143,7 @@ const ItemForm: React.FC<Props> = ({
         ))}
       </TagList>
       <Flex justify="space-between" noMargin>
-        <Link to={back}>Close</Link>
+        {back && <Link to={back}>Close</Link>}
         <Button type="submit">Save changes</Button>
       </Flex>
     </form>
