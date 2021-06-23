@@ -28,7 +28,7 @@ const CreateSentence: React.FC = () => {
       {lexicon && tags && (
         <ItemForm
           {...{
-            back: '/sentence',
+            back: '/sentences',
             initialItem: sentence,
             tags: tags.data,
             lexicon,

@@ -8,8 +8,10 @@ import { Loading } from '../../styles/Animations.styles';
 
 const NoWords: React.FC = () => {
   const { lexicon } = useLexiconContext();
+
   const [tags, tagsLoading] = getTags();
   const [tagMutate, tagMutateLoading] = createTag();
+
   const [create, createLoading] = createWord();
 
   const word = {
