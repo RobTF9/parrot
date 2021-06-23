@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const NavWrapper = styled.nav`
   position: relative;
@@ -25,6 +24,7 @@ export const NavWrapper = styled.nav`
 
   ul {
     display: flex;
+    position: relative;
     z-index: 500;
   }
 
@@ -75,6 +75,7 @@ export const BurgerButton = styled.button`
   background-color: transparent;
   display: none;
   height: 100%;
+  position: relative;
   z-index: 500;
 
   @media (max-width: 460px) {
@@ -83,29 +84,22 @@ export const BurgerButton = styled.button`
   }
 `;
 
-export const LinksWrapper = styled.div``;
+export const LinksWrapper = styled.div`
+  position: relative;
+`;
 
-export const MainLinks = styled.ul`
+export const MainLinks = styled.ul<{ mobileDropdown: boolean }>`
   position: relative;
   z-index: 500;
 
   @media (max-width: 460px) {
-    display: none !important;
-  }
-`;
-
-export const MobileLinks = styled(motion.ul)`
-  display: block;
-
-  a {
-    color: var(--core-white);
-  }
-
-  @media (max-width: 460px) {
     flex-direction: column;
-    width: 100%;
-    background-color: var(--core-mid);
-    padding: var(--medium);
+    position: absolute;
+    z-index: 500;
+
+    ${({ mobileDropdown }) => css`
+      opacity: ${mobileDropdown ? 1 : 0};
+    `}
   }
 `;
 
