@@ -81,10 +81,14 @@ const ItemForm: React.FC<Props> = ({
             error: errors.lang,
           }}
         />
-        <Button disabled={!canListen} type="button" onClick={startListening}>
+        <Button
+          disabled={!canListen || item.lang.trim() === ''}
+          type="button"
+          onClick={startListening}
+        >
           {canListen ? <FiMic /> : <FiMicOff />}
         </Button>
-        <Button type="button" onClick={play}>
+        <Button disabled={item.lang.trim() === ''} type="button" onClick={play}>
           <FiPlay />
         </Button>
         <audio
