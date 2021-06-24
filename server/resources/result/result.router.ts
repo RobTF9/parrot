@@ -5,7 +5,7 @@ import { updateResult, getResult, newResult } from './result.controllers';
 const router = Router();
 
 router.use(lexiconActive);
-router.route('/new/:id').get(newResult);
+router.route('/new/:id').post(newResult);
 router.route('/:id').put(updateResult).get(getResult);
 
 export default router;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiCheck, FiX } from 'react-icons/fi';
 import formatDate from '../../utils/formatDate';
 import { ResultChartWrapper, Plots } from './ResultChart.styles';
@@ -22,9 +23,8 @@ const ResultChart: React.FC<Props> = ({ result }) => {
       </h4>
       {!result.finished ? (
         <p>
-          This game is still in progress, click{' '}
-          <span className="bold">Resume game</span> at the top of the page to
-          continue
+          This game is still in progress,{' '}
+          <Link to={`/play/${result._id}`}>resume game</Link>
         </p>
       ) : (
         <ul>

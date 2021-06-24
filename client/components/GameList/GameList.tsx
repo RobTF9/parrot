@@ -27,8 +27,7 @@ const GameList: React.FC<Props> = ({ games }) => {
           <p className="capitalize border-b-s">
             {game.mode.toLowerCase()} – {createCopy(game)}
           </p>
-          <Link to={`/play/${game._id}`}>Play game</Link>
-          <Link to={`/games/${game._id}`}>Edit game</Link>
+          <Link to={`/games/${game._id}`}>View game</Link>
         </GameWrapper>
       ))}
     </Grid>
