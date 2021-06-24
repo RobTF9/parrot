@@ -137,6 +137,7 @@ export const getShared: RequestHandler = async (req, res, next) => {
     const lexicons = await Lexicon.find({
       sharedWith: user,
     })
+      .populate('createdBy', 'username email')
       .lean()
       .exec();
 
