@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import {
   FiCheckCircle,
   FiChevronDown,
@@ -18,6 +18,7 @@ import {
   LinksWrapper,
 } from './Navigation.styles';
 import { bumpUp } from '../../utils/animations';
+import useOnClickOutside from '../../hooks/useClickOutside';
 
 interface Props {
   lexicon?: LexiconSession;
@@ -34,8 +35,11 @@ const Navigation: React.FC<Props> = ({
   activateLexicon,
   user,
 }) => {
+  const LexiconRef = createRef<HTMLUListElement>();
   const [showLexicons, setShowLexicons] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(false);
+
+  useOnClickOutside(LexiconRef, () => setShowLexicons(false));
 
   return (
     <NavWrapper>
@@ -52,7 +56,7 @@ const Navigation: React.FC<Props> = ({
           </button>
           <AnimatePresence>
             {showLexicons && (
-              <motion.ul {...{ ...bumpUp }}>
+              <motion.ul {...{ ...bumpUp, ref: LexiconRef }}>
                 {yourLexicons && yourLexicons.data.length > 0 && (
                   <>
                     <p className="small">Your lexicons</p>
