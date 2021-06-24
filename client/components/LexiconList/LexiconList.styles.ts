@@ -33,7 +33,20 @@ export const Action = styled.button`
 
   svg {
     margin-right: 0.2rem;
+    margin-top: -0.2rem;
     stroke: var(--core-mid);
+  }
+
+  &:hover {
+    color: var(--core-dark);
+
+    svg {
+      stroke: var(--core-dark);
+    }
+  }
+
+  &:focus {
+    box-shadow: var(--focus-border);
   }
 `;
 
