@@ -141,14 +141,7 @@ export const getShared: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    const data = [];
-
-    for (const lexicon of lexicons) {
-      const u = await User.findOne({ _id: lexicon.createdBy }).lean().exec();
-      data.push({ ...lexicon, createdBy: u?.username });
-    }
-
-    res.status(200).json({ data });
+    res.status(200).json({ data: lexicons });
   } catch (error) {
     next(new Error(error));
   }
