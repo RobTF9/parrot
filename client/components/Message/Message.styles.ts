@@ -7,7 +7,7 @@ export const MessageWrapper = styled(motion.div)<{
   ${({ type }) => css`
     position: fixed;
     bottom: 0;
-    z-index: 500;
+    z-index: 700;
     width: 100vw;
     background: var(--${type}-light);
     padding: var(--medium);
