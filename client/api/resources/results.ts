@@ -1,8 +1,10 @@
-import { APIGiver, APIReciever, getOne, updateOne } from '../crud';
+import { APIGiver, APIReciever, createOne, getOne, updateOne } from '../crud';
 import { CACHE } from '../../utils/constants';
 
-export const newResult: APIReciever<ResultResource> = (id) =>
-  getOne(CACHE.RESULT, `/api/result/new/${id}`);
+export const newResult: APIGiver<{ game: string }, ResultResource> = (
+  _,
+  callback
+) => createOne(CACHE.RESULT, `/api/result/new`, callback);
 
 export const getResult: APIReciever<ResultResource> = (id) =>
   getOne(CACHE.RESULT, `/api/result/${id}`);

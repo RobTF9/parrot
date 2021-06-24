@@ -58,6 +58,7 @@ export const SUCCESS_MESSAGE = {
   NOTIFICATIONS_READ: succesMessage('Notifications marked as read'),
   GAME_RELOADED: succesMessage('Game progress restored'),
   GAME_STARTED: succesMessage('New game started!'),
+  GAME_FINISHED: succesMessage('Game finished! Well done'),
   ITEM_MATCH: succesMessage('Matched, well done!'),
   ITEM_ALREADY_MATCHED: succesMessage('Already completed!'),
 };

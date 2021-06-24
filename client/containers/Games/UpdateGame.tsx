@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getGame, updateGame } from '../../api/resources/game';
 import { Loading } from '../../styles/Animations.styles';
 import { getItems } from '../../api/resources/items';
@@ -10,13 +10,20 @@ import TagList from '../../components/TagList';
 import { getTags } from '../../api/resources/tags';
 import ResultChart from '../../components/ResultChart';
 import { Button } from '../../styles/Buttons.styles';
+import { newResult } from '../../api/resources/results';
 
 const UpdateGame: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { push } = useHistory();
   const [items, itemsLoading] = getItems();
   const [game, gameLoading] = getGame(id);
   const [tags, tagsLoading] = getTags();
   const [update, updateLoading] = updateGame(id);
+  const [newGame, newGameLoading] = newResult(undefined, (res) => {
+    if (res.data) {
+      push(`/play/${res.data._id}`);
+    }
+  });
 
   return (
     <Container>
@@ -26,8 +33,8 @@ const UpdateGame: React.FC = () => {
       {game && tags && (
         <>
           <PageHeader title={game.data.name}>
-            <Button as={Link} to={`/play/${id}`}>
-              Start new game
+            <Button type="button" onClick={() => newGame({ game: id })}>
+              {newGameLoading ? <Loading bg /> : 'Start a new game'}
             </Button>
             <TagList items={game.data.items} tags={tags.data} />
           </PageHeader>

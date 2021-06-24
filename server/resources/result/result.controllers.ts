@@ -23,6 +23,14 @@ export const updateResult: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
+    if (
+      result.items.filter(({ correct, skipped }) => correct || skipped)
+        .length === result.score.total
+    ) {
+      result.finished = true;
+      await result.save();
+    }
+
     return res.status(200).json({ data: result });
   } catch (error) {
     return next(new Error(error));
@@ -31,7 +39,7 @@ export const updateResult: RequestHandler = async (req, res, next) => {
 
 export const newResult: RequestHandler = async (req, res, next) => {
   try {
-    const game = await Game.findById(req.params.id).lean().exec();
+    const game = await Game.findById(req.body.game).lean().exec();
 
     if (!game) {
       return res
@@ -61,7 +69,7 @@ export const newResult: RequestHandler = async (req, res, next) => {
       .populate({ path: 'items', populate: { path: 'item' } })
       .execPopulate();
 
-    await Game.findByIdAndUpdate(req.params.id, {
+    await Game.findByIdAndUpdate(req.body.game, {
       $push: { results: result._id },
     });
 
