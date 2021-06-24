@@ -34,6 +34,7 @@ export const getYours: RequestHandler = async (req, res, next) => {
   try {
     const lexicons = await Lexicon.find({ createdBy: req.session.user })
       .sort({ createdAt: 'desc' })
+      .populate('createdBy', 'username email')
       .populate('sharedWith', 'username email')
       .lean()
       .exec();
@@ -138,6 +139,7 @@ export const getShared: RequestHandler = async (req, res, next) => {
       sharedWith: user,
     })
       .populate('createdBy', 'username email')
+      .populate('sharedWith', 'username email')
       .lean()
       .exec();
 

@@ -14,6 +14,8 @@ interface ItemProps {
   language: {
     name: string;
   };
+  createdBy: { username: string; email: string };
+  sharedWith: { username: string; email: string }[];
   share: boolean;
   buttons?: boolean;
 }
@@ -24,6 +26,8 @@ const LexiconItem: React.FC<ItemProps> = ({
   lexicon,
   share,
   _id,
+  createdBy,
+  sharedWith,
 }) => {
   const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
@@ -49,7 +53,16 @@ const LexiconItem: React.FC<ItemProps> = ({
     <>
       {updateLoading && <Loading bg />}
       <li className={lexicon?._id === _id ? 'active' : ''}>
-        <p>{language.name}</p>
+        <p>
+          {language.name}
+          {createdBy.username && (
+            <em className="small">
+              {' '}
+              – Created by: <span className="bold">{createdBy.username}</span> (
+              {createdBy.email})
+            </em>
+          )}
+        </p>
         <div>
           <Action
             className="medium"
@@ -78,17 +91,29 @@ const LexiconItem: React.FC<ItemProps> = ({
         </div>
       </li>
       {shareField && (
-        <ShareForm onSubmit={onSubmit}>
-          <Input
-            {...{
-              label: `Share ${language.name} via email`,
-              value: email,
-              name: 'email',
-              onChange,
-            }}
-          />
-          <Button type="submit">Share</Button>
-        </ShareForm>
+        <>
+          <ShareForm onSubmit={onSubmit}>
+            <Input
+              {...{
+                label: `Share ${language.name} via email`,
+                value: email,
+                name: 'email',
+                onChange,
+              }}
+            />
+            <Button type="submit">Share</Button>
+          </ShareForm>
+          {sharedWith && sharedWith.length > 0 && (
+            <>
+              <p>Shared with:</p>
+              {sharedWith.map((shared) => (
+                <em key={shared.username}>
+                  {shared.username && shared.username} – {shared.email}
+                </em>
+              ))}
+            </>
+          )}
+        </>
       )}
     </>
   );
@@ -114,13 +139,15 @@ const LexiconList: React.FC<ListProps> = ({
   return (
     <ListWrapper>
       {lexicons.data.length > 0 ? (
-        lexicons.data.map(({ language, _id }) => (
+        lexicons.data.map(({ language, _id, createdBy, sharedWith }) => (
           <LexiconItem
             key={_id}
             {...{
               share: !!share,
               language,
               activate,
+              createdBy,
+              sharedWith,
               lexicon,
               _id,
             }}

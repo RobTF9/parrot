@@ -41,8 +41,8 @@ declare global {
       htmlCode: string;
       langCode: string;
     };
-    createdBy: string | { _id: string; username: string; email: string };
-    sharedWith: string[] | { _id: string; username: string; email: string };
+    createdBy: { _id: string; username: string; email: string };
+    sharedWith: { _id: string; username: string; email: string }[];
   }
 
   interface LexiconSubmission {

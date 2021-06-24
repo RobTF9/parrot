@@ -94,7 +94,8 @@ const Navigation: React.FC<Props> = ({
                               setShowLexicons(false);
                             }}
                           >
-                            <FiCircle /> {l.language.name} - {l.createdBy}
+                            <FiCircle /> {l.language.name} -{' '}
+                            {l.createdBy.username}
                           </button>
                         )}
                       </li>
