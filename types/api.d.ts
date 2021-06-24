@@ -73,6 +73,7 @@ declare global {
     lang: string;
     pron: string;
     tran: string;
+    type: string;
   }
   interface TagSubmission {
     tag: string;
