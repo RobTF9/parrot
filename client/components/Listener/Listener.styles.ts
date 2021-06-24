@@ -23,10 +23,12 @@ export const ListenerInner = styled.div<{ centered?: boolean }>`
 
   h3 {
     margin: var(--medium) 0;
+    text-align: center;
   }
 
   h3,
-  p {
+  p,
+  em {
     color: var(--core-white);
   }
 

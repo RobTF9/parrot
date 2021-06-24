@@ -58,6 +58,8 @@ const Listener: React.FC<Props> = ({ result, id, update, centered }) => {
       <Microphone {...{ listening, correct, incorrect: skipped }} />
       <h3 className="large">
         Say <span className="bold">{item.lang}</span>
+        <br />
+        <em className="small">{item.tran}</em>
       </h3>
       <p>{transcript || '...'}</p>
       <button type="button" onClick={skip}>
