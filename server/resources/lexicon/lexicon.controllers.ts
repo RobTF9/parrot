@@ -34,6 +34,7 @@ export const getYours: RequestHandler = async (req, res, next) => {
   try {
     const lexicons = await Lexicon.find({ createdBy: req.session.user })
       .sort({ createdAt: 'desc' })
+      .populate('sharedWith', 'username')
       .lean()
       .exec();
 
