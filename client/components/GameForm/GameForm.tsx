@@ -60,7 +60,7 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
         <Select
           {...{
             name: 'order',
-            label: 'Pick a game type',
+            label: 'How do you want to order this game?',
             defaultValue: game.order,
             options: Object.values(GAME_ORDER).map((order) => ({
               value: order,
