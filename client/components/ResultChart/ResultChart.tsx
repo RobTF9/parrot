@@ -28,10 +28,11 @@ const ResultChart: React.FC<Props> = ({ result }) => {
         </p>
       ) : (
         <ul>
-          {result.items.map(({ item, correct, attempts }) => (
+          {result.items.map(({ item, correct, attempts, skipped }) => (
             <li key={item._id}>
               <p>{item.tran}</p>
-              <Plots correct={correct}>
+              <Plots noAttempt={attempts === 0 && skipped} correct={correct}>
+                {attempts === 0 && skipped && <li>-</li>}
                 {[...Array(attempts)].map((_, index) => (
                   /* eslint-disable-next-line */
                   <li key={index}>

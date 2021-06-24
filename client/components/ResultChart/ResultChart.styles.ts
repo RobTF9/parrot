@@ -15,7 +15,7 @@ export const ResultChartWrapper = styled.div`
   }
 `;
 
-export const Plots = styled.ol<{ correct?: boolean }>`
+export const Plots = styled.ol<{ correct?: boolean; noAttempt: boolean }>`
   display: flex;
 
   li {
@@ -41,6 +41,15 @@ export const Plots = styled.ol<{ correct?: boolean }>`
           svg {
             stroke: var(--success-dark);
           }
+        }
+      `}
+
+    ${({ noAttempt }) =>
+      noAttempt &&
+      css`
+        &:last-of-type {
+          background-color: var(--core-dark-10);
+          color: var(--core-dark-50);
         }
       `}
   }
