@@ -6,6 +6,7 @@ import AnimatedModal from '../../components/AnimatedModal';
 import { useLexiconContext } from '../../context/Lexicon';
 import { Loading } from '../../styles/Animations.styles';
 import ItemForm from '../../components/ItemForm';
+import { useMessageContext } from '../../context/Message';
 
 const UpdateSentence: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -25,6 +26,8 @@ const UpdateSentence: React.FC = () => {
     }
   });
 
+  const { showMessage } = useMessageContext();
+
   return (
     <AnimatedModal back="/sentences">
       {(sentenceLoading ||
@@ -41,6 +44,7 @@ const UpdateSentence: React.FC = () => {
             lexicon,
             mutate: update,
             tagMutate,
+            showMessage,
           }}
         />
       )}

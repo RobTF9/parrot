@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { createRef } from 'react';
+import React, { createRef, useEffect } from 'react';
+import deepEqual from 'deep-equal';
 import { Link } from 'react-router-dom';
 import {
   FiCheckCircle,
@@ -35,6 +36,7 @@ interface Props {
     TagSubmission,
     unknown
   >;
+  showMessage?: (message: Message) => void;
 }
 
 const ItemForm: React.FC<Props> = ({
@@ -44,6 +46,7 @@ const ItemForm: React.FC<Props> = ({
   lexicon,
   tags,
   tagMutate,
+  showMessage,
 }) => {
   const audioEl = createRef<HTMLAudioElement>();
 
@@ -68,6 +71,16 @@ const ItemForm: React.FC<Props> = ({
       audioEl.current.play();
     }
   };
+
+  useEffect(() => {
+    if (showMessage && !deepEqual(initialItem, item)) {
+      showMessage({
+        message: 'You have unsaved changes',
+        type: 'warning',
+        visible: true,
+      });
+    }
+  }, [item]);
 
   return (
     <form onSubmit={submitHandler}>

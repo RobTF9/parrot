@@ -5,6 +5,7 @@ import { getWord, updateWord } from '../../api/resources/word';
 import AnimatedModal from '../../components/AnimatedModal';
 import ItemForm from '../../components/ItemForm';
 import { useLexiconContext } from '../../context/Lexicon';
+import { useMessageContext } from '../../context/Message';
 import { Loading } from '../../styles/Animations.styles';
 
 const UpdateWord: React.FC = () => {
@@ -24,6 +25,8 @@ const UpdateWord: React.FC = () => {
     }
   });
 
+  const { showMessage } = useMessageContext();
+
   return (
     <AnimatedModal back="/words">
       {(wordLoading || updateLoading || tagsLoading || tagMutateLoading) && (
@@ -39,6 +42,7 @@ const UpdateWord: React.FC = () => {
             lexicon,
             mutate: update,
             tagMutate,
+            showMessage,
           }}
         />
       )}
