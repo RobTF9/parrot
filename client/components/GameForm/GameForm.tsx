@@ -2,7 +2,7 @@ import React from 'react';
 import { FiCircle } from 'react-icons/fi';
 import useGameForm from './useGameForm';
 import Input from '../Input';
-import Select from '../Select';
+import Radios from '../Radios';
 import { GAME_TYPE, GAME_ORDER } from '../../utils/constants';
 import capitalize from '../../utils/capitalize';
 import { Button, Tag } from '../../styles/Buttons.styles';
@@ -44,32 +44,30 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
           onChange: gameChangeHandler,
         }}
       />
-      <Select
+      <Radios
         {...{
           name: 'mode',
           label: 'Pick a game type',
-          defaultValue: game.mode,
           options: Object.values(GAME_TYPE).map((type) => ({
             value: type,
             copy: capitalize(type),
+            checked: game.mode === type,
           })),
           onChange: gameChangeHandler,
         }}
       />
-      {game.mode !== GAME_TYPE.CONVERSATION && (
-        <Select
-          {...{
-            name: 'order',
-            label: 'How do you want to order this game?',
-            defaultValue: game.order,
-            options: Object.values(GAME_ORDER).map((order) => ({
-              value: order,
-              copy: capitalize(order),
-            })),
-            onChange: gameChangeHandler,
-          }}
-        />
-      )}
+      <Radios
+        {...{
+          name: 'order',
+          label: 'How do you want to order this game?',
+          options: Object.values(GAME_ORDER).map((order) => ({
+            value: order,
+            copy: capitalize(order),
+            checked: game.order === order,
+          })),
+          onChange: gameChangeHandler,
+        }}
+      />
       <ol className="border-b-s">
         <h4 className="large bold margin-b">Words &amp; sentences</h4>
         {game.items.length === 0 ? (

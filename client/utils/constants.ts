@@ -17,7 +17,6 @@ export const LANGUAGES = [
 ];
 
 export const GAME_TYPE = {
-  CONVERSATION: 'CONVERSATION',
   SEQUENCE: 'SEQUENCE',
   GRID: 'GRID',
 };
