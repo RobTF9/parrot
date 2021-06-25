@@ -11,9 +11,11 @@ import { getTags } from '../../api/resources/tags';
 import ResultChart from '../../components/ResultChart';
 import { Button } from '../../styles/Buttons.styles';
 import { newResult } from '../../api/resources/results';
+import { useMessageContext } from '../../context/Message';
 
 const UpdateGame: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { showMessage } = useMessageContext();
   const { push } = useHistory();
   const [items, itemsLoading] = getItems();
   const [game, gameLoading] = getGame(id);
@@ -54,6 +56,7 @@ const UpdateGame: React.FC = () => {
                     initialGame: game.data,
                     items: items.data,
                     mutate: update,
+                    showMessage,
                   }}
                 />
               )}

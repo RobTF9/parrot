@@ -14,9 +14,15 @@ interface Props {
   mutate: (game: GameSubmission) => void;
   initialGame: GameSubmission;
   items: ItemResource[];
+  showMessage?: (message: Message) => void;
 }
 
-const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
+const GameForm: React.FC<Props> = ({
+  mutate,
+  initialGame,
+  items,
+  showMessage,
+}) => {
   const {
     game,
     errors,
@@ -35,8 +41,12 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
   );
 
   useEffect(() => {
-    if (!deepEqual(initialGame, game)) {
-      console.log('Unsaved changes');
+    if (showMessage && !deepEqual(initialGame, game)) {
+      showMessage({
+        message: 'You have unsaved changes',
+        type: 'warning',
+        visible: true,
+      });
     }
   }, [game]);
 
