@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export interface SearchChangeHandler {
   (event: React.ChangeEvent<HTMLInputElement>): void;
@@ -19,9 +20,21 @@ interface UseSearch {
 }
 
 const useSearch: UseSearch = (items, tags) => {
+  const { push } = useHistory();
+  const location = useLocation();
+
   const [filtered, setFiltered] = useState(items);
   const [filter, setFilter] = useState('All');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(
+    location.search ? location.search.split('=')[1] : ''
+  );
+
+  useEffect(() => {
+    push({
+      pathname: location.pathname,
+      search: `search=${search}`,
+    });
+  }, [search]);
 
   const changeHandler: SearchChangeHandler = (event) =>
     setSearch(event.target.value);
