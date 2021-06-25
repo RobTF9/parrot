@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiCircle } from 'react-icons/fi';
+import deepEqual from 'deep-equal';
 import useGameForm from './useGameForm';
 import Input from '../Input';
 import Radios from '../Radios';
@@ -32,6 +33,12 @@ const GameForm: React.FC<Props> = ({ mutate, initialGame, items }) => {
   const [itemOrder, updateItemPosition, updateItemOrder] = usePositionReorder(
     game.items
   );
+
+  useEffect(() => {
+    if (!deepEqual(initialGame, game)) {
+      console.log('Unsaved changes');
+    }
+  }, [game]);
 
   return (
     <form onSubmit={gameSubmitHandler}>
