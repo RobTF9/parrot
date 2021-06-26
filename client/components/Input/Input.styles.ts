@@ -21,6 +21,8 @@ export const InputWrapper = styled.label`
       width: 100%;
       opacity: 0;
       pointer-events: none;
+      transform: translateY(var(--medium));
+      transition: all 0.3s ease-in-out;
     }
 
     svg {
@@ -32,6 +34,8 @@ export const InputWrapper = styled.label`
       &:hover {
         & + p {
           opacity: 1;
+          transform: translateY(0);
+          transition: all 0.3s ease-in-out;
         }
       }
     }
