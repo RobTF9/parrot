@@ -6,6 +6,37 @@ export const InputWrapper = styled.label`
   margin: var(--medium) 0;
   position: relative;
 
+  & > div {
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    & > p {
+      position: absolute;
+      top: var(--medium);
+      right: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    svg {
+      width: var(--medium);
+      height: var(--medium);
+      stroke: var(--success-dark);
+      fill: var(--success-light);
+
+      &:hover {
+        & + p {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   input {
     background-color: var(--core-dark-10);
     border: none;

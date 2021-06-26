@@ -11,3 +11,13 @@ export const InputWithError = () => (
 );
 
 export const InputStandard = () => <Input {...{ label: 'Label' }} />;
+
+export const InputTip = () => (
+  <Input
+    {...{
+      label: 'Label',
+      tip:
+        'If you want your questions to be presented in a specific order then pick manual, you can then drag your words and sentences into the desired order. If you want to shuffle them every time you play the game then pick random',
+    }}
+  />
+);
