@@ -17,6 +17,8 @@ export const InputWrapper = styled.label`
     & > p {
       position: absolute;
       top: var(--medium);
+      background-color: var(--success-light);
+      color: var(--success-dark);
       right: 0;
       width: 100%;
       opacity: 0;
