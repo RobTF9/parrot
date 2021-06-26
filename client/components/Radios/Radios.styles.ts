@@ -30,6 +30,7 @@ export const RadiosWrapper = styled.div`
       pointer-events: none;
       transform: translateY(var(--medium));
       transition: all 0.3s ease-in-out;
+      z-index: 150;
     }
 
     svg {

@@ -64,7 +64,9 @@ const GameForm: React.FC<Props> = ({
       <Radios
         {...{
           name: 'mode',
-          label: 'Pick a game type',
+          label: 'Pick a game mode',
+          tip:
+            'We currently support two game modes - grid and sequence. Grid presents all the words and sentences to you as tiled cards, you may answer these in any order you like. Sequence displays the words and sentences one at a time, you can only progress by saying the item correctly or skipping the question.',
           options: Object.values(GAME_TYPE).map((type) => ({
             value: type,
             copy: capitalize(type),
@@ -77,6 +79,8 @@ const GameForm: React.FC<Props> = ({
         {...{
           name: 'order',
           label: 'How do you want to order this game?',
+          tip:
+            'If you want your questions to be presented in a specific order then pick manual, you can then drag your words and sentences into the desired order. If you want to shuffle them every time you play the game then pick random',
           options: Object.values(GAME_ORDER).map((order) => ({
             value: order,
             copy: capitalize(order),
