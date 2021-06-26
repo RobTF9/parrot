@@ -22,7 +22,14 @@ const TagCreator: React.FC<Props> = ({ tagMutate }) => {
   return (
     <TagCreatorWrapper>
       <Input
-        {...{ label: 'Add a new tag', value: tag.tag, onChange, name: 'tag' }}
+        {...{
+          label: 'Add a new tag',
+          value: tag.tag,
+          onChange,
+          name: 'tag',
+          tip:
+            'Tags allow you to categorize words and sentences. It makes it easier for you to group related items and search for them later.',
+        }}
       />
       <StrokeButton {...{ onClick: () => tagMutate(tag), type: 'button' }}>
         Add tag
