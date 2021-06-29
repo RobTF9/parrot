@@ -23,7 +23,7 @@ export const Container = styled.div<{ bg?: string; half?: boolean }>`
     `}
 `;
 
-export const Modal = styled(motion.div)`
+export const Modal = styled(motion.div)<{ error?: boolean }>`
   background-color: var(--core-white);
   box-shadow: var(--modal-shadow);
   border-radius: var(--medium);
@@ -37,6 +37,16 @@ export const Modal = styled(motion.div)`
   @media (max-width: 480px) {
     padding: var(--large) var(--medium);
   }
+
+  ${({ error }) =>
+    error &&
+    css`
+      background-color: var(--error-light);
+
+      * {
+        color: var(--error-dark);
+      }
+    `}
 `;
 
 export const Grid = styled.div<{
