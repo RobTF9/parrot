@@ -18,7 +18,7 @@ function validateGame(
   }
 
   if (items.length === 0) {
-    errors = { ...errors, mode: 'Cannot be empty' };
+    errors = { ...errors, items: 'A game needs at least one word or sentence' };
   }
 
   return errors;

@@ -28,3 +28,13 @@ export const DraggableItem = styled(motion.div)<{ isDragging?: boolean }>`
     }
   }
 `;
+
+export const ItemError = styled.em`
+  display: block;
+  color: var(--error-dark);
+  background-color: var(--error-light);
+  padding: var(--medium);
+  line-height: 1;
+  border-radius: var(--smaller);
+  text-align: center;
+`;

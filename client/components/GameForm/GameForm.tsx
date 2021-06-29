@@ -9,6 +9,7 @@ import capitalize from '../../utils/capitalize';
 import { Button, Tag } from '../../styles/Buttons.styles';
 import usePositionReorder from './usePositionReorder';
 import Draggable from './Draggable';
+import { ItemError } from './GameForm.styles';
 
 interface Props {
   mutate: (game: GameSubmission) => void;
@@ -112,6 +113,7 @@ const GameForm: React.FC<Props> = ({
           })
         )}
       </ol>
+      {errors.items && <ItemError>{errors.items}</ItemError>}
       <Input
         {...{
           label: 'Search for a word or sentence to add',
