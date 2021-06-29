@@ -24,17 +24,23 @@ const useSearch: UseSearch = (items, tags) => {
   const location = useLocation();
 
   const [filtered, setFiltered] = useState(items);
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState(
+    location.search ? location.search.split('&')[1].split('=')[1] : 'All'
+  );
   const [search, setSearch] = useState(
-    location.search ? location.search.split('=')[1] : ''
+    location.search ? location.search.split('&')[0].split('=')[1] : ''
   );
 
   useEffect(() => {
     push({
       pathname: location.pathname,
-      search: `search=${search}`,
+      search: `search=${search}&filter=${
+        tags.find(({ _id }) => _id === filter)
+          ? tags.find(({ _id }) => _id === filter)?.tag
+          : 'All'
+      }`,
     });
-  }, [search]);
+  }, [search, filter]);
 
   const changeHandler: SearchChangeHandler = (event) =>
     setSearch(event.target.value);
