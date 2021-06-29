@@ -7,7 +7,8 @@
     "lint": "eslint client server --ext ts,tsx",
     "dev:client": "parcel watch client/index.html --out-dir dist/client",
     "dev:server": "nodemon --delay 1000ms",
-    "dev": "rimraf dist && concurrently \"yarn dev:server\" \"yarn dev:client\"",
+    "predev": "yarn clean",
+    "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:server": "babel server --out-dir dist/server --extensions .ts",
     "build": "rimraf dist && yarn build:server && yarn build:client",
@@ -19,7 +20,8 @@
     "seed": "node scripts/seed.js",
     "docs": "start-storybook -p 3001",
     "build:docs": "build-storybook",
-    "new": "node scripts/component.js"
+    "new": "node scripts/component.js",
+    "clean": "rimraf .cache dist"
   },
   "author": "robtf9",
   "license": "ISC",
