@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { Tag } from '../../styles/Buttons.styles';
+import styled, { css } from 'styled-components';
+import { Button, Tag } from '../../styles/Buttons.styles';
+import { Pulse } from '../../styles/Animations.styles';
 
 export const TagList = styled.ul`
   display: flex;
@@ -74,4 +75,42 @@ export const ItemTest = styled.div`
       margin: 0;
     }
   }
+`;
+
+export const SpeechTestButton = styled(Button)<{
+  listening: boolean;
+  correct: boolean;
+}>`
+  ${({ listening }) =>
+    listening &&
+    css`
+      background-color: var(--core-light);
+      box-shadow: 0 0 0 0 var(--core-light);
+      transform: scale(1);
+      animation: ${Pulse} 1.6s infinite;
+
+      & > svg {
+        stroke: var(--core-mid) !important;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--core-light);
+      }
+    `}
+
+  ${({ correct }) =>
+    correct &&
+    css`
+      background-color: var(--success-light);
+
+      & > svg {
+        stroke: var(--success-dark) !important;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--success-light);
+      }
+    `}
 `;

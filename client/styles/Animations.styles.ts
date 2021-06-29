@@ -39,3 +39,20 @@ export const Loading = styled.div<{ bg?: boolean }>`
     animation-delay: -1s;
   }
 `;
+
+export const Pulse = keyframes`
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 var(--core-light-50);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 var(--small) var(--core-light-25);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 var(--core-light-25);
+	}
+`;

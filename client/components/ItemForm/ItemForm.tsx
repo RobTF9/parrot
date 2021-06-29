@@ -3,6 +3,7 @@ import React, { createRef, useEffect } from 'react';
 import deepEqual from 'deep-equal';
 import { Link } from 'react-router-dom';
 import {
+  FiCheck,
   FiCheckCircle,
   FiCircle,
   FiMic,
@@ -16,7 +17,7 @@ import Input from '../Input';
 import TagCreator from '../TagCreator';
 import useSpeechTest from '../../hooks/useSpeechTest';
 import { useItemForm } from './useItemForm';
-import { TagList, ItemTest } from './ItemForm.styles';
+import { TagList, ItemTest, SpeechTestButton } from './ItemForm.styles';
 import { Flex } from '../../styles/Layout.styles';
 
 interface Props {
@@ -94,13 +95,15 @@ const ItemForm: React.FC<Props> = ({
             error: errors.lang,
           }}
         />
-        <Button
+        <SpeechTestButton
           disabled={!canListen || item.lang.trim() === ''}
           type="button"
           onClick={startListening}
+          listening={listening}
+          correct={correct}
         >
-          {canListen ? <FiMic /> : <FiMicOff />}
-        </Button>
+          {!canListen ? <FiMicOff /> : correct ? <FiCheck /> : <FiMic />}
+        </SpeechTestButton>
         <Button disabled={item.lang.trim() === ''} type="button" onClick={play}>
           <FiPlay />
         </Button>
