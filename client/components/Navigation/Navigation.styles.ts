@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 
-export const Toggle = styled.a`
+export const Toggle = styled.button`
   display: flex;
   align-items: center;
   margin-left: var(--medium);
   margin-right: 0;
+  background: none;
 
   @media (max-width: 660px) {
     span {

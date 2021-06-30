@@ -143,12 +143,7 @@ const Navigation: React.FC<Props> = ({
       </div>
       <ul>
         <li>
-          <Toggle
-            as="button"
-            className="toggle"
-            type="button"
-            onClick={() => setModalState('USER')}
-          >
+          <Toggle as="a" type="button" onClick={() => setModalState('USER')}>
             <FiUser />
             <span className="bold">{user ? user.username : 'Account'}</span>
           </Toggle>
