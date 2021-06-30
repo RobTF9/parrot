@@ -7,11 +7,13 @@ import { fade, moveIn } from '../../utils/animations';
 
 interface Props {
   condition?: boolean;
+  back?: (string: 'CLOSED') => void;
 }
 
 const AnimatedDrawer: React.FunctionComponent<Props> = ({
   children,
   condition,
+  back,
 }) => {
   const { pathname } = useLocation();
   const { push } = useHistory();
@@ -22,7 +24,9 @@ const AnimatedDrawer: React.FunctionComponent<Props> = ({
           <Drawer {...{ ...moveIn }}>
             <FocusLock>{children}</FocusLock>
           </Drawer>
-          <TouchableOpacity onClick={() => push(pathname)} />
+          <TouchableOpacity
+            onClick={() => (back ? back('CLOSED') : push(pathname))}
+          />
         </Overlay>
       )}
     </AnimatePresence>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { useAuthContext } from '../context/Auth';
@@ -12,7 +12,6 @@ import ForgotPassword from './Authentication/ForgotPassword';
 import ResetPassword from './Authentication/ResetPassword';
 import SignIn from './Authentication/SignIn';
 import Lexicons from './Lexicons/Lexicons';
-import useQueryParams from '../hooks/useQueryParams';
 import AnimatedDrawer from '../components/AnimatedDrawer';
 import { getLexicons, getShared } from '../api/resources/lexicon';
 import Words from './Words/Words';
@@ -44,7 +43,9 @@ const Authenticated = () => {
   const [yourLexicons, yoursLoading] = getLexicons();
   const [sharedLexicons, sharedLoading] = getShared();
   const [user, userLoading] = getUser();
-  const params = useQueryParams();
+  const [modalState, setModalState] = useState<'USER' | 'LEXICON' | 'CLOSED'>(
+    'CLOSED'
+  );
 
   if (yoursLoading || sharedLoading || userLoading) return <Loading bg />;
 
@@ -71,12 +72,16 @@ const Authenticated = () => {
             sharedLexicons,
             activateLexicon,
             user: user?.data,
+            setModalState,
           }}
         />
-        <AnimatedDrawer condition={params.get('lexicons') === 'open'}>
+        <AnimatedDrawer
+          back={setModalState}
+          condition={modalState === 'LEXICON'}
+        >
           <Lexicons />
         </AnimatedDrawer>
-        <AnimatedDrawer condition={params.get('account') === 'open'}>
+        <AnimatedDrawer back={setModalState} condition={modalState === 'USER'}>
           <Account />
         </AnimatedDrawer>
         {lexicon && (

@@ -9,13 +9,14 @@ import {
   FiUser,
   FiX,
 } from 'react-icons/fi';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   NavWrapper,
   LexiconSwitch,
   BurgerButton,
   MainLinks,
   LinksWrapper,
+  Toggle,
 } from './Navigation.styles';
 import { bumpUp } from '../../utils/animations';
 import useOnClickOutside from '../../hooks/useClickOutside';
@@ -26,6 +27,7 @@ interface Props {
   sharedLexicons?: { data: LexiconResource[] };
   activateLexicon: (id: string) => void;
   user?: UserResource;
+  setModalState: (state: 'USER' | 'LEXICON' | 'CLOSED') => void;
 }
 
 const Navigation: React.FC<Props> = ({
@@ -34,6 +36,7 @@ const Navigation: React.FC<Props> = ({
   sharedLexicons,
   activateLexicon,
   user,
+  setModalState,
 }) => {
   const LexiconRef = createRef<HTMLUListElement>();
   const [showLexicons, setShowLexicons] = useState(false);
@@ -140,22 +143,26 @@ const Navigation: React.FC<Props> = ({
       </div>
       <ul>
         <li>
-          <Link
+          <Toggle
+            as="button"
             className="toggle"
-            to={(location) => `${location.pathname}?account=open`}
+            type="button"
+            onClick={() => setModalState('USER')}
           >
             <FiUser />
             <span className="bold">{user ? user.username : 'Account'}</span>
-          </Link>
+          </Toggle>
         </li>
         <li>
-          <Link
+          <Toggle
+            as="button"
             className="toggle"
-            to={(location) => `${location.pathname}?lexicons=open`}
+            type="button"
+            onClick={() => setModalState('LEXICON')}
           >
             <FiDatabase />
             <span className="bold">Lexicons</span>
-          </Link>
+          </Toggle>
         </li>
       </ul>
     </NavWrapper>

@@ -1,5 +1,29 @@
 import styled, { css } from 'styled-components';
 
+export const Toggle = styled.a`
+  display: flex;
+  align-items: center;
+  margin-left: var(--medium);
+  margin-right: 0;
+
+  @media (max-width: 660px) {
+    span {
+      display: none;
+    }
+  }
+
+  svg {
+    margin-right: var(--smaller);
+    opacity: 0.5;
+    margin-top: -0.2rem;
+
+    @media (max-width: 660px) {
+      margin-top: 0;
+      opacity: 1;
+    }
+  }
+`;
+
 export const NavWrapper = styled.nav`
   position: relative;
   background-color: var(--core-dark);
@@ -44,30 +68,6 @@ export const NavWrapper = styled.nav`
 
   * {
     color: var(--core-white);
-  }
-
-  .toggle {
-    display: flex;
-    align-items: center;
-    margin-left: var(--medium);
-    margin-right: 0;
-
-    @media (max-width: 660px) {
-      span {
-        display: none;
-      }
-    }
-
-    svg {
-      margin-right: var(--smaller);
-      opacity: 0.5;
-      margin-top: -0.2rem;
-
-      @media (max-width: 660px) {
-        margin-top: 0;
-        opacity: 1;
-      }
-    }
   }
 `;
 
