@@ -2,6 +2,7 @@ import { RequestHandler } from 'express';
 import Game from './game.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import { createNotification } from '../notification/notification.controllers';
+import Result from '../result/result.model';
 
 export const createGame: RequestHandler = async (req, res, next) => {
   try {
@@ -37,10 +38,6 @@ export const getOne: RequestHandler = async (req, res, next) => {
   try {
     const game = await Game.findById(req.params.id)
       .populate({ path: 'items', populate: { path: 'item' } })
-      .populate({
-        path: 'results',
-        populate: { path: 'items', populate: { path: 'item' } },
-      })
       .lean()
       .exec();
 
@@ -50,7 +47,14 @@ export const getOne: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    return res.status(200).send({ data: game });
+    const results = await Result.find({
+      createdBy: req.session.user,
+      game: game._id,
+    })
+      .lean()
+      .exec();
+
+    return res.status(200).send({ data: { ...game, results } });
   } catch (error) {
     return next(new Error(error));
   }

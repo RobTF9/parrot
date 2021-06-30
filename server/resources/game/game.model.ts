@@ -15,6 +15,7 @@ interface GameDocument extends Document {
   mode: string;
   type: string;
   items: ObjectId[];
+  results: Array<ObjectId & ResultResource>;
 }
 
 const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
