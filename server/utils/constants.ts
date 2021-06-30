@@ -68,3 +68,8 @@ export const GAME_TYPE = {
   SEQUENCE: 'SEQUENCE',
   GRID: 'GRID',
 };
+
+export const GAME_ORDER = {
+  RANDOM: 'RANDOM',
+  MANUAL: 'MANUAL',
+};

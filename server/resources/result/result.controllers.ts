@@ -1,5 +1,10 @@
 import { RequestHandler } from 'express';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
+import {
+  ERROR_MESSAGE,
+  GAME_ORDER,
+  SUCCESS_MESSAGE,
+} from '../../utils/constants';
+import shuffle from '../../utils/shuffle';
 import Game from '../game/game.model';
 import Result from './result.model';
 
@@ -47,6 +52,13 @@ export const newResult: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
+    const items = game.items.map((item) => ({
+      item,
+      correct: false,
+      skipped: false,
+      attempts: false,
+    }));
+
     let result = await Result.create({
       game: game._id,
       lexicon: req.session.lexicon?._id,
@@ -56,12 +68,7 @@ export const newResult: RequestHandler = async (req, res, next) => {
         total: game.items.length,
       },
       finished: false,
-      items: game.items.map((item) => ({
-        item,
-        correct: false,
-        skipped: false,
-        attempts: false,
-      })),
+      items: game.order === GAME_ORDER.RANDOM ? shuffle(items) : items,
     });
 
     result = await result

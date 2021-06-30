@@ -14,6 +14,7 @@ interface GameDocument extends Document {
   name: string;
   mode: string;
   type: string;
+  order: string;
   items: ObjectId[];
   results: Array<ObjectId & ResultResource>;
 }
