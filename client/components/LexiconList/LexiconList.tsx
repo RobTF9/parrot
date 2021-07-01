@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { FiCheckCircle, FiCircle } from 'react-icons/fi';
 import { Button } from '../../styles/Buttons.styles';
 import Input from '../Input';
-import { ListWrapper, Action, ShareForm } from './LexiconList.styles';
+import {
+  ListWrapper,
+  Action,
+  ShareForm,
+  SharedWidth,
+} from './LexiconList.styles';
 import { shareLexicon } from '../../api/resources/lexicon';
 import { useMessageContext } from '../../context/Message';
 import { Loading } from '../../styles/Animations.styles';
@@ -29,7 +34,6 @@ const LexiconItem: React.FC<ItemProps> = ({
   createdBy,
   sharedWith,
 }) => {
-  const [shareField, setShareField] = useState(false);
   const [email, setEmail] = useState('');
   const { showMessage, hideMessage } = useMessageContext();
 
@@ -52,7 +56,7 @@ const LexiconItem: React.FC<ItemProps> = ({
   return (
     <>
       {updateLoading && <Loading bg />}
-      <li className={lexicon?._id === _id ? 'active' : ''}>
+      <li className={lexicon?._id === _id ? 'active ' : ''}>
         <p>
           {language.name}
           {createdBy.username && (
@@ -79,41 +83,29 @@ const LexiconItem: React.FC<ItemProps> = ({
               </>
             )}
           </Action>
-          {share && (
-            <Action
-              className="share medium"
-              type="button"
-              onClick={() => setShareField(!shareField)}
-            >
-              Share
-            </Action>
-          )}
         </div>
       </li>
-      {shareField && (
-        <>
-          <ShareForm onSubmit={onSubmit}>
-            <Input
-              {...{
-                label: `Share ${language.name} via email`,
-                value: email,
-                name: 'email',
-                onChange,
-              }}
-            />
-            <Button type="submit">Share</Button>
-          </ShareForm>
-          {sharedWith && sharedWith.length > 0 && (
-            <>
-              <p>Shared with:</p>
-              {sharedWith.map((shared) => (
-                <em key={shared.username}>
-                  {shared.username && shared.username} – {shared.email}
-                </em>
-              ))}
-            </>
-          )}
-        </>
+      {share && sharedWith && sharedWith.length > 0 ? (
+        <SharedWidth>
+          Already shared with:{' '}
+          {sharedWith.map((shared) => (
+            <em className="bold" key={shared.username}>
+              {shared.username && shared.username} – {shared.email}
+            </em>
+          ))}
+        </SharedWidth>
+      ) : (
+        <ShareForm onSubmit={onSubmit}>
+          <Input
+            {...{
+              label: `Share ${language.name} via email`,
+              value: email,
+              name: 'email',
+              onChange,
+            }}
+          />
+          <Button type="submit">Share</Button>
+        </ShareForm>
       )}
     </>
   );

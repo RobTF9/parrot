@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const SharedWidth = styled.p`
+  color: var(--core-dark-50);
+`;
+
 export const ListWrapper = styled.ul`
   li {
     align-items: center;
