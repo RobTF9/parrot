@@ -21,7 +21,7 @@ export const ERROR_MESSAGE = {
   RESOURCE_NOT_FOUND: errorMessage('Resource not found'),
   LEXICON_EXISTS: errorMessage('You already have a Lexicon for this language'),
   ALREADY_SHARED: errorMessage(
-    "You've already shared this Lexicon with the user"
+    "You've already shared this Lexicon with another user"
   ),
   CANT_SHARE_WITH_SELF: errorMessage("You can't share this with yourself"),
   NO_LEXICON_ACTIVE: errorMessage('No lexicon active'),

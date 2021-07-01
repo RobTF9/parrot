@@ -82,7 +82,6 @@ export const shareLexicon: RequestHandler = async (req, res, next) => {
     }
 
     const user = await User.findOne({ email: req.body.email });
-
     if (!user) {
       return res
         .status(400)
@@ -104,7 +103,7 @@ export const shareLexicon: RequestHandler = async (req, res, next) => {
 
     const alreadyShared = await Lexicon.findOne({
       _id: req.params.id,
-      sharedWith: user._id,
+      'sharedWith.0': { $exists: true },
     })
       .lean()
       .exec();
