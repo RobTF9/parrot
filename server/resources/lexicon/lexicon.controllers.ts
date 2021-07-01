@@ -1,4 +1,6 @@
 import { RequestHandler } from 'express';
+import config from '../../config';
+import { lexiconSharedWithYou } from '../../services/email/email.senders';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import User from '../user/user.model';
 import Lexicon from './lexicon.model';
@@ -122,6 +124,17 @@ export const shareLexicon: RequestHandler = async (req, res, next) => {
     )
       .lean()
       .exec();
+
+    const sender = await User.findOne(req.session.user).lean().exec();
+
+    if (config.client && sender) {
+      lexiconSharedWithYou(
+        req.body.email,
+        config.client,
+        sender.username,
+        user.username
+      );
+    }
 
     return res
       .status(200)

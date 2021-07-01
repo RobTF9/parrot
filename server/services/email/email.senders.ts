@@ -1,5 +1,8 @@
 import { transport, sendAddress } from './email.config';
-import { resetPasswordTemplate } from './email.templates';
+import {
+  resetPasswordTemplate,
+  lexiconSharedWithYouTemplate,
+} from './email.templates';
 
 const sendEmail = (
   recipient: string,
@@ -27,4 +30,16 @@ export const resetPasswordEmail = (
     recipient,
     'Reset your password',
     resetPasswordTemplate(name, link)
+  );
+
+export const lexiconSharedWithYou = (
+  recipient: string,
+  link: string,
+  sender: string,
+  name: string
+): void =>
+  sendEmail(
+    recipient,
+    `${sender} shared a lexicon with you`,
+    lexiconSharedWithYouTemplate(sender, name, link)
   );
