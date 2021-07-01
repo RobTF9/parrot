@@ -75,6 +75,29 @@ export const setActive: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const unshareLexicon: RequestHandler = async (req, res, next) => {
+  try {
+    const userToRemove = await User.findOne({ email: req.body.email });
+    const lexiconToUpdate = await Lexicon.findById(req.params.id);
+
+    if (!userToRemove || !lexiconToUpdate) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    lexiconToUpdate.sharedWith = lexiconToUpdate.sharedWith.filter(
+      (userId) => userId === userToRemove._id
+    );
+
+    await lexiconToUpdate.save();
+
+    return res.status(200).json({ data: lexiconToUpdate });
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
+
 export const shareLexicon: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.email) {

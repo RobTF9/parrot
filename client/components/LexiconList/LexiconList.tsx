@@ -20,7 +20,7 @@ interface ItemProps {
     name: string;
   };
   createdBy: { username: string; email: string };
-  sharedWith: { username: string; email: string }[];
+  sharedWith: { _id: string; username: string; email: string }[];
   share: boolean;
   buttons?: boolean;
 }
