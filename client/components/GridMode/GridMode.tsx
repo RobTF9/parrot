@@ -23,7 +23,7 @@ const GridMode: React.FC<Props> = ({ result, update }) => {
   const { question } = useParams<{ game: string; question: string }>();
   return (
     <>
-      <AnimatedRoute path={`/play/${result.game._id}/:item`}>
+      <AnimatedRoute path={`/play/${result._id}/:question`}>
         <Listener {...{ result, id: question, update }} />
       </AnimatedRoute>
       <PageHeader title={capitalize(result.game.name)}>
@@ -49,7 +49,7 @@ const GridMode: React.FC<Props> = ({ result, update }) => {
             <GridCard
               key={item._id}
               as={Link}
-              to={`/play/${result.game._id}/${item._id}`}
+              to={`/play/${result._id}/${item._id}`}
             >
               <div>
                 <FiMic />

@@ -48,7 +48,7 @@ const Listener: React.FC<Props> = ({ result, id, update, centered }) => {
   useEffect(() => {
     if (correct) {
       setTimeout(() => {
-        push(`/play/${result.game._id}`);
+        push(`/play/${result._id}`);
       }, 1000);
     }
   }, [correct]);
@@ -73,7 +73,7 @@ const Listener: React.FC<Props> = ({ result, id, update, centered }) => {
   }
 
   return (
-    <Overlay as={Link} {...{ ...bumpUp }} to={`/play/${result.game._id}`}>
+    <Overlay as={Link} {...{ ...bumpUp }} to={`/play/${result._id}`}>
       <Inner />
     </Overlay>
   );
