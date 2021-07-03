@@ -51,3 +51,18 @@ export async function put<T, U>(
   const response = await http<U>(endpoint, init);
   return response;
 }
+
+export async function patch<T, U>(
+  endpoint: string,
+  body: T,
+  config?: RequestInit
+): Promise<U> {
+  const init = {
+    method: 'PATCH',
+    body: JSON.stringify(body),
+    ...config,
+    headers: { ...config?.headers, 'Content-Type': 'application/json' },
+  };
+  const response = await http<U>(endpoint, init);
+  return response;
+}

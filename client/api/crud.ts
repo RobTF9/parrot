@@ -1,5 +1,5 @@
 import { useQuery, UseMutateFunction, useMutation } from 'react-query';
-import { get, post, put } from './fetch';
+import { get, patch, post, put } from './fetch';
 import { queryClient } from '../context/Query';
 import { useMessageContext } from '../context/Message';
 
@@ -72,6 +72,38 @@ export function updateOne<T, U>(
   const { mutate, isLoading } = useMutation(
     (u: T) =>
       put<T, ServerReponse<U>>(endpoint, {
+        ...u,
+        updatedAt: undefined,
+      }),
+    {
+      onSuccess: (res) => {
+        queryClient.invalidateQueries(cache);
+        if (res) {
+          if (res.message) {
+            showMessage(res.message);
+          }
+          if (callback) {
+            callback(res);
+          }
+        }
+      },
+    }
+  );
+  return [mutate, isLoading];
+}
+
+export function patchOne<T, U>(
+  cache: string,
+  endpoint: string,
+  callback?: (res: ServerReponse<U>) => void
+): [
+  mutate: UseMutateFunction<ServerReponse<U>, unknown, T, unknown>,
+  isLoading: boolean
+] {
+  const { showMessage } = useMessageContext();
+  const { mutate, isLoading } = useMutation(
+    (u: T) =>
+      patch<T, ServerReponse<U>>(endpoint, {
         ...u,
         updatedAt: undefined,
       }),
