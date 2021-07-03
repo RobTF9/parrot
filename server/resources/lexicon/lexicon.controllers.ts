@@ -92,7 +92,10 @@ export const unshareLexicon: RequestHandler = async (req, res, next) => {
 
     await lexiconToUpdate.save();
 
-    return res.status(200).json({ data: lexiconToUpdate });
+    return res.status(200).json({
+      data: lexiconToUpdate,
+      message: SUCCESS_MESSAGE.LEXICON_UNSHARED,
+    });
   } catch (error) {
     return next(new Error(error));
   }

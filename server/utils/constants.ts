@@ -46,6 +46,7 @@ export const SUCCESS_MESSAGE = {
   RESET_LINK_SENT: succesMessage('Reset link sent'),
   LEXICON_ACTIVATED: succesMessage('Lexicon activated'),
   LEXICON_SHARED: succesMessage('Lexicon shared succesfully'),
+  LEXICON_UNSHARED: succesMessage('Lexicon unshared succesfully'),
   LEXICON_CREATED: succesMessage('Lexicon created succesfully'),
   USER_UPDATED: succesMessage('Your details have been updated'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
