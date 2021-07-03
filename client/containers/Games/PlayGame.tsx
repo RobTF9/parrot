@@ -32,6 +32,8 @@ const PlayGame: React.FC = () => {
     }
   });
 
+  console.log(result);
+
   const canListen = !!SpeechRecognition.browserSupportsSpeechRecognition();
 
   return (

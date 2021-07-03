@@ -61,7 +61,7 @@ const Authenticated = () => {
 
   return (
     <Switch>
-      <Route path="/play/:id">
+      <Route path="/play/:id/:question?">
         <PlayGame />
       </Route>
       <Route path="/">
