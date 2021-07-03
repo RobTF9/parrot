@@ -1,5 +1,12 @@
 import { CACHE } from '../../utils/constants';
-import { getMany, createOne, APIReciever, APIGiver, updateOne } from '../crud';
+import {
+  getMany,
+  createOne,
+  APIReciever,
+  APIGiver,
+  updateOne,
+  patchOne,
+} from '../crud';
 
 export const getLexicons: APIReciever<LexiconResource[]> = () =>
   getMany<LexiconResource>(CACHE.LEXICON, '/api/lexicon');
@@ -21,3 +28,8 @@ export const shareLexicon: APIGiver<Email, LexiconResource> = (
   id?: string,
   callback?: (res: ServerReponse<LexiconResource>) => void
 ) => updateOne(CACHE.LEXICON, `/api/lexicon/${id}`, callback);
+
+export const unshareLexicon: APIGiver<Email, LexiconResource> = (
+  id?: string,
+  callback?: (res: ServerReponse<LexiconResource>) => void
+) => patchOne(CACHE.LEXICON, `/api/lexicon/${id}`, callback);

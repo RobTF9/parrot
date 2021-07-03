@@ -7,8 +7,9 @@ import {
   Action,
   ShareForm,
   SharedWidth,
+  UnShare,
 } from './LexiconList.styles';
-import { shareLexicon } from '../../api/resources/lexicon';
+import { shareLexicon, unshareLexicon } from '../../api/resources/lexicon';
 import { useMessageContext } from '../../context/Message';
 import { Loading } from '../../styles/Animations.styles';
 
@@ -35,13 +36,10 @@ const LexiconItem: React.FC<ItemProps> = ({
   sharedWith,
 }) => {
   const [email, setEmail] = useState('');
-  const { showMessage, hideMessage } = useMessageContext();
+  const { hideMessage } = useMessageContext();
 
-  const [update, updateLoading] = shareLexicon(_id, (res) => {
-    if (res.message) {
-      showMessage(res.message);
-    }
-  });
+  const [update, updateLoading] = shareLexicon(_id);
+  const [patch, patchLoading] = unshareLexicon(_id);
 
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -55,7 +53,7 @@ const LexiconItem: React.FC<ItemProps> = ({
 
   return (
     <>
-      {updateLoading && <Loading bg />}
+      {(updateLoading || patchLoading) && <Loading bg />}
       <li className={lexicon?._id === _id ? 'active ' : ''}>
         <p>
           {language.name}
@@ -89,9 +87,17 @@ const LexiconItem: React.FC<ItemProps> = ({
         <SharedWidth>
           Already shared with:{' '}
           {sharedWith.map((shared) => (
-            <em className="bold" key={shared.username}>
-              {shared.username && shared.username} – {shared.email}
-            </em>
+            <>
+              <em className="bold" key={shared.username}>
+                {shared.username && shared.username} – {shared.email}
+              </em>
+              <UnShare
+                type="button"
+                onClick={() => patch({ email: shared.email })}
+              >
+                Un-share
+              </UnShare>
+            </>
           ))}
         </SharedWidth>
       ) : (

@@ -4,6 +4,12 @@ export const SharedWidth = styled.p`
   color: var(--core-dark-50);
 `;
 
+export const UnShare = styled.button`
+  color: var(--error-dark);
+  margin-left: var(--small);
+  background: none;
+`;
+
 export const ListWrapper = styled.ul`
   li {
     align-items: center;

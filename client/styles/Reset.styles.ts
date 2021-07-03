@@ -26,6 +26,8 @@ const Reset = createGlobalStyle`
 
   html {
     font-size: 10px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   ol,
