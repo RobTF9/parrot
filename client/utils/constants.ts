@@ -14,6 +14,8 @@ export const CACHE = {
 export const LANGUAGES = [
   { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BN' },
   { name: 'Hindi', htmlCode: 'hi', langCode: 'hi-IN' },
+  { name: 'Korean', htmlCode: 'ko', langCode: 'ko' },
+  { name: 'Mandarin', htmlCode: 'zh', langCode: 'zh-CN' },
 ];
 
 export const GAME_TYPE = {
