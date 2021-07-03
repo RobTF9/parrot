@@ -4,7 +4,7 @@ import { SUCCESS_MESSAGE } from '../../utils/constants';
 import Notification from './notification.model';
 
 export const createNotification = async (
-  recipient: ObjectId,
+  recipient: ObjectId | string,
   sender: { [key: string]: string } | undefined,
   url: string,
   message: string

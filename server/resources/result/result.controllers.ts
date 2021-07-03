@@ -1,5 +1,4 @@
 import { RequestHandler } from 'express';
-import { Schema } from 'mongoose';
 import {
   ERROR_MESSAGE,
   GAME_ORDER,
@@ -38,11 +37,12 @@ export const updateResult: RequestHandler = async (req, res, next) => {
       await result.save();
 
       if (`${req.session.user}` !== `${result.game.createdBy}`) {
+        console.log('here');
         createNotification(
-          new Schema.Types.ObjectId(result.game.createdBy),
+          result.game.createdBy,
           req.session.user,
           `/games/${result.game._id}`,
-          `The game "${result.game.name}" was updated`
+          `The game "${result.game.name}" was completed!`
         );
       }
     }
