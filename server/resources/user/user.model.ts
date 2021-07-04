@@ -36,8 +36,7 @@ const userSchema = new Schema<UserDocument, Model<UserDocument>>(
       },
       createdAt: {
         type: Date,
-        default: Date.now,
-        expires: 3600,
+        index: { expires: 60 },
       },
     },
   },
@@ -60,6 +59,7 @@ userSchema.methods.checkPassword = function (password) {
 
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) {
+    console.log('Should be here');
     next();
   }
 
@@ -68,6 +68,7 @@ userSchema.pre('save', function (next) {
       next(error);
     }
 
+    console.log('Is instead here');
     this.password = hash;
     next();
   });

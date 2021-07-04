@@ -135,7 +135,21 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
         .send({ message: ERROR_MESSAGE.EMAIL_ADDRESS_REQUIRED });
     }
 
-    const user = await User.findOne({ email: req.body.email });
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    const hash = await bcrypt.hash(resetToken, 8);
+
+    const token = {
+      value: hash,
+      createdAt: Date.now(),
+    };
+
+    const user = await User.findOneAndUpdate(
+      { email: req.body.email },
+      { token },
+      { new: true }
+    )
+      .lean()
+      .exec();
 
     if (!user) {
       return res
@@ -146,19 +160,6 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
     if (!user.token) {
       return res.status(401).json({ message: ERROR_MESSAGE.NOT_AUTHORIZED });
     }
-
-    user.token = undefined;
-    await user.save();
-
-    const resetToken = crypto.randomBytes(32).toString('hex');
-    const hash = await bcrypt.hash(resetToken, 8);
-
-    user.token = {
-      value: hash,
-      createdAt: Date.now(),
-    };
-
-    await user.save();
 
     const link = `${config.client}reset/?token=${resetToken}&id=${user._id}`;
     await resetPasswordEmail(user.email, link, user.username);
