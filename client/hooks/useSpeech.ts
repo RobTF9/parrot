@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import createSpeechServicesPonyfill from 'web-speech-cognitive-services';
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
 import { useLexiconContext } from '../context/Lexicon';
 import fuzzyMatchingThreshold from '../utils/fuzzyMatchThreshold';
+import config from '../config';
 
 interface UseSpeech {
   (lang: string, callback: (correct?: boolean) => void): {
@@ -31,6 +33,27 @@ const useSpeech: UseSpeech = (lang, callback) => {
       },
     ],
   });
+
+  useEffect(() => {
+    const loadPolyfill = async () => {
+      const response = await fetch(config.speechEndpoint || '', {
+        method: 'POST',
+        headers: {
+          'Ocp-Apim-Subscription-Key': config.speechToken || '',
+        },
+      });
+
+      const authorizationToken = await response.text();
+
+      const {
+        SpeechRecognition: AzureSpeechRecognition,
+      } = await createSpeechServicesPonyfill({
+        credentials: { region: config.speechRegion, authorizationToken },
+      });
+      SpeechRecognition.applyPolyFill(AzureSpeechRecognition);
+    };
+    loadPolyfill();
+  }, []);
 
   useEffect(() => {
     if (!listening && !correct) {

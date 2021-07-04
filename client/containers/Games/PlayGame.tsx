@@ -32,13 +32,11 @@ const PlayGame: React.FC = () => {
     }
   });
 
-  console.log(result);
-
   const canListen = !!SpeechRecognition.browserSupportsSpeechRecognition();
 
   return (
     <>
-      {!canListen && (
+      {/* {!canListen && (
         <AnimatedModal error back={`/games/${result?.data.game._id}`}>
           <h3 className="bold large">
             Voice recognition isn&apos;t available.
@@ -48,7 +46,7 @@ const PlayGame: React.FC = () => {
             certain browsers, Chrome Or Edge.
           </p>
         </AnimatedModal>
-      )}
+      )} */}
       <Container>
         {(resultLoading || updateLoading) && <Loading bg />}
         {result && (
