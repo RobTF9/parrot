@@ -5,6 +5,7 @@ import User from '../../resources/user/user.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import config from '../../config';
 import { resetPasswordEmail } from '../email/email.senders';
+import Token from '../../resources/token/token.model';
 
 export const signIn: RequestHandler = async (req, res, next) => {
   try {
@@ -138,14 +139,13 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
     const resetToken = crypto.randomBytes(32).toString('hex');
     const hash = await bcrypt.hash(resetToken, 8);
 
-    const token = {
+    const token = await Token.create({
       value: hash,
-      createdAt: Date.now(),
-    };
+    });
 
     const user = await User.findOneAndUpdate(
       { email: req.body.email },
-      { token },
+      { token: token._id },
       { new: true }
     )
       .lean()
@@ -183,16 +183,27 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
 
     const user = await User.findOne({ _id: req.body._id });
 
-    if (!user || !user.token || user.token === null) {
+    if (!user || !user.token) {
       return res
         .status(400)
         .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
     }
-    const tokenValid = await bcrypt.compare(req.body.token, user.token.value);
+
+    const token = await Token.findById(user?.token);
+
+    if (!token) {
+      return res
+        .status(400)
+        .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
+    }
+
+    const tokenValid = await bcrypt.compare(req.body.token, token.value);
 
     if (!tokenValid) {
       res.status(400).send({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
     }
+
+    await token.delete();
 
     const hash = await bcrypt.hash(req.body.password, 8);
 

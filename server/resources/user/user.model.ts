@@ -1,4 +1,11 @@
-import { Document, Model, model, Schema } from 'mongoose';
+import {
+  Document,
+  Model,
+  model,
+  ObjectId,
+  Schema,
+  SchemaTypes,
+} from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 interface UserDocument extends Document {
@@ -6,10 +13,7 @@ interface UserDocument extends Document {
   email: string;
   password: string;
   checkPassword: (password: string) => boolean;
-  token?: {
-    value: string;
-    createdAt: number;
-  };
+  token?: ObjectId;
 }
 
 const userSchema = new Schema<UserDocument, Model<UserDocument>>(
@@ -31,13 +35,8 @@ const userSchema = new Schema<UserDocument, Model<UserDocument>>(
       required: true,
     },
     token: {
-      value: {
-        type: String,
-      },
-      createdAt: {
-        type: Date,
-        index: { expires: 60 },
-      },
+      type: SchemaTypes.ObjectId,
+      ref: 'token',
     },
   },
   { timestamps: true }
@@ -59,7 +58,6 @@ userSchema.methods.checkPassword = function (password) {
 
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) {
-    console.log('Should be here');
     next();
   }
 
@@ -68,7 +66,6 @@ userSchema.pre('save', function (next) {
       next(error);
     }
 
-    console.log('Is instead here');
     this.password = hash;
     next();
   });
