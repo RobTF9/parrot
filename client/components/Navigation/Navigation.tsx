@@ -17,6 +17,7 @@ import {
   MainLinks,
   LinksWrapper,
   Toggle,
+  DrawerLinks,
 } from './Navigation.styles';
 import { bumpUp } from '../../utils/animations';
 import { Badge } from '../../styles/Buttons.styles';
@@ -144,7 +145,7 @@ const Navigation: React.FC<Props> = ({
           )}
         </LinksWrapper>
       </div>
-      <ul>
+      <DrawerLinks>
         <li>
           {unreadNotifications && unreadNotifications.data.length > 0 && (
             <Badge>{unreadNotifications.data.length}</Badge>
@@ -165,7 +166,7 @@ const Navigation: React.FC<Props> = ({
             <span className="bold">Lexicons</span>
           </Toggle>
         </li>
-      </ul>
+      </DrawerLinks>
     </NavWrapper>
   );
 };

@@ -25,6 +25,16 @@ export const Toggle = styled.button`
   }
 `;
 
+export const DrawerLinks = styled.ul`
+  display: flex;
+  position: relative;
+  z-index: 500;
+
+  li {
+    position: relative;
+  }
+`;
+
 export const NavWrapper = styled.nav`
   position: relative;
   background-color: var(--core-dark);
@@ -44,16 +54,6 @@ export const NavWrapper = styled.nav`
       @media (max-width: 850px) {
         display: none;
       }
-    }
-  }
-
-  ul {
-    display: flex;
-    position: relative;
-    z-index: 500;
-
-    li {
-      position: relative;
     }
   }
 
@@ -79,9 +79,8 @@ export const NavWrapper = styled.nav`
 export const BurgerButton = styled.button`
   background-color: transparent;
   display: none;
-  height: 100%;
   position: relative;
-  z-index: 500;
+  z-index: 600;
 
   @media (max-width: 460px) {
     display: flex;
@@ -91,15 +90,19 @@ export const BurgerButton = styled.button`
 
 export const LinksWrapper = styled.div`
   position: relative;
+  display: flex;
 `;
 
 export const MainLinks = styled.ul<{ mobileDropdown: boolean }>`
   position: relative;
+  display: flex;
   z-index: 500;
 
   @media (max-width: 460px) {
     flex-direction: column;
     position: absolute;
+    height: auto;
+    top: var(--medium);
     z-index: 500;
 
     ${({ mobileDropdown }) => css`
