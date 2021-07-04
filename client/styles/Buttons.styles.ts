@@ -112,6 +112,23 @@ export const Button = styled.button<{
     `}
 `;
 
+export const Badge = styled.button`
+  background-color: var(--core-mid);
+  color: var(--core-white);
+  position: absolute;
+  left: 0;
+  top: -1rem;
+  line-height: 1;
+  width: var(--medium);
+  height: var(--medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--small);
+  font-size: 1.2rem;
+  font-weight: 400;
+`;
+
 export const StrokeButton = styled(Button)`
   background-color: var(--core-lightest);
   color: var(--core-mid);

@@ -19,12 +19,14 @@ import {
   Toggle,
 } from './Navigation.styles';
 import { bumpUp } from '../../utils/animations';
+import { Badge } from '../../styles/Buttons.styles';
 import useOnClickOutside from '../../hooks/useClickOutside';
 
 interface Props {
   lexicon?: LexiconSession;
   yourLexicons?: { data: LexiconResource[] };
   sharedLexicons?: { data: LexiconResource[] };
+  unreadNotifications?: { data: NotificationResource[] };
   activateLexicon: (id: string) => void;
   user?: UserResource;
   setModalState: (state: 'USER' | 'LEXICON' | 'CLOSED') => void;
@@ -35,6 +37,7 @@ const Navigation: React.FC<Props> = ({
   yourLexicons,
   sharedLexicons,
   activateLexicon,
+  unreadNotifications,
   user,
   setModalState,
 }) => {
@@ -143,6 +146,9 @@ const Navigation: React.FC<Props> = ({
       </div>
       <ul>
         <li>
+          {unreadNotifications && unreadNotifications.data.length > 0 && (
+            <Badge>{unreadNotifications.data.length}</Badge>
+          )}
           <Toggle as="a" type="button" onClick={() => setModalState('USER')}>
             <FiUser />
             <span className="bold">{user ? user.username : 'Account'}</span>

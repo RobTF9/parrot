@@ -51,6 +51,10 @@ export const NavWrapper = styled.nav`
     display: flex;
     position: relative;
     z-index: 500;
+
+    li {
+      position: relative;
+    }
   }
 
   a {

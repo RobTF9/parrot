@@ -14,6 +14,7 @@ import SignIn from './Authentication/SignIn';
 import Lexicons from './Lexicons/Lexicons';
 import AnimatedDrawer from '../components/AnimatedDrawer';
 import { getLexicons, getShared } from '../api/resources/lexicon';
+import { getUnread } from '../api/resources/notifications';
 import Words from './Words/Words';
 import Sentences from './Sentences/Sentences';
 import { getUser } from '../api/resources/user';
@@ -42,12 +43,14 @@ const Authenticated = () => {
   const { lexicon, activateLexicon } = useLexiconContext();
   const [yourLexicons, yoursLoading] = getLexicons();
   const [sharedLexicons, sharedLoading] = getShared();
+  const [unreadNotifications, unreadLoading] = getUnread();
   const [user, userLoading] = getUser();
   const [modalState, setModalState] = useState<'USER' | 'LEXICON' | 'CLOSED'>(
     'CLOSED'
   );
 
-  if (yoursLoading || sharedLoading || userLoading) return <Loading bg />;
+  if (yoursLoading || sharedLoading || userLoading || unreadLoading)
+    return <Loading bg />;
 
   const noLexicons =
     yourLexicons &&
@@ -71,6 +74,7 @@ const Authenticated = () => {
             yourLexicons,
             sharedLexicons,
             activateLexicon,
+            unreadNotifications,
             user: user?.data,
             setModalState,
           }}
