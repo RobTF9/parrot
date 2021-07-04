@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-export const SharedWidth = styled.p`
-  color: var(--core-dark-50);
+export const SharedWidth = styled.div`
+  p {
+    color: var(--core-dark-50);
+  }
 `;
 
 export const UnShare = styled.button`

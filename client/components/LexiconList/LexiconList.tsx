@@ -54,7 +54,7 @@ const LexiconItem: React.FC<ItemProps> = ({
   return (
     <>
       {(updateLoading || patchLoading) && <Loading bg />}
-      <li className={lexicon?._id === _id ? 'active ' : ''}>
+      <li key={_id} className={lexicon?._id === _id ? 'active ' : ''}>
         <p>
           {language.name}
           {createdBy.username && (
@@ -87,7 +87,7 @@ const LexiconItem: React.FC<ItemProps> = ({
         <SharedWidth>
           Already shared with:{' '}
           {sharedWith.map((shared) => (
-            <>
+            <p key={shared._id}>
               <em className="bold" key={shared.username}>
                 {shared.username && shared.username} – {shared.email}
               </em>
@@ -97,21 +97,23 @@ const LexiconItem: React.FC<ItemProps> = ({
               >
                 Un-share
               </UnShare>
-            </>
+            </p>
           ))}
         </SharedWidth>
       ) : (
-        <ShareForm onSubmit={onSubmit}>
-          <Input
-            {...{
-              label: `Share ${language.name} via email`,
-              value: email,
-              name: 'email',
-              onChange,
-            }}
-          />
-          <Button type="submit">Share</Button>
-        </ShareForm>
+        share && (
+          <ShareForm onSubmit={onSubmit}>
+            <Input
+              {...{
+                label: `Share ${language.name} via email`,
+                value: email,
+                name: 'email',
+                onChange,
+              }}
+            />
+            <Button type="submit">Share</Button>
+          </ShareForm>
+        )
       )}
     </>
   );
