@@ -4,7 +4,8 @@ import { TextButton } from '../../styles/Buttons.styles';
 import { Flex } from '../../styles/Layout.styles';
 import UpdateUser from './UpdateUser';
 import Tabs from '../../components/Tabs';
-import Notifications from './Notifications';
+import UnreadNotifications from './UnreadNotifications';
+import ReadNotifications from './ReadNotifications';
 
 const Account: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -28,14 +29,19 @@ const Account: React.FC = () => {
               text: 'Update details',
             },
             {
-              setting: 'Notifications',
-              text: 'Notifications',
+              setting: 'Unread',
+              text: 'Unread notifications',
+            },
+            {
+              setting: 'Read',
+              text: 'Read notifications',
             },
           ],
         }}
       />
       {tab === 'Update' && <UpdateUser />}
-      {tab === 'Notifications' && <Notifications />}
+      {tab === 'Unread' && <UnreadNotifications />}
+      {tab === 'Read' && <ReadNotifications />}
     </>
   );
 };

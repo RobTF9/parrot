@@ -6,6 +6,7 @@ export const CACHE = {
   TAG: 'tag',
   SENTENCE: 'sentence',
   NOTIFICATION: 'notification',
+  NOTIFICATION_READ: 'notification/read',
   GAME: 'game',
   ITEM: 'cache',
   RESULT: 'result',
