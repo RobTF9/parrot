@@ -20,6 +20,26 @@ export const createWord: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const createMultiple: RequestHandler = async (req, res, next) => {
+  try {
+    const data = [];
+
+    for (const word of req.body) {
+      const created = await Word.create({
+        ...word,
+        lexicon: req.session.lexicon?._id,
+        updatedBy: req.session.user,
+        createdBy: req.session.user,
+      });
+      data.push(created);
+    }
+
+    return res.status(200).json({ data });
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
+
 export const updateOne: RequestHandler = async (req, res, next) => {
   try {
     const word = await Word.findOneAndUpdate(
