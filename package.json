@@ -5,7 +5,7 @@
   "main": " index.ts",
   "scripts": {
     "lint": "eslint client server --ext ts,tsx",
-    "dev:client": "parcel watch client/index.html --out-dir dist/client",
+    "dev:client": "parcel watch client/index.html --out-dir dist/client --https",
     "dev:server": "nodemon --delay 1000ms",
     "predev": "yarn clean",
     "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
