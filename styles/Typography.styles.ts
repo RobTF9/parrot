@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const Typography = createGlobalStyle`
   :root {
     --font-bold: 800;
-    --font-medium: 600;
+    --font-medium: 500;
     --font-regular: 400;
   }
 
