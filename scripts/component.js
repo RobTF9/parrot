@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const name = process.argv[2];
 
-fs.mkdir(`./client/components/${name}`, { recursive: true }, (err) => {
+fs.mkdir(`./app/components/${name}`, { recursive: true }, (err) => {
   if (err) throw err;
 });
 
@@ -37,7 +37,7 @@ export const ${name}Wrapper = styled.div\`
 
 // main jsx file
 fs.writeFile(
-  `./client/components/${process.argv[2]}/${process.argv[2]}.tsx`,
+  `./app/components/${process.argv[2]}/${process.argv[2]}.tsx`,
   jsx,
   (err) => {
     if (err) throw err;
@@ -45,17 +45,13 @@ fs.writeFile(
 );
 
 // index file
-fs.writeFile(
-  `./client/components/${process.argv[2]}/index.ts`,
-  index,
-  (err) => {
-    if (err) throw err;
-  }
-);
+fs.writeFile(`./app/components/${process.argv[2]}/index.ts`, index, (err) => {
+  if (err) throw err;
+});
 
 // style file
 fs.writeFile(
-  `./client/components/${process.argv[2]}/${process.argv[2]}.styles.ts`,
+  `./app/components/${process.argv[2]}/${process.argv[2]}.styles.ts`,
   styles,
   (err) => {
     if (err) throw err;

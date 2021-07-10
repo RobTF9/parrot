@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const Typography = createGlobalStyle`
+  :root {
+    --font-bold: 800;
+    --font-medium: 600;
+    --font-regular: 400;
+  }
+
   *,
   input,
   label,
@@ -8,35 +14,35 @@ const Typography = createGlobalStyle`
   button,
   textarea,
   option {
-    font-family: sans-serif;
+    font-family: 'Bryant Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font-weight: 200;
-    font-size: 1.6rem;
+    font-weight: var(--font-regular);
+    font-size: 1.8rem;
     line-height: 1.4;
     color: var(--core-dark);
   }
 
   strong,
   .bold {
-    font-weight: 800;
+    font-weight: var(--font-bold);
     font-size: inherit;
     color: inherit;
   }
 
   .medium {
-    font-weight: 400;
+    font-weight: var(--font-medium);
   }
 
   h1,
   .xxxlarge {
-    font-size: 3.6rem;
+    font-size: 3rem;
   }
 
   h2,
   .xxlarge {
-    font-size: 2.8rem;
+    font-size: 2.7rem;
   }
 
   h3,
@@ -46,17 +52,17 @@ const Typography = createGlobalStyle`
 
   h4,
   .large {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
 
   p,
   .medium {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   h5,
   .small {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .center {
@@ -104,7 +110,7 @@ const Typography = createGlobalStyle`
   }
 
   a {
-    font-weight: 600;
+    font-weight: var(--font-medium);
     color: var(--core-mid);
     transition: color 0.3s ease;
 
