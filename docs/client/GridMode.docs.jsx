@@ -1,13 +1,18 @@
 import React from 'react';
-import ResultChart from '../../client/components/ResultChart';
+import { BrowserRouter } from 'react-router-dom';
+import GridMode from '../../client/components/GridMode';
 
 export default {
-  title: 'Components/ResultChart',
-  component: ResultChart,
+  title: 'Client/Components/GridMode',
+  component: GridMode,
 };
 
-const result = {
-  finished: true,
+const initialResult = {
+  score: {
+    correct: [],
+    total: 3,
+  },
+  finished: false,
   _id: '60b1d1d18cebde1a4fb058da',
   game: {
     items: [
@@ -43,7 +48,7 @@ const result = {
   createdBy: '6016b9410266200015c5e7f9',
   items: [
     {
-      attempts: 3,
+      attempts: 1,
       correct: true,
       skipped: false,
       _id: '60b1d1d18cebde1a4fb058db',
@@ -62,7 +67,7 @@ const result = {
       },
     },
     {
-      attempts: 10,
+      attempts: 3,
       correct: false,
       skipped: true,
       _id: '60b1d1d18cebde1a4fb058dc',
@@ -81,8 +86,8 @@ const result = {
       },
     },
     {
-      attempts: 5,
-      correct: true,
+      attempts: 0,
+      correct: false,
       skipped: false,
       _id: '60b1d1d18cebde1a4fb058dd',
       item: {
@@ -105,4 +110,8 @@ const result = {
   __v: 1,
 };
 
-export const Initial = () => <ResultChart {...{ result }} />;
+export const Initial = () => (
+  <BrowserRouter>
+    <GridMode {...{ result: initialResult }} />
+  </BrowserRouter>
+);

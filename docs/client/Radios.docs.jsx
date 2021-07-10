@@ -4,7 +4,7 @@ import { GAME_ORDER } from '../../client/utils/constants';
 import capitalize from '../../client/utils/capitalize';
 
 export default {
-  title: 'Components/Radios',
+  title: 'Client/Components/Radios',
   component: Radios,
 };
 

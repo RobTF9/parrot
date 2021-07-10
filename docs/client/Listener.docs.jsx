@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import GridMode from '../../client/components/GridMode';
+import Listener from '../../client/components/Listener';
 
 export default {
-  title: 'Components/GridMode',
-  component: GridMode,
+  title: 'Client/Components/Listener',
+  component: Listener,
 };
 
 const initialResult = {
@@ -112,6 +112,12 @@ const initialResult = {
 
 export const Initial = () => (
   <BrowserRouter>
-    <GridMode {...{ result: initialResult }} />
+    <Listener
+      {...{
+        result: initialResult,
+        id: '601956801036b900154d39ef',
+        update: (d) => console.log(d),
+      }}
+    />
   </BrowserRouter>
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import Microphone from '../../client/components/Microphone';
 
 export default {
-  title: 'Components/Microphone',
+  title: 'Client/Components/Microphone',
   component: Microphone,
 };
 

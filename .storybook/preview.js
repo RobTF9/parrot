@@ -1,11 +1,19 @@
 import { addDecorator } from '@storybook/react';
 import React from 'react';
-import Styles from '../client/styles';
+import Reset from '../styles/Reset.styles';
+import Color from '../styles/Color.styles';
+import Shadows from '../styles/Shadows.styles';
+import Spacings from '../styles/Spacings.styles';
+import Typography from '../styles/Typography.styles';
 
 function withGlobalStyles(storyFn) {
   return (
     <>
-      <Styles />
+      <Reset />
+      <Color />
+      <Shadows />
+      <Spacings />
+      <Typography />
       {storyFn()}
     </>
   );

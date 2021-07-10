@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../../client/components/Input';
 
 export default {
-  title: 'Components/Input',
+  title: 'Client/Components/Input',
   component: Input,
 };
 

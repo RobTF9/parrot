@@ -1,18 +1,13 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Listener from '../../client/components/Listener';
+import ResultChart from '../../client/components/ResultChart';
 
 export default {
-  title: 'Components/Listener',
-  component: Listener,
+  title: 'Client/Components/ResultChart',
+  component: ResultChart,
 };
 
-const initialResult = {
-  score: {
-    correct: [],
-    total: 3,
-  },
-  finished: false,
+const result = {
+  finished: true,
   _id: '60b1d1d18cebde1a4fb058da',
   game: {
     items: [
@@ -48,7 +43,7 @@ const initialResult = {
   createdBy: '6016b9410266200015c5e7f9',
   items: [
     {
-      attempts: 1,
+      attempts: 3,
       correct: true,
       skipped: false,
       _id: '60b1d1d18cebde1a4fb058db',
@@ -67,7 +62,7 @@ const initialResult = {
       },
     },
     {
-      attempts: 3,
+      attempts: 10,
       correct: false,
       skipped: true,
       _id: '60b1d1d18cebde1a4fb058dc',
@@ -86,8 +81,8 @@ const initialResult = {
       },
     },
     {
-      attempts: 0,
-      correct: false,
+      attempts: 5,
+      correct: true,
       skipped: false,
       _id: '60b1d1d18cebde1a4fb058dd',
       item: {
@@ -110,14 +105,4 @@ const initialResult = {
   __v: 1,
 };
 
-export const Initial = () => (
-  <BrowserRouter>
-    <Listener
-      {...{
-        result: initialResult,
-        id: '601956801036b900154d39ef',
-        update: (d) => console.log(d),
-      }}
-    />
-  </BrowserRouter>
-);
+export const Initial = () => <ResultChart {...{ result }} />;
