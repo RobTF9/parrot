@@ -8,9 +8,14 @@ interface Props {
   loading?: boolean;
 }
 
-const Button: React.FC<Props> = ({ children, action, type }) => {
+const Button: React.FC<Props> = ({ children, action, type, loading }) => {
   return (
-    <ButtonWrapper className="large" type={type || 'button'} onClick={action}>
+    <ButtonWrapper
+      loading={loading}
+      className="large"
+      type={type || 'button'}
+      onClick={action}
+    >
       {children}
     </ButtonWrapper>
   );

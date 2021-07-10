@@ -7,3 +7,5 @@ export default {
 };
 
 export const Standard = () => <Button>Create account</Button>;
+
+export const Loading = () => <Button loading>Create account</Button>;
