@@ -59,7 +59,7 @@
       }
     },
     {
-      "files": ["client/**/*.{ts,tsx}"],
+      "files": ["client/**/*.{ts,tsx}", "app/**/*.{ts,tsx}"],
       "env": {
         "browser": true,
         "es2021": true

@@ -17,5 +17,5 @@
     "types": ["node"],
     "paths": { "*": ["../types/*.d.ts"] }
   },
-  "include": ["client", "server", "types"]
+  "include": ["client", "app", "server", "types"]
 }
