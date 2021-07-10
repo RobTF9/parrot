@@ -39,10 +39,10 @@ app.use('/api/notification', notificationRouter);
 app.use('/api/game', gameRouter);
 app.use('/api/result', resultRouter);
 
-// Serve app
-const appPath = path.join(__dirname, '..', 'app');
-app.use(express.static(appPath));
-app.use('/app/*', express.static(appPath));
+// // Serve app
+// const appPath = path.join(__dirname, '..', 'app');
+// app.use(express.static(appPath));
+// app.use('*', express.static(appPath));
 
 // Serve client
 const clientPath = path.join(__dirname, '..', 'client');
