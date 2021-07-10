@@ -6,6 +6,8 @@ export default {
   component: Parrot,
 };
 
+export const Standard = () => <Parrot />;
+
 export const Bangla = () => (
   <Parrot speaking lexicon={{ language: { name: 'Bengali' } }} />
 );

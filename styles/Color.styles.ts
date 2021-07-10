@@ -26,6 +26,9 @@ const Color = createGlobalStyle`
     --parrot-black: #242424;
     --parrot-white: #F5F5F5;
     --parrot-perch: #CCB9A8;
+    --parrot-bg: #CAD9FF;
+    --parrot-dark: #3F69D4;
+    --parrot-light: #87A5F4;
 
     --bengali-bg: rgba(49, 121, 98, 1);
     --bengali-bg-50: rgba(49, 121, 98, 0.5);

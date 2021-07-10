@@ -20,6 +20,7 @@ export const ParrotWrapper = styled(motion.div)<{
     height: calc(100% - 20%);
     width: calc(100% - 20%);
     border-radius: 50%;
+    background-color: var(--parrot-bg);
 
     ${({ lexicon, duration }) =>
       lexicon &&
@@ -38,11 +39,11 @@ export const ParrotWrapper = styled(motion.div)<{
     z-index: 100;
 
     .body {
-      fill: var(--bengali-light);
+      fill: var(--parrot-light);
     }
 
     .outer {
-      fill: var(--bengali-dark);
+      fill: var(--parrot-dark);
     }
 
     .shadow {
