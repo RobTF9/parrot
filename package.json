@@ -9,7 +9,7 @@
     "dev:app": "parcel watch app/index.html --out-dir dist/app",
     "dev:server": "nodemon --delay 1000ms",
     "predev": "yarn clean",
-    "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\" \"yarn dev:app\"",
+    "dev": "concurrently \"yarn dev:server\" \"yarn dev:app\"",
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:app": "parcel build app/index.html --out-dir dist/app",
     "build:server": "babel server --out-dir dist/server --extensions .ts",

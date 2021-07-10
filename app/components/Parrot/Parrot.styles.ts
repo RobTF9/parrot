@@ -25,6 +25,7 @@ export const ParrotWrapper = styled(motion.div)<{
   position: relative;
   width: 30rem;
   height: 30rem;
+  margin: 0 auto;
 
   &::after {
     content: '';

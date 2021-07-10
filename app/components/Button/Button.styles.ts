@@ -21,10 +21,12 @@ export const ButtonWrapper = styled.button<{ loading?: boolean }>`
   border-radius: 0.6rem;
   line-height: 1;
   position: relative;
+  text-decoration: none;
 
   &:hover,
   &:focus {
     background-color: var(--core-dark);
+    color: var(--core-white);
   }
 
   ${({ loading }) =>

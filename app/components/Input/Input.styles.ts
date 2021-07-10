@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const InputWrapper = styled.label<{ active: boolean }>`
   position: relative;
   display: block;
+  margin-bottom: 6rem;
 
   p.medium {
     color: var(--core-mid);
