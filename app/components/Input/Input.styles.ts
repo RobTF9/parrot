@@ -23,8 +23,10 @@ export const InputWrapper = styled.label<{ active: boolean }>`
   input {
     border: none;
     border-bottom: 0.2rem solid var(--core-mid-20);
+    display: block;
     font-weight: var(--font-medium);
     position: relative;
+    width: 100%;
 
     &:focus {
       outline: none;

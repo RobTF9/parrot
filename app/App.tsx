@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Styles from './styles';
 import SplashPage from './pages/SplashPage';
+import LoginPage from './pages/LoginPage';
 
 const App: React.FC = () => {
   return (
@@ -9,6 +10,9 @@ const App: React.FC = () => {
       <Styles />
       <BrowserRouter>
         <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
           <Route path="/">
             <SplashPage />
           </Route>
