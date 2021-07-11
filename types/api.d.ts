@@ -34,23 +34,28 @@ declare global {
     username?: string;
   }
 
+  interface Language {
+    name: string;
+    htmlCode: string;
+    langCode: string;
+  }
+
+  interface Goals {
+    words: number;
+    games: number;
+  }
+
   interface LexiconResource {
     _id: string;
-    language: {
-      name: string;
-      htmlCode: string;
-      langCode: string;
-    };
+    language: Language;
+    goals: Goals;
     createdBy: { _id: string; username: string; email: string };
     sharedWith: { _id: string; username: string; email: string }[];
   }
 
   interface LexiconSubmission {
-    language: {
-      name: string;
-      htmlCode: string;
-      langCode: string;
-    };
+    language?: Language;
+    goals: Goals;
   }
 
   interface ItemSubmission {

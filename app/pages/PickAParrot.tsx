@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import { Bottom, Main, Middle, Top } from '../styles/Layout.styles';
-import { getLexicons } from '../data/lexiconResource';
+import { getLexicons, createLexicon } from '../data/lexiconResource';
 import ParrotSelect from '../components/ParrotSelect';
 import Parrot from '../components/Parrot';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
 const PickAParrot: React.FC = () => {
-  const [lexicons, lexiconsLoading] = getLexicons();
+  const [lexicons] = getLexicons();
+  const [create, createLoading] = createLexicon();
 
-  const [newLexicon, setNewLexicon] = useState<{
-    language: LexiconSubmission | undefined;
-    goals: { words: number; games: number };
-  }>({
+  const [newLexicon, setNewLexicon] = useState<LexiconSubmission>({
     language: undefined,
     goals: { words: 10, games: 1 },
   });
 
-  const setLexiconLanguage = (language: LexiconSubmission) =>
+  const setLexiconLanguage = (language: Language) =>
     setNewLexicon({ ...newLexicon, language });
 
   const changeGoals: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -27,8 +25,13 @@ const PickAParrot: React.FC = () => {
     });
   };
 
+  const onSubmit: React.ChangeEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    create(newLexicon);
+  };
+
   return (
-    <Main as="form">
+    <Main as="form" onSubmit={onSubmit}>
       <Top>
         <h1 className="xlarge bold">Create a parrot</h1>
         {!newLexicon.language && (
@@ -45,7 +48,7 @@ const PickAParrot: React.FC = () => {
       ) : (
         <>
           <Middle>
-            <Parrot language={newLexicon.language.language.name} />
+            <Parrot language={newLexicon.language.name} />
             <p className="margin-b-l">
               How many phrases are you aiming to teach your parrot everyday?
             </p>
@@ -72,7 +75,9 @@ const PickAParrot: React.FC = () => {
             />
           </Middle>
           <Bottom>
-            <Button type="submit">Submit daily goals</Button>
+            <Button type="submit" loading={createLoading}>
+              Submit daily goals
+            </Button>
           </Bottom>
         </>
       )}

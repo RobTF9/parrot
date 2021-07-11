@@ -6,7 +6,7 @@ import { ParrotClickable } from './ParrotSelect.styles';
 
 interface Props {
   lexicons: LexiconResource[];
-  setLexiconLanguage: (lexicon: LexiconSubmission) => void;
+  setLexiconLanguage: (language: Language) => void;
 }
 
 const ParrotSelect: React.FC<Props> = ({ lexicons, setLexiconLanguage }) => {
@@ -18,7 +18,7 @@ const ParrotSelect: React.FC<Props> = ({ lexicons, setLexiconLanguage }) => {
             <ParrotClickable
               key={language.name}
               type="button"
-              onClick={() => setLexiconLanguage({ language })}
+              onClick={() => setLexiconLanguage(language)}
             >
               <Parrot language={language.name} />
               <p className="medium">{language.name}</p>

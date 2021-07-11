@@ -5,14 +5,19 @@ import HomePage from '../pages/HomePage';
 import PickAParrot from '../pages/PickAParrot';
 
 const Authenticated: React.FC = () => {
-  const { lexicon, activateLexicon } = useLexiconContext();
-  const [lexicons, lexiconsLoading] = getLexicons();
+  const { lexicon } = useLexiconContext();
+  const [lexicons] = getLexicons();
 
   const noLexicons = lexicons && lexicons.data.length === 0;
 
   if (noLexicons) return <PickAParrot />;
 
-  return <HomePage />;
+  return (
+    <>
+      {lexicon && <p>{lexicon.language.name}</p>}
+      <HomePage />
+    </>
+  );
 };
 
 export default Authenticated;
