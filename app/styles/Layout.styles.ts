@@ -7,7 +7,6 @@ export const Main = styled.main`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 export const Top = styled.div`
@@ -17,8 +16,12 @@ export const Top = styled.div`
 export const Middle = styled.div``;
 
 export const Bottom = styled.footer`
-  margin-top: auto;
+  margin-top: 6rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+
+  & > * {
+    margin-left: var(--large);
+  }
 `;

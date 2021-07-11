@@ -20,7 +20,7 @@ const SplashPage: React.FC = () => {
       </Middle>
       <Bottom>
         <Link to="/login">Login</Link>
-        <Button to="/signin">Create a parrot</Button>
+        <Button to="/signup">Create a parrot</Button>
       </Bottom>
     </Main>
   );

@@ -8,6 +8,7 @@ import { AuthProvider } from './context/Auth';
 import { LexiconProvider } from './context/Lexicon';
 import QueryContext from './context/Query';
 import { MessageProvider } from './context/Message';
+import SignUpPage from './pages/SignUpPage';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,9 @@ const App: React.FC = () => {
                 <Switch>
                   <Route path="/login">
                     <LoginPage />
+                  </Route>
+                  <Route path="/signup">
+                    <SignUpPage />
                   </Route>
                   <Route path="/">
                     <SplashPage />
