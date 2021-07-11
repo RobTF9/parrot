@@ -5,10 +5,16 @@ import ParrotSelect from '../components/ParrotSelect';
 import Parrot from '../components/Parrot';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import { useLexiconContext } from '../context/Lexicon';
 
 const PickAParrot: React.FC = () => {
+  const { activateLexicon } = useLexiconContext();
   const [lexicons] = getLexicons();
-  const [create, createLoading] = createLexicon();
+  const [create, createLoading] = createLexicon(undefined, (res) => {
+    if (res.data) {
+      activateLexicon(res.data._id);
+    }
+  });
 
   const [newLexicon, setNewLexicon] = useState<LexiconSubmission>({
     language: undefined,
