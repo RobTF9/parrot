@@ -26,6 +26,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       details
     );
 
+    console.log(response);
+
     if (response.auth) setAuthenticated(response.auth);
 
     if (!response.auth && response.message) {
