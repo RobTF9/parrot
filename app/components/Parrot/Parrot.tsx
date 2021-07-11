@@ -4,10 +4,10 @@ import { ParrotWrapper } from './Parrot.styles';
 
 interface Props {
   speaking?: boolean;
-  lexicon?: LexiconSession;
+  language?: string;
 }
 
-const Parrot: React.FC<Props> = ({ lexicon, speaking }) => {
+const Parrot: React.FC<Props> = ({ language, speaking }) => {
   const [duration, bodyRotation, beakBounce, repeat, repeatType]: [
     number,
     number,
@@ -23,7 +23,7 @@ const Parrot: React.FC<Props> = ({ lexicon, speaking }) => {
   ];
 
   return (
-    <ParrotWrapper duration={duration} lexicon={lexicon}>
+    <ParrotWrapper duration={duration} language={language}>
       <svg viewBox="0 0 147 173" fill="none" xmlns="http://www.w3.org/2000/svg">
         <motion.g
           {...{

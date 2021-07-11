@@ -20,11 +20,11 @@ export const LanguagePulse = (l: string): Keyframes => keyframes`
 
 export const ParrotWrapper = styled(motion.div)<{
   duration: number;
-  lexicon?: LexiconSession;
+  language?: string;
 }>`
   position: relative;
-  width: 30rem;
-  height: 30rem;
+  width: 100%;
+  padding-top: 100%;
   margin: 0 auto;
 
   &::after {
@@ -39,17 +39,19 @@ export const ParrotWrapper = styled(motion.div)<{
     border-radius: 50%;
     background-color: var(--parrot-bg);
 
-    ${({ lexicon, duration }) =>
-      lexicon &&
+    ${({ language, duration }) =>
+      language &&
       css`
-        background-color: var(--${lexicon.language.name.toLowerCase()}-bg);
-        animation: ${LanguagePulse(lexicon.language.name.toLowerCase())}
-          ${duration * 2}s infinite;
+        background-color: var(--${language.toLowerCase()}-bg);
+        animation: ${LanguagePulse(language.toLowerCase())} ${duration * 2}s
+          infinite;
       `}
   }
 
   & > svg {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     transform-origin: 50% 50% !important;
@@ -80,15 +82,15 @@ export const ParrotWrapper = styled(motion.div)<{
       fill: var(--parrot-white);
     }
 
-    ${({ lexicon }) =>
-      lexicon &&
+    ${({ language }) =>
+      language &&
       css`
         .body {
-          fill: var(--${lexicon.language.name.toLowerCase()}-light);
+          fill: var(--${language.toLowerCase()}-light);
         }
 
         .outer {
-          fill: var(--${lexicon.language.name.toLowerCase()}-dark);
+          fill: var(--${language.toLowerCase()}-dark);
         }
       `}
   }

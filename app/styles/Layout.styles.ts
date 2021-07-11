@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Main = styled.main`
   padding: var(--large);
@@ -13,7 +13,30 @@ export const Top = styled.div`
   margin-bottom: 6rem;
 `;
 
-export const Middle = styled.div``;
+export const Middle = styled.div<{
+  columns?: string;
+  breakpoints?: { width: string; columns: string }[];
+}>`
+  position: relative;
+
+  ${({ columns }) =>
+    columns &&
+    css`
+      display: grid;
+      grid-template-columns: ${columns};
+      gap: var(--medium);
+    `}
+
+  ${({ breakpoints }) =>
+    breakpoints &&
+    breakpoints.map(
+      ({ width, columns }) => css`
+        @media (max-width: ${width}) {
+          grid-template-columns: ${columns};
+        }
+      `
+    )}
+`;
 
 export const Bottom = styled.footer`
   margin-top: 6rem;

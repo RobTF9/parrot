@@ -24,6 +24,15 @@ export const createOne: RequestHandler = async (req, res, next) => {
       updatedBy: req.session.user,
     });
 
+    req.session.lexicon = {
+      _id: lexicon._id,
+      language: {
+        name: lexicon.language.name,
+        htmlCode: lexicon.language.htmlCode,
+        langCode: lexicon.language.langCode,
+      },
+    };
+
     return res
       .status(201)
       .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_CREATED });
