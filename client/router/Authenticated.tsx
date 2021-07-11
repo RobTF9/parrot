@@ -15,6 +15,9 @@ const Authenticated: React.FC = () => {
 
   return (
     <Switch>
+      <Route path="/parrot">
+        <CreateAParrot />
+      </Route>
       <Route path="/">
         <HomePage />
       </Route>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Input from '../../app/components/Input';
+import Input from '../client/components/Input';
 
 export default {
-  title: 'App/Components/Input',
+  title: 'Components/Input',
   component: Input,
 };
 

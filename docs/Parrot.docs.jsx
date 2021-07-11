@@ -1,8 +1,8 @@
 import React from 'react';
-import Parrot from '../../app/components/Parrot';
+import Parrot from '../client/components/Parrot';
 
 export default {
-  title: 'App/Components/Parrot',
+  title: 'Components/Parrot',
   component: Parrot,
 };
 

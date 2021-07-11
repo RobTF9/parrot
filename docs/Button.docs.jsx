@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from '../../app/components/Button';
+import Button from '../client/components/Button';
 
 export default {
-  title: 'App/Components/Button',
+  title: 'Components/Button',
   component: Button,
 };
 
