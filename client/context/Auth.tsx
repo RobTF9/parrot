@@ -104,7 +104,6 @@ export const AuthProvider: React.FC = ({ children }) => {
         hideMessage,
         resetPasswordEmail,
         resetPassword,
-        checkAuth,
       }}
     >
       {children}

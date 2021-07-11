@@ -7,7 +7,6 @@ import {
 import shuffle from '../../utils/shuffle';
 import Game from '../game/game.model';
 import Result from './result.model';
-import { createNotification } from '../notification/notification.controllers';
 
 export const updateResult: RequestHandler = async (req, res, next) => {
   try {
@@ -35,16 +34,6 @@ export const updateResult: RequestHandler = async (req, res, next) => {
     ) {
       result.finished = true;
       await result.save();
-
-      if (`${req.session.user}` !== `${result.game.createdBy}`) {
-        console.log('here');
-        createNotification(
-          result.game.createdBy,
-          req.session.user,
-          `/games/${result.game._id}`,
-          `The game "${result.game.name}" was completed!`
-        );
-      }
     }
 
     return res.status(200).json({ data: result });

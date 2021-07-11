@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express';
 import Game from './game.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
-import { createNotification } from '../notification/notification.controllers';
 import Result from '../result/result.model';
 
 export const createGame: RequestHandler = async (req, res, next) => {
@@ -72,15 +71,6 @@ export const updateOne: RequestHandler = async (req, res, next) => {
       return res
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
-    }
-
-    if (`${req.session.user}` !== `${game.createdBy}`) {
-      createNotification(
-        game.createdBy,
-        req.session.user,
-        `/games/${game._id}`,
-        `The game "${game.name}" was updated`
-      );
     }
 
     return res
