@@ -5,6 +5,7 @@ import { useMessageContext } from './Message';
 
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,
+  authLoading: false,
   signIn: () => null,
   signUp: () => null,
   signOut: () => null,
@@ -16,17 +17,17 @@ const AuthContext = createContext<IAuthContext>({
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const [authLoading, setAuthLoading] = useState(false);
   const { showMessage, hideMessage } = useMessageContext();
   const { activateLexicon, deactivateLexicon } = useLexiconContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
 
   const signIn = async (details: Email & Password) => {
+    setAuthLoading(true);
     const response = await post<Email & Password, ServerReponse>(
       '/auth/signin',
       details
     );
-
-    console.log(response);
 
     if (response.auth) setAuthenticated(response.auth);
 
@@ -34,9 +35,11 @@ export const AuthProvider: React.FC = ({ children }) => {
       setAuthenticated(response.auth);
       showMessage(response.message);
     }
+    setAuthLoading(false);
   };
 
   const signUp = async (details: Email & Password & Username) => {
+    setAuthLoading(true);
     const response = await post<Email & Password & Username, ServerReponse>(
       '/auth/signup',
       details
@@ -48,6 +51,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       setAuthenticated(response.auth);
       showMessage(response.message);
     }
+    setAuthLoading(false);
   };
 
   const signOut = async () => {
@@ -93,6 +97,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     <AuthContext.Provider
       value={{
         authenticated,
+        authLoading,
         signIn,
         signUp,
         signOut,

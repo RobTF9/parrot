@@ -7,7 +7,7 @@ import { Bottom, Main, Middle, Top } from '../styles/Layout.styles';
 import { validateSignIn } from '../utils/userValidators';
 
 const LoginPage: React.FC = () => {
-  const { signIn } = useAuthContext();
+  const { signIn, authLoading } = useAuthContext();
   const [errors, setErrors] = useState<UserSubmission>({});
   const [details, setDetails] = useState({ email: '', password: '' });
 
@@ -19,8 +19,6 @@ const LoginPage: React.FC = () => {
   const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validateSignIn(details);
-
-    console.log('Submitting');
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -57,7 +55,9 @@ const LoginPage: React.FC = () => {
       </Middle>
       <Bottom>
         <Link to="/forgot-password">Forgotten your password?</Link>
-        <Button type="submit">Login</Button>
+        <Button loading={authLoading} type="submit">
+          Login
+        </Button>
       </Bottom>
     </Main>
   );

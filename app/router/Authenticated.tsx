@@ -1,7 +1,8 @@
 import React from 'react';
+import HomePage from '../pages/HomePage';
 
 const Authenticated: React.FC = () => {
-  return <div>Authenticated</div>;
+  return <HomePage />;
 };
 
 export default Authenticated;

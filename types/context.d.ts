@@ -8,6 +8,7 @@ declare global {
     resetPassword: (details: Token & Password & Id) => void;
     signOut: () => void;
     authenticated?: boolean;
+    authLoading: boolean;
     hideMessage: () => void;
   }
 
