@@ -1,8 +1,9 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { useLexiconContext } from '../context/Lexicon';
 import { getLexicons } from '../data/lexiconResource';
 import HomePage from '../pages/HomePage';
-import PickAParrot from '../pages/PickAParrot';
+import CreateAParrot from '../pages/CreateAParrot';
 
 const Authenticated: React.FC = () => {
   const { lexicon } = useLexiconContext();
@@ -10,13 +11,14 @@ const Authenticated: React.FC = () => {
 
   const noLexicons = lexicons && lexicons.data.length === 0;
 
-  if (noLexicons) return <PickAParrot />;
+  if (noLexicons) return <CreateAParrot />;
 
   return (
-    <>
-      {lexicon && <p>{lexicon.language.name}</p>}
-      <HomePage />
-    </>
+    <Switch>
+      <Route path="/">
+        <HomePage />
+      </Route>
+    </Switch>
   );
 };
 

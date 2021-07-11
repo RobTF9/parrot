@@ -7,7 +7,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import { useLexiconContext } from '../context/Lexicon';
 
-const PickAParrot: React.FC = () => {
+const CreateAParrot: React.FC = () => {
   const { activateLexicon } = useLexiconContext();
   const [lexicons] = getLexicons();
   const [create, createLoading] = createLexicon(undefined, (res) => {
@@ -91,4 +91,4 @@ const PickAParrot: React.FC = () => {
   );
 };
 
-export default PickAParrot;
+export default CreateAParrot;
