@@ -22,7 +22,7 @@ const Input: React.FC<Props> = ({
     <InputWrapper active={!!value && value.trim() !== ''}>
       <input {...{ type, id: name, name, onChange, value }} />
       <p className="medium">{label}</p>
-      {error && <em>{error}</em>}
+      {error && <em className="small">{error}</em>}
     </InputWrapper>
   );
 };

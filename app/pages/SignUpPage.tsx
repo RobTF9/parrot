@@ -70,7 +70,7 @@ const SignUpPage: React.FC = () => {
       </Middle>
       <Bottom>
         <Button loading={authLoading} type="submit">
-          Sign up
+          Submit details
         </Button>
       </Bottom>
     </Main>

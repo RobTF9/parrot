@@ -37,4 +37,8 @@ export const InputWrapper = styled.label<{ active: boolean }>`
       }
     }
   }
+
+  em.small {
+    color: var(--error-dark);
+  }
 `;
