@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
       </Middle>
       <Bottom>
         <Link to="/forgot-password">Forgotten your password?</Link>
-        <Button loading={authLoading} type="submit">
+        <Button {...{ loading: authLoading }} type="submit">
           Login
         </Button>
       </Bottom>

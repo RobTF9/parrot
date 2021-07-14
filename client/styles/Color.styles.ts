@@ -14,14 +14,8 @@ const Color = createGlobalStyle`
     --core-lightest-10: rgba(239, 252, 255, 0.1);
     --core-white: rgba(255, 255, 255, 1);
 
-    --warning-light: rgba(255, 214, 113, 1);
-    --warning-dark: rgba(79, 58, 5, 1);
-
-    --error-light: rgba(255, 194, 194, 1);
-    --error-dark: rgba(98, 11, 11, 1);
-
-    --success-light: rgba(157, 251, 206, 1);
-    --success-dark: rgba(12, 77, 45, 1);
+    --error: #C00;
+    --success: #080;;
 
     --parrot-black: #242424;
     --parrot-white: #F5F5F5;
