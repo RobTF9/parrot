@@ -2,12 +2,19 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const MessageWrapper = styled(motion.div)<{ type: string }>`
+  position: fixed;
+  bottom: var(--large);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 50rem;
   background-color: var(--${({ type }) => type});
   padding: var(--small);
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: var(--smaller);
+  z-index: 100;
 
   p.medium {
     color: var(--core-white);

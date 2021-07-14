@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Message from '../components/Message';
 
 const MessageContext = createContext<IMessageContext>({
   showMessage: () => null,
@@ -21,17 +22,13 @@ export const MessageProvider: React.FC = ({ children }) => {
 
   const hideMessage = () => setMessage({ ...message, visible: false });
 
-  // log instead of displaying message for now
-  useEffect(() => {
-    console.log(message);
-  }, [message]);
-
   useEffect(() => {
     hideMessage();
   }, [location]);
 
   return (
     <MessageContext.Provider value={{ showMessage, hideMessage }}>
+      <Message {...{ ...message, hide: hideMessage }} />
       {children}
     </MessageContext.Provider>
   );
