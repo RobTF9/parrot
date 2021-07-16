@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Bottom, Main, Middle, Top } from '../styles/Layout.styles';
 import { getLexicons, createLexicon } from '../data/lexiconResource';
-import ParrotSelect from '../components/ParrotSelect';
 import Parrot from '../components/Parrot';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { useLexiconContext } from '../context/Lexicon';
+import { TouchableOpacity } from '../styles/Interactive.styles';
+import { LANGUAGES } from '../utils/constants';
 
 const CreateAParrot: React.FC = () => {
   const { activateLexicon } = useLexiconContext();
@@ -49,9 +50,25 @@ const CreateAParrot: React.FC = () => {
       </Top>
       {!newLexicon.language ? (
         lexicons && (
-          <ParrotSelect
-            {...{ lexicons: lexicons.data, action: setLexiconLanguage }}
-          />
+          <Middle columns="1fr 1fr">
+            {LANGUAGES.map((language) => {
+              if (
+                !lexicons.data.find((l) => l.language.name === language.name)
+              ) {
+                return (
+                  <TouchableOpacity
+                    key={language.name}
+                    type="button"
+                    onClick={() => setLexiconLanguage(language)}
+                  >
+                    <Parrot language={language.name} />
+                    <p className="medium">{language.name}</p>
+                  </TouchableOpacity>
+                );
+              }
+              return null;
+            })}
+          </Middle>
         )
       ) : (
         <>

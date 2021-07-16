@@ -2,6 +2,7 @@ import React from 'react';
 import Parrot from '../components/Parrot';
 import { useLexiconContext } from '../context/Lexicon';
 import { getLexicons } from '../data/lexiconResource';
+import { TouchableOpacity } from '../styles/Interactive.styles';
 import { Main, Middle, Top } from '../styles/Layout.styles';
 
 const PickAParrot: React.FC = () => {
@@ -16,13 +17,14 @@ const PickAParrot: React.FC = () => {
       <Middle columns="1fr 1fr">
         {lexicons &&
           lexicons.data.map(({ _id, language }) => (
-            <button
+            <TouchableOpacity
               type="button"
               key={_id}
               onClick={() => activateLexicon(_id)}
             >
               <Parrot {...{ language: language.name }} />
-            </button>
+              <p className="medium">{language.name}</p>
+            </TouchableOpacity>
           ))}
       </Middle>
     </Main>
