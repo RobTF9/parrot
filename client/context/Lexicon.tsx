@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { get } from '../data/fetch';
 import { queryClient } from './Query';
 
@@ -11,12 +12,14 @@ export const useLexiconContext = (): ILexiconContext =>
   useContext(LexiconContext);
 
 export const LexiconProvider: React.FC = ({ children }) => {
+  const { push } = useHistory();
   const [lexicon, setLexicon] = useState<LexiconSession | undefined>();
 
   const activateLexicon = async (id: string) => {
     const response = await get<ServerReponse>(`/api/lexicon/${id}`);
     if (response.lexicon) {
       setLexicon(response.lexicon);
+      push('/');
     }
   };
 
