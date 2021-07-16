@@ -5,12 +5,16 @@ import HomePage from '../pages/HomePage';
 import CreateAParrot from '../pages/CreateAParrot';
 import AddAPhrase from '../pages/AddAPhrase';
 import PickAParrot from '../pages/PickAParrot';
+import { useLexiconContext } from '../context/Lexicon';
 
 const Authenticated: React.FC = () => {
   const [lexicons] = getLexicons();
+  const { lexicon } = useLexiconContext();
   const noLexicons = lexicons && lexicons.data.length === 0;
 
   if (noLexicons) return <CreateAParrot />;
+
+  if (!lexicon) return <PickAParrot />;
 
   return (
     <Switch>
