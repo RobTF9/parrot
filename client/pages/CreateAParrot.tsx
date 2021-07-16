@@ -49,7 +49,9 @@ const CreateAParrot: React.FC = () => {
       </Top>
       {!newLexicon.language ? (
         lexicons && (
-          <ParrotSelect {...{ lexicons: lexicons.data, setLexiconLanguage }} />
+          <ParrotSelect
+            {...{ lexicons: lexicons.data, action: setLexiconLanguage }}
+          />
         )
       ) : (
         <>
