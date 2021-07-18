@@ -20,7 +20,7 @@ export const translateController: RequestHandler = async (req, res, next) => {
 
     return res
       .status(200)
-      .json({ data: response[0].map((tran, i) => [tran, req.body[i]]) });
+      .json({ data: response[0].map((lang, i) => [lang, req.body[i]]) });
   } catch (error) {
     return next(new Error(error));
   }

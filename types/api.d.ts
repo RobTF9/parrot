@@ -20,6 +20,9 @@ declare global {
     lexicon?: LexiconSession;
   }
 
+  type TranslationRequest = string[];
+  type TranslationResponse = [string, string][];
+
   interface UserResource {
     _id: string;
     email: string;
