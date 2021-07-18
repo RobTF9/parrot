@@ -8,15 +8,14 @@ import { Main, Top, Middle } from '../styles/Layout.styles';
 const AddAPhrase: React.FC = () => {
   const { lexicon } = useLexiconContext();
 
-  const [
-    loadingTranslations,
-    recievedPhrases,
-    translations,
-  ] = useTranslateService(lexicon);
+  const [loadingTranslations, translations, error] = useTranslateService(
+    lexicon
+  );
 
   return (
     <>
       {loadingTranslations && <Loading />}
+      {error && error}
       <Main>
         <Top>
           <h1 className="bold xlarge">
@@ -25,11 +24,8 @@ const AddAPhrase: React.FC = () => {
         </Top>
         <Middle>
           <Parrot {...{ language: lexicon?.language.name }} />
-          {recievedPhrases.map((r) => (
-            <p key={r}>{r}</p>
-          ))}
           {translations &&
-            translations.map((t) => (
+            [...new Set(translations)].map((t) => (
               <p key={t[0]}>
                 {t[0]} - {t[1]}
               </p>

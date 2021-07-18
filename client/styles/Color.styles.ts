@@ -6,6 +6,7 @@ const Color = createGlobalStyle`
     --core-dark-10: rgba(33, 40, 77, 0.1);
     --core-dark-50: rgba(33, 40, 77, 0.5);
     --core-mid: rgba(95, 135, 240, 1);
+    --core-mid-50: rgba(95, 135, 240, 0.5);
     --core-mid-20: rgba(95, 135, 240, 0.2);
     --core-light: rgba(123, 208, 227, 1);
     --core-light-50: rgba(123, 208, 227, 0.5);

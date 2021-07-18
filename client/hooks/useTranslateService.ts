@@ -7,7 +7,6 @@ import { post } from '../data/fetch';
 interface UseTranslateService {
   (lexicon?: LexiconSession): [
     loadingTranslations: boolean,
-    recievedPhrases: string[],
     translations?: TranslationResponse,
     error?: string
   ];
@@ -16,19 +15,25 @@ interface UseTranslateService {
 const useTranslateService: UseTranslateService = (lexicon) => {
   const {
     listening,
-    transcript,
     interimTranscript,
     finalTranscript,
   } = useSpeechRecognition();
 
+  //  phrases speech recognition has detected the user saying
   const [recievedPhrases, setRecievedPhrases] = useState<string[]>([]);
-  const [error, setError] = useState<string>();
+
+  // the translations of recieved phrases
   const [translations, setTranslations] = useState<TranslationResponse>();
+
+  // TODO: use to display api error
+  const [error, setError] = useState<string>();
+
+  // translation service loading state
   const [loadingTranslations, setLoadingTranslations] = useState<boolean>(
     false
   );
 
-  // function to activate translation service
+  // function to call translation service
   const getTranslations = async () => {
     const response = await post<
       TranslationRequest,
@@ -65,15 +70,12 @@ const useTranslateService: UseTranslateService = (lexicon) => {
     }
   }, [listening, finalTranscript]);
 
-  // push interim and transcript into array
+  // push interim transcript into array
   useEffect(() => {
-    if (transcript) {
-      setRecievedPhrases([...recievedPhrases, transcript]);
-    }
     if (interimTranscript) {
       setRecievedPhrases([...recievedPhrases, interimTranscript]);
     }
-  }, [transcript, interimTranscript]);
+  }, [interimTranscript]);
 
   // stop listening on unmount
   useEffect(() => {
@@ -83,7 +85,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
   }, []);
 
   // return as defined in interface function signature
-  return [loadingTranslations, recievedPhrases, translations, error];
+  return [loadingTranslations, translations, error];
 };
 
 export default useTranslateService;
