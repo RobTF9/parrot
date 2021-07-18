@@ -64,3 +64,5 @@ dist
 .DS_Store
 dump
 .cache
+
+server/services/translation/key.json

@@ -15,28 +15,38 @@ const AddAPhrase: React.FC = () => {
     finalTranscript,
   } = useSpeechRecognition();
   const [recievedPhrases, setRecievedPhrases] = useState<string[]>([]);
+  const [loadingTranslations, setLoadingTranslations] = useState<boolean>(
+    false
+  );
 
+  // stop and start speech
   useEffect(() => {
     if (!lexicon) return;
     if (!listening && !finalTranscript) {
       SpeechRecognition.startListening({
         language: lexicon.language.langCode,
       });
-    } else if (listening && finalTranscript) {
+    }
+    if (listening && finalTranscript) {
       SpeechRecognition.stopListening();
+    }
+    if (!listening && finalTranscript) {
+      setLoadingTranslations(true);
+      console.log(recievedPhrases);
     }
   }, [listening, finalTranscript]);
 
+  // push interim and transcript into array
   useEffect(() => {
     if (transcript) {
       setRecievedPhrases([...recievedPhrases, transcript]);
     }
-
     if (interimTranscript) {
       setRecievedPhrases([...recievedPhrases, interimTranscript]);
     }
   }, [transcript, interimTranscript]);
 
+  // stop listening on unmount
   useEffect(() => {
     return () => {
       SpeechRecognition.stopListening();
@@ -50,9 +60,9 @@ const AddAPhrase: React.FC = () => {
       </Top>
       <Middle>
         <Parrot {...{ language: lexicon?.language.name }} />
-        <p>Transcript: {transcript}</p>
-        <p>Interim: {interimTranscript}</p>
-        <p>Final: {finalTranscript}</p>
+        {recievedPhrases.map((r) => (
+          <p key={r}>{r}</p>
+        ))}
       </Middle>
     </Main>
   );

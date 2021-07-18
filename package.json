@@ -91,6 +91,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "@google-cloud/translate": "^6.2.5",
     "@popmotion/popcorn": "^0.4.4",
     "array-move": "^3.0.1",
     "bcryptjs": "^2.4.3",
