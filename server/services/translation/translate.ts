@@ -13,12 +13,14 @@ const translate = new v2.Translate({
 
 export const translateController: RequestHandler = async (req, res, next) => {
   try {
-    const response = await translate.translate(req.body, {
+    const response = await translate.translate([...req.body], {
       from: req.session.lexicon?.language.htmlCode,
       to: 'en',
     });
 
-    return res.status(200).json({ data: response });
+    return res
+      .status(200)
+      .json({ data: response[0].map((tran, i) => [tran, req.body[i]]) });
   } catch (error) {
     return next(new Error(error));
   }
