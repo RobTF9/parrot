@@ -7,6 +7,7 @@ import { post } from '../data/fetch';
 interface UseTranslateService {
   (lexicon?: LexiconSession): [
     loadingTranslations: boolean,
+    listening: boolean,
     translations?: TranslationResponse,
     error?: string
   ];
@@ -85,7 +86,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
   }, []);
 
   // return as defined in interface function signature
-  return [loadingTranslations, translations, error];
+  return [loadingTranslations, listening, translations, error];
 };
 
 export default useTranslateService;

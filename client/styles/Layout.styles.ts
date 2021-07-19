@@ -15,9 +15,33 @@ export const Top = styled.div`
 
 export const Middle = styled.div<{
   columns?: string;
+  flex?: {
+    direction: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+    align: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+    justify:
+      | 'flex-start'
+      | 'flex-end'
+      | 'center'
+      | 'space-between'
+      | 'space-around'
+      | 'space-evenly';
+  };
   breakpoints?: { width: string; columns: string }[];
 }>`
   position: relative;
+
+  & > * {
+    margin-bottom: 6;
+  }
+
+  ${({ flex }) =>
+    flex &&
+    css`
+      display: flex;
+      flex-direction: ${flex.direction};
+      align-items: ${flex.align};
+      justify-content: ${flex.justify};
+    `}
 
   ${({ columns }) =>
     columns &&
@@ -26,6 +50,7 @@ export const Middle = styled.div<{
       grid-template-columns: ${columns};
       gap: var(--medium);
     `}
+
 
   ${({ breakpoints }) =>
     breakpoints &&

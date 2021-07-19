@@ -18,8 +18,6 @@ const Pulse = keyframes`
 `;
 
 export const MicrophoneWrapper = styled.div<{
-  correct: boolean;
-  incorrect: boolean;
   listening: boolean;
 }>`
   width: var(--larger);
@@ -37,25 +35,11 @@ export const MicrophoneWrapper = styled.div<{
     height: 3rem;
   }
 
-  ${({ correct, incorrect, listening }) =>
-    correct
-      ? css`
-          background-color: var(--success-light);
-          svg {
-            stroke: var(--success-dark);
-          }
-        `
-      : incorrect
-      ? css`
-          background-color: var(--error-light);
-          svg {
-            stroke: var(--error-dark);
-          }
-        `
-      : listening &&
-        css`
-          box-shadow: 0 0 0 0 var(--core-light);
-          transform: scale(1);
-          animation: ${Pulse} 1.6s infinite;
-        `}
+  ${({ listening }) =>
+    listening &&
+    css`
+      box-shadow: 0 0 0 0 var(--core-light);
+      transform: scale(1);
+      animation: ${Pulse} 1.6s infinite;
+    `}
 `;
