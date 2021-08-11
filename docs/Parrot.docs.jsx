@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Parrot from '../client/components/Parrot';
 
 export default {
@@ -6,20 +7,36 @@ export default {
   component: Parrot,
 };
 
-export const Standard = () => <Parrot />;
+const Wrapper = styled.div`
+  width: 300px;
+`;
+
+export const Standard = () => (
+  <Wrapper>
+    <Parrot />
+  </Wrapper>
+);
 
 export const Bangla = () => (
-  <Parrot speaking lexicon={{ language: { name: 'Bengali' } }} />
+  <Wrapper>
+    <Parrot speaking language="Bengali" />
+  </Wrapper>
 );
 
 export const Hindi = () => (
-  <Parrot speaking lexicon={{ language: { name: 'Hindi' } }} />
+  <Wrapper>
+    <Parrot speaking language="Hindi" />
+  </Wrapper>
 );
 
 export const Korean = () => (
-  <Parrot speaking lexicon={{ language: { name: 'Korean' } }} />
+  <Wrapper>
+    <Parrot speaking language="Korean" />
+  </Wrapper>
 );
 
 export const Mandarin = () => (
-  <Parrot speaking lexicon={{ language: { name: 'Mandarin' } }} />
+  <Wrapper>
+    <Parrot speaking language="Mandarin" />
+  </Wrapper>
 );

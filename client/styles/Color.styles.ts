@@ -16,7 +16,7 @@ const Color = createGlobalStyle`
     --core-white: rgba(255, 255, 255, 1);
 
     --error: #C00;
-    --success: #080;;
+    --success: #080;
 
     --parrot-black: #242424;
     --parrot-white: #F5F5F5;
