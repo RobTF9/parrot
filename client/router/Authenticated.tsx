@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { getLexicons } from '../data/lexiconResource';
 import HomePage from '../pages/HomePage';
 import CreateAParrot from '../pages/CreateAParrot';
@@ -29,6 +29,9 @@ const Authenticated: React.FC = () => {
       </Route>
       <Route path="/">
         <HomePage />
+      </Route>
+      <Route>
+        <Redirect to="/" />
       </Route>
     </Switch>
   );

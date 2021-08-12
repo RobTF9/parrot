@@ -21,10 +21,12 @@ const Button: React.FC<Props> = ({ children, action, type, loading, to }) => {
 
   return (
     <ButtonWrapper
-      loading={loading}
-      className="large"
-      type={type || 'button'}
-      onClick={action}
+      {...{
+        loading,
+        className: 'large',
+        type: type || 'button',
+        onClick: action,
+      }}
     >
       {children}
     </ButtonWrapper>
