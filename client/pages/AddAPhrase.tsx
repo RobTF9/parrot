@@ -5,6 +5,7 @@ import Parrot from '../components/Parrot';
 import useTranslateService from '../hooks/useTranslateService';
 import { Main, Top, Middle } from '../styles/Layout.styles';
 import Microphone from '../components/Microphone';
+import Translations from '../components/Translations';
 
 const AddAPhrase: React.FC = () => {
   const { lexicon } = useLexiconContext();
@@ -35,11 +36,7 @@ const AddAPhrase: React.FC = () => {
         >
           <Parrot {...{ language: lexicon?.language.name }} />
           {translations ? (
-            [...new Set(translations)].map((t) => (
-              <p key={t[0]}>
-                {t[0]} - {t[1]}
-              </p>
-            ))
+            <Translations {...{ translations }} />
           ) : (
             <Microphone {...{ listening }} />
           )}
