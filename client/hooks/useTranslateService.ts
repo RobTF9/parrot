@@ -24,7 +24,9 @@ const useTranslateService: UseTranslateService = (lexicon) => {
   const [recievedPhrases, setRecievedPhrases] = useState<string[]>([]);
 
   // the translations of recieved phrases
-  const [translations, setTranslations] = useState<TranslationResponse>();
+  const [translations, setTranslations] = useState<
+    TranslationResponse | undefined
+  >();
 
   // TODO: use to display api error
   const [error, setError] = useState<string>();
@@ -50,6 +52,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
     }
   };
 
+  // TODO: TRYING TO REN RUN THIS ON RESET
   // effect for performing actions based on state
   useEffect(() => {
     // if not listening and no transcript start listener

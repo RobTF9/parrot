@@ -62,7 +62,6 @@ declare global {
   }
 
   interface ItemSubmission {
-    tags: string[];
     lang: string;
     pron: string;
     tran: string;

@@ -13,6 +13,8 @@ export const Top = styled.div`
   margin-bottom: 6rem;
 `;
 
+// TODO change middle to upper/lower grid/flex
+
 export const Middle = styled.div<{
   columns?: string;
   flex?: {
@@ -64,7 +66,8 @@ export const Middle = styled.div<{
 `;
 
 export const Bottom = styled.footer`
-  margin-top: 6rem;
+  padding-top: var(--large);
+  margin-top: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;

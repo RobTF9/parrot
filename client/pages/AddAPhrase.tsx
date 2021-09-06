@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLexiconContext } from '../context/Lexicon';
 import Loading from '../components/Loading';
 import Parrot from '../components/Parrot';
 import useTranslateService from '../hooks/useTranslateService';
-import { Main, Top, Middle } from '../styles/Layout.styles';
+import { Main, Top, Middle, Bottom } from '../styles/Layout.styles';
 import Microphone from '../components/Microphone';
 import Translations from '../components/Translations';
+import Button from '../components/Button';
 
 const AddAPhrase: React.FC = () => {
   const { lexicon } = useLexiconContext();
@@ -16,6 +17,8 @@ const AddAPhrase: React.FC = () => {
     translations,
     error,
   ] = useTranslateService(lexicon);
+
+  const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
 
   return (
     <>
@@ -35,12 +38,19 @@ const AddAPhrase: React.FC = () => {
           }}
         >
           <Parrot {...{ language: lexicon?.language.name }} />
-          {translations ? (
-            <Translations {...{ translations }} />
+          {phrase ? (
+            <p>{phrase.lang}</p>
+          ) : translations ? (
+            <Translations {...{ translations, setPhrase }} />
           ) : (
             <Microphone {...{ listening }} />
           )}
         </Middle>
+        <Bottom>
+          <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>
+            Enter manually
+          </Button>
+        </Bottom>
       </Main>
     </>
   );

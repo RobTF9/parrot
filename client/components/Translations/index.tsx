@@ -4,14 +4,17 @@ import { TranslationsWrapper } from './Translations.styles';
 
 interface Props {
   translations: TranslationResponse;
+  setPhrase: (phrase: ItemSubmission) => void;
 }
 
-const Translations: React.FC<Props> = ({ translations }) => {
+const Translations: React.FC<Props> = ({ translations, setPhrase }) => {
   return (
     <TranslationsWrapper>
       {[...new Set(translations)].map((t) => (
         <li key={t[0]}>
-          <Button>{`${t[0]} - ${t[1]}`}</Button>
+          <Button
+            action={() => setPhrase({ pron: '', tran: t[0], lang: t[1] })}
+          >{`${t[0]} - ${t[1]}`}</Button>
         </li>
       ))}
     </TranslationsWrapper>
