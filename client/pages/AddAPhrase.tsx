@@ -7,9 +7,12 @@ import { Main, Top, Middle, Bottom } from '../styles/Layout.styles';
 import Microphone from '../components/Microphone';
 import Translations from '../components/Translations';
 import Button from '../components/Button';
+import PhraseForm from '../components/PhraseForm';
+import { createItem } from '../data/itemResource';
 
 const AddAPhrase: React.FC = () => {
   const { lexicon } = useLexiconContext();
+  const [mutate, isLoading] = createItem();
 
   const [
     loadingTranslations,
@@ -20,9 +23,31 @@ const AddAPhrase: React.FC = () => {
 
   const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
 
+  function conditionalRender(): JSX.Element {
+    console.log(translations);
+    if (phrase && lexicon && lexicon.language.name) {
+      return (
+        <PhraseForm
+          {...{
+            phrase,
+            setPhrase,
+            mutate,
+            language: lexicon.language.name,
+          }}
+        />
+      );
+    }
+
+    if (translations) {
+      return <Translations {...{ translations, setPhrase }} />;
+    }
+
+    return <Microphone {...{ listening }} />;
+  }
+
   return (
     <>
-      {loadingTranslations && <Loading />}
+      {(loadingTranslations || isLoading) && <Loading />}
       {error && error}
       <Main>
         <Top>
@@ -38,13 +63,7 @@ const AddAPhrase: React.FC = () => {
           }}
         >
           <Parrot {...{ language: lexicon?.language.name }} />
-          {phrase ? (
-            <p>{phrase.lang}</p>
-          ) : translations ? (
-            <Translations {...{ translations, setPhrase }} />
-          ) : (
-            <Microphone {...{ listening }} />
-          )}
+          {conditionalRender()}
         </Middle>
         <Bottom>
           <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>
