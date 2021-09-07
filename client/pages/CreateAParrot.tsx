@@ -50,7 +50,7 @@ const CreateAParrot: React.FC = () => {
       </Header>
       {!newLexicon.language ? (
         lexicons && (
-          <StretchBlock>
+          <StretchBlock columns="1fr 1fr">
             {LANGUAGES.map((language) => {
               if (
                 !lexicons.data.find((l) => l.language.name === language.name)

@@ -7,9 +7,9 @@ import {
   Main,
   Header,
   UpperBlock,
-  LowerBlock,
   Footer,
   StretchBlock,
+  Block,
 } from '../styles/Layout.styles';
 import Microphone from '../components/Microphone';
 import Translations from '../components/Translations';
@@ -48,24 +48,20 @@ const AddAPhrase: React.FC = () => {
 
     if (translations) {
       return (
-        <StretchBlock>
-          <Translations {...{ translations, setPhrase }} />
-        </StretchBlock>
+        <>
+          <Header>
+            <h1 className="bold xlarge">Did you say any of these?</h1>
+            <Parrot {...{ language: lexicon?.language.name }} />
+          </Header>
+          <StretchBlock>
+            <Translations {...{ translations, setPhrase }} />
+          </StretchBlock>
+        </>
       );
     }
 
     return (
-      <LowerBlock>
-        <Microphone {...{ listening }} />
-      </LowerBlock>
-    );
-  }
-
-  return (
-    <>
-      {(loadingTranslations || isLoading) && <Loading />}
-      {error && error}
-      <Main>
+      <>
         <Header>
           <h1 className="bold xlarge center">
             Say a phrase to teach it to you parrot
@@ -74,6 +70,18 @@ const AddAPhrase: React.FC = () => {
         <UpperBlock>
           <Parrot {...{ language: lexicon?.language.name }} />
         </UpperBlock>
+        <Block>
+          <Microphone {...{ listening }} />
+        </Block>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {(loadingTranslations || isLoading) && <Loading />}
+      {error && error}
+      <Main>
         {conditionalRender()}
         <Footer>
           <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>

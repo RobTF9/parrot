@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Main = styled.main`
   padding: var(--large);
@@ -15,10 +15,33 @@ export const Header = styled.header`
   width: 100%;
 `;
 
-export const Block = styled.div`
+interface Grid {
+  columns?: string;
+  breakpoints?: { width: string; columns: string }[];
+}
+
+export const Block = styled.div<Grid>`
   position: relative;
   padding: var(--medium) 0;
   width: 100%;
+
+  ${({ columns }) =>
+    columns &&
+    css`
+      display: grid;
+      grid-template-columns: ${columns};
+      gap: var(--medium);
+    `}
+
+  ${({ breakpoints }) =>
+    breakpoints &&
+    breakpoints.map(
+      ({ width, columns }) => css`
+        @media (max-width: ${width}) {
+          grid-template-columns: ${columns};
+        }
+      `
+    )}
 `;
 
 export const UpperBlock = styled(Block)`

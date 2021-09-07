@@ -17,7 +17,7 @@ const PickAParrot: React.FC = () => {
         <Header>
           <h1 className="xlarge bold">Pick which parrot to teach today</h1>
         </Header>
-        <StretchBlock>
+        <StretchBlock columns="1fr 1fr">
           {lexicons &&
             lexicons.data.map(({ _id, language }) => (
               <TouchableOpacity
