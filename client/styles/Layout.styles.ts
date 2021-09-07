@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Main = styled.main`
   padding: var(--large);
@@ -7,70 +7,38 @@ export const Main = styled.main`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
-export const Top = styled.div`
-  margin-bottom: 6rem;
+export const Header = styled.header`
+  padding-bottom: var(--large);
+  width: 100%;
 `;
 
-// TODO change middle to upper/lower grid/flex
-
-export const Middle = styled.div<{
-  columns?: string;
-  flex?: {
-    direction: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-    align: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
-    justify:
-      | 'flex-start'
-      | 'flex-end'
-      | 'center'
-      | 'space-between'
-      | 'space-around'
-      | 'space-evenly';
-  };
-  breakpoints?: { width: string; columns: string }[];
-}>`
+export const Block = styled.div`
   position: relative;
-
-  & > * {
-    margin-bottom: 6;
-  }
-
-  ${({ flex }) =>
-    flex &&
-    css`
-      display: flex;
-      flex-direction: ${flex.direction};
-      align-items: ${flex.align};
-      justify-content: ${flex.justify};
-    `}
-
-  ${({ columns }) =>
-    columns &&
-    css`
-      display: grid;
-      grid-template-columns: ${columns};
-      gap: var(--medium);
-    `}
-
-
-  ${({ breakpoints }) =>
-    breakpoints &&
-    breakpoints.map(
-      ({ width, columns }) => css`
-        @media (max-width: ${width}) {
-          grid-template-columns: ${columns};
-        }
-      `
-    )}
+  padding: var(--medium) 0;
+  width: 100%;
 `;
 
-export const Bottom = styled.footer`
-  padding-top: var(--large);
+export const UpperBlock = styled(Block)`
+  margin-bottom: auto;
+`;
+
+export const StretchBlock = styled(Block)`
+  flex-grow: 1;
+`;
+
+export const LowerBlock = styled(Block)`
   margin-top: auto;
+`;
+
+export const Footer = styled.footer`
+  padding-top: var(--large);
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
 
   & > * {
     margin-left: var(--large);

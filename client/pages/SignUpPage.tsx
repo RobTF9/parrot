@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuthContext } from '../context/Auth';
 import Button from '../components/Button';
 import Input from '../components/Input';
-import { Bottom, Main, Middle, Top } from '../styles/Layout.styles';
+import { Footer, Header, Main, StretchBlock } from '../styles/Layout.styles';
 import { validateSignup } from '../utils/userValidators';
 
 const SignUpPage: React.FC = () => {
@@ -32,13 +32,13 @@ const SignUpPage: React.FC = () => {
 
   return (
     <Main as="form" onSubmit={onSubmit}>
-      <Top>
+      <Header>
         <h1 className="bold xlarge">Create a Parrot</h1>
         <p className="margin-t">
           Before we create your parrot we need some details
         </p>
-      </Top>
-      <Middle>
+      </Header>
+      <StretchBlock>
         <Input
           {...{
             label: 'Email',
@@ -67,12 +67,12 @@ const SignUpPage: React.FC = () => {
             error: errors.password,
           }}
         />
-      </Middle>
-      <Bottom>
+      </StretchBlock>
+      <Footer>
         <Button loading={authLoading} type="submit">
           Submit details
         </Button>
-      </Bottom>
+      </Footer>
     </Main>
   );
 };

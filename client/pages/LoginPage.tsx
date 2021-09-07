@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../context/Auth';
 import Button from '../components/Button';
 import Input from '../components/Input';
-import { Bottom, Main, Middle, Top } from '../styles/Layout.styles';
+import { Footer, Header, Main, StretchBlock } from '../styles/Layout.styles';
 import { validateSignIn } from '../utils/userValidators';
 
 const LoginPage: React.FC = () => {
@@ -29,10 +29,10 @@ const LoginPage: React.FC = () => {
 
   return (
     <Main as="form" onSubmit={onSubmit}>
-      <Top>
+      <Header>
         <h1 className="bold xlarge">Login to Parrot</h1>
-      </Top>
-      <Middle>
+      </Header>
+      <StretchBlock>
         <Input
           {...{
             label: 'Email',
@@ -52,13 +52,13 @@ const LoginPage: React.FC = () => {
             type: 'password',
           }}
         />
-      </Middle>
-      <Bottom>
+      </StretchBlock>
+      <Footer>
         <Link to="/forgot-password">Forgotten your password?</Link>
         <Button {...{ loading: authLoading }} type="submit">
           Login
         </Button>
-      </Bottom>
+      </Footer>
     </Main>
   );
 };

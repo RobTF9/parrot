@@ -3,7 +3,7 @@ import Parrot from '../components/Parrot';
 import { useLexiconContext } from '../context/Lexicon';
 import { getLexicons } from '../data/lexiconResource';
 import { TouchableOpacity } from '../styles/Interactive.styles';
-import { Main, Middle, Top } from '../styles/Layout.styles';
+import { Main, StretchBlock, Header } from '../styles/Layout.styles';
 import Loading from '../components/Loading';
 
 const PickAParrot: React.FC = () => {
@@ -14,10 +14,10 @@ const PickAParrot: React.FC = () => {
     <>
       <Loading condition={lexiconsLoading} />
       <Main>
-        <Top>
+        <Header>
           <h1 className="xlarge bold">Pick which parrot to teach today</h1>
-        </Top>
-        <Middle columns="1fr 1fr">
+        </Header>
+        <StretchBlock>
           {lexicons &&
             lexicons.data.map(({ _id, language }) => (
               <TouchableOpacity
@@ -29,7 +29,7 @@ const PickAParrot: React.FC = () => {
                 <p className="medium">{language.name}</p>
               </TouchableOpacity>
             ))}
-        </Middle>
+        </StretchBlock>
       </Main>
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bottom, Main, Middle, Top } from '../styles/Layout.styles';
+import { Footer, Main, Header, StretchBlock } from '../styles/Layout.styles';
 import { getLexicons, createLexicon } from '../data/lexiconResource';
 import Parrot from '../components/Parrot';
 import Input from '../components/Input';
@@ -39,7 +39,7 @@ const CreateAParrot: React.FC = () => {
 
   return (
     <Main as="form" onSubmit={onSubmit}>
-      <Top>
+      <Header>
         <h1 className="xlarge bold">Create a parrot</h1>
         {!newLexicon.language && (
           <p className="margin-t">
@@ -47,10 +47,10 @@ const CreateAParrot: React.FC = () => {
             another one later)
           </p>
         )}
-      </Top>
+      </Header>
       {!newLexicon.language ? (
         lexicons && (
-          <Middle columns="1fr 1fr">
+          <StretchBlock>
             {LANGUAGES.map((language) => {
               if (
                 !lexicons.data.find((l) => l.language.name === language.name)
@@ -68,11 +68,11 @@ const CreateAParrot: React.FC = () => {
               }
               return null;
             })}
-          </Middle>
+          </StretchBlock>
         )
       ) : (
         <>
-          <Middle>
+          <StretchBlock>
             <Parrot language={newLexicon.language.name} />
             <p className="margin-b-l">
               How many phrases are you aiming to teach your parrot everyday?
@@ -98,12 +98,12 @@ const CreateAParrot: React.FC = () => {
                 onChange: changeGoals,
               }}
             />
-          </Middle>
-          <Bottom>
+          </StretchBlock>
+          <Footer>
             <Button type="submit" loading={createLoading}>
               Submit daily goals
             </Button>
-          </Bottom>
+          </Footer>
         </>
       )}
     </Main>

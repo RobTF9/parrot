@@ -3,7 +3,14 @@ import { useLexiconContext } from '../context/Lexicon';
 import Loading from '../components/Loading';
 import Parrot from '../components/Parrot';
 import useTranslateService from '../hooks/useTranslateService';
-import { Main, Top, Middle, Bottom } from '../styles/Layout.styles';
+import {
+  Main,
+  Header,
+  UpperBlock,
+  LowerBlock,
+  Footer,
+  StretchBlock,
+} from '../styles/Layout.styles';
 import Microphone from '../components/Microphone';
 import Translations from '../components/Translations';
 import Button from '../components/Button';
@@ -23,26 +30,35 @@ const AddAPhrase: React.FC = () => {
 
   const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
 
-  function conditionalRender(): JSX.Element {
-    console.log(translations);
+  function conditionalRender() {
     if (phrase && lexicon && lexicon.language.name) {
       return (
-        <PhraseForm
-          {...{
-            phrase,
-            setPhrase,
-            mutate,
-            language: lexicon.language.name,
-          }}
-        />
+        <UpperBlock>
+          <PhraseForm
+            {...{
+              phrase,
+              setPhrase,
+              mutate,
+              language: lexicon.language.name,
+            }}
+          />
+        </UpperBlock>
       );
     }
 
     if (translations) {
-      return <Translations {...{ translations, setPhrase }} />;
+      return (
+        <StretchBlock>
+          <Translations {...{ translations, setPhrase }} />
+        </StretchBlock>
+      );
     }
 
-    return <Microphone {...{ listening }} />;
+    return (
+      <LowerBlock>
+        <Microphone {...{ listening }} />
+      </LowerBlock>
+    );
   }
 
   return (
@@ -50,26 +66,20 @@ const AddAPhrase: React.FC = () => {
       {(loadingTranslations || isLoading) && <Loading />}
       {error && error}
       <Main>
-        <Top>
+        <Header>
           <h1 className="bold xlarge center">
             Say a phrase to teach it to you parrot
           </h1>
-        </Top>
-        <Middle
-          flex={{
-            align: 'center',
-            justify: 'space-between',
-            direction: 'column',
-          }}
-        >
+        </Header>
+        <UpperBlock>
           <Parrot {...{ language: lexicon?.language.name }} />
-          {conditionalRender()}
-        </Middle>
-        <Bottom>
+        </UpperBlock>
+        {conditionalRender()}
+        <Footer>
           <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>
             Enter manually
           </Button>
-        </Bottom>
+        </Footer>
       </Main>
     </>
   );

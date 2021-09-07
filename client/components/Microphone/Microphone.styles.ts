@@ -28,6 +28,7 @@ export const MicrophoneWrapper = styled.div<{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 
   svg {
     stroke: var(--core-white);

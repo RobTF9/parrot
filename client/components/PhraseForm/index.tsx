@@ -23,8 +23,10 @@ const PhraseForm: React.FC<Props> = ({
 }) => {
   const [errors, setErrors] = useState<ItemFormErrors>({});
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void =>
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setPhrase({ ...phrase, [event.target.name]: event.target.value });
+    setErrors({});
+  };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
