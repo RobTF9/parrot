@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import validateItem from '../../utils/itemValidator';
+import Button from '../Button';
 import Input from '../Input';
 
 interface Props {
@@ -67,6 +68,7 @@ const PhraseForm: React.FC<Props> = ({
           error: errors.pron,
         }}
       />
+      <Button type="submit">Save phrase</Button>
     </form>
   );
 };

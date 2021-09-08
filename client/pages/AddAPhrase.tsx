@@ -34,6 +34,10 @@ const AddAPhrase: React.FC = () => {
     if (phrase && lexicon && lexicon.language.name) {
       return (
         <UpperBlock>
+          <Block columns="1fr 150px">
+            <h1 className="bold xlarge margin-b">Save your phrase</h1>
+            <Parrot {...{ language: lexicon?.language.name }} />
+          </Block>
           <PhraseForm
             {...{
               phrase,
@@ -50,8 +54,18 @@ const AddAPhrase: React.FC = () => {
       return (
         <>
           <Header>
-            <h1 className="bold xlarge">Did you say any of these?</h1>
-            <Parrot {...{ language: lexicon?.language.name }} />
+            <Block columns="1fr 150px">
+              <div>
+                <h1 className="bold xlarge margin-b">
+                  Did you say any of these?
+                </h1>
+                <p>
+                  If one of these is almost right, choose it and edit it on the
+                  next page
+                </p>
+              </div>
+              <Parrot {...{ language: lexicon?.language.name }} />
+            </Block>
           </Header>
           <StretchBlock>
             <Translations {...{ translations, setPhrase }} />
@@ -73,6 +87,11 @@ const AddAPhrase: React.FC = () => {
         <Block>
           <Microphone {...{ listening }} />
         </Block>
+        <Footer>
+          <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>
+            Enter manually
+          </Button>
+        </Footer>
       </>
     );
   }
@@ -81,14 +100,7 @@ const AddAPhrase: React.FC = () => {
     <>
       {(loadingTranslations || isLoading) && <Loading />}
       {error && error}
-      <Main>
-        {conditionalRender()}
-        <Footer>
-          <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>
-            Enter manually
-          </Button>
-        </Footer>
-      </Main>
+      <Main>{conditionalRender()}</Main>
     </>
   );
 };
