@@ -19,7 +19,8 @@ import { createItem } from '../data/itemResource';
 
 const AddAPhrase: React.FC = () => {
   const { lexicon } = useLexiconContext();
-  const [mutate, isLoading] = createItem();
+  const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
+  const [parrotSpeaking, setParrotSpeaking] = useState<boolean>(false);
 
   const [
     loadingTranslations,
@@ -28,7 +29,11 @@ const AddAPhrase: React.FC = () => {
     error,
   ] = useTranslateService(lexicon);
 
-  const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
+  const [mutate, isLoading] = createItem(undefined, (res) => {
+    if (res.data) {
+      setParrotSpeaking(true);
+    }
+  });
 
   function conditionalRender() {
     if (phrase && lexicon && lexicon.language.name) {
@@ -36,7 +41,15 @@ const AddAPhrase: React.FC = () => {
         <UpperBlock>
           <Block columns="1fr 150px">
             <h1 className="bold xlarge margin-b">Save your phrase</h1>
-            <Parrot {...{ language: lexicon?.language.name }} />
+            <Parrot
+              {...{
+                language: lexicon?.language.name,
+                langCode: lexicon.language.langCode,
+                speaking: parrotSpeaking,
+                phrase: phrase.lang,
+                setSpeaking: setParrotSpeaking,
+              }}
+            />
           </Block>
           <PhraseForm
             {...{
