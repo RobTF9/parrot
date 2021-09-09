@@ -4,7 +4,7 @@ import { ParrotWrapper } from './Parrot.styles';
 
 interface Props {
   speaking?: boolean;
-  setSpeaking?: (v: boolean) => void;
+  onSpeakingEnd?: () => void;
   phrase?: string;
   language?: string;
   langCode?: string;
@@ -13,7 +13,7 @@ interface Props {
 const Parrot: React.FC<Props> = ({
   language,
   speaking,
-  setSpeaking,
+  onSpeakingEnd,
   phrase,
   langCode,
 }) => {
@@ -47,9 +47,9 @@ const Parrot: React.FC<Props> = ({
 
   return (
     <>
-      {phrase && langCode && setSpeaking && (
+      {phrase && langCode && onSpeakingEnd && (
         <audio
-          onEnded={() => setTimeout(() => setSpeaking(false), 500)}
+          onEnded={() => onSpeakingEnd()}
           ref={audioEl}
           src={`https://translate.google.com/translate_tts?ie=UTF-8&tl=${langCode}&client=tw-ob&q=${phrase}`}
         />

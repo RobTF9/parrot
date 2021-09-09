@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useLexiconContext } from '../context/Lexicon';
 import Loading from '../components/Loading';
 import Parrot from '../components/Parrot';
@@ -13,11 +14,12 @@ import {
 } from '../styles/Layout.styles';
 import Microphone from '../components/Microphone';
 import Translations from '../components/Translations';
-import Button from '../components/Button';
 import PhraseForm from '../components/PhraseForm';
 import { createItem } from '../data/itemResource';
 
 const AddAPhrase: React.FC = () => {
+  const { push } = useHistory();
+
   const { lexicon } = useLexiconContext();
   const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
   const [parrotSpeaking, setParrotSpeaking] = useState<boolean>(false);
@@ -35,6 +37,11 @@ const AddAPhrase: React.FC = () => {
       setParrotSpeaking(true);
     }
   });
+
+  const onSpeakingEnd = () => {
+    setParrotSpeaking(false);
+    setTimeout(() => push('/'), 1000);
+  };
 
   const reset = () => {
     setPhrase(undefined);
@@ -54,7 +61,7 @@ const AddAPhrase: React.FC = () => {
                   langCode: lexicon.language.langCode,
                   speaking: parrotSpeaking,
                   phrase: phrase.lang,
-                  setSpeaking: setParrotSpeaking,
+                  onSpeakingEnd,
                 }}
               />
             </Block>
@@ -95,6 +102,17 @@ const AddAPhrase: React.FC = () => {
           <StretchBlock>
             <Translations {...{ translations, setPhrase }} />
           </StretchBlock>
+          <Footer>
+            <button type="button" onClick={() => reset()}>
+              Try again
+            </button>
+            <button
+              type="button"
+              onClick={() => setPhrase({ lang: '', pron: '', tran: '' })}
+            >
+              Enter manually
+            </button>
+          </Footer>
         </>
       );
     }
@@ -113,9 +131,12 @@ const AddAPhrase: React.FC = () => {
           <Microphone {...{ listening }} />
         </Block>
         <Footer>
-          <Button action={() => setPhrase({ lang: '', pron: '', tran: '' })}>
+          <button
+            type="button"
+            onClick={() => setPhrase({ lang: '', pron: '', tran: '' })}
+          >
             Enter manually
-          </Button>
+          </button>
         </Footer>
       </>
     );
