@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import validateItem from '../../utils/itemValidator';
 import Button from '../Button';
 import Input from '../Input';
+import { PhraseFormWrapper, Actions } from './PhraseForm.styles';
 
 interface Props {
   phrase: ItemSubmission;
   setPhrase: (phrase: ItemSubmission) => void;
   mutate: (item: ItemSubmission) => void;
+  loading: boolean;
   language: string;
+  reset: () => void;
 }
 
 interface ItemFormErrors {
@@ -20,7 +23,9 @@ const PhraseForm: React.FC<Props> = ({
   phrase,
   setPhrase,
   mutate,
+  loading,
   language,
+  reset,
 }) => {
   const [errors, setErrors] = useState<ItemFormErrors>({});
 
@@ -40,7 +45,7 @@ const PhraseForm: React.FC<Props> = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <PhraseFormWrapper onSubmit={onSubmit}>
       <Input
         {...{
           label: language,
@@ -68,8 +73,15 @@ const PhraseForm: React.FC<Props> = ({
           error: errors.pron,
         }}
       />
-      <Button type="submit">Save phrase</Button>
-    </form>
+      <Actions>
+        <button type="button" onClick={() => reset()}>
+          Start again
+        </button>
+        <Button type="submit" loading={loading}>
+          Save phrase
+        </Button>
+      </Actions>
+    </PhraseFormWrapper>
   );
 };
 

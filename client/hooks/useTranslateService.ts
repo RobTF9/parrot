@@ -8,6 +8,7 @@ interface UseTranslateService {
   (lexicon?: LexiconSession): [
     loadingTranslations: boolean,
     listening: boolean,
+    resetTranslations: () => void,
     translations?: TranslationResponse,
     error?: string
   ];
@@ -27,6 +28,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
   const [translations, setTranslations] = useState<
     TranslationResponse | undefined
   >();
+  const resetTranslations = () => setTranslations(undefined);
 
   // TODO: use to display api error
   const [error, setError] = useState<string>();
@@ -56,7 +58,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
   // effect for performing actions based on state
   useEffect(() => {
     // if not listening and no transcript start listener
-    if (!listening && !finalTranscript) {
+    if (!listening && !translations) {
       SpeechRecognition.startListening({
         language: lexicon?.language.langCode,
       });
@@ -72,7 +74,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
       setLoadingTranslations(true);
       getTranslations();
     }
-  }, [listening, finalTranscript]);
+  }, [listening, finalTranscript, translations]);
 
   // push interim transcript into array
   useEffect(() => {
@@ -89,7 +91,13 @@ const useTranslateService: UseTranslateService = (lexicon) => {
   }, []);
 
   // return as defined in interface function signature
-  return [loadingTranslations, listening, translations, error];
+  return [
+    loadingTranslations,
+    listening,
+    resetTranslations,
+    translations,
+    error,
+  ];
 };
 
 export default useTranslateService;

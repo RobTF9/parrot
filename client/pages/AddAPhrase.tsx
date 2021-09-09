@@ -25,6 +25,7 @@ const AddAPhrase: React.FC = () => {
   const [
     loadingTranslations,
     listening,
+    resetTranslations,
     translations,
     error,
   ] = useTranslateService(lexicon);
@@ -35,31 +36,42 @@ const AddAPhrase: React.FC = () => {
     }
   });
 
+  const reset = () => {
+    setPhrase(undefined);
+    resetTranslations();
+  };
+
   function conditionalRender() {
     if (phrase && lexicon && lexicon.language.name) {
       return (
-        <UpperBlock>
-          <Block columns="1fr 150px">
-            <h1 className="bold xlarge margin-b">Save your phrase</h1>
-            <Parrot
+        <>
+          <Header>
+            <Block columns="1fr 150px">
+              <h1 className="bold xlarge margin-b">Save your phrase</h1>
+              <Parrot
+                {...{
+                  language: lexicon?.language.name,
+                  langCode: lexicon.language.langCode,
+                  speaking: parrotSpeaking,
+                  phrase: phrase.lang,
+                  setSpeaking: setParrotSpeaking,
+                }}
+              />
+            </Block>
+          </Header>
+          <StretchBlock>
+            <PhraseForm
               {...{
-                language: lexicon?.language.name,
-                langCode: lexicon.language.langCode,
-                speaking: parrotSpeaking,
-                phrase: phrase.lang,
-                setSpeaking: setParrotSpeaking,
+                phrase,
+                loading: isLoading,
+                setPhrase,
+                mutate,
+                language: lexicon.language.name,
+                reset,
               }}
             />
-          </Block>
-          <PhraseForm
-            {...{
-              phrase,
-              setPhrase,
-              mutate,
-              language: lexicon.language.name,
-            }}
-          />
-        </UpperBlock>
+          </StretchBlock>
+        </>
       );
     }
 
@@ -111,7 +123,7 @@ const AddAPhrase: React.FC = () => {
 
   return (
     <>
-      {(loadingTranslations || isLoading) && <Loading />}
+      {loadingTranslations && <Loading />}
       {error && error}
       <Main>{conditionalRender()}</Main>
     </>

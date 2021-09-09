@@ -109,10 +109,12 @@ const Typography = createGlobalStyle`
     }
   }
 
-  a {
+  a, button {
+    background: none;
     font-weight: var(--font-medium);
     color: var(--core-mid);
     transition: color 0.3s ease;
+    text-decoration: underline;
 
     &:hover {
       color: var(--core-dark);

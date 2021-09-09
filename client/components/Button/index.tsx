@@ -13,7 +13,7 @@ interface Props {
 const Button: React.FC<Props> = ({ children, action, type, loading, to }) => {
   if (to) {
     return (
-      <ButtonWrapper as={Link} to={to} className="large">
+      <ButtonWrapper as={Link} to={to}>
         {children}
       </ButtonWrapper>
     );
@@ -23,7 +23,6 @@ const Button: React.FC<Props> = ({ children, action, type, loading, to }) => {
     <ButtonWrapper
       {...{
         loading,
-        className: 'large',
         type: type || 'button',
         onClick: action,
       }}
