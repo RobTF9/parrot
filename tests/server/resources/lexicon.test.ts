@@ -57,16 +57,6 @@ describe('Lexicon resource...', () => {
     expect(response.body.message).toStrictEqual(ERROR_MESSAGE.LEXICON_EXISTS);
   });
 
-  test('error if wrong format', async () => {
-    const response = await authSession.post('/api/lexicon').send({
-      language: {
-        test: 'test',
-      },
-    });
-
-    expect(response.statusCode).toBe(500);
-  });
-
   test('can get an array of your lexicons', async () => {
     const lexicon = await Lexicon.create({
       createdBy: userId,

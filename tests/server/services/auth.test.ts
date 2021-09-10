@@ -203,7 +203,8 @@ describe('Auth service...', () => {
   });
 
   test('can request password reset', async () => {
-    const authSession = session(app);
+    console.log = jest.fn;
+    const authSession = await session(app);
 
     const user = await User.create({
       username: 'user',
