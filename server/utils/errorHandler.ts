@@ -1,13 +1,21 @@
 import { ErrorRequestHandler } from 'express';
+import { ERROR_MESSAGE } from './constants';
 
-const errorHandler: ErrorRequestHandler = (err, _, res) => {
+const errorHandler: ErrorRequestHandler = (err, req, res, _) => {
+  console.log('ERROR: ');
+  console.table(err);
+  console.log('REQUEST: ', req.body, req.session);
+  console.log('NEXT: ', _);
+
   if (err) {
-    console.error(err);
-    res.status(500).json({ message: err.message });
-  } else {
-    res.end();
-    console.error(res);
+    if (err.code && err.code === 11000) {
+      return res.status(500).json({ message: ERROR_MESSAGE.DUPLICATE_GENERIC });
+    }
+
+    res.status(500).json({ message: ERROR_MESSAGE.INTERNAL_SERVER });
+    throw new Error(err);
   }
+  return res.end();
 };
 
 export default errorHandler;

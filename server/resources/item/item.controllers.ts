@@ -4,6 +4,12 @@ import Item from './item.model';
 
 export const createItem: RequestHandler = async (req, res, next) => {
   try {
+    const alreadyCreated = await Item.findOne({ lang: req.body.lang });
+
+    if (alreadyCreated) {
+      return res.status(400).json({ message: ERROR_MESSAGE.DUPLICATE_ITEM });
+    }
+
     const item = await Item.create({
       ...req.body,
       createdBy: req.session.user,
@@ -15,7 +21,7 @@ export const createItem: RequestHandler = async (req, res, next) => {
       .status(200)
       .json({ message: SUCCESS_MESSAGE.ITEM_CREATED, data: item });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -37,7 +43,7 @@ export const updateOne: RequestHandler = async (req, res, next) => {
       .status(200)
       .json({ data: item, message: SUCCESS_MESSAGE.ITEM_UPDATED });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -53,7 +59,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({ data: items });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -69,6 +75,6 @@ export const getOne: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({ data: item });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };

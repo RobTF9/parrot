@@ -38,7 +38,7 @@ export const updateResult: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({ data: result });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -84,7 +84,7 @@ export const newResult: RequestHandler = async (req, res, next) => {
       .status(201)
       .json({ message: SUCCESS_MESSAGE.GAME_STARTED, data: result });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -103,6 +103,6 @@ export const getResult: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({ data: result });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };

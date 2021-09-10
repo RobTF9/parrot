@@ -5,34 +5,33 @@ import { ERROR_MESSAGE } from '../../utils/constants';
 export const protect: RequestHandler = async (req, res, next) => {
   try {
     if (!req.session.user) {
-      res
+      return res
         .status(401)
         .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
-    } else {
-      const user = await User.findById(req.session.user);
-
-      if (!user) {
-        res
-          .status(401)
-          .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
-      } else {
-        next();
-      }
     }
+    const user = await User.findById(req.session.user);
+
+    if (!user) {
+      return res
+        .status(401)
+        .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
+    }
+
+    return next();
   } catch (error) {
-    next(new Error(error));
+    return next(error);
   }
 };
 
 export const lexiconActive: RequestHandler = async (req, res, next) => {
   try {
     if (!req.session.lexicon) {
-      res.status(400).json({ message: ERROR_MESSAGE.NO_LEXICON_ACTIVE });
-    } else {
-      next();
+      return res.status(400).json({ message: ERROR_MESSAGE.NO_LEXICON_ACTIVE });
     }
+
+    return next();
   } catch (error) {
-    next(new Error(error));
+    return next(error);
   }
 };
 

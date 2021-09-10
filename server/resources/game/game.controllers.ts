@@ -15,7 +15,7 @@ export const createGame: RequestHandler = async (req, res, next) => {
       .status(201)
       .json({ message: SUCCESS_MESSAGE.GAME_CREATED, data: game });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -29,7 +29,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({ data: games });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -55,7 +55,7 @@ export const getOne: RequestHandler = async (req, res, next) => {
 
     return res.status(200).send({ data: { ...game, results } });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -77,6 +77,6 @@ export const updateOne: RequestHandler = async (req, res, next) => {
       .status(200)
       .json({ data: game, message: SUCCESS_MESSAGE.GAME_UPDATED });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };

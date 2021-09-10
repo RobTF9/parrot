@@ -9,9 +9,9 @@ export const getUser: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    res.status(200).json({ data: user });
+    return res.status(200).json({ data: user });
   } catch (error) {
-    next(new Error(error));
+    return next(error);
   }
 };
 
@@ -31,6 +31,6 @@ export const updateUser: RequestHandler = async (req, res, next) => {
       .status(200)
       .json({ data: user, message: SUCCESS_MESSAGE.USER_UPDATED });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };

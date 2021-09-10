@@ -29,6 +29,9 @@ export const ERROR_MESSAGE = {
   NO_WORDS: errorMessage('Please provide at least one word'),
   INVALID_MODE: errorMessage('Your game mode is invalid'),
   NO_ITEM_MATCH: errorMessage('No match, try again!'),
+  DUPLICATE_ITEM: errorMessage("You've already added this phrase"),
+  DUPLICATE_GENERIC: errorMessage('Already exisits'),
+  INTERNAL_SERVER: errorMessage('An unknown error occured, please try again'),
 };
 
 const succesMessage = (message: string) => ({

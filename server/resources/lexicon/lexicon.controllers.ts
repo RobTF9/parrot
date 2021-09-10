@@ -28,7 +28,7 @@ export const createOne: RequestHandler = async (req, res, next) => {
       .status(201)
       .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_CREATED });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -41,9 +41,9 @@ export const getYours: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    res.status(200).json({ data: lexicons });
+    return res.status(200).json({ data: lexicons });
   } catch (error) {
-    next(new Error(error));
+    return next(error);
   }
 };
 
@@ -52,26 +52,26 @@ export const setActive: RequestHandler = async (req, res, next) => {
     const lexicon = await Lexicon.findOne({ _id: req.params.id });
 
     if (!lexicon) {
-      res.status(404).json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    if (lexicon) {
-      req.session.lexicon = {
-        _id: lexicon._id,
-        language: {
-          name: lexicon.language.name,
-          htmlCode: lexicon.language.htmlCode,
-          langCode: lexicon.language.langCode,
-        },
-      };
+    req.session.lexicon = {
+      _id: lexicon._id,
+      language: {
+        name: lexicon.language.name,
+        htmlCode: lexicon.language.htmlCode,
+        langCode: lexicon.language.langCode,
+      },
+    };
 
-      res.status(200).json({
-        message: SUCCESS_MESSAGE.LEXICON_ACTIVATED,
-        lexicon: req.session.lexicon,
-      });
-    }
+    return res.status(200).json({
+      message: SUCCESS_MESSAGE.LEXICON_ACTIVATED,
+      lexicon: req.session.lexicon,
+    });
   } catch (error) {
-    next(new Error(error));
+    return next(error);
   }
 };
 
@@ -97,7 +97,7 @@ export const unshareLexicon: RequestHandler = async (req, res, next) => {
       message: SUCCESS_MESSAGE.LEXICON_UNSHARED,
     });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -166,7 +166,7 @@ export const shareLexicon: RequestHandler = async (req, res, next) => {
       .status(200)
       .json({ data: lexicon, message: SUCCESS_MESSAGE.LEXICON_SHARED });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -183,6 +183,6 @@ export const getShared: RequestHandler = async (req, res, next) => {
 
     res.status(200).json({ data: lexicons });
   } catch (error) {
-    next(new Error(error));
+    next(error);
   }
 };

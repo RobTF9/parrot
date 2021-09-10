@@ -40,7 +40,7 @@ export const signIn: RequestHandler = async (req, res, next) => {
       auth: true,
     });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -79,7 +79,7 @@ export const signUp: RequestHandler = async (req, res, next) => {
       message: SUCCESS_MESSAGE.SIGN_UP_SUCCESSFUL,
     });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -111,7 +111,7 @@ export const checkAuth: RequestHandler = async (req, res, next) => {
       .status(200)
       .json({ auth: true, message: SUCCESS_MESSAGE.AUTHORIZED });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -124,7 +124,7 @@ export const signOut: RequestHandler = async (req, res, next) => {
       })
     );
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -169,7 +169,7 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
       message: SUCCESS_MESSAGE.RESET_LINK_SENT,
     });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
 
@@ -219,6 +219,6 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
       message: SUCCESS_MESSAGE.PASSWORD_RESET_SUCCESSFULLY,
     });
   } catch (error) {
-    return next(new Error(error));
+    return next(error);
   }
 };
