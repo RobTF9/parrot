@@ -8,7 +8,7 @@ export const NavigationWrapper = styled.nav`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: var(--medium);
+    padding: var(--medium) var(--large);
 
     & > li > .active {
       color: var(--core-dark);
