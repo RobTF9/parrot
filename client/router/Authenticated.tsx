@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { getLexicons } from '../data/lexiconResource';
 import HomePage from '../pages/HomePage';
 import CreateAParrot from '../pages/CreateAParrot';
@@ -8,13 +8,15 @@ import PickAParrot from '../pages/PickAParrot';
 import { useLexiconContext } from '../context/Lexicon';
 
 const Authenticated: React.FC = () => {
+  const location = useLocation();
   const [lexicons] = getLexicons();
   const { lexicon } = useLexiconContext();
   const noLexicons = lexicons && lexicons.data.length === 0;
 
   if (noLexicons) return <CreateAParrot />;
-
   if (!lexicon) return <PickAParrot />;
+
+  console.log(location);
 
   return (
     <Switch>
@@ -27,7 +29,7 @@ const Authenticated: React.FC = () => {
       <Route path="/phrase">
         <AddAPhrase />
       </Route>
-      <Route path="/">
+      <Route exact path="/">
         <HomePage />
       </Route>
       <Route>
