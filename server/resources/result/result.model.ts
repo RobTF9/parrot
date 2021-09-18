@@ -10,6 +10,7 @@ import {
 interface ResultDocument extends Document {
   lexicon: ObjectId;
   createdBy: ObjectId;
+  createdAt: Date;
   game: ObjectId & GameResource;
   score: {
     correct: ObjectId[];

@@ -13,6 +13,7 @@ export interface ItemDocument extends Document {
   tran: string;
   lexicon: ObjectId;
   createdBy: ObjectId;
+  createdAt: Date;
   updatedBy: ObjectId | string;
   tags: ObjectId[];
 }

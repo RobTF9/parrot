@@ -14,6 +14,7 @@ import gameRouter from './resources/game/game.router';
 import itemRouter from './resources/item/item.router';
 import resultRouter from './resources/result/result.router';
 import translationRouter from './services/translation/translate';
+import progressRouter from './services/progress/progress.router';
 
 export const app = express();
 
@@ -32,6 +33,7 @@ app.use('/api/item', itemRouter);
 app.use('/api/game', gameRouter);
 app.use('/api/result', resultRouter);
 app.use('/api/translate', translationRouter);
+app.use('/api/progress', progressRouter);
 
 // Serve client
 const clientPath = path.join(__dirname, '..', 'client');
