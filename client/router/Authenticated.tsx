@@ -6,9 +6,10 @@ import CreateAParrot from '../pages/CreateAParrot';
 import AddAPhrase from '../pages/AddAPhrase';
 import PickAParrot from '../pages/PickAParrot';
 import { useLexiconContext } from '../context/Lexicon';
+import Navigation from '../components/Navigation';
 
 const Authenticated: React.FC = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const [lexicons] = getLexicons();
   const { lexicon } = useLexiconContext();
   const noLexicons = lexicons && lexicons.data.length === 0;
@@ -16,26 +17,37 @@ const Authenticated: React.FC = () => {
   if (noLexicons) return <CreateAParrot />;
   if (!lexicon) return <PickAParrot />;
 
-  console.log(location);
-
   return (
-    <Switch>
-      <Route path="/parrot">
-        <CreateAParrot />
-      </Route>
-      <Route path="/pick">
-        <PickAParrot />
-      </Route>
-      <Route path="/phrase">
-        <AddAPhrase />
-      </Route>
-      <Route exact path="/">
-        <HomePage />
-      </Route>
-      <Route>
-        <Redirect to="/" />
-      </Route>
-    </Switch>
+    <>
+      <Navigation
+        {...{
+          back: pathname !== '/',
+          links: [
+            { to: '/', text: 'Home' },
+            { to: '/phrase', text: 'Add phrase' },
+            { to: '/pick', text: 'Pick parrot' },
+            { to: '/parrot', text: 'Create parrot' },
+          ],
+        }}
+      />
+      <Switch>
+        <Route path="/parrot">
+          <CreateAParrot />
+        </Route>
+        <Route path="/pick">
+          <PickAParrot />
+        </Route>
+        <Route path="/phrase">
+          <AddAPhrase />
+        </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route>
+          <Redirect to="/" />
+        </Route>
+      </Switch>
+    </>
   );
 };
 
