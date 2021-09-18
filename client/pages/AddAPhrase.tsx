@@ -7,7 +7,6 @@ import useTranslateService from '../hooks/useTranslateService';
 import {
   Main,
   Header,
-  UpperBlock,
   Footer,
   StretchBlock,
   Block,
@@ -124,9 +123,9 @@ const AddAPhrase: React.FC = () => {
             Say a phrase to teach it to you parrot
           </h1>
         </Header>
-        <UpperBlock>
+        <StretchBlock>
           <Parrot {...{ language: lexicon?.language.name }} />
-        </UpperBlock>
+        </StretchBlock>
         <Block>
           <Microphone {...{ listening }} />
         </Block>
