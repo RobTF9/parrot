@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { getLexicons } from '../data/lexiconResource';
 import HomePage from '../pages/HomePage';
 import CreateAParrot from '../pages/CreateAParrot';
@@ -9,7 +9,6 @@ import { useLexiconContext } from '../context/Lexicon';
 import Navigation from '../components/Navigation';
 
 const Authenticated: React.FC = () => {
-  const { pathname } = useLocation();
   const [lexicons] = getLexicons();
   const { lexicon } = useLexiconContext();
   const noLexicons = lexicons && lexicons.data.length === 0;
@@ -21,7 +20,6 @@ const Authenticated: React.FC = () => {
     <>
       <Navigation
         {...{
-          back: pathname !== '/',
           links: [
             { to: '/', text: 'Home' },
             { to: '/phrase', text: 'Add phrase' },

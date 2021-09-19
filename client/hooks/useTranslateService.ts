@@ -49,12 +49,11 @@ const useTranslateService: UseTranslateService = (lexicon) => {
       setTranslations(response.data);
       setLoadingTranslations(false);
     } else {
-      setError('There was an error');
+      setError('There was an error with the translation service');
       setLoadingTranslations(false);
     }
   };
 
-  // TODO: TRYING TO REN RUN THIS ON RESET
   // effect for performing actions based on state
   useEffect(() => {
     // if not listening and no transcript start listener

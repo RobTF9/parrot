@@ -8,14 +8,16 @@ import { getItems } from '../data/itemResource';
 import { Block, Header, Main } from '../styles/Layout.styles';
 import Parrot from '../components/Parrot';
 import { getUser } from '../data/userResource';
+import useProgressService from '../hooks/useProgressService';
 
 const HomePage: React.FC = () => {
   const { signOut } = useAuthContext();
   const { lexicon } = useLexiconContext();
   const [phrases, phrasesLoading] = getItems();
   const [user, userLoading] = getUser();
+  const [loadingProgress, progress] = useProgressService(phrases?.data);
 
-  if (phrasesLoading || userLoading) {
+  if (phrasesLoading || userLoading || loadingProgress) {
     return <Loading />;
   }
 
@@ -37,6 +39,12 @@ const HomePage: React.FC = () => {
           />
         </Block>
       </Header>
+      {progress && (
+        <div>
+          <p>{progress.data.phrases.added}</p>
+          <p>{progress.data.phrases.goal}</p>
+        </div>
+      )}
       <Button {...{ action: signOut }}>Logout</Button>
     </Main>
   );

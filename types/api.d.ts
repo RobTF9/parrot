@@ -23,6 +23,19 @@ declare global {
   type TranslationRequest = string[];
   type TranslationResponse = [string, string][];
 
+  type ProgressResponse = {
+    data: {
+      phrases: {
+        goal: number;
+        added: number;
+      };
+      games: {
+        goal: number;
+        finished: number;
+      };
+    };
+  };
+
   interface UserResource {
     _id: string;
     email: string;

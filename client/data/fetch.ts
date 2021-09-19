@@ -5,7 +5,7 @@ async function http<T>(endpoint: RequestInfo, config: RequestInit): Promise<T> {
     return response.json();
   } catch (error) {
     console.log(error);
-    return error;
+    throw error;
   }
 }
 
