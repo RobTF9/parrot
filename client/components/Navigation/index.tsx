@@ -4,7 +4,6 @@ import { NavigationWrapper } from './Navigation.styles';
 
 interface Props {
   links: { to: string; text: string }[];
-  back: boolean;
 }
 
 const Navigation: React.FC<Props> = ({ links }) => {
