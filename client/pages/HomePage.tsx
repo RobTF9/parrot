@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { useLexiconContext } from '../context/Lexicon';
 import { getItems } from '../data/itemResource';
@@ -26,9 +26,13 @@ const HomePage: React.FC = () => {
   return (
     <Main>
       <Block columns="1fr 150px">
-        <h1 className="bold xlarge margin-b">
-          Hey {user?.data.username}, here&apos;s your daily goal summary...
-        </h1>
+        <div>
+          <h1 className="bold xlarge margin-b">Hey {user?.data.username}</h1>
+          <p>
+            You&apos;re teaching your {lexicon?.language.name} parrot today.{' '}
+            <Link to="/pick">Switch parrot</Link>
+          </p>
+        </div>
         <Parrot
           {...{
             language: lexicon?.language.name,

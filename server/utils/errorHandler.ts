@@ -3,7 +3,7 @@ import { ERROR_MESSAGE } from './constants';
 
 const errorHandler: ErrorRequestHandler = (err, req, res, _) => {
   console.log('ERROR: ');
-  console.table(err);
+  console.log(err);
   console.log('REQUEST: ', req.body, req.session);
   console.log('NEXT: ', _);
 
