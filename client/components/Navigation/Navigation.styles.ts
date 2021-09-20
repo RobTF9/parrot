@@ -6,11 +6,11 @@ export const NavigationWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: var(--medium) var(--large);
 
   & > ul {
     display: flex;
     width: 100%;
-    padding: var(--medium) var(--large);
 
     & > li {
       margin-right: var(--medium);
