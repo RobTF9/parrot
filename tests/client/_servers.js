@@ -60,8 +60,8 @@ export const authControllers = [
   }),
 ];
 
-export const emptyLexicons = [
-  rest.get('/api/lexicon', (req, res, ctx) => {
+export const emptyParrots = [
+  rest.get('/api/parrot', (req, res, ctx) => {
     return res(
       ctx.json({
         data: [],
@@ -69,7 +69,7 @@ export const emptyLexicons = [
     );
   }),
 
-  rest.get('/api/lexicon/shared', (req, res, ctx) => {
+  rest.get('/api/parrot/shared', (req, res, ctx) => {
     return res(
       ctx.json({
         data: [],
@@ -78,6 +78,6 @@ export const emptyLexicons = [
   }),
 ];
 
-export const authServer = setupServer(...authControllers, ...emptyLexicons);
+export const authServer = setupServer(...authControllers, ...emptyParrots);
 
-export const lexiconServer = '';
+export const parrotServer = '';

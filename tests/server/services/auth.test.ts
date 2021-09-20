@@ -2,7 +2,7 @@ import request from 'supertest';
 import session from 'supertest-session';
 import nodemailer from 'nodemailer';
 import nodemailerMock from 'nodemailer-mock';
-import Lexicon from '../../../server/resources/lexicon/lexicon.model';
+import Parrot from '../../../server/resources/parrot/parrot.model';
 import User from '../../../server/resources/user/user.model';
 import { app } from '../../../server/server';
 import { ERROR_MESSAGE } from '../../../server/utils/constants';
@@ -149,7 +149,7 @@ describe('Auth service...', () => {
     expect(response.body.auth).toBe(true);
   });
 
-  test('session persists lexicon after log in', async () => {
+  test('session persists parrot after log in', async () => {
     const authSession = session(app);
 
     const user = await User.create({
@@ -158,7 +158,7 @@ describe('Auth service...', () => {
       password: 'password',
     });
 
-    const lexicon = await Lexicon.create({
+    const parrot = await Parrot.create({
       createdBy: user._id,
       language: { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BD' },
     });
@@ -168,12 +168,12 @@ describe('Auth service...', () => {
       password: 'password',
     });
 
-    await authSession.get(`/api/lexicon/${lexicon._id}`);
+    await authSession.get(`/api/parrot/${parrot._id}`);
 
     const response = await authSession.get('/auth');
     expect(response.statusCode).toBe(200);
     expect(response.body.auth).toBe(true);
-    expect(response.body.lexicon.language).toStrictEqual({
+    expect(response.body.parrot.language).toStrictEqual({
       name: 'Bengali',
       htmlCode: 'bn',
       langCode: 'bn-BD',

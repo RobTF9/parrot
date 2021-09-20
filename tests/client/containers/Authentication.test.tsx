@@ -24,7 +24,7 @@ describe('As an unauthenticated user I should...', () => {
     // Assert
     await waitFor(() =>
       expect(
-        screen.getByText('Create a lexicon to get started')
+        screen.getByText('Create a parrot to get started')
       ).toBeInTheDocument()
     );
   });
@@ -110,7 +110,7 @@ describe('As an unauthenticated user I should...', () => {
     // Assert
     await waitFor(() =>
       expect(
-        screen.getByText('Create a lexicon to get started')
+        screen.getByText('Create a parrot to get started')
       ).toBeInTheDocument()
     );
   });

@@ -1,7 +1,7 @@
 export {};
 
 declare global {
-  type LexiconSession = {
+  type ParrotSession = {
     _id: string;
     language: {
       name: string;
@@ -17,7 +17,7 @@ declare global {
       visible: boolean;
     };
     data?: D;
-    lexicon?: LexiconSession;
+    parrot?: ParrotSession;
   }
 
   type TranslationRequest = string[];
@@ -61,7 +61,7 @@ declare global {
     games: number;
   }
 
-  interface LexiconResource {
+  interface ParrotResource {
     _id: string;
     language: Language;
     goals: Goals;
@@ -69,7 +69,7 @@ declare global {
     sharedWith: { _id: string; username: string; email: string }[];
   }
 
-  interface LexiconSubmission {
+  interface ParrotSubmission {
     language?: Language;
     goals: Goals;
   }
@@ -81,7 +81,7 @@ declare global {
   }
   interface PhraseResource {
     _id: string;
-    lexicon: string;
+    parrot: string;
     createdBy: string;
     updatedBy: {
       _id: string;
@@ -102,7 +102,7 @@ declare global {
 
   interface TagResource {
     _id: string;
-    lexicon: string;
+    parrot: string;
     createdBy: string;
     updatedBy: string;
     tag: string;
@@ -120,7 +120,7 @@ declare global {
     _id: string;
     name: string;
     mode: string;
-    lexicon: string;
+    parrot: string;
     createdBy: string;
     updatedBy: string;
     order: string;
@@ -130,7 +130,7 @@ declare global {
 
   interface ResultResource {
     _id: string;
-    lexicon: string;
+    parrot: string;
     createdBy: string;
     game: GameResource;
     updatedAt: string;

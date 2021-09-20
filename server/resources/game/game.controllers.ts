@@ -9,7 +9,7 @@ export const createGame: RequestHandler = async (req, res, next) => {
       ...req.body,
       createdBy: req.session.user,
       updatedBy: req.session.user,
-      lexicon: req.session.lexicon?._id,
+      parrot: req.session.parrot?._id,
     });
     return res
       .status(201)
@@ -22,7 +22,7 @@ export const createGame: RequestHandler = async (req, res, next) => {
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
     const games = await Game.find({
-      lexicon: req.session.lexicon?._id,
+      parrot: req.session.parrot?._id,
     })
       .lean()
       .exec();

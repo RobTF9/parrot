@@ -14,7 +14,7 @@ export const createPhrase: RequestHandler = async (req, res, next) => {
       ...req.body,
       createdBy: req.session.user,
       updatedBy: req.session.user,
-      lexicon: req.session.lexicon?._id,
+      parrot: req.session.parrot?._id,
     });
 
     return res
@@ -50,7 +50,7 @@ export const updateOne: RequestHandler = async (req, res, next) => {
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
     const phrases = await Phrase.find({
-      lexicon: req.session.lexicon?._id,
+      parrot: req.session.parrot?._id,
     })
       .populate({ path: 'updatedBy', select: 'username' })
       .sort({ createdAt: 'desc' })

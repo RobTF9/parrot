@@ -19,7 +19,7 @@ function postCollection(collection) {
 }
 
 postCollection('users');
-postCollection('lexicons');
+postCollection('parrots');
 postCollection('tags');
 postCollection('phrase');
 postCollection('game');

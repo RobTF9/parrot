@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useLexiconContext } from '../context/Lexicon';
+import { useParrotContext } from '../context/Parrot';
 import Loading from '../components/Loading';
 import Parrot from '../components/Parrot';
 import useTranslateService from '../hooks/useTranslateService';
@@ -19,7 +19,7 @@ import { createPhrase } from '../data/phraseResource';
 const AddAPhrase: React.FC = () => {
   const { push } = useHistory();
 
-  const { lexicon } = useLexiconContext();
+  const { parrot } = useParrotContext();
   const [phrase, setPhrase] = useState<PhraseSubmission | undefined>(undefined);
   const [parrotSpeaking, setParrotSpeaking] = useState<boolean>(false);
 
@@ -29,7 +29,7 @@ const AddAPhrase: React.FC = () => {
     resetTranslations,
     translations,
     error,
-  ] = useTranslateService(lexicon);
+  ] = useTranslateService(parrot);
 
   const [mutate, isLoading] = createPhrase(undefined, (res) => {
     if (res.data) {
@@ -48,7 +48,7 @@ const AddAPhrase: React.FC = () => {
   };
 
   function conditionalRender() {
-    if (phrase && lexicon && lexicon.language.name) {
+    if (phrase && parrot && parrot.language.name) {
       return (
         <>
           <Header>
@@ -56,8 +56,8 @@ const AddAPhrase: React.FC = () => {
               <h1 className="bold xlarge margin-b">Save your phrase</h1>
               <Parrot
                 {...{
-                  language: lexicon?.language.name,
-                  langCode: lexicon.language.langCode,
+                  language: parrot?.language.name,
+                  langCode: parrot.language.langCode,
                   speaking: parrotSpeaking,
                   phrase: phrase.lang,
                   onSpeakingEnd,
@@ -72,7 +72,7 @@ const AddAPhrase: React.FC = () => {
                 loading: isLoading,
                 setPhrase,
                 mutate,
-                language: lexicon.language.name,
+                language: parrot.language.name,
                 reset,
               }}
             />
@@ -95,7 +95,7 @@ const AddAPhrase: React.FC = () => {
                   next page
                 </p>
               </div>
-              <Parrot {...{ language: lexicon?.language.name }} />
+              <Parrot {...{ language: parrot?.language.name }} />
             </Block>
           </Header>
           <StretchBlock>
@@ -124,7 +124,7 @@ const AddAPhrase: React.FC = () => {
           </h1>
         </Header>
         <StretchBlock>
-          <Parrot {...{ language: lexicon?.language.name }} />
+          <Parrot {...{ language: parrot?.language.name }} />
         </StretchBlock>
         <Block>
           <Microphone {...{ listening }} />

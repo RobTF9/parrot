@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
-import { useLexiconContext } from '../context/Lexicon';
+import { useParrotContext } from '../context/Parrot';
 import { getPhrases } from '../data/phraseResource';
 import { Block, Main, UpperBlock } from '../styles/Layout.styles';
 import Parrot from '../components/Parrot';
@@ -10,7 +10,7 @@ import useProgressService from '../hooks/useProgressService';
 import Progress from '../components/Progress';
 
 const HomePage: React.FC = () => {
-  const { lexicon } = useLexiconContext();
+  const { parrot } = useParrotContext();
   const [phrases, phrasesLoading] = getPhrases();
   const [user, userLoading] = getUser();
   const [loadingProgress, progress] = useProgressService(phrases?.data);
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
     return <Loading />;
   }
 
-  if (lexicon && phrases && phrases.data.length === 0) {
+  if (parrot && phrases && phrases.data.length === 0) {
     return <Redirect to="/phrase" />;
   }
 
@@ -29,13 +29,13 @@ const HomePage: React.FC = () => {
         <div>
           <h1 className="bold xlarge margin-b">Hey {user?.data.username}</h1>
           <p>
-            You&apos;re teaching your {lexicon?.language.name} parrot today.{' '}
+            You&apos;re teaching your {parrot?.language.name} parrot today.{' '}
             <Link to="/pick">Switch parrot</Link>
           </p>
         </div>
         <Parrot
           {...{
-            language: lexicon?.language.name,
+            language: parrot?.language.name,
           }}
         />
       </Block>

@@ -1,7 +1,7 @@
 export const CACHE = {
   USER: 'user',
-  LEXICON: 'lexicon',
-  SHARED_LEXICON: 'share-lexicon',
+  LEXICON: 'parrot',
+  SHARED_LEXICON: 'share-parrot',
   TAG: 'tag',
   NOTIFICATION: 'notification',
   NOTIFICATION_READ: 'notification/read',

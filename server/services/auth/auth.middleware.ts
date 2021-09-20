@@ -23,9 +23,9 @@ export const protect: RequestHandler = async (req, res, next) => {
   }
 };
 
-export const lexiconActive: RequestHandler = async (req, res, next) => {
+export const parrotActive: RequestHandler = async (req, res, next) => {
   try {
-    if (!req.session.lexicon) {
+    if (!req.session.parrot) {
       return res.status(400).json({ message: ERROR_MESSAGE.NO_LEXICON_ACTIVE });
     }
 

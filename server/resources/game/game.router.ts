@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { lexiconActive } from '../../services/auth/auth.middleware';
+import { parrotActive } from '../../services/auth/auth.middleware';
 import { createGame, getMany, getOne, updateOne } from './game.controllers';
 
 const router = Router();
 
-router.use(lexiconActive);
+router.use(parrotActive);
 
 router.route('/:id').get(getOne).put(updateOne);
 

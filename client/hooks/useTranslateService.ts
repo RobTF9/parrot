@@ -5,7 +5,7 @@ import SpeechRecognition, {
 import { post } from '../data/fetch';
 
 interface UseTranslateService {
-  (lexicon?: LexiconSession): [
+  (parrot?: ParrotSession): [
     loadingTranslations: boolean,
     listening: boolean,
     resetTranslations: () => void,
@@ -14,7 +14,7 @@ interface UseTranslateService {
   ];
 }
 
-const useTranslateService: UseTranslateService = (lexicon) => {
+const useTranslateService: UseTranslateService = (parrot) => {
   const {
     listening,
     interimTranscript,
@@ -59,7 +59,7 @@ const useTranslateService: UseTranslateService = (lexicon) => {
     // if not listening and no transcript start listener
     if (!listening && !translations) {
       SpeechRecognition.startListening({
-        language: lexicon?.language.langCode,
+        language: parrot?.language.langCode,
       });
     }
 

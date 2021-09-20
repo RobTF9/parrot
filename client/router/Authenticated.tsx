@@ -1,20 +1,20 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { getLexicons } from '../data/lexiconResource';
+import { getParrots } from '../data/parrotResource';
 import HomePage from '../pages/HomePage';
 import CreateAParrot from '../pages/CreateAParrot';
 import AddAPhrase from '../pages/AddAPhrase';
 import PickAParrot from '../pages/PickAParrot';
-import { useLexiconContext } from '../context/Lexicon';
+import { useParrotContext } from '../context/Parrot';
 import Navigation from '../components/Navigation';
 
 const Authenticated: React.FC = () => {
-  const [lexicons] = getLexicons();
-  const { lexicon } = useLexiconContext();
-  const noLexicons = lexicons && lexicons.data.length === 0;
+  const [parrots] = getParrots();
+  const { parrot } = useParrotContext();
+  const noParrots = parrots && parrots.data.length === 0;
 
-  if (noLexicons) return <CreateAParrot />;
-  if (!lexicon) return <PickAParrot />;
+  if (noParrots) return <CreateAParrot />;
+  if (!parrot) return <PickAParrot />;
 
   return (
     <>

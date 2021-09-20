@@ -7,7 +7,7 @@ import {
   SchemaTypes,
 } from 'mongoose';
 
-interface LexiconDocument extends Document {
+interface ParrotDocument extends Document {
   language: {
     name: string;
     htmlCode: string;
@@ -21,7 +21,7 @@ interface LexiconDocument extends Document {
   };
 }
 
-const lexiconSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
+const parrotSchema = new Schema<ParrotDocument, Model<ParrotDocument>>(
   {
     language: {
       name: {
@@ -51,8 +51,8 @@ const lexiconSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
   { timestamps: true }
 );
 
-lexiconSchema.index({ createdBy: 1, language: { name: 1 } }, { unique: true });
+parrotSchema.index({ createdBy: 1, language: { name: 1 } }, { unique: true });
 
-const Lexicon = model<LexiconDocument>('lexicon', lexiconSchema);
+const Parrot = model<ParrotDocument>('parrot', parrotSchema);
 
-export default Lexicon;
+export default Parrot;

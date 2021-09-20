@@ -1,7 +1,7 @@
 import { transport, sendAddress } from './email.config';
 import {
   resetPasswordTemplate,
-  lexiconSharedWithYouTemplate,
+  parrotSharedWithYouTemplate,
 } from './email.templates';
 
 const sendEmail = (
@@ -32,7 +32,7 @@ export const resetPasswordEmail = (
     resetPasswordTemplate(name, link)
   );
 
-export const lexiconSharedWithYou = (
+export const parrotSharedWithYou = (
   recipient: string,
   link: string,
   sender: string,
@@ -40,6 +40,6 @@ export const lexiconSharedWithYou = (
 ): void =>
   sendEmail(
     recipient,
-    `${sender} shared a lexicon with you`,
-    lexiconSharedWithYouTemplate(sender, name, link)
+    `${sender} shared a parrot with you`,
+    parrotSharedWithYouTemplate(sender, name, link)
   );

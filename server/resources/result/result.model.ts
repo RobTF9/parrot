@@ -8,7 +8,7 @@ import {
 } from 'mongoose';
 
 interface ResultDocument extends Document {
-  lexicon: ObjectId;
+  parrot: ObjectId;
   createdBy: ObjectId;
   createdAt: Date;
   game: ObjectId & GameResource;
@@ -33,10 +33,10 @@ const resultSchema = new Schema<ResultDocument, Model<ResultDocument>>(
       required: true,
       ref: 'user',
     },
-    lexicon: {
+    parrot: {
       type: SchemaTypes.ObjectId,
       required: true,
-      ref: 'lexicon',
+      ref: 'parrot',
     },
     game: {
       type: SchemaTypes.ObjectId,

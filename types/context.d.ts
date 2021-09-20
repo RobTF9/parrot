@@ -12,10 +12,10 @@ declare global {
     hideMessage: () => void;
   }
 
-  interface ILexiconContext {
-    lexicon?: LexiconSession;
-    activateLexicon: (l: string) => void;
-    deactivateLexicon: () => void;
+  interface IParrotContext {
+    parrot?: ParrotSession;
+    activateParrot: (l: string) => void;
+    deactivateParrot: () => void;
   }
 
   interface IMessageContext {

@@ -1,7 +1,7 @@
 import { v2 } from '@google-cloud/translate';
 import { Router, RequestHandler } from 'express';
 import config from '../../config';
-import { lexiconActive } from '../auth/auth.middleware';
+import { parrotActive } from '../auth/auth.middleware';
 
 const CREDENTIALS =
   config.transationCreds && JSON.parse(config.transationCreds);
@@ -14,7 +14,7 @@ const translate = new v2.Translate({
 export const translateController: RequestHandler = async (req, res, next) => {
   try {
     const response = await translate.translate([...req.body], {
-      from: req.session.lexicon?.language.htmlCode,
+      from: req.session.parrot?.language.htmlCode,
       to: 'en',
     });
 
@@ -27,7 +27,7 @@ export const translateController: RequestHandler = async (req, res, next) => {
 };
 
 const router = Router();
-router.use(lexiconActive);
+router.use(parrotActive);
 router.route('/').post(translateController);
 
 export default router;

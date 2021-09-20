@@ -8,7 +8,7 @@ import {
 } from 'mongoose';
 
 interface GameDocument extends Document {
-  lexicon: ObjectId;
+  parrot: ObjectId;
   createdBy: ObjectId;
   updatedBy: ObjectId | string;
   name: string;
@@ -35,10 +35,10 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
       required: true,
       ref: 'user',
     },
-    lexicon: {
+    parrot: {
       type: SchemaTypes.ObjectId,
       required: true,
-      ref: 'lexicon',
+      ref: 'parrot',
     },
     mode: {
       type: String,

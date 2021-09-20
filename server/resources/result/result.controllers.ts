@@ -61,7 +61,7 @@ export const newResult: RequestHandler = async (req, res, next) => {
 
     let result = await Result.create({
       game: game._id,
-      lexicon: req.session.lexicon?._id,
+      parrot: req.session.parrot?._id,
       createdBy: req.session.user,
       score: {
         correct: [],

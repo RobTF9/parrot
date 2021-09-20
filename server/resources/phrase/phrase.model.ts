@@ -11,7 +11,7 @@ export interface PhraseDocument extends Document {
   lang: string;
   pron: string;
   tran: string;
-  lexicon: ObjectId;
+  parrot: ObjectId;
   createdBy: ObjectId;
   createdAt: Date;
   updatedBy: ObjectId | string;
@@ -42,10 +42,10 @@ const phraseSchema = new Schema<PhraseDocument, Model<PhraseDocument>>(
       required: true,
       ref: 'user',
     },
-    lexicon: {
+    parrot: {
       type: SchemaTypes.ObjectId,
       required: true,
-      ref: 'lexicon',
+      ref: 'parrot',
     },
     tags: [
       {

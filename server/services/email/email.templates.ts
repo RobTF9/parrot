@@ -4,12 +4,12 @@ export const resetPasswordTemplate = (name: string, link: string): string => `
   <a href="${link}">Reset here</a>
 `;
 
-export const lexiconSharedWithYouTemplate = (
+export const parrotSharedWithYouTemplate = (
   sender: string,
   name: string,
   link: string
 ): string => `
-  <h1>${sender} shared a lexicon with you</h1>
-  <p>Hi ${name}, vist Parrot to view the new lexicon.</p>
+  <h1>${sender} shared a parrot with you</h1>
+  <p>Hi ${name}, vist Parrot to view the new parrot.</p>
   <a href="${link}">Go to Parrot</a>
 `;

@@ -1,65 +1,65 @@
 import React, { useState } from 'react';
 import { Footer, Main, Header, StretchBlock } from '../styles/Layout.styles';
-import { getLexicons, createLexicon } from '../data/lexiconResource';
+import { getParrots, createParrot } from '../data/parrotResource';
 import Parrot from '../components/Parrot';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { useLexiconContext } from '../context/Lexicon';
+import { useParrotContext } from '../context/Parrot';
 import { TouchableOpacity } from '../styles/Interactive.styles';
 import { LANGUAGES } from '../utils/constants';
 
 const CreateAParrot: React.FC = () => {
-  const { activateLexicon } = useLexiconContext();
-  const [lexicons] = getLexicons();
-  const [create, createLoading] = createLexicon(undefined, (res) => {
+  const { activateParrot } = useParrotContext();
+  const [parrots] = getParrots();
+  const [create, createLoading] = createParrot(undefined, (res) => {
     if (res.data) {
-      activateLexicon(res.data._id);
+      activateParrot(res.data._id);
     }
   });
 
-  const [newLexicon, setNewLexicon] = useState<LexiconSubmission>({
+  const [newParrot, setNewParrot] = useState<ParrotSubmission>({
     language: undefined,
     goals: { phrases: 10, games: 1 },
   });
 
-  const setLexiconLanguage = (language: Language) =>
-    setNewLexicon({ ...newLexicon, language });
+  const setParrotLanguage = (language: Language) =>
+    setNewParrot({ ...newParrot, language });
 
   const changeGoals: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    setNewLexicon({
-      ...newLexicon,
-      goals: { ...newLexicon.goals, [event.target.name]: event.target.value },
+    setNewParrot({
+      ...newParrot,
+      goals: { ...newParrot.goals, [event.target.name]: event.target.value },
     });
   };
 
   const onSubmit: React.ChangeEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    create(newLexicon);
+    create(newParrot);
   };
 
   return (
     <Main as="form" onSubmit={onSubmit}>
       <Header>
         <h1 className="xlarge bold">Create a parrot</h1>
-        {!newLexicon.language && (
+        {!newParrot.language && (
           <p className="margin-t">
             What language do you want to teach your parrot? (You can create
             another one later)
           </p>
         )}
       </Header>
-      {!newLexicon.language ? (
-        lexicons && (
+      {!newParrot.language ? (
+        parrots && (
           <StretchBlock columns="1fr 1fr">
             {LANGUAGES.map((language) => {
               if (
-                !lexicons.data.find((l) => l.language.name === language.name)
+                !parrots.data.find((l) => l.language.name === language.name)
               ) {
                 return (
                   <TouchableOpacity
                     key={language.name}
                     type="button"
-                    onClick={() => setLexiconLanguage(language)}
+                    onClick={() => setParrotLanguage(language)}
                   >
                     <Parrot language={language.name} />
                     <p className="medium">{language.name}</p>
@@ -73,7 +73,7 @@ const CreateAParrot: React.FC = () => {
       ) : (
         <>
           <StretchBlock>
-            <Parrot language={newLexicon.language.name} />
+            <Parrot language={newParrot.language.name} />
             <p className="margin-b-l">
               How many phrases are you aiming to teach your parrot everyday?
             </p>
@@ -82,7 +82,7 @@ const CreateAParrot: React.FC = () => {
                 label: 'Phrase goal',
                 name: 'phrases',
                 type: 'number',
-                value: newLexicon.goals.phrases,
+                value: newParrot.goals.phrases,
                 onChange: changeGoals,
               }}
             />
@@ -94,7 +94,7 @@ const CreateAParrot: React.FC = () => {
                 label: 'Game goal',
                 name: 'games',
                 type: 'number',
-                value: newLexicon.goals.games,
+                value: newParrot.goals.games,
                 onChange: changeGoals,
               }}
             />

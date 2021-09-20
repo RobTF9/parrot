@@ -4,9 +4,9 @@ import {
   getShared,
   getYours,
   setActive,
-  shareLexicon,
-  unshareLexicon,
-} from './lexicon.controllers';
+  shareParrot,
+  unshareParrot,
+} from './parrot.controllers';
 
 const router = Router();
 
@@ -14,6 +14,6 @@ router.route('/').post(createOne).get(getYours);
 
 router.route('/shared').get(getShared);
 
-router.route('/:id').get(setActive).put(shareLexicon).patch(unshareLexicon);
+router.route('/:id').get(setActive).put(shareParrot).patch(unshareParrot);
 
 export default router;

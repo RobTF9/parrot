@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Styles from './styles';
 import { AuthProvider } from './context/Auth';
-import { LexiconProvider } from './context/Lexicon';
+import { ParrotProvider } from './context/Parrot';
 import QueryContext from './context/Query';
 import { MessageProvider } from './context/Message';
 import Router from './router';
@@ -15,11 +15,11 @@ const App: React.FC = () => {
       <BrowserRouter>
         <MessageProvider>
           <QueryContext>
-            <LexiconProvider>
+            <ParrotProvider>
               <AuthProvider>
                 <Router />
               </AuthProvider>
-            </LexiconProvider>
+            </ParrotProvider>
           </QueryContext>
         </MessageProvider>
       </BrowserRouter>

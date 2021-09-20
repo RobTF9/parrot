@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { get, post } from '../data/fetch';
-import { useLexiconContext } from './Lexicon';
+import { useParrotContext } from './Parrot';
 import { useMessageContext } from './Message';
 
 const AuthContext = createContext<IAuthContext>({
@@ -19,7 +19,7 @@ export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 export const AuthProvider: React.FC = ({ children }) => {
   const [authLoading, setAuthLoading] = useState(false);
   const { showMessage, hideMessage } = useMessageContext();
-  const { activateLexicon, deactivateLexicon } = useLexiconContext();
+  const { activateParrot, deactivateParrot } = useParrotContext();
   const [authenticated, setAuthenticated] = useState<boolean | undefined>();
 
   const signIn = async (details: Email & Password) => {
@@ -57,7 +57,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signOut = async () => {
     const response = await get<Promise<ServerReponse>>('/auth/signout');
     setAuthenticated(response.auth);
-    deactivateLexicon();
+    deactivateParrot();
   };
 
   const resetPasswordEmail = async (details: Email) => {
@@ -86,7 +86,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const checkAuth = async () => {
     const response = await get<Promise<ServerReponse>>('/auth');
     setAuthenticated(response.auth);
-    if (response.lexicon) activateLexicon(response.lexicon._id);
+    if (response.parrot) activateParrot(response.parrot._id);
   };
 
   useEffect(() => {

@@ -99,11 +99,11 @@ export const checkAuth: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.NOT_AUTHORIZED, auth: false });
     }
 
-    if (req.session.lexicon) {
+    if (req.session.parrot) {
       return res.status(200).json({
         auth: true,
         message: SUCCESS_MESSAGE.AUTHORIZED,
-        lexicon: req.session.lexicon,
+        parrot: req.session.parrot,
       });
     }
 
