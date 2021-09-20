@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Main = styled.main`
   padding: var(--large);
   min-height: 100vh;
-  max-width: 50rem;
+  max-width: 90rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

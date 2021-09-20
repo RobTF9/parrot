@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
 export const NavigationWrapper = styled.nav`
-  max-width: 50rem;
+  max-width: 90rem;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   & > ul {
     display: flex;
-    justify-content: space-between;
     width: 100%;
     padding: var(--medium) var(--large);
+
+    & > li {
+      margin-right: var(--medium);
+    }
 
     & > li > .active {
       color: var(--core-dark);

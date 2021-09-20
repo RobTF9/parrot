@@ -8,7 +8,7 @@ import Loading from '../components/Loading';
 
 const PickAParrot: React.FC = () => {
   const [lexicons, lexiconsLoading] = getLexicons();
-  const { activateLexicon } = useLexiconContext();
+  const { activateLexicon, lexicon } = useLexiconContext();
 
   return (
     <>
@@ -19,16 +19,25 @@ const PickAParrot: React.FC = () => {
         </Header>
         <StretchBlock columns="1fr 1fr">
           {lexicons &&
-            lexicons.data.map(({ _id, language }) => (
-              <TouchableOpacity
-                type="button"
-                key={_id}
-                onClick={() => activateLexicon(_id)}
-              >
-                <Parrot {...{ language: language.name }} />
-                <p className="medium">{language.name}</p>
-              </TouchableOpacity>
-            ))}
+            lexicons.data.map(({ _id, language }) =>
+              lexicon?._id === _id ? (
+                <div>
+                  <Parrot {...{ language: language.name }} />
+                  <p className="medium center">
+                    Teaching: <strong>{language.name}</strong>
+                  </p>
+                </div>
+              ) : (
+                <TouchableOpacity
+                  type="button"
+                  key={_id}
+                  onClick={() => activateLexicon(_id)}
+                >
+                  <Parrot {...{ language: language.name }} />
+                  <p className="medium">{language.name}</p>
+                </TouchableOpacity>
+              )
+            )}
         </StretchBlock>
       </Main>
     </>

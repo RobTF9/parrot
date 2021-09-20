@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from '../Button';
 import { NavigationWrapper } from './Navigation.styles';
 
 interface Props {
@@ -18,6 +19,7 @@ const Navigation: React.FC<Props> = ({ links }) => {
           </li>
         ))}
       </ul>
+      <Button>Logout</Button>
     </NavigationWrapper>
   );
 };
