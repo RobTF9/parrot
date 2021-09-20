@@ -17,8 +17,6 @@ export const getGoalProgress: RequestHandler = async (req, res, next) => {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    console.log(lexicon);
-
     const phraseGoal = lexicon?.goals.words;
     const phrasesAddedToday = await Item.find({ createdAt: { $gte: today } });
 
