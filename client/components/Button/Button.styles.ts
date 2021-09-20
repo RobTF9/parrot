@@ -25,6 +25,7 @@ export const ButtonWrapper = styled.button<{
   line-height: 1;
   position: relative;
   text-decoration: none;
+  width: fit-content;
 
   &:hover,
   &:focus {

@@ -9,7 +9,8 @@ export const ProgressWrapper = styled.div`
       margin-top: var(--small);
     }
 
-    & > button {
+    & > button,
+    & > a {
       margin-top: var(--small);
     }
   }

@@ -17,7 +17,7 @@ const Progress: React.FC<Props> = ({ progress }) => {
         <p className="bold">
           {progress.data.phrases.added} / {progress.data.phrases.goal} added
         </p>
-        <Button>Add a phrase</Button>
+        <Button to="/phrase">Add a phrase</Button>
       </div>
       <div>
         <p className="small">Game goal</p>
