@@ -15,6 +15,8 @@ const Color = createGlobalStyle`
     --core-lightest-10: rgba(239, 252, 255, 0.1);
     --core-white: rgba(255, 255, 255, 1);
 
+    --disabled-light: #D9D9D9;
+    --disabled-dark: #848484;
     --error: #C00;
     --success: #080;
 

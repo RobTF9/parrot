@@ -10,7 +10,10 @@ const Rotation = keyframes`
 	}
 `;
 
-export const ButtonWrapper = styled.button<{ loading?: boolean }>`
+export const ButtonWrapper = styled.button<{
+  loading?: boolean;
+  disabled?: boolean;
+}>`
   background-color: var(--core-mid);
   color: var(--core-white);
   display: flex;
@@ -53,5 +56,14 @@ export const ButtonWrapper = styled.button<{ loading?: boolean }>`
         animation-delay: -0.2s;
         border-color: transparent var(--core-white) transparent transparent;
       }
+    `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: var(--disabled-light);
+      color: var(--disabled-dark);
+      pointer-events: none;
+      font-style: italic;
     `}
 `;

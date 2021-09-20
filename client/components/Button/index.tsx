@@ -7,10 +7,18 @@ interface Props {
   type?: 'button' | 'submit' | 'reset';
   action?: () => void;
   loading?: boolean;
+  disabled?: boolean;
   to?: string;
 }
 
-const Button: React.FC<Props> = ({ children, action, type, loading, to }) => {
+const Button: React.FC<Props> = ({
+  children,
+  action,
+  type,
+  loading,
+  to,
+  disabled,
+}) => {
   if (to) {
     return (
       <ButtonWrapper as={Link} to={to}>
@@ -25,6 +33,7 @@ const Button: React.FC<Props> = ({ children, action, type, loading, to }) => {
         loading,
         type: type || 'button',
         onClick: action,
+        disabled,
       }}
     >
       {children}
