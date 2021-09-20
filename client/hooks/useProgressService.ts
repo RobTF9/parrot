@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { get } from '../data/fetch';
 
 interface UseProgressService {
-  (items?: ItemResource[]): [
+  (phrases?: PhraseResource[]): [
     loadingProgress: boolean,
     progress?: ProgressResponse,
     error?: string
   ];
 }
 
-const useProgressService: UseProgressService = (items) => {
+const useProgressService: UseProgressService = (phrases) => {
   const [progress, setProgress] = useState<ProgressResponse>();
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [error, setError] = useState<string>();
@@ -27,11 +27,11 @@ const useProgressService: UseProgressService = (items) => {
   };
 
   useEffect(() => {
-    if (items) {
+    if (phrases) {
       console.log(progress);
       getProgress();
     }
-  }, [items]);
+  }, [phrases]);
 
   return [loadingProgress, progress, error];
 };

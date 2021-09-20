@@ -28,8 +28,8 @@ export const ERROR_MESSAGE = {
   TAG_EMPTY: errorMessage('You need to provide text for a tag'),
   NO_WORDS: errorMessage('Please provide at least one word'),
   INVALID_MODE: errorMessage('Your game mode is invalid'),
-  NO_ITEM_MATCH: errorMessage('No match, try again!'),
-  DUPLICATE_ITEM: errorMessage("You've already added this phrase"),
+  NO_PHRASE_MATCH: errorMessage('No match, try again!'),
+  DUPLICATE_PHRASE: errorMessage("You've already added this phrase"),
   DUPLICATE_GENERIC: errorMessage('Already exisits'),
   INTERNAL_SERVER: errorMessage('An unknown error occured, please try again'),
 };
@@ -53,15 +53,15 @@ export const SUCCESS_MESSAGE = {
   LEXICON_CREATED: succesMessage('Lexicon created succesfully'),
   USER_UPDATED: succesMessage('Your details have been updated'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
-  ITEM_CREATED: succesMessage('Item created succesfully'),
-  GAME_CREATED: succesMessage('Item created succesfully'),
-  ITEM_UPDATED: succesMessage('Word updated succesfully'),
+  PHRASE_CREATED: succesMessage('Phrase created succesfully'),
+  GAME_CREATED: succesMessage('Phrase created succesfully'),
+  PHRASE_UPDATED: succesMessage('Word updated succesfully'),
   GAME_UPDATED: succesMessage('Game updated succesfully'),
   GAME_RELOADED: succesMessage('Game progress restored'),
   GAME_STARTED: succesMessage('New game started!'),
   GAME_FINISHED: succesMessage('Game finished! Well done'),
-  ITEM_MATCH: succesMessage('Matched, well done!'),
-  ITEM_ALREADY_MATCHED: succesMessage('Already completed!'),
+  PHRASE_MATCH: succesMessage('Matched, well done!'),
+  PHRASE_ALREADY_MATCHED: succesMessage('Already completed!'),
 };
 
 export const GAME_TYPE = {

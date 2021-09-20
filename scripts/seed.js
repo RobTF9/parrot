@@ -21,6 +21,6 @@ function postCollection(collection) {
 postCollection('users');
 postCollection('lexicons');
 postCollection('tags');
-postCollection('item');
+postCollection('phrase');
 postCollection('game');
 postCollection('results');

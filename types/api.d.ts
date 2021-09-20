@@ -25,7 +25,7 @@ declare global {
 
   type ProgressResponse = {
     data: {
-      phrases: {
+      phrase: {
         goal: number;
         added: number;
       };
@@ -57,7 +57,7 @@ declare global {
   }
 
   interface Goals {
-    words: number;
+    phrases: number;
     games: number;
   }
 
@@ -74,12 +74,12 @@ declare global {
     goals: Goals;
   }
 
-  interface ItemSubmission {
+  interface PhraseSubmission {
     lang: string;
     pron: string;
     tran: string;
   }
-  interface ItemResource {
+  interface PhraseResource {
     _id: string;
     lexicon: string;
     createdBy: string;
@@ -113,7 +113,7 @@ declare global {
     name: string;
     mode: string;
     order: string;
-    items: ItemResource[];
+    phrases: PhraseResource[];
   }
 
   interface GameResource {
@@ -124,7 +124,7 @@ declare global {
     createdBy: string;
     updatedBy: string;
     order: string;
-    items: ItemResource[];
+    phrases: PhraseResource[];
     results: ResultResource[];
   }
 
@@ -139,11 +139,11 @@ declare global {
       total: number;
     };
     finished: boolean;
-    items: {
+    phrases: {
       attempts: number;
       correct: boolean;
       skipped: boolean;
-      item: ItemResource;
+      phrase: PhraseResource;
     }[];
   }
 
@@ -154,8 +154,8 @@ declare global {
       total: number;
     };
     finished: boolean;
-    items: Array<
-      ItemResource | { attempts: number; correct: boolean; skipped: boolean }
+    phrases: Array<
+      PhraseResource | { attempts: number; correct: boolean; skipped: boolean }
     >;
   }
 

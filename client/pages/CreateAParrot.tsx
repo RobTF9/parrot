@@ -19,7 +19,7 @@ const CreateAParrot: React.FC = () => {
 
   const [newLexicon, setNewLexicon] = useState<LexiconSubmission>({
     language: undefined,
-    goals: { words: 10, games: 1 },
+    goals: { phrases: 10, games: 1 },
   });
 
   const setLexiconLanguage = (language: Language) =>
@@ -80,9 +80,9 @@ const CreateAParrot: React.FC = () => {
             <Input
               {...{
                 label: 'Phrase goal',
-                name: 'words',
+                name: 'phrases',
                 type: 'number',
-                value: newLexicon.goals.words,
+                value: newLexicon.goals.phrases,
                 onChange: changeGoals,
               }}
             />

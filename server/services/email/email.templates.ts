@@ -10,6 +10,6 @@ export const lexiconSharedWithYouTemplate = (
   link: string
 ): string => `
   <h1>${sender} shared a lexicon with you</h1>
-  <p>Hi ${name}, vist Parrot to view the new lexicon, edit words and sentences, and play games.</p>
+  <p>Hi ${name}, vist Parrot to view the new lexicon.</p>
   <a href="${link}">Go to Parrot</a>
 `;

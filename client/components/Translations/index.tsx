@@ -4,7 +4,7 @@ import { TranslationsWrapper } from './Translations.styles';
 
 interface Props {
   translations: TranslationResponse;
-  setPhrase: (phrase: ItemSubmission) => void;
+  setPhrase: (phrase: PhraseSubmission) => void;
 }
 
 const Translations: React.FC<Props> = ({ translations, setPhrase }) => {

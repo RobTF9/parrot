@@ -16,7 +16,7 @@ interface LexiconDocument extends Document {
   createdBy: ObjectId;
   sharedWith: ObjectId[];
   goals: {
-    words: number;
+    phrase: number;
     games: number;
   };
 }
@@ -43,7 +43,7 @@ const lexiconSchema = new Schema<LexiconDocument, Model<LexiconDocument>>(
       ref: 'user',
     },
     goals: {
-      words: Number,
+      phrase: Number,
       games: Number,
     },
     sharedWith: [{ type: SchemaTypes.ObjectId, ref: 'user' }],

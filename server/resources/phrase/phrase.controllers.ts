@@ -1,16 +1,16 @@
 import { RequestHandler } from 'express';
 import { SUCCESS_MESSAGE, ERROR_MESSAGE } from '../../utils/constants';
-import Item from './item.model';
+import Phrase from './phrase.model';
 
-export const createItem: RequestHandler = async (req, res, next) => {
+export const createPhrase: RequestHandler = async (req, res, next) => {
   try {
-    const alreadyCreated = await Item.findOne({ lang: req.body.lang });
+    const alreadyCreated = await Phrase.findOne({ lang: req.body.lang });
 
     if (alreadyCreated) {
-      return res.status(400).json({ message: ERROR_MESSAGE.DUPLICATE_ITEM });
+      return res.status(400).json({ message: ERROR_MESSAGE.DUPLICATE_PHRASE });
     }
 
-    const item = await Item.create({
+    const phrase = await Phrase.create({
       ...req.body,
       createdBy: req.session.user,
       updatedBy: req.session.user,
@@ -19,7 +19,7 @@ export const createItem: RequestHandler = async (req, res, next) => {
 
     return res
       .status(200)
-      .json({ message: SUCCESS_MESSAGE.ITEM_CREATED, data: item });
+      .json({ message: SUCCESS_MESSAGE.PHRASE_CREATED, data: phrase });
   } catch (error) {
     return next(error);
   }
@@ -27,13 +27,13 @@ export const createItem: RequestHandler = async (req, res, next) => {
 
 export const updateOne: RequestHandler = async (req, res, next) => {
   try {
-    const item = await Item.findOneAndUpdate(
+    const phrase = await Phrase.findOneAndUpdate(
       { _id: req.params.id },
       { ...req.body, updatedAt: undefined, updatedBy: req.session.user },
       { new: true }
     );
 
-    if (!item) {
+    if (!phrase) {
       return res
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
@@ -41,7 +41,7 @@ export const updateOne: RequestHandler = async (req, res, next) => {
 
     return res
       .status(200)
-      .json({ data: item, message: SUCCESS_MESSAGE.ITEM_UPDATED });
+      .json({ data: phrase, message: SUCCESS_MESSAGE.PHRASE_UPDATED });
   } catch (error) {
     return next(error);
   }
@@ -49,7 +49,7 @@ export const updateOne: RequestHandler = async (req, res, next) => {
 
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
-    const items = await Item.find({
+    const phrases = await Phrase.find({
       lexicon: req.session.lexicon?._id,
     })
       .populate({ path: 'updatedBy', select: 'username' })
@@ -57,7 +57,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    return res.status(200).json({ data: items });
+    return res.status(200).json({ data: phrases });
   } catch (error) {
     return next(error);
   }
@@ -65,15 +65,15 @@ export const getMany: RequestHandler = async (req, res, next) => {
 
 export const getOne: RequestHandler = async (req, res, next) => {
   try {
-    const item = await Item.findById(req.params.id).lean().exec();
+    const phrase = await Phrase.findById(req.params.id).lean().exec();
 
-    if (!item) {
+    if (!phrase) {
       return res
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    return res.status(200).json({ data: item });
+    return res.status(200).json({ data: phrase });
   } catch (error) {
     return next(error);
   }

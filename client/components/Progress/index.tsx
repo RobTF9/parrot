@@ -7,15 +7,16 @@ interface Props {
 }
 
 const Progress: React.FC<Props> = ({ progress }) => {
+  console.log(progress);
   const dailyPhraseGoalNotCompleted =
-    progress.data.phrases.added < progress.data.phrases.goal;
+    progress.data.phrase.added < progress.data.phrase.goal;
 
   return (
     <ProgressWrapper>
       <div>
         <p className="small">Phrase goal</p>
         <p className="bold">
-          {progress.data.phrases.added} / {progress.data.phrases.goal} added
+          {progress.data.phrase.added} / {progress.data.phrase.goal} added
         </p>
         <Button to="/phrase">Add a phrase</Button>
       </div>

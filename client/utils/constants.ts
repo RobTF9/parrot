@@ -1,14 +1,12 @@
 export const CACHE = {
   USER: 'user',
   LEXICON: 'lexicon',
-  WORD: 'word',
   SHARED_LEXICON: 'share-lexicon',
   TAG: 'tag',
-  SENTENCE: 'sentence',
   NOTIFICATION: 'notification',
   NOTIFICATION_READ: 'notification/read',
   GAME: 'game',
-  ITEM: 'cache',
+  PHRASE: 'phrase',
   RESULT: 'result',
 };
 

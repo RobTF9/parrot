@@ -15,7 +15,7 @@ interface GameDocument extends Document {
   mode: string;
   type: string;
   order: string;
-  items: ObjectId[];
+  phrases: ObjectId[];
   results: Array<ObjectId & ResultResource>;
 }
 
@@ -48,8 +48,8 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
       type: String,
       required: true,
     },
-    items: {
-      type: [{ type: SchemaTypes.ObjectId, ref: 'item', required: true }],
+    phrases: {
+      type: [{ type: SchemaTypes.ObjectId, ref: 'phrase', required: true }],
       required: true,
     },
     results: [

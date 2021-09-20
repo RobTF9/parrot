@@ -17,9 +17,9 @@ interface ResultDocument extends Document {
     total: number;
   };
   finished: boolean;
-  items: {
+  phrases: {
     _id: ObjectId;
-    item: ObjectId;
+    phrase: ObjectId;
     attempts: number;
     correct: boolean;
     skipped: boolean;
@@ -44,7 +44,7 @@ const resultSchema = new Schema<ResultDocument, Model<ResultDocument>>(
       ref: 'game',
     },
     score: {
-      correct: [{ type: SchemaTypes.ObjectId, required: true, ref: 'item' }],
+      correct: [{ type: SchemaTypes.ObjectId, required: true, ref: 'phrase' }],
       total: {
         type: Number,
         required: true,
@@ -55,12 +55,12 @@ const resultSchema = new Schema<ResultDocument, Model<ResultDocument>>(
       required: true,
       default: false,
     },
-    items: [
+    phrases: [
       {
-        item: {
+        phrase: {
           type: SchemaTypes.ObjectId,
           required: true,
-          ref: 'item',
+          ref: 'phrase',
         },
         attempts: {
           type: Number,

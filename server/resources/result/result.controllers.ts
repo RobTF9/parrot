@@ -19,7 +19,7 @@ export const updateResult: RequestHandler = async (req, res, next) => {
       { new: true }
     )
       .populate({ path: 'game' })
-      .populate({ path: 'items', populate: { path: 'item' } })
+      .populate({ path: 'phrases', populate: { path: 'phrase' } })
       .exec();
 
     if (!result) {
@@ -29,7 +29,7 @@ export const updateResult: RequestHandler = async (req, res, next) => {
     }
 
     if (
-      result.items.filter(({ correct, skipped }) => correct || skipped)
+      result.phrases.filter(({ correct, skipped }) => correct || skipped)
         .length === result.score.total
     ) {
       result.finished = true;
@@ -52,8 +52,8 @@ export const newResult: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    const items = game.items.map((item) => ({
-      item,
+    const phrases = game.phrases.map((phrase) => ({
+      phrase,
       correct: false,
       skipped: false,
       attempts: false,
@@ -65,15 +65,15 @@ export const newResult: RequestHandler = async (req, res, next) => {
       createdBy: req.session.user,
       score: {
         correct: [],
-        total: game.items.length,
+        total: game.phrases.length,
       },
       finished: false,
-      items: game.order === GAME_ORDER.RANDOM ? shuffle(items) : items,
+      phrases: game.order === GAME_ORDER.RANDOM ? shuffle(phrases) : phrases,
     });
 
     result = await result
       .populate({ path: 'game' })
-      .populate({ path: 'items', populate: { path: 'item' } })
+      .populate({ path: 'phrases', populate: { path: 'phrase' } })
       .execPopulate();
 
     await Game.findByIdAndUpdate(req.body.game, {
@@ -92,7 +92,7 @@ export const getResult: RequestHandler = async (req, res, next) => {
   try {
     const result = await Result.findById(req.params.id)
       .populate({ path: 'game' })
-      .populate({ path: 'items', populate: { path: 'item' } })
+      .populate({ path: 'phrases', populate: { path: 'phrase' } })
       .exec();
 
     if (!result) {

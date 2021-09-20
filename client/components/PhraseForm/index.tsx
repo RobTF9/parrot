@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import validateItem from '../../utils/itemValidator';
+import validatePhrase from '../../utils/phraseValidator';
 import Button from '../Button';
 import Input from '../Input';
 import { PhraseFormWrapper, Actions } from './PhraseForm.styles';
 
 interface Props {
-  phrase: ItemSubmission;
-  setPhrase: (phrase: ItemSubmission) => void;
-  mutate: (item: ItemSubmission) => void;
+  phrase: PhraseSubmission;
+  setPhrase: (phrase: PhraseSubmission) => void;
+  mutate: (phrase: PhraseSubmission) => void;
   loading: boolean;
   language: string;
   reset: () => void;
 }
 
-interface ItemFormErrors {
+interface PhraseFormErrors {
   lang?: string;
   pron?: string;
   tran?: string;
@@ -27,7 +27,7 @@ const PhraseForm: React.FC<Props> = ({
   language,
   reset,
 }) => {
-  const [errors, setErrors] = useState<ItemFormErrors>({});
+  const [errors, setErrors] = useState<PhraseFormErrors>({});
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setPhrase({ ...phrase, [event.target.name]: event.target.value });
@@ -36,7 +36,7 @@ const PhraseForm: React.FC<Props> = ({
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    const validatorErrors = validateItem(phrase);
+    const validatorErrors = validatePhrase(phrase);
     if (Object.keys(validatorErrors).length > 0) {
       setErrors(validatorErrors);
     } else {

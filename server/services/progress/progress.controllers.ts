@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import Lexicon from '../../resources/lexicon/lexicon.model';
 import { ERROR_MESSAGE } from '../../utils/constants';
-import Item from '../../resources/item/item.model';
+import Phrase from '../../resources/phrase/phrase.model';
 import Result from '../../resources/result/result.model';
 
 export const getGoalProgress: RequestHandler = async (req, res, next) => {
@@ -17,8 +17,8 @@ export const getGoalProgress: RequestHandler = async (req, res, next) => {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    const phraseGoal = lexicon?.goals.words;
-    const phrasesAddedToday = await Item.find({ createdAt: { $gte: today } });
+    const phraseGoal = lexicon?.goals.phrase;
+    const phrasesAddedToday = await Phrase.find({ createdAt: { $gte: today } });
 
     const gameGoal = lexicon?.goals.games;
     const gamesFinishedToday = await Result.find({
@@ -28,7 +28,7 @@ export const getGoalProgress: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({
       data: {
-        phrases: {
+        phrase: {
           goal: phraseGoal,
           added: phrasesAddedToday.length,
         },

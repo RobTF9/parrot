@@ -14,13 +14,13 @@ import {
 import Microphone from '../components/Microphone';
 import Translations from '../components/Translations';
 import PhraseForm from '../components/PhraseForm';
-import { createItem } from '../data/itemResource';
+import { createPhrase } from '../data/phraseResource';
 
 const AddAPhrase: React.FC = () => {
   const { push } = useHistory();
 
   const { lexicon } = useLexiconContext();
-  const [phrase, setPhrase] = useState<ItemSubmission | undefined>(undefined);
+  const [phrase, setPhrase] = useState<PhraseSubmission | undefined>(undefined);
   const [parrotSpeaking, setParrotSpeaking] = useState<boolean>(false);
 
   const [
@@ -31,7 +31,7 @@ const AddAPhrase: React.FC = () => {
     error,
   ] = useTranslateService(lexicon);
 
-  const [mutate, isLoading] = createItem(undefined, (res) => {
+  const [mutate, isLoading] = createPhrase(undefined, (res) => {
     if (res.data) {
       setParrotSpeaking(true);
     }

@@ -1,5 +1,5 @@
-function validateItem(
-  word: ItemSubmission
+function validatePhrase(
+  word: PhraseSubmission
 ): { lang?: string; pron?: string; tran?: string } {
   let errors = {};
 
@@ -20,4 +20,4 @@ function validateItem(
   return errors;
 }
 
-export default validateItem;
+export default validatePhrase;

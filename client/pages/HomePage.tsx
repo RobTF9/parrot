@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { useLexiconContext } from '../context/Lexicon';
-import { getItems } from '../data/itemResource';
+import { getPhrases } from '../data/phraseResource';
 import { Block, Main, UpperBlock } from '../styles/Layout.styles';
 import Parrot from '../components/Parrot';
 import { getUser } from '../data/userResource';
@@ -11,7 +11,7 @@ import Progress from '../components/Progress';
 
 const HomePage: React.FC = () => {
   const { lexicon } = useLexiconContext();
-  const [phrases, phrasesLoading] = getItems();
+  const [phrases, phrasesLoading] = getPhrases();
   const [user, userLoading] = getUser();
   const [loadingProgress, progress] = useProgressService(phrases?.data);
 

@@ -7,7 +7,7 @@ import {
   SchemaTypes,
 } from 'mongoose';
 
-export interface ItemDocument extends Document {
+export interface PhraseDocument extends Document {
   lang: string;
   pron: string;
   tran: string;
@@ -18,7 +18,7 @@ export interface ItemDocument extends Document {
   tags: ObjectId[];
 }
 
-const itemSchema = new Schema<ItemDocument, Model<ItemDocument>>(
+const phraseSchema = new Schema<PhraseDocument, Model<PhraseDocument>>(
   {
     lang: {
       type: String,
@@ -54,11 +54,11 @@ const itemSchema = new Schema<ItemDocument, Model<ItemDocument>>(
       },
     ],
   },
-  { timestamps: true, discriminatorKey: 'type', collection: 'item' }
+  { timestamps: true, discriminatorKey: 'type', collection: 'phrase' }
 );
 
-itemSchema.index({ createdBy: 1, lang: 1 }, { unique: true });
+phraseSchema.index({ createdBy: 1, lang: 1 }, { unique: true });
 
-const Item = model<ItemDocument>('item', itemSchema);
+const Phrase = model<PhraseDocument>('phrase', phraseSchema);
 
-export default Item;
+export default Phrase;
