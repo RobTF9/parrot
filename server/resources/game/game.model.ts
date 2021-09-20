@@ -11,20 +11,12 @@ interface GameDocument extends Document {
   parrot: ObjectId;
   createdBy: ObjectId;
   updatedBy: ObjectId | string;
-  name: string;
-  mode: string;
-  type: string;
-  order: string;
   phrases: ObjectId[];
   results: Array<ObjectId & ResultResource>;
 }
 
 const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
   {
-    name: {
-      type: String,
-      required: true,
-    },
     createdBy: {
       type: SchemaTypes.ObjectId,
       required: true,
@@ -39,14 +31,6 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
       type: SchemaTypes.ObjectId,
       required: true,
       ref: 'parrot',
-    },
-    mode: {
-      type: String,
-      required: true,
-    },
-    order: {
-      type: String,
-      required: true,
     },
     phrases: {
       type: [{ type: SchemaTypes.ObjectId, ref: 'phrase', required: true }],

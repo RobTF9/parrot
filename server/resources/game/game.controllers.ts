@@ -2,15 +2,22 @@ import { RequestHandler } from 'express';
 import Game from './game.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import Result from '../result/result.model';
+import Phrase from '../phrase/phrase.model';
+import shuffle from '../../utils/shuffle';
 
 export const createGame: RequestHandler = async (req, res, next) => {
   try {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const gamePhrases = await Phrase.find({ createdAt: { $gte: today } });
+
     const game = await Game.create({
-      ...req.body,
+      phrases: shuffle(gamePhrases),
       createdBy: req.session.user,
       updatedBy: req.session.user,
       parrot: req.session.parrot?._id,
     });
+
     return res
       .status(201)
       .json({ message: SUCCESS_MESSAGE.GAME_CREATED, data: game });
