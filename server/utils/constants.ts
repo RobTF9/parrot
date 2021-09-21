@@ -32,6 +32,9 @@ export const ERROR_MESSAGE = {
   DUPLICATE_PHRASE: errorMessage("You've already added this phrase"),
   DUPLICATE_GENERIC: errorMessage('Already exisits'),
   INTERNAL_SERVER: errorMessage('An unknown error occured, please try again'),
+  PHRASE_GOAL_NOT_REACHED: errorMessage(
+    'You need to reach your daily phrase goal before playing a game'
+  ),
 };
 
 const succesMessage = (message: string) => ({

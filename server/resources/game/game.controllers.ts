@@ -4,12 +4,20 @@ import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import Result from '../result/result.model';
 import Phrase from '../phrase/phrase.model';
 import shuffle from '../../utils/shuffle';
+import Parrot from '../parrot/parrot.model';
 
 export const createGame: RequestHandler = async (req, res, next) => {
   try {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const gamePhrases = await Phrase.find({ createdAt: { $gte: today } });
+    const parrot = await Parrot.findById(req.session.parrot?._id);
+
+    if (parrot && parrot.goals && gamePhrases.length < parrot.goals.phrase) {
+      return res
+        .status(401)
+        .json({ message: ERROR_MESSAGE.PHRASE_GOAL_NOT_REACHED });
+    }
 
     const game = await Game.create({
       phrases: shuffle(gamePhrases),
