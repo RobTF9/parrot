@@ -6,8 +6,10 @@ const router = Router();
 
 router.use(parrotActive);
 
+router.route('/create').get(createGame);
+
 router.route('/:id').get(getOne).put(updateOne);
 
-router.route('/').post(createGame).get(getMany);
+router.route('/').get(getMany);
 
 export default router;
