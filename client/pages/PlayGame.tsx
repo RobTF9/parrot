@@ -1,12 +1,11 @@
 import React from 'react';
+import { getGame } from '../data/gameResource';
 import { Main } from '../styles/Layout.styles';
 
 const PlayGame: React.FC = () => {
-  return (
-    <Main>
-      <h1>Play a game</h1>
-    </Main>
-  );
+  const [game, isLoading] = getGame();
+
+  return <Main>{game && <p>{game.data.phrases[0].lang}</p>}</Main>;
 };
 
 export default PlayGame;
