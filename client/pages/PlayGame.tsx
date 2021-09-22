@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from '../components/Button';
 import Listener from '../components/Listener';
 import Loading from '../components/Loading';
@@ -27,16 +27,6 @@ const PlayGame: React.FC = () => {
 
   const [progressIndex, setProgressIndex] = useState(0);
 
-  useEffect(() => {
-    if (progress) {
-      progress.forEach((phrase) => {
-        if (phrase.attempted) {
-          setProgressIndex(progressIndex + 1);
-        }
-      });
-    }
-  }, [progress]);
-
   const phraseCorrect = (lang: string): void => {
     if (progress) {
       const newArray = [...progress];
@@ -51,6 +41,7 @@ const PlayGame: React.FC = () => {
       };
 
       setProgress(newArray);
+      setProgressIndex(progressIndex + 1);
     }
   };
 
@@ -67,6 +58,7 @@ const PlayGame: React.FC = () => {
       };
 
       setProgress(newArray);
+      setProgressIndex(progressIndex + 1);
     }
   };
 

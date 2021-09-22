@@ -1,4 +1,6 @@
 import React from 'react';
+import useGameSpeech from '../../hooks/useGameSpeech';
+import Microphone from '../Microphone';
 import { ListenerWrapper } from './Listener.styles';
 
 interface ProgressPhrase extends PhraseResource {
@@ -17,6 +19,14 @@ const Listener: React.FC<Props> = ({
   phraseCorrect,
   phraseIncorrect,
 }) => {
+  const { listening } = useGameSpeech(phrase.lang, (correct?: boolean) => {
+    if (correct) {
+      phraseCorrect(phrase.lang);
+    } else {
+      phraseIncorrect(phrase.lang);
+    }
+  });
+
   return (
     <ListenerWrapper>
       <p>Can you say {phrase.lang}</p>
@@ -26,6 +36,7 @@ const Listener: React.FC<Props> = ({
       <button type="button" onClick={() => phraseIncorrect(phrase.lang)}>
         Incorrect
       </button>
+      <Microphone {...{ listening }} />
     </ListenerWrapper>
   );
 };
