@@ -111,6 +111,7 @@ declare global {
 
   interface GameSubmission {
     phrases: PhraseResource[];
+    results: Result[];
   }
 
   interface GameResource {
