@@ -1,0 +1,6213 @@
+[
+  {
+    "_id": {
+      "$oid": "60185a919c3dd10015848927"
+    },
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "type": "sentence",
+    "lang": "পাশেই পাশেই পাশেই পাশেই",
+    "pron": "Pashei Pashei Pashei Pashei",
+    "tran": "Next to Next to Next to Next to",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:46:25.778Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:46:25.778Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185a919c3dd10015848038"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পাশেই",
+    "pron": "Pashei",
+    "tran": "Next to",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:46:25.778Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:46:25.778Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d7fa7fba10015c88c14"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "লাল",
+    "pron": "Laal",
+    "tran": "Red",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:58:55.927Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:58:55.927Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d89a7fba10015c88c15"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কালো",
+    "pron": "Kalo",
+    "tran": "Black",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:05.693Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:05.693Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d90a7fba10015c88c16"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "হলুদ",
+    "pron": "Holud",
+    "tran": "Yellow",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:12.712Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:12.712Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d96a7fba10015c88c17"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সবুজ",
+    "pron": "Shobuj",
+    "tran": "Green",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:18.649Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:18.649Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d9ca7fba10015c88c18"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "নীল",
+    "pron": "Neel",
+    "tran": "Blue",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:24.642Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:24.642Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185da3a7fba10015c88c19"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সাদা",
+    "pron": "Shada",
+    "tran": "White",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:31.862Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:31.862Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185daca7fba10015c88c1a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "প্রিয়",
+    "pron": "Priyo",
+    "tran": "Favourite",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:40.359Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:40.359Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185db4a7fba10015c88c1b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "গরম",
+    "pron": "Gorom",
+    "tran": "Hot",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:48.142Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:48.142Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185dbca7fba10015c88c1c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ঠান্ডা",
+    "pron": "Thanda",
+    "tran": "Cold",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T19:59:56.11Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T19:59:56.11Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185dc2a7fba10015c88c1d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "রোদ",
+    "pron": "Rodh",
+    "tran": "Sunny",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:02.836Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:02.836Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185dc9a7fba10015c88c1e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বাতাস",
+    "pron": "Batash",
+    "tran": "Windy",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:09.516Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:09.516Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185dcfa7fba10015c88c1f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বৃষ্টি",
+    "pron": "Brishti",
+    "tran": "Raining",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:15.827Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:15.827Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185dd6a7fba10015c88c20"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মেঘলা",
+    "pron": "Meglha",
+    "tran": "Cloudy",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:22.3Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:22.3Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185ddea7fba10015c88c21"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সেঁতসেঁতে",
+    "pron": "Shetshyate",
+    "tran": "Humid",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:30.175Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:30.175Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185de5a7fba10015c88c22"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ঘাম",
+    "pron": "Gham",
+    "tran": "Sweaty",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:37.457Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:37.457Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185deba7fba10015c88c23"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "হইতাছে",
+    "pron": "Portase",
+    "tran": "Falling",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:43.308Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:43.308Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185df3a7fba10015c88c24"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পড়তাছে",
+    "pron": "Hoitase",
+    "tran": "Happening",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:51.226Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:51.226Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185dfba7fba10015c88c25"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "অল্প",
+    "pron": "Olpo",
+    "tran": "A little",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:00:59.475Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:00:59.475Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185e03a7fba10015c88c26"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "হালকা",
+    "pron": "Halka",
+    "tran": "Light (weather)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:01:07.231Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:01:07.231Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185e09a7fba10015c88c27"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "রান্না",
+    "pron": "Ranna",
+    "tran": "Cooking",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:01:13.53Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:01:13.53Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185e11a7fba10015c88c28"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পড়াশোনা",
+    "pron": "Porashona",
+    "tran": "Studying",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:01:21.012Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:01:21.012Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185e16a7fba10015c88c29"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ভালো",
+    "pron": "Bhalo",
+    "tran": "Good",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-01T20:01:26.444Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-01T20:01:26.444Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019547d1036b900154d39d3"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কেমন",
+    "pron": "Kemon",
+    "tran": "How",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:32:45.851Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:32:45.851Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954881036b900154d39d4"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কোথায়",
+    "pron": "Kothaye",
+    "tran": "Where",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:32:56.454Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:32:56.454Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954921036b900154d39d5"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কই",
+    "pron": "Koi",
+    "tran": "Where (Dialects)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:33:06.997Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:33:06.997Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954a81036b900154d39d6"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কতদূর",
+    "pron": "Kotodur",
+    "tran": "How far",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:33:28.195Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:33:28.195Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954b01036b900154d39d7"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বেশি",
+    "pron": "Besi",
+    "tran": "Too",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:33:36.727Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:33:36.727Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954be1036b900154d39d8"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "দূরে",
+    "pron": "Dure",
+    "tran": "Far",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:33:50.386Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:33:50.386Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954c61036b900154d39d9"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "নয়",
+    "pron": "Noe",
+    "tran": "Not",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:33:58.568Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:33:58.568Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954d11036b900154d39da"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কাছে",
+    "pron": "Kasei",
+    "tran": "Near",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:34:09.067Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:34:09.067Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954d91036b900154d39db"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "অনেক",
+    "pron": "Onek",
+    "tran": "Very",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:34:17.033Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:34:17.033Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954e21036b900154d39dc"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সব",
+    "pron": "Shob",
+    "tran": "All",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:34:26.206Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:34:26.206Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954eb1036b900154d39dd"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আজ",
+    "pron": "Aj",
+    "tran": "Today",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:34:35.616Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:34:35.616Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954f41036b900154d39de"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আসছে",
+    "pron": "Ase",
+    "tran": "It's there",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:34:44.584Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:34:44.584Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601954fd1036b900154d39df"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মাঝে মাঝে",
+    "pron": "Majhe majhe",
+    "tran": "Sometimes",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:34:53.904Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:34:53.904Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955081036b900154d39e0"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "একসাথে",
+    "pron": "Ekshate",
+    "tran": "Together",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:04.791Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:04.791Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955121036b900154d39e1"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কেন",
+    "pron": "Keno",
+    "tran": "Why",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:14.416Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:14.416Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019551b1036b900154d39e2"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "এখানে",
+    "pron": "Ekhane",
+    "tran": "Here",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:23.709Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:23.709Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955231036b900154d39e3"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পছন্দ",
+    "pron": "Pochondo",
+    "tran": "Like",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:31.493Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:31.493Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019552a1036b900154d39e4"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কাল",
+    "pron": "Kal",
+    "tran": "Tomorrow-or-yesterday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:38.984Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:38.984Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955341036b900154d39e5"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "একরকম",
+    "pron": "Ekirokom",
+    "tran": "Same",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:48.148Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:48.148Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019553f1036b900154d39e6"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "এখন",
+    "pron": "Ekhon",
+    "tran": "Now",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:35:59.585Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:35:59.585Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955481036b900154d39e7"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বাইরের",
+    "pron": "Baire",
+    "tran": "Outside",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:36:08.031Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:36:08.031Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955501036b900154d39e8"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সারাদিন",
+    "pron": "Sharadin",
+    "tran": "All day",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:36:16.492Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:36:16.492Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955aa1036b900154d39e9"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb007"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আর",
+    "pron": "Ar",
+    "tran": "And",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:37:46.293Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:37:46.293Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955b51036b900154d39ea"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb007"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কিন্তু",
+    "pron": "Kintu",
+    "tran": "But",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:37:57.341Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:37:57.341Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955c11036b900154d39eb"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb007"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কারণ",
+    "pron": "Karoon",
+    "tran": "Because",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:38:09.484Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:38:09.484Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601955cc1036b900154d39ec"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb007"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কখন",
+    "pron": "Kokhon",
+    "tran": "When",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:38:20.085Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:38:20.085Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019562f1036b900154d39ed"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb006"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কোনটা",
+    "pron": "Konta",
+    "tran": "Which one",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:39:59.73Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T09:29:35.266Z"
+    },
+    "__v": 0,
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "601956391036b900154d39ee"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb006"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কোবে",
+    "pron": "Kobe",
+    "tran": "Which day",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:40:09.687Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:40:09.687Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601956801036b900154d39ef"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb005"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সালামুআলাইকুম",
+    "pron": "Salam-walekum",
+    "tran": "Hello (Muslim)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:41:20.913Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:41:20.913Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019570e1036b900154d39f1"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "থেকে",
+    "pron": "Theke",
+    "tran": "From",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:43:42.518Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:43:42.518Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601957191036b900154d39f2"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পৌনে",
+    "pron": "Poune",
+    "tran": "Quarter to",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:43:53.292Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:43:53.292Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601957221036b900154d39f3"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সোয়া।",
+    "pron": "Showa",
+    "tran": "Quater past",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:44:02.738Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:44:02.738Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019572b1036b900154d39f4"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সাড়ে",
+    "pron": "Shaarde",
+    "tran": "Half past",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:44:11.877Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:44:11.877Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601957491036b900154d39f5"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আমার",
+    "pron": "Amar",
+    "tran": "My",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:44:41.232Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:45:25.487Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019578d1036b900154d39f6"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আমি",
+    "pron": "Ami",
+    "tran": "I",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:45:49.907Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:45:49.907Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601957961036b900154d39f7"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "তুমি",
+    "pron": "Tumi",
+    "tran": "You",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:45:58.771Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:45:58.771Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019579f1036b900154d39f8"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "তোমার",
+    "pron": "Tumar",
+    "tran": "Your",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:46:07.108Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:46:07.108Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601957a81036b900154d39f9"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আপনি",
+    "pron": "Apni",
+    "tran": "You (Formal)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:46:16.462Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:46:16.462Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601957b21036b900154d39fa"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আপনার",
+    "pron": "Apnar",
+    "tran": "Your (Formal)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:46:26.372Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:46:26.372Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958841036b900154d39fb"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "লাগে",
+    "pron": "Lage",
+    "tran": "Takes",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:49:56.37Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:49:56.37Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019588e1036b900154d39fc"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "যাও",
+    "pron": "Jao",
+    "tran": "I go",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:06.831Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:06.831Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958971036b900154d39fd"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ওঠা",
+    "pron": "Utha",
+    "tran": "To rise",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:15.266Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:15.266Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019589e1036b900154d39fe"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "থাকি",
+    "pron": "Thaki",
+    "tran": "Live",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:22.764Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:22.764Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958a71036b900154d39ff"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "খেলতে",
+    "pron": "Khelte",
+    "tran": "To play",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:31.011Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:31.011Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958af1036b900154d3a00"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "দেখতে",
+    "pron": "Dehkte",
+    "tran": "To watch",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:39.817Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:39.817Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958b81036b900154d3a01"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কর",
+    "pron": "Kor",
+    "tran": "To do",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:48.264Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:48.264Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958bf1036b900154d3a02"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "হাটতে",
+    "pron": "Hatle",
+    "tran": "To walk",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:50:55.744Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:50:55.744Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958c81036b900154d3a03"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ভালোবাসি",
+    "pron": "Bhalobashi",
+    "tran": "I love",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:51:04.027Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:51:04.027Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958d01036b900154d3a04"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পড়া",
+    "pron": "Pora",
+    "tran": "To fall",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:51:12.146Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:51:12.146Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958e51036b900154d3a05"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "উঠে",
+    "pron": "Uthi",
+    "tran": "Get up",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:51:33.036Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:51:33.036Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601958ed1036b900154d3a06"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "শুরু",
+    "pron": "Shuru",
+    "tran": "Start",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:51:41.393Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:51:41.393Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959301036b900154d3a07"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ঘন্টা",
+    "pron": "Ghonta",
+    "tran": "Hour",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:52:48.207Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:52:48.207Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959371036b900154d3a08"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মিনিট",
+    "pron": "Minute",
+    "tran": "Minute",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:52:55.906Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:52:55.906Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019593f1036b900154d3a09"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সেকেন্ড",
+    "pron": "Second",
+    "tran": "Second",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:53:03.668Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:53:03.668Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959481036b900154d3a0a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আধ",
+    "pron": "Adh",
+    "tran": "Half",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:53:12.076Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:53:12.076Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959921036b900154d3a0b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "রাস্তা",
+    "pron": "Rasta",
+    "tran": "Road",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:54:26.759Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:54:26.759Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6019599f1036b900154d3a0d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "পাশ",
+    "pron": "Pash",
+    "tran": "Side",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:54:39.085Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:54:39.085Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959a81036b900154d3a0e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বাসা",
+    "pron": "Basha",
+    "tran": "Home",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:54:48.329Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:54:48.329Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959b11036b900154d3a0f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বাড়ি",
+    "pron": "Bari",
+    "tran": "House",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:54:57.907Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:54:57.907Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959c51036b900154d3a10"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "খেলার মাঠ",
+    "pron": "Khelar math",
+    "tran": "Sports ground",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:55:17.528Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:55:17.528Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959d11036b900154d3a11"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কাজ",
+    "pron": "Kaj",
+    "tran": "Work",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:55:29.779Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:55:29.779Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959da1036b900154d3a12"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "চাচা",
+    "pron": "Chacha",
+    "tran": "Uncle (Old man)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:55:38.031Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:55:38.031Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959e21036b900154d3a13"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মামা",
+    "pron": "Mama",
+    "tran": "Uncle (Middle aged or same age)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:55:46.787Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:55:46.787Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959ea1036b900154d3a14"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ভাইয়া",
+    "pron": "Bhaiya",
+    "tran": "Male (Respectful greeting)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:55:54.005Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:55:54.005Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959f21036b900154d3a15"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আপা",
+    "pron": "Apa",
+    "tran": "Woman (Respectful greeting)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:02.125Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:02.125Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "601959fb1036b900154d3a16"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "খালা",
+    "pron": "Khala",
+    "tran": "Older woman (Respectful greeting)",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:11.701Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:11.701Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a051036b900154d3a17"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সোমবার",
+    "pron": "Shombar",
+    "tran": "Monday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:21.544Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:21.544Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a0e1036b900154d3a18"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মঙ্গলবার",
+    "pron": "Mongolbar",
+    "tran": "Tuesday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:30.818Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:30.818Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a171036b900154d3a19"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বুধবার",
+    "pron": "Budhbar",
+    "tran": "Wednesday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:39.921Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:39.921Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a231036b900154d3a1a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বৃহস্পতিবার",
+    "pron": "Brihoshpotibar",
+    "tran": "Thursday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:51.52Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:51.52Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a2b1036b900154d3a1b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "শুক্রবার",
+    "pron": "Shukrobar",
+    "tran": "Friday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:56:59.859Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:56:59.859Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a341036b900154d3a1c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "শনিবার",
+    "pron": "Shonibar",
+    "tran": "Saturday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:08.146Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:08.146Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a3b1036b900154d3a1d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "রবিবার",
+    "pron": "Robibar",
+    "tran": "Sunday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:15.797Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:15.797Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a431036b900154d3a1e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "খাবার",
+    "pron": "Khabar",
+    "tran": "Food",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:23.064Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:23.064Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a4b1036b900154d3a1f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "শহর",
+    "pron": "Shoror",
+    "tran": "City",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:31.385Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:31.385Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a521036b900154d3a20"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "রং",
+    "pron": "Rong",
+    "tran": "Colour",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:38.488Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:38.488Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a5a1036b900154d3a21"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "নাম",
+    "pron": "Naam",
+    "tran": "Name",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:46.534Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:46.534Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a611036b900154d3a22"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "খেলা",
+    "pron": "Khela",
+    "tran": "Game",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:57:53.571Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:57:53.571Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a6a1036b900154d3a23"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মাঠ",
+    "pron": "Mathe",
+    "tran": "Field or ground",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:02.219Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:02.219Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a701036b900154d3a24"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "হাঁটা",
+    "pron": "Hata",
+    "tran": "Walking",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:08.962Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:08.962Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a771036b900154d3a25"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বাচ্চাদের",
+    "pron": "Bacchare",
+    "tran": "Children",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:15.84Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:15.84Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a7e1036b900154d3a26"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "আগামীকাল",
+    "pron": "Agimikal",
+    "tran": "Tommorrow",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:22.785Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:22.785Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a871036b900154d3a27"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "গতকাল",
+    "pron": "Gotokal",
+    "tran": "Yesterday",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:31.105Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:31.105Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a931036b900154d3a28"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "মেঘ",
+    "pron": "Megh",
+    "tran": "Cloud",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:43.35Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:43.35Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195a9b1036b900154d3a29"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বরফ",
+    "pron": "Borof",
+    "tran": "Snow",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:51.414Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:51.414Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195aa31036b900154d3a2a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ঘুম",
+    "pron": "Ghum",
+    "tran": "Sleep",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:58:59.212Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:58:59.212Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195aaa1036b900154d3a2b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "ভোর",
+    "pron": "Bhor",
+    "tran": "Dawn",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:06.411Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:06.411Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195ab21036b900154d3a2c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সকাল",
+    "pron": "Shokal",
+    "tran": "Morning",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:14.021Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:14.021Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195abb1036b900154d3a2d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "দুপুর",
+    "pron": "Dupur",
+    "tran": "Noon",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:23.188Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:23.188Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195ac21036b900154d3a2e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বিকেল",
+    "pron": "Bikel",
+    "tran": "Afternoon",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:30.908Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:30.908Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195ac91036b900154d3a2f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "সন্ধ্যা",
+    "pron": "Shondhe",
+    "tran": "Evening",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:37.57Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:37.57Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195ad11036b900154d3a30"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "রাত",
+    "pron": "Raat",
+    "tran": "Night",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:45.655Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:45.655Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195ad81036b900154d3a31"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বেলা",
+    "pron": "Bela",
+    "tran": "Time",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:52.893Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:52.893Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195adf1036b900154d3a32"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "গ্রীষ্মকাল",
+    "pron": "Grisshokal",
+    "tran": "Summer",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T13:59:59.252Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T13:59:59.252Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195ae71036b900154d3a33"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "শীতকাল",
+    "pron": "Sheetkal",
+    "tran": "Winter",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T14:00:07.732Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T14:00:07.732Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60195aed1036b900154d3a34"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "বর্ষাকাল",
+    "pron": "Borshakal",
+    "tran": "Rainy season",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-02T14:00:13.655Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-02T14:00:13.655Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60310b9b81d9ae0015baadca"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "Hola",
+    "pron": "oll-ah",
+    "tran": "Hello",
+    "parrot": {
+      "$oid": "6030fc5d29070f00152881ca"
+    },
+    "createdBy": {
+      "$oid": "6030fc1b29070f00152881c9"
+    },
+    "createdAt": {
+      "$date": "2021-02-20T13:16:11.316Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-20T13:16:11.316Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60310be381d9ae0015baadcb"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "Adios",
+    "pron": "ah-dee-oss",
+    "tran": "Goodbye",
+    "parrot": {
+      "$oid": "6030fc5d29070f00152881ca"
+    },
+    "createdBy": {
+      "$oid": "6030fc1b29070f00152881c9"
+    },
+    "createdAt": {
+      "$date": "2021-02-20T13:17:23.611Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-20T13:17:23.611Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603229d44346f00015878f3f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "জ্বর",
+    "pron": "Jor",
+    "tran": "Fever",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:37:24.309Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:37:24.309Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322a8a4346f00015878f40"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "ঝরঝরে",
+    "pron": "Jhirijhiri",
+    "tran": "Drizzling",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:40:26.425Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:40:26.425Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322ad34346f00015878f41"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বাজার",
+    "pron": "Bajar",
+    "tran": "Market",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:41:39.221Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:41:39.221Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322bb34346f00015878f42"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "lang": "সাথে",
+    "pron": "Sathe",
+    "tran": "With",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:45:23.242Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:45:23.242Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322c294346f00015878f43"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "চিড়িয়াখানা",
+    "pron": "Chiriakhana",
+    "tran": "Zoo",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:47:21.01Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:47:21.01Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322e9e4346f00015878f44"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বসন্ত",
+    "pron": "Boshonto",
+    "tran": "Spring",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:57:50.45Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:57:50.45Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322f034346f00015878f45"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "lang": "প্রতি",
+    "pron": "Proti",
+    "tran": "Every",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T09:59:31.919Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T09:59:31.919Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322f6f4346f00015878f46"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "lang": "আমরা",
+    "pron": "Amra",
+    "tran": "We",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:01:19.326Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:01:19.326Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60322fae4346f00015878f47"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "lang": "তোমরা",
+    "pron": "Tomra",
+    "tran": "You (Plural)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:02:22.899Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:02:22.899Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603230184346f00015878f48"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "lang": "আপনারা",
+    "pron": "Apnara",
+    "tran": "You (Plural, formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:04:08.509Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:04:08.509Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6032305b4346f00015878f49"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "মাস",
+    "pron": "Mash",
+    "tran": "Month",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:05:15.576Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:05:15.576Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603233764346f00015878f4a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতাম",
+    "pron": "Kortam",
+    "tran": "I/we used to do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:18:30.131Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:18:30.131Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603233b54346f00015878f4b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতে",
+    "pron": "Korte",
+    "tran": "You used to do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:19:33.222Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:19:33.222Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603234534346f00015878f4c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতো",
+    "pron": "Korto",
+    "tran": "They used to do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:22:11.086Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:22:11.086Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603234be4346f00015878f4d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কবি",
+    "pron": "Kobi",
+    "tran": "Poet",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:23:58.267Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:23:58.267Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603234f04346f00015878f4e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কবিতা",
+    "pron": "Kobita",
+    "tran": "Poetry",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:24:48.226Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:24:48.226Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603235664346f00015878f4f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "পাঠ",
+    "pron": "Pathe",
+    "tran": "Reading",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:26:46.129Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:26:46.129Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603236354346f00015878f50"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "যেতাম",
+    "pron": "Jaitam",
+    "tran": "I/we used to go",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:30:13.372Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:30:13.372Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603236904346f00015878f51"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "যেত",
+    "pron": "Jaito",
+    "tran": "You used to go",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:31:44.897Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:31:44.897Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603237424346f00015878f52"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "যেতেন",
+    "pron": "Jaiten",
+    "tran": "They used to go",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:34:42.42Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:34:42.42Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603238594346f00015878f53"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "lang": "পর্যন্ত",
+    "pron": "Porjonto",
+    "tran": "Until",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:39:21.416Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:39:21.416Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603238c54346f00015878f54"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "lang": "সামনের",
+    "pron": "Shamni",
+    "tran": "Front",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:41:09.088Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:41:09.088Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603238f04346f00015878f55"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "lang": "পেছনে",
+    "pron": "Pichone",
+    "tran": "Back",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:41:52.359Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:41:52.359Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603239274346f00015878f56"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb008"
+      }
+    ],
+    "lang": "আগে",
+    "pron": "Agae",
+    "tran": "Before",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:42:47.109Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:42:47.109Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603239534346f00015878f57"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বছর",
+    "pron": "Bochor",
+    "tran": "Year",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:43:31.112Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:43:31.112Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603239d04346f00015878f58"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কুয়াশা",
+    "pron": "Kuasha",
+    "tran": "Fog",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:45:36.31Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:45:36.31Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60323a1b4346f00015878f59"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বন্ধু",
+    "pron": "Bondhur",
+    "tran": "Friend",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:46:51.026Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:46:51.026Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60323a954346f00015878f5a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বন্ধুদের",
+    "pron": "Bondhuder",
+    "tran": "Friends",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:48:53.424Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:48:53.424Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60323b184346f00015878f5b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb001"
+      }
+    ],
+    "lang": "নিজে",
+    "pron": "Nije",
+    "tran": "Myself/itself",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:51:04.76Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:51:04.76Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60323b654346f00015878f5c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb006"
+      }
+    ],
+    "lang": "এইটা",
+    "pron": "Eita",
+    "tran": "This one",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:52:21.938Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:52:21.938Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60323b8c4346f00015878f5d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb006"
+      }
+    ],
+    "lang": "ঐটা",
+    "pron": "Oita",
+    "tran": "That one",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T10:53:00.412Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T10:53:00.412Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6032484a4346f00015878f5f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "lang": "গিয়ে",
+    "pron": "Giye",
+    "tran": "By going",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T11:47:22.544Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T11:47:22.544Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603248744346f00015878f60"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb002"
+      }
+    ],
+    "lang": "দিয়ে",
+    "pron": "Diye",
+    "tran": "With",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T11:48:04.989Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T11:48:04.989Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603248f24346f00015878f61"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "মাছ",
+    "pron": "Maach",
+    "tran": "Fish",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T11:50:10.609Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T11:50:10.609Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603249354346f00015878f62"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb009"
+      }
+    ],
+    "lang": "আগ্রহী",
+    "pron": "Agrohi",
+    "tran": "Interested",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T11:51:17.954Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T11:51:17.954Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60324c1b4346f00015878f63"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করছি",
+    "pron": "Korsi",
+    "tran": "I have done",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T12:03:39.354Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T12:03:39.354Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60324c904346f00015878f64"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করছো",
+    "pron": "Korso",
+    "tran": "You have done it",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T12:05:36.328Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T12:05:36.328Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60324cd54346f00015878f65"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করছেন",
+    "pron": "Korsen",
+    "tran": "They have done it",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T12:06:45.852Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T12:06:45.852Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60324db64346f00015878f66"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতাছিলাম",
+    "pron": "Kortasilam",
+    "tran": "I/we was/were doing",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T12:10:30.199Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T12:10:30.199Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6032638fbb86af0015a267d6"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করছিলে",
+    "pron": "Kortasile",
+    "tran": "You were doing",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T13:43:43.688Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T13:43:43.688Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603266f0bb86af0015a267d7"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করছিলেন",
+    "pron": "Kortasilen",
+    "tran": "They were doing",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T13:58:08.949Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T13:58:08.949Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326755bb86af0015a267d8"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করবো",
+    "pron": "Korbo",
+    "tran": "I will do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T13:59:49.44Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T13:59:49.44Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326798bb86af0015a267d9"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করবা",
+    "pron": "Korba",
+    "tran": "You will do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:00:56.021Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:00:56.021Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "603268edbb86af0015a267db"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করবেন",
+    "pron": "Korben",
+    "tran": "They will do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:06:37.591Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:06:37.591Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326aa5bb86af0015a267dc"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করি",
+    "pron": "Kori",
+    "tran": "I do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:13:57.716Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:13:57.716Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326b49bb86af0015a267dd"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করো",
+    "pron": "Koro",
+    "tran": "You do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:16:41.868Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:16:41.868Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326bd7bb86af0015a267e0"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করেন",
+    "pron": "Koren",
+    "tran": "They do",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:19:03.603Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:19:03.603Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326deebb86af0015a267e2"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতাছি",
+    "pron": "Kortasi",
+    "tran": "I'm doing",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:27:58.599Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:27:58.599Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326e61bb86af0015a267e3"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতাছো",
+    "pron": "Kortaso",
+    "tran": "You are doing",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:29:53.842Z"
+    },
+    "updatedAt": {
+      "$date": "2021-02-21T14:29:53.842Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60326e99bb86af0015a267e4"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "করতাছেন",
+    "pron": "Kortasen",
+    "tran": "They are doing",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-02-21T14:30:49.977Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-06T10:32:40.006Z"
+    },
+    "__v": 0,
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "604b1691cf9556003957b0e9"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিই",
+    "pron": "Di",
+    "tran": "I/we give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:21:53.827Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:21:53.827Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b16d1cf9556003957b0ea"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দাও",
+    "pron": "Dao",
+    "tran": "You give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:22:57.11Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:22:57.11Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1813cf9556003957b0eb"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দেন",
+    "pron": "Dayn",
+    "tran": "You/they give (Formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:28:19.606Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:32:48.576Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b18e4cf9556003957b0ec"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দেয়",
+    "pron": "Dae",
+    "tran": "They give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:31:48.954Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:31:48.954Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1959cf9556003957b0ed"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতাছি",
+    "pron": "Ditasi",
+    "tran": "I'm giving",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:33:45.203Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:45:18.109Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b19e2cf9556003957b0ee"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতাছো",
+    "pron": "Diteso",
+    "tran": "You're giving",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:36:02.67Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:36:17.893Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1afacf9556003957b0ef"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতেছেন",
+    "pron": "Ditesen",
+    "tran": "You/they are giving (formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:40:42.535Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:40:42.535Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1c05cf9556003957b0f0"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতাছে",
+    "pron": "Ditese",
+    "tran": "They are giving",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:45:09.426Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:45:09.426Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1c6bcf9556003957b0f1"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিছে",
+    "pron": "Disi",
+    "tran": "I gave",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:46:51.907Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:47:04.626Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1cc8cf9556003957b0f2"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিছো",
+    "pron": "Diso",
+    "tran": "You gave",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:48:24.07Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:48:24.07Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1d23cf9556003957b0f3"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিছেন",
+    "pron": "Disen",
+    "tran": "You/they gave (formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:49:55.18Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:49:55.18Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1e69cf9556003957b0f6"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিছ",
+    "pron": "Dise",
+    "tran": "They gave",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:55:21.652Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:55:21.652Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1ed7cf9556003957b0f7"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতাম",
+    "pron": "Ditam",
+    "tran": "I used to give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T07:57:11.857Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T07:57:11.857Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b1fadcf9556003957b0f8"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতা",
+    "pron": "Dita",
+    "tran": "You used to give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:00:45.172Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:00:45.172Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b21b1cf9556003957b0f9"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতো",
+    "pron": "Dito",
+    "tran": "They used to give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:09:21.439Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:09:21.439Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b220dcf9556003957b0fa"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতেন",
+    "pron": "Diten",
+    "tran": "You/they used to give (Formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:10:53.247Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:10:53.247Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b2265cf9556003957b0fb"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতেছিলাম",
+    "pron": "Ditesilam",
+    "tran": "I was giving",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:12:21.753Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:14:37.487Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b24c7cf9556003957b0fc"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতেছিল",
+    "pron": "Ditesilo",
+    "tran": "They were giving",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:22:31.339Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:22:44.612Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b27e1cf9556003957b0fd"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতেছিলে",
+    "pron": "Ditesile",
+    "tran": "You were giving",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:35:45.055Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:35:45.055Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b28f6cf9556003957b0fe"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতেছিলেন",
+    "pron": "Ditesilen",
+    "tran": "You/they were giving (Formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:40:22.485Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:40:22.485Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b299fcf9556003957b0ff"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিবো",
+    "pron": "Dibo",
+    "tran": "I will give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:43:11.429Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:44:44.079Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b29f5cf9556003957b100"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিবা",
+    "pron": "Diba",
+    "tran": "You will give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:44:37.328Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:44:37.328Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b2aa9cf9556003957b101"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিবেন",
+    "pron": "Diben",
+    "tran": "You/they will give (Formal)",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:47:37.384Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:47:37.384Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b2ad2cf9556003957b102"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিবে",
+    "pron": "Dibe",
+    "tran": "They will give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:48:18.553Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:48:18.553Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "604b2af7cf9556003957b103"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb004"
+      }
+    ],
+    "lang": "দিতে",
+    "pron": "Dite",
+    "tran": "To give",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-12T08:48:55.715Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-12T08:48:55.715Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a28bcf9556003957b106"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "মাথা",
+    "pron": "Matha",
+    "tran": "Head",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:20:27.477Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:20:27.477Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a2aecf9556003957b107"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কপাল",
+    "pron": "Kopal",
+    "tran": "Forhead",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:21:02.607Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:21:02.607Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a2d6cf9556003957b108"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কান",
+    "pron": "Kaan",
+    "tran": "Ears",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:21:42.194Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:21:42.194Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a305cf9556003957b109"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "নাক",
+    "pron": "Naak",
+    "tran": "Nose",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:22:29.889Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:22:29.889Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a3b4cf9556003957b10a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "ঠোঁট",
+    "pron": "Toht",
+    "tran": "Lips",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:25:24.782Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:25:24.782Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a450cf9556003957b10b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "গাল",
+    "pron": "Gaal",
+    "tran": "Cheeks",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:28:00.808Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:28:00.808Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a477cf9556003957b10c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "থুতনি",
+    "pron": "Thutni",
+    "tran": "Chin",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:28:39.883Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:28:39.883Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a4e7cf9556003957b10d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "ঘাড়",
+    "pron": "Ghar",
+    "tran": "Neck",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:30:31.805Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:31:33.106Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a570cf9556003957b10e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "গলা",
+    "pron": "Gola",
+    "tran": "Throat",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:32:48.196Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:32:48.196Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a638cf9556003957b10f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কাঁধ",
+    "pron": "Kaadh",
+    "tran": "Shoulder",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:36:08.781Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:36:08.781Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a666cf9556003957b110"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "হাত",
+    "pron": "Haath",
+    "tran": "Hands",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:36:54.614Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:36:54.614Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a6becf9556003957b111"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কনুই",
+    "pron": "Konui",
+    "tran": "Elbow",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:38:22.772Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:38:22.772Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a6f1cf9556003957b112"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কব্জি",
+    "pron": "Kobji",
+    "tran": "Wrist",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:39:13.713Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:39:13.713Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a70ecf9556003957b113"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "আঙ্গুল",
+    "pron": "Angul",
+    "tran": "Fingers",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:39:42.332Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:39:42.332Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a7b6cf9556003957b114"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "নখ",
+    "pron": "Nokh",
+    "tran": "Nails",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:42:30.204Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:42:30.204Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a7eecf9556003957b115"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বগল",
+    "pron": "Bogol",
+    "tran": "Armpit",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:43:26.617Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:43:26.617Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a8b2cf9556003957b116"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "তালু",
+    "pron": "Taalu",
+    "tran": "Palm",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:46:42.976Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T13:19:17.593Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a8dfcf9556003957b117"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "পা",
+    "pron": "Pa",
+    "tran": "Leg",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:47:27.426Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:47:27.426Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a93fcf9556003957b118"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "কোমর",
+    "pron": "Komor",
+    "tran": "Waist",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:49:03.264Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:49:03.264Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050a992cf9556003957b119"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "পেট",
+    "pron": "Pet",
+    "tran": "Stomach",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:50:26.362Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:50:26.362Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050aa04cf9556003957b11a"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বুক",
+    "pron": "Book",
+    "tran": "Chest",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:52:20.031Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:52:20.031Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050aadecf9556003957b11b"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "হাটু",
+    "pron": "Hatu",
+    "tran": "Knee",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:55:58.279Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:55:58.279Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050aba2cf9556003957b11c"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "গোড়ালি",
+    "pron": "Gorali",
+    "tran": "Heel",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T12:59:14.702Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T12:59:14.702Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050abf3cf9556003957b11d"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "বুড়ো আঙুল",
+    "pron": "Buro anguli",
+    "tran": "Big toe",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T13:00:35.726Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T19:02:37.311Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050ac56cf9556003957b11e"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "পায়ের আঙ্গুল",
+    "pron": "Paaer angul",
+    "tran": "Toes",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T13:02:14.772Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T13:02:14.772Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050acafcf9556003957b11f"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "মগজ",
+    "pron": "Mogoj",
+    "tran": "Brain",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T13:03:43.738Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T13:20:12.718Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6050ad07cf9556003957b120"
+    },
+    "type": "word",
+    "tags": [
+      {
+        "$oid": "6093e4e3105adf787edeb003"
+      }
+    ],
+    "lang": "হৃদয়",
+    "pron": "Hridoy",
+    "tran": "Heart",
+    "parrot": {
+      "$oid": "6030e5d36f96770015ed2ca9"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "updatedBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-03-16T13:05:11.791Z"
+    },
+    "updatedAt": {
+      "$date": "2021-03-16T13:05:11.791Z"
+    },
+    "__v": 0
+  }
+]

@@ -7,6 +7,7 @@ import AddAPhrase from '../pages/AddAPhrase';
 import PickAParrot from '../pages/PickAParrot';
 import { useParrotContext } from '../context/Parrot';
 import Navigation from '../components/Navigation';
+import PlayGame from '../pages/PlayGame';
 
 const Authenticated: React.FC = () => {
   const [parrots] = getParrots();
@@ -37,6 +38,9 @@ const Authenticated: React.FC = () => {
         </Route>
         <Route path="/phrase">
           <AddAPhrase />
+        </Route>
+        <Route path="/play">
+          <PlayGame />
         </Route>
         <Route exact path="/">
           <HomePage />
