@@ -7,7 +7,6 @@ interface Props {
 }
 
 const Progress: React.FC<Props> = ({ progress }) => {
-  console.log(progress);
   const dailyPhraseGoalNotCompleted =
     progress.data.phrase.added < progress.data.phrase.goal;
 

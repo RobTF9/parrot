@@ -28,7 +28,6 @@ const useProgressService: UseProgressService = (phrases) => {
 
   useEffect(() => {
     if (phrases) {
-      console.log(progress);
       getProgress();
     }
   }, [phrases]);
