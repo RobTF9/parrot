@@ -25,7 +25,9 @@ const Progress: React.FC<Props> = ({ progress }) => {
         <p className="bold">
           {progress.data.games.finished} / {progress.data.games.goal} played
         </p>
-        <Button disabled={dailyPhraseGoalNotCompleted}>Play a game</Button>
+        <Button to="/play" disabled={dailyPhraseGoalNotCompleted}>
+          Play a game
+        </Button>
         {dailyPhraseGoalNotCompleted && (
           <p className="error">Reach your daily phrase goal to play a game.</p>
         )}
