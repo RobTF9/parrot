@@ -12,7 +12,6 @@ import errorHandler from './utils/errorHandler';
 import authSession from './utils/session';
 import gameRouter from './resources/game/game.router';
 import phraseRouter from './resources/phrase/phrase.router';
-import resultRouter from './resources/result/result.router';
 import translationRouter from './services/translation/translate';
 import progressRouter from './services/progress/progress.router';
 
@@ -31,7 +30,6 @@ app.use('/api/user', userRouter);
 app.use('/api/parrot', parrotRouter);
 app.use('/api/phrase', phraseRouter);
 app.use('/api/game', gameRouter);
-app.use('/api/result', resultRouter);
 app.use('/api/translate', translationRouter);
 app.use('/api/progress', progressRouter);
 

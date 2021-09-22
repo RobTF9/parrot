@@ -110,53 +110,25 @@ declare global {
   }
 
   interface GameSubmission {
-    name: string;
-    mode: string;
-    order: string;
     phrases: PhraseResource[];
   }
 
   interface GameResource {
     _id: string;
-    name: string;
-    mode: string;
     parrot: string;
     createdBy: string;
     updatedBy: string;
-    order: string;
-    phrases: PhraseResource[];
-    results: ResultResource[];
-  }
-
-  interface ResultResource {
-    _id: string;
-    parrot: string;
-    createdBy: string;
-    game: GameResource;
     updatedAt: string;
-    score: {
-      correct: string[];
-      total: number;
-    };
-    finished: boolean;
-    phrases: {
-      attempts: number;
-      correct: boolean;
-      skipped: boolean;
-      phrase: PhraseResource;
-    }[];
+    createdAt: string;
+    phrases: PhraseResource[];
+    results: Result[];
   }
 
-  interface ResultSubmission {
-    game: string;
-    score: {
-      correct: string[];
-      total: number;
-    };
-    finished: boolean;
-    phrases: Array<
-      PhraseResource | { attempts: number; correct: boolean; skipped: boolean }
-    >;
+  interface Result {
+    correct: string[];
+    attempted: string[];
+    createdAt: string;
+    played: boolean;
   }
 
   interface NotificationResource {

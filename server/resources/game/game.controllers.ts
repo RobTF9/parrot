@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express';
 import Game from './game.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
-import Result from '../result/result.model';
 import Phrase from '../phrase/phrase.model';
 import shuffle from '../../utils/shuffle';
 import Parrot from '../parrot/parrot.model';
@@ -43,32 +42,6 @@ export const getMany: RequestHandler = async (req, res, next) => {
       .exec();
 
     return res.status(200).json({ data: games });
-  } catch (error) {
-    return next(error);
-  }
-};
-
-export const getOne: RequestHandler = async (req, res, next) => {
-  try {
-    const game = await Game.findById(req.params.id)
-      .populate({ path: 'phrases', populate: { path: 'phrase' } })
-      .lean()
-      .exec();
-
-    if (!game) {
-      return res
-        .status(404)
-        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
-    }
-
-    const results = await Result.find({
-      createdBy: req.session.user,
-      game: game._id,
-    })
-      .lean()
-      .exec();
-
-    return res.status(200).send({ data: { ...game, results } });
   } catch (error) {
     return next(error);
   }

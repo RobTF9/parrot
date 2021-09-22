@@ -23,4 +23,3 @@ postCollection('parrots');
 postCollection('tags');
 postCollection('phrase');
 postCollection('game');
-postCollection('results');

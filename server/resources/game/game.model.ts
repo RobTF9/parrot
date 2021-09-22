@@ -12,7 +12,7 @@ interface GameDocument extends Document {
   createdBy: ObjectId;
   updatedBy: ObjectId | string;
   phrases: ObjectId[];
-  results: Array<ObjectId & ResultResource>;
+  results: Array<Result>;
 }
 
 const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
@@ -38,8 +38,10 @@ const gameSchema = new Schema<GameDocument, Model<GameDocument>>(
     },
     results: [
       {
-        type: SchemaTypes.ObjectId,
-        ref: 'result',
+        correct: [{ type: SchemaTypes.ObjectId, ref: 'phrase' }],
+        played: Boolean,
+        createdAt: Date,
+        attempted: [{ type: SchemaTypes.ObjectId, ref: 'phrase' }],
       },
     ],
   },
