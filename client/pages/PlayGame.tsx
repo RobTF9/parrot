@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import GameTrack from '../components/GameTrack';
 import Listener from '../components/Listener';
 import Loading from '../components/Loading';
 import { getGame, updateGame } from '../data/gameResource';
@@ -132,7 +133,7 @@ const PlayGame: React.FC = () => {
           )}
       </StretchBlock>
       <Footer>
-        {/* Show progress as horizontal bullet points with x or tick */}
+        {progress && <GameTrack {...{ progress, progressIndex }} />}
       </Footer>
     </Main>
   );

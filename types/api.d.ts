@@ -95,6 +95,12 @@ declare global {
     tran: string;
     type: string;
   }
+
+  interface ProgressPhrase extends PhraseResource {
+    attempted: boolean;
+    correct: boolean;
+  }
+
   interface TagSubmission {
     tag: string;
     color: string;
