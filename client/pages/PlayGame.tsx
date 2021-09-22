@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Listener from '../components/Listener';
 import Loading from '../components/Loading';
@@ -7,7 +7,11 @@ import { Footer, Main, StretchBlock } from '../styles/Layout.styles';
 
 const PlayGame: React.FC = () => {
   const [game, isLoading] = getGame();
-  const [update, updateLoading] = updateGame(game?.data._id);
+  const [update, updateLoading] = updateGame(game?.data._id, (res) => {
+    if (res.data) {
+      console.log(res.data);
+    }
+  });
 
   const [progress, setProgress] = useState(
     game?.data.phrases.map((phrase) => ({
@@ -23,7 +27,15 @@ const PlayGame: React.FC = () => {
 
   const [progressIndex, setProgressIndex] = useState(0);
 
-  // update this via an effect
+  useEffect(() => {
+    if (progress) {
+      progress.forEach((phrase) => {
+        if (phrase.attempted) {
+          setProgressIndex(progressIndex + 1);
+        }
+      });
+    }
+  }, [progress]);
 
   const phraseCorrect = (lang: string): void => {
     if (progress) {
@@ -89,19 +101,23 @@ const PlayGame: React.FC = () => {
     <Main>
       <StretchBlock>
         {progress &&
-          progress.map(
-            (phrase, index) =>
-              index === progressIndex && (
-                <Listener
-                  {...{
-                    phrase,
-                    phraseCorrect,
-                    phraseIncorrect,
-                    key: phrase._id,
-                  }}
-                />
-              )
-          )}
+          (progressIndex === progress.length ? (
+            <h1>Finished</h1>
+          ) : (
+            progress.map(
+              (phrase, index) =>
+                index === progressIndex && (
+                  <Listener
+                    {...{
+                      phrase,
+                      phraseCorrect,
+                      phraseIncorrect,
+                      key: phrase._id,
+                    }}
+                  />
+                )
+            )
+          ))}
       </StretchBlock>
       <Footer>
         <Button {...{ action: finishGame }}>Finish game</Button>

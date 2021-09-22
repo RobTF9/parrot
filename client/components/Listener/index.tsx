@@ -8,12 +8,24 @@ interface ProgressPhrase extends PhraseResource {
 
 interface Props {
   phrase: ProgressPhrase;
+  phraseCorrect: (lang: string) => void;
+  phraseIncorrect: (lang: string) => void;
 }
 
-const Listener: React.FC<Props> = ({ phrase }) => {
+const Listener: React.FC<Props> = ({
+  phrase,
+  phraseCorrect,
+  phraseIncorrect,
+}) => {
   return (
     <ListenerWrapper>
       <p>Can you say {phrase.lang}</p>
+      <button type="button" onClick={() => phraseCorrect(phrase.lang)}>
+        Correct
+      </button>
+      <button type="button" onClick={() => phraseIncorrect(phrase.lang)}>
+        Incorrect
+      </button>
     </ListenerWrapper>
   );
 };
