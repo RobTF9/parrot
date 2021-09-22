@@ -29,13 +29,9 @@ const Listener: React.FC<Props> = ({
 
   return (
     <ListenerWrapper>
-      <p>Can you say {phrase.lang}</p>
-      <button type="button" onClick={() => phraseCorrect(phrase.lang)}>
-        Correct
-      </button>
-      <button type="button" onClick={() => phraseIncorrect(phrase.lang)}>
-        Incorrect
-      </button>
+      <p className="xxlarge">
+        Can you say <strong>{phrase.lang}</strong>
+      </p>
       <Microphone {...{ listening }} />
     </ListenerWrapper>
   );
