@@ -7,7 +7,7 @@ export const MessageWrapper = styled(motion.div)<{ type: string }>`
   left: 0;
   right: 0;
   margin: 0 auto;
-  max-width: 50rem;
+  max-width: 90rem;
   background-color: var(--${({ type }) => type});
   padding: var(--small);
   display: flex;

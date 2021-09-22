@@ -1,25 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../components/Button';
+import { useHistory } from 'react-router-dom';
 import Listener from '../components/Listener';
 import Loading from '../components/Loading';
 import { getGame, updateGame } from '../data/gameResource';
 import { Footer, Main, StretchBlock } from '../styles/Layout.styles';
 
+interface ProgressPhrase extends PhraseResource {
+  attempted: boolean;
+  correct: boolean;
+}
+
 const PlayGame: React.FC = () => {
+  const { push } = useHistory();
   const [game, isLoading] = getGame();
   const [update, updateLoading] = updateGame(game?.data._id, (res) => {
     if (res.data) {
-      console.log(res.data);
+      setTimeout(() => push('/'), 2000);
     }
   });
 
-  const [progress, setProgress] = useState(
-    game?.data.phrases.map((phrase) => ({
-      ...phrase,
-      attempted: false,
-      correct: false,
-    }))
-  );
+  const [progress, setProgress] = useState<undefined | ProgressPhrase[]>();
+
+  useEffect(() => {
+    if (game && !progress) {
+      setProgress(
+        game.data.phrases.map((phrase) => ({
+          ...phrase,
+          attempted: false,
+          correct: false,
+        }))
+      );
+    }
+  }, [game]);
 
   const [progressIndex, setProgressIndex] = useState(0);
 
@@ -91,32 +103,36 @@ const PlayGame: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (progress) {
+      if (progressIndex === progress.length) {
+        finishGame();
+      }
+    }
+  }, [progressIndex]);
+
   if (isLoading || updateLoading) return <Loading />;
 
   return (
     <Main>
       <StretchBlock>
         {progress &&
-          (progressIndex === progress.length ? (
-            <h1>Finished</h1>
-          ) : (
-            progress.map(
-              (phrase, index) =>
-                index === progressIndex && (
-                  <Listener
-                    {...{
-                      phrase,
-                      phraseCorrect,
-                      phraseIncorrect,
-                      key: phrase._id,
-                    }}
-                  />
-                )
-            )
-          ))}
+          progress.map(
+            (phrase, index) =>
+              index === progressIndex && (
+                <Listener
+                  {...{
+                    phrase,
+                    phraseCorrect,
+                    phraseIncorrect,
+                    key: phrase._id,
+                  }}
+                />
+              )
+          )}
       </StretchBlock>
       <Footer>
-        <Button {...{ action: finishGame }}>Finish game</Button>
+        {/* Show progress as horizontal bullet points with x or tick */}
       </Footer>
     </Main>
   );
