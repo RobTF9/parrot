@@ -4,7 +4,7 @@ async function http<T>(endpoint: RequestInfo, config: RequestInit): Promise<T> {
     const response = await fetch(request);
     return response.json();
   } catch (error) {
-    console.log(error);
+    console.log(error, config, endpoint);
     throw error;
   }
 }
