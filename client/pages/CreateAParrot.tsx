@@ -62,7 +62,7 @@ const CreateAParrot: React.FC = () => {
                     onClick={() => setParrotLanguage(language)}
                   >
                     <Parrot language={language.name} />
-                    <p className="medium">{language.name}</p>
+                    <p className="mid">{language.name}</p>
                   </TouchableOpacity>
                 );
               }

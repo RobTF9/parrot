@@ -23,7 +23,7 @@ const PickAParrot: React.FC = () => {
               parrot?._id === _id ? (
                 <div>
                   <Parrot {...{ language: language.name }} />
-                  <p className="medium center">
+                  <p className="mid center">
                     Teaching: <strong>{language.name}</strong>
                   </p>
                 </div>
@@ -34,7 +34,7 @@ const PickAParrot: React.FC = () => {
                   onClick={() => activateParrot(_id)}
                 >
                   <Parrot {...{ language: language.name }} />
-                  <p className="medium">{language.name}</p>
+                  <p className="mid">{language.name}</p>
                 </TouchableOpacity>
               )
             )}

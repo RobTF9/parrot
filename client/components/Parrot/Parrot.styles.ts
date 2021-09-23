@@ -24,7 +24,8 @@ export const ParrotWrapper = styled(motion.div)<{
 }>`
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  max-width: 40rem;
+  height: fit-content;
   margin: 0 auto;
 
   &::after {
@@ -34,7 +35,7 @@ export const ParrotWrapper = styled(motion.div)<{
     left: 0;
     right: 0;
     margin: 0 auto;
-    height: calc(100% - 20%);
+    padding-top: calc(100% - 20%);
     width: calc(100% - 20%);
     border-radius: 50%;
     background-color: var(--parrot-bg);
@@ -49,11 +50,10 @@ export const ParrotWrapper = styled(motion.div)<{
   }
 
   & > svg {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     transform-origin: 50% 50% !important;
     z-index: 100;
 
