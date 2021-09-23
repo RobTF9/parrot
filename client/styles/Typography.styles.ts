@@ -31,7 +31,7 @@ const Typography = createGlobalStyle`
     color: inherit;
   }
 
-  .medium {
+  .mid {
     font-weight: var(--font-medium);
   }
 

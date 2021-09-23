@@ -8,7 +8,7 @@ import PickAParrot from '../pages/PickAParrot';
 import { useParrotContext } from '../context/Parrot';
 import Navigation from '../components/Navigation';
 import PlayGame from '../pages/PlayGame';
-import GameList from '../pages/GameList';
+import Games from '../pages/Games';
 
 const Authenticated: React.FC = () => {
   const [parrots] = getParrots();
@@ -31,7 +31,7 @@ const Authenticated: React.FC = () => {
       />
       <Switch>
         <Route path="/games">
-          <GameList />
+          <Games />
         </Route>
         <Route path="/parrot">
           <CreateAParrot />
