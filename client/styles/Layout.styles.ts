@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Main = styled.main`
   padding: var(--large);
-  min-height: calc(100vh - 6.5rem); // subtract height of nav
+  min-height: calc(100vh - 8.3rem); // subtract height of nav
   max-width: 90rem;
   margin: 0 auto;
   display: flex;
