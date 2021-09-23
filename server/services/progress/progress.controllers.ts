@@ -25,6 +25,8 @@ export const getGoalProgress: RequestHandler = async (req, res, next) => {
     const gameGoal = parrot.goals.games;
     const gamesCreatedToday = await Game.find({
       createdAt: { $gte: today },
+      createdBy: req.session.user,
+      parrot: req.session.parrot?._id,
     });
 
     let gamesCompletedToday = 0;
