@@ -60,7 +60,7 @@ export const SUCCESS_MESSAGE = {
   GAME_CREATED: succesMessage('Game created succesfully'),
   PHRASE_UPDATED: succesMessage('Phrase updated succesfully'),
   GAME_UPDATED: succesMessage('Game finished, well done!'),
-  GAME_RELOADED: succesMessage('Game progress restored'),
+  GAME_RELOADED: succesMessage('Game started again'),
   GAME_STARTED: succesMessage('New game started!'),
   GAME_FINISHED: succesMessage('Game finished! Well done'),
   PHRASE_MATCH: succesMessage('Matched, well done!'),

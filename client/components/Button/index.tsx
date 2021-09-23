@@ -21,7 +21,7 @@ const Button: React.FC<Props> = ({
 }) => {
   if (to) {
     return (
-      <ButtonWrapper as={Link} to={to}>
+      <ButtonWrapper as={Link} to={to} disabled={disabled}>
         {children}
       </ButtonWrapper>
     );

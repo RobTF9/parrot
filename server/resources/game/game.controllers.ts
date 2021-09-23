@@ -18,6 +18,20 @@ export const createGame: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.PHRASE_GOAL_NOT_REACHED });
     }
 
+    const gameAlreadyCreated = await Game.findOne({
+      createdAt: { $gte: today },
+    })
+      .populate('phrases')
+      .lean()
+      .exec();
+
+    if (gameAlreadyCreated) {
+      return res.status(201).json({
+        message: SUCCESS_MESSAGE.GAME_RELOADED,
+        data: gameAlreadyCreated,
+      });
+    }
+
     const game = await Game.create({
       phrases: shuffle(gamePhrases),
       createdBy: req.session.user,
