@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const Typography = createGlobalStyle`
   :root {
     --font-bold: 800;
-    --font-medium: 500;
+    --font-medium: 600;
     --font-regular: 400;
   }
 
@@ -14,7 +14,7 @@ const Typography = createGlobalStyle`
   button,
   textarea,
   option {
-    font-family: 'Bryant Pro', sans-serif;
+    font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
