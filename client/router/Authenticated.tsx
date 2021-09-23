@@ -11,6 +11,7 @@ import PlayGame from '../pages/PlayGame';
 import Games from '../pages/Games';
 import ReplayGame from '../pages/ReplayGame';
 import { useAuthContext } from '../context/Auth';
+import BetaFooter from '../components/BetaFooter';
 
 const Authenticated: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -23,6 +24,7 @@ const Authenticated: React.FC = () => {
 
   return (
     <>
+      <BetaFooter />
       <Navigation
         {...{
           logout: signOut,

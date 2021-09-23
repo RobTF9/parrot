@@ -20,8 +20,9 @@ export const ProgressWrapper = styled.div`
 
     svg {
       stroke: var(--success);
+      stroke-width: 0.3rem;
       margin-right: var(--small);
-      margin-top: -0.2rem;
+      margin-top: -0.1rem;
     }
 
     & > .bold {
