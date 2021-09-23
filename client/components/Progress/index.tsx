@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiCheckCircle } from 'react-icons/fi';
 import Button from '../Button';
 import { ProgressWrapper } from './Progress.styles';
 
@@ -7,22 +8,25 @@ interface Props {
 }
 
 const Progress: React.FC<Props> = ({ progress }) => {
-  const dailyPhraseGoalNotCompleted =
-    progress.data.phrase.added < progress.data.phrase.goal;
+  const { phrase, games } = progress.data;
+
+  const dailyPhraseGoalNotCompleted = phrase.added < phrase.goal;
 
   return (
     <ProgressWrapper>
-      <div>
+      <div className={phrase.added >= phrase.goal ? 'complete' : ''}>
         <p className="small">Phrase goal</p>
         <p className="bold">
-          {progress.data.phrase.added} / {progress.data.phrase.goal} added
+          {phrase.added >= phrase.goal && <FiCheckCircle />}
+          {phrase.added} / {phrase.goal} added
         </p>
         <Button to="/phrase">Add a phrase</Button>
       </div>
-      <div>
+      <div className={games.finished >= games.goal ? 'complete' : ''}>
         <p className="small">Game goal</p>
         <p className="bold">
-          {progress.data.games.finished} / {progress.data.games.goal} played
+          {games.finished >= games.goal && <FiCheckCircle />}
+          {games.finished} / {games.goal} played
         </p>
         <Button to="/play" disabled={dailyPhraseGoalNotCompleted}>
           Play a game
