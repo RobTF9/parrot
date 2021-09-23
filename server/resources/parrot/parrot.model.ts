@@ -43,8 +43,8 @@ const parrotSchema = new Schema<ParrotDocument, Model<ParrotDocument>>(
       ref: 'user',
     },
     goals: {
-      phrase: Number,
-      games: Number,
+      phrase: { type: Number, required: true },
+      games: { type: Number, required: true },
     },
     sharedWith: [{ type: SchemaTypes.ObjectId, ref: 'user' }],
   },

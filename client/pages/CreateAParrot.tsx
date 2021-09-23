@@ -19,7 +19,7 @@ const CreateAParrot: React.FC = () => {
 
   const [newParrot, setNewParrot] = useState<ParrotSubmission>({
     language: undefined,
-    goals: { phrases: 10, games: 1 },
+    goals: { phrase: 10, games: 1 },
   });
 
   const setParrotLanguage = (language: Language) =>
@@ -82,7 +82,7 @@ const CreateAParrot: React.FC = () => {
                 label: 'Phrase goal',
                 name: 'phrases',
                 type: 'number',
-                value: newParrot.goals.phrases,
+                value: newParrot.goals.phrase,
                 onChange: changeGoals,
               }}
             />

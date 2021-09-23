@@ -57,7 +57,7 @@ declare global {
   }
 
   interface Goals {
-    phrases: number;
+    phrase: number;
     games: number;
   }
 

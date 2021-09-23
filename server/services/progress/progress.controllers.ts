@@ -8,17 +8,21 @@ export const getGoalProgress: RequestHandler = async (req, res, next) => {
   try {
     const parrot = await Parrot.findById(req.session.parrot?._id).lean().exec();
 
-    if (!parrot) {
+    if (!parrot || !req.session.parrot) {
       return res.status(400).json(ERROR_MESSAGE.NO_LEXICON_ACTIVE);
     }
 
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    const phraseGoal = parrot?.goals.phrase;
-    const phrasesAddedToday = await Phrase.find({ createdAt: { $gte: today } });
+    const phraseGoal = parrot.goals.phrase;
+    const phrasesAddedToday = await Phrase.find({
+      createdAt: { $gte: today },
+      createdBy: req.session.user,
+      parrot: req.session.parrot?._id,
+    });
 
-    const gameGoal = parrot?.goals.games;
+    const gameGoal = parrot.goals.games;
     const gamesCreatedToday = await Game.find({
       createdAt: { $gte: today },
     });

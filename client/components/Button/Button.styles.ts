@@ -33,8 +33,8 @@ export const ButtonWrapper = styled.button<{
     color: var(--core-white);
   }
 
-  ${({ loading }) =>
-    loading &&
+  ${({ $loading }) =>
+    $loading &&
     css`
       color: var(--core-mid);
 
