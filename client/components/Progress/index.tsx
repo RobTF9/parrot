@@ -14,17 +14,25 @@ const Progress: React.FC<Props> = ({ progress }) => {
 
   return (
     <ProgressWrapper>
-      <div className={phrase.added >= phrase.goal ? 'complete' : ''}>
-        <p className="small">Phrase goal</p>
-        <p className="bold">
+      <div
+        className={
+          phrase.added >= phrase.goal ? 'complete border-b' : 'border-b'
+        }
+      >
+        <p className="mid small">Phrase goal</p>
+        <p className="xxlarge bold margin-b">
           {phrase.added >= phrase.goal && <FiCheckCircle />}
           {phrase.added} / {phrase.goal} added
         </p>
         <Button to="/phrase">Teach your parrot a phrase</Button>
       </div>
-      <div className={games.finished >= games.goal ? 'complete' : ''}>
-        <p className="small">Game goal</p>
-        <p className="bold">
+      <div
+        className={
+          games.finished >= games.goal ? 'complete border-b' : 'border-b'
+        }
+      >
+        <p className="mid small">Game goal</p>
+        <p className="xxlarge bold margin-b">
           {games.finished >= games.goal && <FiCheckCircle />}
           {games.finished} / {games.goal} played
         </p>
