@@ -80,7 +80,7 @@ const CreateAParrot: React.FC = () => {
             <Input
               {...{
                 label: 'Phrase goal',
-                name: 'phrases',
+                name: 'phrase',
                 type: 'number',
                 value: newParrot.goals.phrase,
                 onChange: changeGoals,

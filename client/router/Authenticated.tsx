@@ -12,6 +12,7 @@ import Games from '../pages/Games';
 import ReplayGame from '../pages/ReplayGame';
 import { useAuthContext } from '../context/Auth';
 import BetaFooter from '../components/BetaFooter';
+import EditParrot from '../pages/EditParrot';
 
 const Authenticated: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -38,6 +39,9 @@ const Authenticated: React.FC = () => {
       <Switch>
         <Route path="/games">
           <Games />
+        </Route>
+        <Route path="/edit">
+          <EditParrot />
         </Route>
         <Route path="/parrot">
           <CreateAParrot />

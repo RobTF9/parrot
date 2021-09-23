@@ -42,6 +42,7 @@ const HomePage: React.FC = () => {
       {progress && (
         <UpperBlock>
           <Progress {...{ progress }} />
+          <Link to="/edit">Edit goals</Link>
         </UpperBlock>
       )}
     </Main>

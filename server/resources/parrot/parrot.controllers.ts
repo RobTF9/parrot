@@ -186,3 +186,35 @@ export const getShared: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getActive: RequestHandler = async (req, res, next) => {
+  try {
+    const parrot = await Parrot.findById(req.session.parrot?._id).lean().exec();
+
+    res.status(200).json({ data: parrot });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateOne: RequestHandler = async (req, res, next) => {
+  try {
+    const parrot = await Parrot.findOneAndUpdate(
+      { _id: req.params.id },
+      { ...req.body, updatedAt: undefined, updatedBy: req.session.user },
+      { new: true }
+    );
+
+    if (!parrot) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    return res
+      .status(200)
+      .json({ data: parrot, message: SUCCESS_MESSAGE.PARROT_UPDATED });
+  } catch (error) {
+    return next(error);
+  }
+};

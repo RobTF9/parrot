@@ -8,6 +8,7 @@ export const CACHE = {
   GAME: 'game',
   PHRASE: 'phrase',
   GAMES: 'games',
+  PARROT_EDIT: 'PARROT_EDIT',
 };
 
 export const LANGUAGES = [

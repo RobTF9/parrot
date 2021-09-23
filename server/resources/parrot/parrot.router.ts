@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import {
   createOne,
+  getActive,
   getShared,
   getYours,
   setActive,
-  shareParrot,
-  unshareParrot,
+  updateOne,
 } from './parrot.controllers';
 
 const router = Router();
@@ -14,6 +14,8 @@ router.route('/').post(createOne).get(getYours);
 
 router.route('/shared').get(getShared);
 
-router.route('/:id').get(setActive).put(shareParrot).patch(unshareParrot);
+router.route('/active').get(getActive);
+
+router.route('/:id').get(setActive).put(updateOne);
 
 export default router;
