@@ -10,7 +10,7 @@ interface Props {
 
 const Navigation: React.FC<Props> = ({ links, logout }) => {
   return (
-    <NavigationWrapper>
+    <NavigationWrapper className="border-b">
       <ul>
         {links.map(({ to, text }) => (
           <li key={text}>
