@@ -62,6 +62,25 @@ export const getMany: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const getOne: RequestHandler = async (req, res, next) => {
+  try {
+    const game = await Game.findById(req.params.id)
+      .populate('phrases')
+      .lean()
+      .exec();
+
+    if (!game || `${game.createdBy}` !== `${req.session.user}`) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    return res.status(200).json({ data: game });
+  } catch (error) {
+    return next(error);
+  }
+};
+
 export const updateOne: RequestHandler = async (req, res, next) => {
   try {
     const game = await Game.findOneAndUpdate(

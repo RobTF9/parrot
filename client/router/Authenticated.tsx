@@ -9,6 +9,7 @@ import { useParrotContext } from '../context/Parrot';
 import Navigation from '../components/Navigation';
 import PlayGame from '../pages/PlayGame';
 import Games from '../pages/Games';
+import ReplayGame from '../pages/ReplayGame';
 
 const Authenticated: React.FC = () => {
   const [parrots] = getParrots();
@@ -41,6 +42,9 @@ const Authenticated: React.FC = () => {
         </Route>
         <Route path="/phrase">
           <AddAPhrase />
+        </Route>
+        <Route path="/replay/:id">
+          <ReplayGame />
         </Route>
         <Route path="/play">
           <PlayGame />
