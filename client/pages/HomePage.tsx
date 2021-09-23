@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { useParrotContext } from '../context/Parrot';
 import { getPhrases } from '../data/phraseResource';
-import { Block, Header, Main, UpperBlock } from '../styles/Layout.styles';
+import { Header, Main, UpperBlock } from '../styles/Layout.styles';
 import Parrot from '../components/Parrot';
 import { getUser } from '../data/userResource';
 import useProgressService from '../hooks/useProgressService';
