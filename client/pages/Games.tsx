@@ -16,7 +16,7 @@ const Games: React.FC = () => {
       </Header>
       {games && (
         <StretchBlock>
-          <GameList {...{ games: games.data }} />
+          <GameList {...{ games: [...games.data].reverse() }} />
         </StretchBlock>
       )}
     </Main>
