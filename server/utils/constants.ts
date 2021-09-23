@@ -54,6 +54,7 @@ export const SUCCESS_MESSAGE = {
   LEXICON_SHARED: succesMessage('Parrot shared succesfully'),
   LEXICON_UNSHARED: succesMessage('Parrot unshared succesfully'),
   LEXICON_CREATED: succesMessage('Parrot created succesfully'),
+  PARROT_UPDATED: succesMessage('Parrot updated succesfully'),
   USER_UPDATED: succesMessage('Your details have been updated'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
   PHRASE_CREATED: succesMessage('Phrase created succesfully'),
