@@ -8,6 +8,7 @@ import PickAParrot from '../pages/PickAParrot';
 import { useParrotContext } from '../context/Parrot';
 import Navigation from '../components/Navigation';
 import PlayGame from '../pages/PlayGame';
+import GameList from '../pages/GameList';
 
 const Authenticated: React.FC = () => {
   const [parrots] = getParrots();
@@ -23,13 +24,15 @@ const Authenticated: React.FC = () => {
         {...{
           links: [
             { to: '/', text: 'Home' },
-            { to: '/phrase', text: 'Add phrase' },
-            { to: '/pick', text: 'Pick parrot' },
+            { to: '/games', text: 'Games' },
             { to: '/parrot', text: 'Create parrot' },
           ],
         }}
       />
       <Switch>
+        <Route path="/games">
+          <GameList />
+        </Route>
         <Route path="/parrot">
           <CreateAParrot />
         </Route>

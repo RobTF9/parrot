@@ -52,6 +52,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
     const games = await Game.find({
       parrot: req.session.parrot?._id,
     })
+      .populate('phrases')
       .lean()
       .exec();
 

@@ -7,7 +7,7 @@ export const CACHE = {
   NOTIFICATION_READ: 'notification/read',
   GAME: 'game',
   PHRASE: 'phrase',
-  RESULT: 'result',
+  GAMES: 'games',
 };
 
 export const LANGUAGES = [
