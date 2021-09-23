@@ -4,6 +4,9 @@ import { getOne, APIReciever, APIGiver, updateOne, getMany } from './crud';
 export const getGame: APIReciever<GameResource> = () =>
   getOne(CACHE.GAME, '/api/game/create');
 
+export const getGameById: APIReciever<GameResource> = (id) =>
+  getOne(CACHE.GAME, `/api/game/${id}`);
+
 export const updateGame: APIGiver<GameSubmission, GameResource> = (
   id,
   callback?: (res: ServerReponse<GameResource>) => void
