@@ -7,6 +7,6 @@ export const NoSpeechWrapper = styled.div`
   text-align: center;
 
   * {
-    color: var(--core-white) !important;
+    color: var(--core-white);
   }
 `;
