@@ -21,7 +21,7 @@ const PickAParrot: React.FC = () => {
           {parrots &&
             parrots.data.map(({ _id, language }) =>
               parrot?._id === _id ? (
-                <div>
+                <div key={_id}>
                   <Parrot {...{ language: language.name }} />
                   <p className="mid center">
                     Teaching: <strong>{language.name}</strong>

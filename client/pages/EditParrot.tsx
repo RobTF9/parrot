@@ -16,15 +16,12 @@ const EditParrot: React.FC = () => {
 
   useEffect(() => {
     if (parrotData && !updatedParrot) {
-      console.log(parrotData);
       setUpdateParrot({ ...parrotData.data });
     }
   }, [parrotData]);
 
   const changeGoals: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(event);
     if (updatedParrot) {
-      console.log(event);
       setUpdateParrot({
         ...updatedParrot,
         goals: {

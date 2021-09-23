@@ -27,6 +27,7 @@ export const ParrotProvider: React.FC = ({ children }) => {
       html?.setAttribute('lang', parrot.language.htmlCode);
       queryClient.invalidateQueries();
     }
+    queryClient.invalidateQueries();
   }, [parrot]);
 
   return (
