@@ -1,6 +1,7 @@
 import React from 'react';
 import { GameListWrapper } from './GameList.styles';
 import formatDate from '../../utils/formatDate';
+import Button from '../Button';
 
 interface Props {
   games: GameResource[];
@@ -47,6 +48,7 @@ const GameList: React.FC<Props> = ({ games }) => {
               </li>
             ))}
           </ol>
+          <Button to={`/replay/${game._id}`}>Replay game</Button>
         </li>
       ))}
     </GameListWrapper>
