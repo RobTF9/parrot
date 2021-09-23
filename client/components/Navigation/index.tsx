@@ -5,9 +5,10 @@ import { NavigationWrapper } from './Navigation.styles';
 
 interface Props {
   links: { to: string; text: string }[];
+  logout: () => void;
 }
 
-const Navigation: React.FC<Props> = ({ links }) => {
+const Navigation: React.FC<Props> = ({ links, logout }) => {
   return (
     <NavigationWrapper>
       <ul>
@@ -19,7 +20,7 @@ const Navigation: React.FC<Props> = ({ links }) => {
           </li>
         ))}
       </ul>
-      <Button>Logout</Button>
+      <Button {...{ action: logout }}>Logout</Button>
     </NavigationWrapper>
   );
 };

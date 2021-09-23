@@ -29,8 +29,8 @@ const Button: React.FC<Props> = ({
 
   return (
     <ButtonWrapper
+      $loading={loading}
       {...{
-        loading,
         type: type || 'button',
         onClick: action,
         disabled,

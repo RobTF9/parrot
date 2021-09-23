@@ -12,7 +12,7 @@
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:server": "babel server --out-dir dist/server --extensions .ts",
     "build": "rimraf dist && yarn build:server && yarn build:client",
-    "test:client": "jest --config ./jest.client.json --detectOpenHandles --verbose --coverage",
+    "test:client": "jest --config ./jest.client.json --detectOpenHandles",
     "test:server": "jest --config ./jest.server.json --detectOpenHandles --verbose --coverage --forceExit",
     "test": "yarn test:client && yarn test:server",
     "test:watch": "concurrently \"jest --config ./jest.client.json --watchAll\" \"jest --config ./jest.server.json --watchAll\"",

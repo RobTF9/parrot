@@ -1,6 +1,6 @@
 {
   "resetMocks": true,
-  "setupFilesAfterEnv": ["<rootDir>/tests/client/_setup.ts"],
+  "setupFilesAfterEnv": ["<rootDir>/tests/client/_setup.js"],
   "testPathIgnorePatterns": ["dist/", "server/"],
   "collectCoverageFrom": [
     "client/**/*.ts",

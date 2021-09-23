@@ -10,8 +10,10 @@ import Navigation from '../components/Navigation';
 import PlayGame from '../pages/PlayGame';
 import Games from '../pages/Games';
 import ReplayGame from '../pages/ReplayGame';
+import { useAuthContext } from '../context/Auth';
 
 const Authenticated: React.FC = () => {
+  const { signOut } = useAuthContext();
   const [parrots] = getParrots();
   const { parrot } = useParrotContext();
   const noParrots = parrots && parrots.data.length === 0;
@@ -23,6 +25,7 @@ const Authenticated: React.FC = () => {
     <>
       <Navigation
         {...{
+          logout: signOut,
           links: [
             { to: '/', text: 'Home' },
             { to: '/games', text: 'Games' },

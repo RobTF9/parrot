@@ -11,7 +11,7 @@ const Rotation = keyframes`
 `;
 
 export const ButtonWrapper = styled.button<{
-  loading?: boolean;
+  $loading?: boolean;
   disabled?: boolean;
 }>`
   background-color: var(--core-mid);
