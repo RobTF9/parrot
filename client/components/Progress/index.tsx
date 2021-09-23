@@ -19,7 +19,7 @@ const Progress: React.FC<Props> = ({ progress }) => {
           phrase.added >= phrase.goal ? 'complete border-b' : 'border-b'
         }
       >
-        <p className="mid small">Phrase goal</p>
+        <p className="mid">Phrase goal</p>
         <p className="xxlarge bold margin-b">
           {phrase.added >= phrase.goal && <FiCheckCircle />}
           {phrase.added} / {phrase.goal} added
@@ -31,7 +31,7 @@ const Progress: React.FC<Props> = ({ progress }) => {
           games.finished >= games.goal ? 'complete border-b' : 'border-b'
         }
       >
-        <p className="mid small">Game goal</p>
+        <p className="mid">Game goal</p>
         <p className="xxlarge bold margin-b">
           {games.finished >= games.goal && <FiCheckCircle />}
           {games.finished} / {games.goal} played
