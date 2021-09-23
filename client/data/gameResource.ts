@@ -10,7 +10,7 @@ export const getGameById: APIReciever<GameResource> = (id) =>
 export const updateGame: APIGiver<GameSubmission, GameResource> = (
   id,
   callback?: (res: ServerReponse<GameResource>) => void
-) => updateOne(CACHE.GAME, `/api/game/${id}`, callback);
+) => updateOne(CACHE.GAME + id, `/api/game/${id}`, callback);
 
 export const getAllGames: APIReciever<GameResource[]> = () =>
   getMany(CACHE.GAMES, '/api/game');

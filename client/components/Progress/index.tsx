@@ -20,7 +20,7 @@ const Progress: React.FC<Props> = ({ progress }) => {
           {phrase.added >= phrase.goal && <FiCheckCircle />}
           {phrase.added} / {phrase.goal} added
         </p>
-        <Button to="/phrase">Add a phrase</Button>
+        <Button to="/phrase">Teach your parrot a phrase</Button>
       </div>
       <div className={games.finished >= games.goal ? 'complete' : ''}>
         <p className="small">Game goal</p>
@@ -29,7 +29,7 @@ const Progress: React.FC<Props> = ({ progress }) => {
           {games.finished} / {games.goal} played
         </p>
         <Button to="/play" disabled={dailyPhraseGoalNotCompleted}>
-          Play a game
+          Create a game from phrases
         </Button>
         {dailyPhraseGoalNotCompleted && (
           <p className="error">Reach your daily phrase goal to play a game.</p>

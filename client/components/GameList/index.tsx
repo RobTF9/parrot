@@ -11,7 +11,7 @@ const GameList: React.FC<Props> = ({ games }) => {
   return (
     <GameListWrapper>
       {games.map((game) => (
-        <li key={game._id} className="border-t border-b">
+        <li key={game._id} className="border-b">
           <h3 className="large bold">
             {game.phrases.length} phrase{game.phrases.length !== 1 ? 's' : ''}
           </h3>
