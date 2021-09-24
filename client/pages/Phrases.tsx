@@ -1,5 +1,6 @@
 import React from 'react';
 import Loading from '../components/Loading';
+import PhraseList from '../components/PhraseList';
 import { getPhrases } from '../data/phraseResource';
 import { Main, Header, StretchBlock } from '../styles/Layout.styles';
 
@@ -13,13 +14,9 @@ const Phrases: React.FC = () => {
       <Header>
         <h1 className="bold xlarge">Phrases</h1>
       </Header>
-      {phrases && (
-        <StretchBlock as="ul" columns="1fr 1fr">
-          {phrases.data.map((phrase) => (
-            <li key={phrase._id}>{phrase.lang}</li>
-          ))}
-        </StretchBlock>
-      )}
+      <StretchBlock>
+        {phrases && <PhraseList {...{ phrases: phrases.data }} />}
+      </StretchBlock>
     </Main>
   );
 };
