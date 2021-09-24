@@ -13,6 +13,7 @@ import ReplayGame from '../pages/ReplayGame';
 import { useAuthContext } from '../context/Auth';
 import BetaFooter from '../components/BetaFooter';
 import EditParrot from '../pages/EditParrot';
+import Phrases from '../pages/Phrases';
 
 const Authenticated: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -31,6 +32,7 @@ const Authenticated: React.FC = () => {
           logout: signOut,
           links: [
             { to: '/', text: 'Home' },
+            { to: '/phrases', text: 'Phrases' },
             { to: '/games', text: 'Games' },
             { to: '/parrot', text: 'Create parrot' },
           ],
@@ -48,6 +50,9 @@ const Authenticated: React.FC = () => {
         </Route>
         <Route path="/pick">
           <PickAParrot />
+        </Route>
+        <Route path="/phrases">
+          <Phrases />
         </Route>
         <Route path="/phrase">
           <AddAPhrase />
