@@ -47,10 +47,6 @@
   },
   "overrides": [
     {
-      "files": ["tests/**/*.{ts,tsx}"],
-      "env": { "jest": true, "node": true }
-    },
-    {
       "files": ["server/**/*.{ts,tsx}"],
       "rules": {
         "func-names": 0,

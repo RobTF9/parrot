@@ -1,6 +1,6 @@
 {
   "watch": ["server"],
   "ext": "ts,json",
-  "ignore": ["dist", "test", "client"],
+  "ignore": ["dist", "cypress", "client"],
   "exec": "rimraf dist/server && yarn build:server && node dist/server/index.js"
 }
