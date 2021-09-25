@@ -12,7 +12,7 @@
     "build:client": "parcel build client/index.html --out-dir dist/client",
     "build:server": "babel server --out-dir dist/server --extensions .ts",
     "build": "rimraf dist && yarn build:server && yarn build:client",
-    "test": "cypress run --quiet",
+    "test": "cypress open",
     "start": "node dist/server/index.js",
     "seed": "node scripts/seed.js",
     "docs": "start-storybook -p 3001",
