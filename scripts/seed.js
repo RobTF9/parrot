@@ -20,6 +20,7 @@ function postCollection(collection) {
 
 postCollection('users');
 postCollection('parrots');
-postCollection('tags');
+postCollection('sessions');
+postCollection('tokens');
 postCollection('phrase');
 postCollection('game');
