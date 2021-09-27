@@ -11,10 +11,9 @@ describe('Log in and activate parrot', () => {
 
   // let user log in
   it('Should let users enter details', () => {
-    cy.get('input[name=email]').type('robert.b.s@live.co.uk');
+    cy.get('input[name=email]').type('user@email.com');
     cy.get('input[name=password]').type('password{enter}');
-    cy.get('button').contains('Bengali').click();
-    cy.get('h1').should('contain', 'Hey Rob');
+    cy.get('button > p').contains('Bengali').click();
   });
 
   // check parrot can be selected

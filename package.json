@@ -5,8 +5,8 @@
   "main": " index.ts",
   "scripts": {
     "lint": "eslint client server --ext ts,tsx",
-    "cypress:open": "NODE_ENV=test cypress open",
-    "cypress:run": "NODE_ENV=test yarn build && concurrently \"yarn start\" \"cypress run\"",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "dev:client": "parcel watch client/index.html --out-dir dist/client",
     "dev:server": "nodemon --delay 1000ms",
     "predev": "yarn clean",
@@ -22,7 +22,9 @@
     "docs": "start-storybook -p 3001",
     "build:docs": "build-storybook",
     "new": "node scripts/component.js",
-    "clean": "rimraf .cache dist"
+    "clean": "rimraf .cache dist",
+    "pretest": "yarn reset:test && yarn seed:test && yarn build",
+    "test": "NODE_ENV=test start-server-and-test 'yarn start' http://localhost:3000 'yarn cy:run'"
   },
   "author": "robtf9",
   "license": "ISC",
@@ -77,6 +79,7 @@
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.2.4"
   },
   "dependencies": {
