@@ -3,9 +3,15 @@
     "_id": {
       "$oid": "6016b9410266200015c5e7f9"
     },
-    "username": "user",
+    "username": "User",
     "email": "user@email.com",
     "password": "$2a$08$swkXPjd4Hb3z28oHTJSBR.O.Q2st79CQk2i9DOoyecx6htPWSufcm",
+    "createdAt": {
+      "$date": "2021-01-31T14:05:53.11Z"
+    },
+    "updatedAt": {
+      "$date": "2021-01-31T14:05:53.11Z"
+    },
     "__v": 0
   }
 ]

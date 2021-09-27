@@ -12,8 +12,11 @@ const config = {
   emailService: process.env.EMAIL_SERVICE,
   emailPassword: process.env.EMAIL_PASSWORD,
   client: process.env.CLIENT_URL,
-  port: process.env.PORT || 3000,
-  sessionSecret: process.env.SESSION_SECRET || 'dev',
+  port: process.env.PORT || process.env.NODE_ENV === 'test' ? 4000 : 3000,
+  sessionSecret:
+    process.env.SESSION_SECRET || process.env.NODE_ENV === 'test'
+      ? 'test'
+      : 'dev',
   isProd: process.env.NODE_ENV === 'production',
   transationCreds: process.env.TRANSLATION_CREDS,
 };

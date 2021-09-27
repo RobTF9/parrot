@@ -31,7 +31,7 @@ const Message: React.FC<Props> = ({ message, type, visible, hide }) => {
           }}
           type={type}
         >
-          <p className="medium">{message}</p>
+          <p className="mid">{message}</p>
           <button type="button" onClick={hide}>
             <FiX />
           </button>
