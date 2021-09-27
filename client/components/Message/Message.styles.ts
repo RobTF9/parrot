@@ -16,7 +16,7 @@ export const MessageWrapper = styled(motion.div)<{ type: string }>`
   border-radius: var(--smaller);
   z-index: 100;
 
-  p.medium {
+  & > p.mid {
     color: var(--core-white);
     margin-right: var(--small);
   }

@@ -1,4 +1,4 @@
-describe('Login and actiavte parrot', () => {
+describe('Login and activate parrot', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('connect.sid');
   });
