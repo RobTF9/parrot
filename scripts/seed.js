@@ -4,7 +4,7 @@ const name = process.argv[2];
 
 function postCollection(collection) {
   exec(
-    `mongoimport --uri mongodb://localhost:27017/${name} --file ${__dirname}/${name}/${collection}.json --jsonArray --drop
+    `mongoimport --uri mongodb://localhost:27017/${name} --file ${__dirname}/data/${collection}.json --jsonArray --drop
     `,
     (error, stdout, stderr) => {
       if (error) {
@@ -22,7 +22,4 @@ function postCollection(collection) {
 
 postCollection('users');
 postCollection('parrots');
-postCollection('sessions');
-postCollection('tokens');
 postCollection('phrase');
-postCollection('game');
