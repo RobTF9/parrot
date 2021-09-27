@@ -1,0 +1,65 @@
+[
+  {
+    "_id": {
+      "$oid": "60185d89a7fba10015c88c15"
+    },
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "কালো",
+    "pron": "Kalo",
+    "tran": "Black",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-09-23T00:01:00.693Z"
+    },
+    "updatedAt": {
+      "$date": "2021-09-23T00:01:00.693Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d89a7fba10015c88c16"
+    },
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "হলুদ",
+    "pron": "Holud",
+    "tran": "Yellow",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-09-23T00:01:00.693Z"
+    },
+    "updatedAt": {
+      "$date": "2021-09-23T00:01:00.693Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d89a7fba10015c88c17"
+    },
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb009"
+    },
+    "lang": "লাল",
+    "pron": "Laal",
+    "tran": "Red",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "2021-09-23T00:01:00.693Z"
+    },
+    "updatedAt": {
+      "$date": "2021-09-23T00:01:00.693Z"
+    },
+    "__v": 0
+  }
+]

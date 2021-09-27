@@ -1,8 +1,10 @@
 const { exec } = require('child_process');
 
+const name = process.argv[2];
+
 function postCollection(collection) {
   exec(
-    `mongoimport --uri mongodb://localhost:27017/parrot-dev --file ${__dirname}/dump/${collection}.json --jsonArray --drop
+    `mongoimport --uri mongodb://localhost:27017/${name} --file ${__dirname}/${name}/${collection}.json --jsonArray --drop
     `,
     (error, stdout, stderr) => {
       if (error) {

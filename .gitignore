@@ -67,3 +67,4 @@ dist
 server/services/translation/key.json
 
 cypress/videos
+cypress/screenshots

@@ -4,7 +4,10 @@ env.config();
 
 const config = {
   environment: process.env.NODE_ENV || 'dev',
-  databaseUrl: process.env.MONGO_URI,
+  databaseUrl:
+    process.env.NODE_ENV === 'test'
+      ? 'mongodb://localhost:27017/parrot-test'
+      : process.env.MONGO_URI,
   email: process.env.EMAIL,
   emailService: process.env.EMAIL_SERVICE,
   emailPassword: process.env.EMAIL_PASSWORD,
