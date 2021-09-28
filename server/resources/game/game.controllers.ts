@@ -31,7 +31,6 @@ export const createGame: RequestHandler = async (req, res, next) => {
     });
 
     if (gameExists) {
-      console.log(gameExists);
       return res
         .status(200)
         .json({ message: SUCCESS_MESSAGE.GAME_RELOADED, data: gameExists });
