@@ -3,7 +3,9 @@ const ParcelProxyServer = require('parcel-proxy-server');
 // configure the proxy server
 const server = new ParcelProxyServer({
   entryPoint: './client/index.html',
-  parcelOptions: {},
+  parcelOptions: {
+    outDir: 'dist/client',
+  },
   proxies: {
     // add proxies here
     '/api': {
@@ -22,6 +24,6 @@ server.bundler.on('buildEnd', () => {
 });
 
 // start up the server
-server.listen(8080, () => {
+server.listen(3002, () => {
   console.log('Parcel proxy server has started');
 });
