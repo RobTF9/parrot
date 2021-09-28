@@ -32,9 +32,6 @@ const useGameSpeech: UseGameSpeech = (lang, callback) => {
   });
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'test') {
-      setCorrect(true);
-    }
     if (!listening && !correct) {
       SpeechRecognition.startListening({
         language,
