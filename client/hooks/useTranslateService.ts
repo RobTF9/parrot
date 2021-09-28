@@ -28,7 +28,10 @@ const useTranslateService: UseTranslateService = (parrot) => {
   const [translations, setTranslations] = useState<
     TranslationResponse | undefined
   >();
-  const resetTranslations = () => setTranslations(undefined);
+  const resetTranslations = () => {
+    setTranslations(undefined);
+    setRecievedPhrases([]);
+  };
 
   // TODO: use to display api error
   const [error, setError] = useState<string>();
