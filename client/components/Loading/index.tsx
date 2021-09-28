@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
-import { LoadingWrapper } from './Loading.styles';
+import { LoadingWrapper } from './styles';
 
 interface Props {
   condition?: boolean;

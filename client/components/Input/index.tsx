@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputWrapper } from './Input.styles';
+import { InputWrapper } from './styles';
 
 interface Props {
   label: string;

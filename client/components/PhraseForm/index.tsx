@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import validatePhrase from '../../utils/phraseValidator';
 import Button from '../Button';
 import Input from '../Input';
-import { PhraseFormWrapper, Actions } from './PhraseForm.styles';
+import { PhraseFormWrapper, Actions } from './styles';
 
 interface Props {
   phrase: PhraseSubmission;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../Button';
-import { NavigationWrapper } from './Navigation.styles';
+import { NavigationWrapper } from './styles';
 
 interface Props {
   links: { to: string; text: string }[];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GameListWrapper } from './GameList.styles';
+import { GameListWrapper } from './styles';
 import formatDate from '../../utils/formatDate';
 import Button from '../Button';
 

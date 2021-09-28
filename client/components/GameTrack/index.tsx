@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiCheckCircle, FiCircle, FiXCircle } from 'react-icons/fi';
-import { GameTrackWrapper, Marker } from './GameTrack.styles';
+import { GameTrackWrapper, Marker } from './styles';
 
 interface Props {
   progress: ProgressPhrase[];

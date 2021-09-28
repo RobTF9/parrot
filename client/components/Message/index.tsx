@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { FiX } from 'react-icons/fi';
-import { MessageWrapper } from './Message.styles';
+import { MessageWrapper } from './styles';
 
 interface Props {
   message: string;

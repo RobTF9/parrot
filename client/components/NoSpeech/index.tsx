@@ -1,5 +1,5 @@
 import React from 'react';
-import { NoSpeechWrapper } from './NoSpeech.styles';
+import { NoSpeechWrapper } from './styles';
 
 const NoSpeech: React.FC = () => {
   return (

@@ -7,7 +7,7 @@ fs.mkdir(`./client/components/${name}`, { recursive: true }, (err) => {
 });
 
 const index = `import React from 'react';
-import { ${name}Wrapper } from './${name}.styles';
+import { ${name}Wrapper } from './styles';
 
 interface Props {
   value: string;
@@ -41,7 +41,7 @@ fs.writeFile(
 
 // style file
 fs.writeFile(
-  `./client/components/${process.argv[2]}/${process.argv[2]}.styles.ts`,
+  `./client/components/${process.argv[2]}/styles.ts`,
   styles,
   (err) => {
     if (err) throw err;

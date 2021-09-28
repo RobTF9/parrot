@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
 import Button from '../Button';
-import { ProgressWrapper } from './Progress.styles';
+import { ProgressWrapper } from './styles';
 
 interface Props {
   progress: ProgressResponse;

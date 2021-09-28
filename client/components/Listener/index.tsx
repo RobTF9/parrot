@@ -1,7 +1,7 @@
 import React from 'react';
 import useGameSpeech from '../../hooks/useGameSpeech';
 import Microphone from '../Microphone';
-import { ListenerWrapper } from './Listener.styles';
+import { ListenerWrapper } from './styles';
 
 interface ProgressPhrase extends PhraseResource {
   attempted: boolean;

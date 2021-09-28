@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ButtonWrapper } from './Button.styles';
+import { ButtonWrapper } from './styles';
 
 interface Props {
   children: string;

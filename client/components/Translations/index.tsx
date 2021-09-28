@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button';
-import { TranslationsWrapper } from './Translations.styles';
+import { TranslationsWrapper } from './styles';
 
 interface Props {
   translations: TranslationResponse;

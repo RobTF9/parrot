@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PhraseListWrapper } from './PhraseList.styles';
+import { PhraseListWrapper } from './styles';
 
 interface Props {
   phrases: PhraseResource[];

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiMic } from 'react-icons/fi';
-import { MicrophoneWrapper } from './Microphone.styles';
+import { MicrophoneWrapper } from './styles';
 
 interface Props {
   listening: boolean;

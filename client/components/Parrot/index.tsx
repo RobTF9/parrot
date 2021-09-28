@@ -1,6 +1,6 @@
 import React, { createRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ParrotWrapper } from './Parrot.styles';
+import { ParrotWrapper } from './styles';
 
 interface Props {
   speaking?: boolean;

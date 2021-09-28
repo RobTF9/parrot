@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BetaFooterWrapper } from './BetaFooter.styles';
+import { BetaFooterWrapper } from './styles';
 
 const HIDDEN = 'HIDDEN';
 const SHOWING = 'SHOWING';
