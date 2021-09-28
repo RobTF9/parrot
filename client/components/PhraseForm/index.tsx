@@ -10,7 +10,7 @@ interface Props {
   mutate: (phrase: PhraseSubmission) => void;
   loading: boolean;
   language: string;
-  reset: () => void;
+  reset?: () => void;
 }
 
 interface PhraseFormErrors {
@@ -74,9 +74,11 @@ const PhraseForm: React.FC<Props> = ({
         }}
       />
       <Actions>
-        <button type="button" onClick={() => reset()}>
-          Start again
-        </button>
+        {reset && (
+          <button type="button" onClick={() => reset()}>
+            Start again
+          </button>
+        )}
         <Button type="submit" loading={loading}>
           Save phrase
         </Button>

@@ -14,6 +14,7 @@ import { useAuthContext } from '../context/Auth';
 import BetaFooter from '../components/BetaFooter';
 import EditParrot from '../pages/EditParrot';
 import Phrases from '../pages/Phrases';
+import EditPhrase from '../pages/EditPhrase';
 
 const Authenticated: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -50,6 +51,9 @@ const Authenticated: React.FC = () => {
         </Route>
         <Route path="/pick">
           <PickAParrot />
+        </Route>
+        <Route path="/phrases/:id">
+          <EditPhrase />
         </Route>
         <Route path="/phrases">
           <Phrases />
