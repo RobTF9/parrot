@@ -2,19 +2,15 @@ import { RequestHandler } from 'express';
 import Game from './game.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import Phrase from '../phrase/phrase.model';
-import shuffle from '../../utils/shuffle';
 import Parrot from '../parrot/parrot.model';
 
 export const createGame: RequestHandler = async (req, res, next) => {
   try {
-    console.log('Hello');
-
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
     const gamePhrases = await Phrase.find({ createdAt: { $gte: today } });
     const parrot = await Parrot.findById(req.session.parrot?._id);
-
-    console.log('Is it');
 
     if (parrot && parrot.goals && gamePhrases.length < parrot.goals.phrase) {
       return res
@@ -22,8 +18,27 @@ export const createGame: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.PHRASE_GOAL_NOT_REACHED });
     }
 
+    const existingGames = await Game.find({ createdAt: { $gte: today } })
+      .populate('phrases')
+      .lean()
+      .exec();
+    let gameExists;
+
+    existingGames.forEach((game) => {
+      if (game.phrases.length === gamePhrases.length) {
+        gameExists = game;
+      }
+    });
+
+    if (gameExists) {
+      console.log(gameExists);
+      return res
+        .status(200)
+        .json({ message: SUCCESS_MESSAGE.GAME_RELOADED, data: gameExists });
+    }
+
     const game = await Game.create({
-      phrases: shuffle(gamePhrases),
+      phrases: gamePhrases,
       createdBy: req.session.user,
       updatedBy: req.session.user,
       parrot: req.session.parrot?._id,

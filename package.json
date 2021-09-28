@@ -21,7 +21,7 @@
     "write": "node scripts/data/write.js ",
     "seed:test": "node scripts/seed.js parrot-test",
     "preseed:dev": "yarn write",
-    "seed:dev": "node scripts/seed.js parrot-dev",
+    "seed:dev": "yarn reset:dev && node scripts/seed.js parrot-dev",
     "docs": "start-storybook -p 3001",
     "build:docs": "build-storybook",
     "new": "node scripts/component.js",
