@@ -31,6 +31,8 @@ const Listener: React.FC<Props> = ({
     <ListenerWrapper>
       <p className="xxlarge">
         Can you say <strong>{phrase.lang}</strong>
+        <br />
+        <span className="small">{phrase.tran}</span>
       </p>
       <Microphone {...{ listening }} />
     </ListenerWrapper>

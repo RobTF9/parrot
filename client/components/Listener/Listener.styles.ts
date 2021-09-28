@@ -10,4 +10,8 @@ export const ListenerWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  p {
+    text-align: center;
+  }
 `;
