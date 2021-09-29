@@ -16,7 +16,7 @@ interface Grid {
 }
 
 export const Header = styled.header<Grid>`
-  padding-bottom: var(--large);
+  padding-bottom: var(--medium);
   width: 100%;
 
   ${({ columns }) =>

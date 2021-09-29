@@ -33,6 +33,7 @@ declare global {
         goal: number;
         finished: number;
       };
+      streak: number;
     };
   };
 

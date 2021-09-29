@@ -46,6 +46,7 @@ export const getGoalProgress: RequestHandler = async (req, res, next) => {
           goal: gameGoal,
           finished: gamesCompletedToday,
         },
+        streak: parrot.streak ? parrot.streak.number : 0,
       },
     });
   } catch (error) {

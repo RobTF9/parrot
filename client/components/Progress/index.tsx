@@ -8,12 +8,20 @@ interface Props {
 }
 
 const Progress: React.FC<Props> = ({ progress }) => {
-  const { phrase, games } = progress.data;
+  const { phrase, games, streak } = progress.data;
 
   const dailyPhraseGoalNotCompleted = phrase.added < phrase.goal;
 
   return (
     <ProgressWrapper>
+      {streak > 0 && (
+        <div className="border-b complete">
+          <p className="mid">Current daily goal streak</p>
+          <p className="xxlarge bold margin-b">
+            {streak} day{streak !== 1 && 's'}, keep it up!
+          </p>
+        </div>
+      )}
       <div
         className={
           phrase.added >= phrase.goal ? 'complete border-b' : 'border-b'
