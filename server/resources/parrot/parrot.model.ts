@@ -19,6 +19,10 @@ interface ParrotDocument extends Document {
     phrase: number;
     games: number;
   };
+  streak: {
+    date: string;
+    number: number;
+  };
 }
 
 const parrotSchema = new Schema<ParrotDocument, Model<ParrotDocument>>(
@@ -45,6 +49,10 @@ const parrotSchema = new Schema<ParrotDocument, Model<ParrotDocument>>(
     goals: {
       phrase: { type: Number, required: true },
       games: { type: Number, required: true },
+    },
+    streak: {
+      date: { type: String },
+      number: { type: Number },
     },
     sharedWith: [{ type: SchemaTypes.ObjectId, ref: 'user' }],
   },
