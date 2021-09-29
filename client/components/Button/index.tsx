@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { ButtonWrapper } from './styles';
 
 interface Props {
-  children: string;
+  children: string | ReactElement;
   type?: 'button' | 'submit' | 'reset';
   action?: () => void;
   loading?: boolean;

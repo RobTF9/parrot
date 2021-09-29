@@ -81,7 +81,7 @@ const AddAPhrase: React.FC = () => {
       );
     }
 
-    if (translations) {
+    if (translations && parrot && parrot.language.langCode) {
       return (
         <>
           <Header>
@@ -99,7 +99,13 @@ const AddAPhrase: React.FC = () => {
             </Block>
           </Header>
           <StretchBlock>
-            <Translations {...{ translations, setPhrase }} />
+            <Translations
+              {...{
+                translations,
+                setPhrase,
+                langCode: parrot.language.langCode,
+              }}
+            />
           </StretchBlock>
           <Footer>
             <button type="button" onClick={() => reset()}>

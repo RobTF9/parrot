@@ -27,6 +27,10 @@ export const ButtonWrapper = styled.button<{
   text-decoration: none;
   width: fit-content;
 
+  & > svg {
+    stroke: var(--core-white);
+  }
+
   &:hover,
   &:focus {
     background-color: var(--core-dark);
