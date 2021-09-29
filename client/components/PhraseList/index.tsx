@@ -4,9 +4,10 @@ import { PhraseListWrapper } from './styles';
 
 interface Props {
   phrases: PhraseResource[];
+  noLinks?: boolean;
 }
 
-const PhraseList: React.FC<Props> = ({ phrases }) => {
+const PhraseList: React.FC<Props> = ({ phrases, noLinks }) => {
   return (
     <PhraseListWrapper>
       {phrases.map((phrase) => (
@@ -15,7 +16,7 @@ const PhraseList: React.FC<Props> = ({ phrases }) => {
           <p className="small margin-b">
             {phrase.pron} / {phrase.tran}
           </p>
-          <Link to={`/phrases/${phrase._id}`}>Edit</Link>
+          {!noLinks && <Link to={`/phrases/${phrase._id}`}>Edit</Link>}
         </li>
       ))}
     </PhraseListWrapper>

@@ -2,6 +2,7 @@ import React from 'react';
 import { GameListWrapper } from './styles';
 import formatDate from '../../utils/formatDate';
 import Button from '../Button';
+import PhraseList from '../PhraseList';
 
 interface Props {
   games: GameResource[];
@@ -15,18 +16,7 @@ const GameList: React.FC<Props> = ({ games }) => {
           <h3 className="large bold">
             {game.phrases.length} phrase{game.phrases.length !== 1 ? 's' : ''}
           </h3>
-          <ol>
-            {game.phrases.map((phrase) => (
-              <li key={phrase._id}>
-                <p className="xxlarge mid">{phrase.lang}</p>
-                <p className="small">
-                  {phrase.pron}
-                  <br />
-                  {phrase.tran}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <PhraseList {...{ phrases: game.phrases, noLinks: true }} />
           <h3 className="medium bold">
             Played {game.results.length} time
             {game.results.length !== 1 ? 's' : ''}
