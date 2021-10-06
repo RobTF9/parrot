@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
   return (
     <Main as="form" onSubmit={onSubmit}>
       <Header>
-        <h1 className="bold xlarge">Login to Parrot</h1>
+        <h1 className="bold xlarge">Log in to Parrot</h1>
       </Header>
       <StretchBlock>
         <Input

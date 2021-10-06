@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { SUCCESS_MESSAGE } from '../../utils/constants';
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import User from './user.model';
 
 export const getUser: RequestHandler = async (req, res, next) => {
@@ -17,15 +17,26 @@ export const getUser: RequestHandler = async (req, res, next) => {
 
 export const updateUser: RequestHandler = async (req, res, next) => {
   try {
-    const user = await User.findOneAndUpdate(
-      { _id: req.session.user },
-      req.body,
-      {
-        new: true,
+    const { username, email, password } = req.body;
+    const user = await User.findOne({ _id: req.session.user });
+
+    if (!user) {
+      return res.status(500).json({ message: ERROR_MESSAGE.INTERNAL_SERVER });
+    }
+
+    if (user) {
+      if (username) {
+        user.username = username;
       }
-    )
-      .lean()
-      .exec();
+      if (email) {
+        user.email = email;
+      }
+      if (password) {
+        user.password = password;
+      }
+    }
+
+    await user.save();
 
     return res
       .status(200)

@@ -71,6 +71,21 @@ userSchema.pre('save', function (next) {
   });
 });
 
+userSchema.pre('update', function (next) {
+  if (!this.isModified('password')) {
+    next();
+  }
+
+  bcrypt.hash(this.password, 8, (error, hash) => {
+    if (error) {
+      next(error);
+    }
+
+    this.password = hash;
+    next();
+  });
+});
+
 const User = model('user', userSchema);
 
 export default User;

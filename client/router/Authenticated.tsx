@@ -15,6 +15,7 @@ import BetaFooter from '../components/BetaFooter';
 import EditParrot from '../pages/EditParrot';
 import Phrases from '../pages/Phrases';
 import EditPhrase from '../pages/EditPhrase';
+import Settings from '../pages/Settings';
 
 const Authenticated: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -36,10 +37,14 @@ const Authenticated: React.FC = () => {
             { to: '/phrases', text: 'Phrases' },
             { to: '/games', text: 'Games' },
             { to: '/parrot', text: 'Create parrot' },
+            { to: '/settings', text: 'Settings' },
           ],
         }}
       />
       <Switch>
+        <Route path="/settings">
+          <Settings />
+        </Route>
         <Route path="/games">
           <Games />
         </Route>

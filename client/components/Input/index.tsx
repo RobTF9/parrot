@@ -6,7 +6,7 @@ interface Props {
   type?: string;
   name: string;
   error?: string;
-  value: string | number;
+  value?: string | number;
   onChange: React.ChangeEventHandler;
 }
 
@@ -15,7 +15,7 @@ const Input: React.FC<Props> = ({
   type = 'text',
   name,
   onChange,
-  value,
+  value = '',
   error,
 }) => {
   const checkActive = (v?: string | number) => {
