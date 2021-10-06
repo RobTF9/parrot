@@ -96,8 +96,6 @@ export const updateOne: RequestHandler = async (req, res, next) => {
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
     }
 
-    console.log(SUCCESS_MESSAGE.PARROT_UPDATED);
-
     return res
       .status(200)
       .json({ data: parrot, message: { ...SUCCESS_MESSAGE.PARROT_UPDATED } });
