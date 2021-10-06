@@ -76,9 +76,9 @@ export const getActive: RequestHandler = async (req, res, next) => {
   try {
     const parrot = await Parrot.findById(req.session.parrot?._id).lean().exec();
 
-    res.status(200).json({ data: parrot });
+    return res.status(200).json({ data: parrot });
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 
