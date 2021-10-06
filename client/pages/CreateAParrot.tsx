@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Footer, Main, Header, StretchBlock } from '../styles/Layout.styles';
 import { getParrots, createParrot } from '../data/parrotResource';
 import Parrot from '../components/Parrot';
@@ -9,11 +10,13 @@ import { TouchableOpacity } from '../styles/Interactive.styles';
 import { LANGUAGES } from '../utils/constants';
 
 const CreateAParrot: React.FC = () => {
+  const { push } = useHistory();
   const { activateParrot } = useParrotContext();
   const [parrots] = getParrots();
   const [create, createLoading] = createParrot(undefined, (res) => {
     if (res.data) {
       activateParrot(res.data._id);
+      setTimeout(() => push('/'), 3000);
     }
   });
 

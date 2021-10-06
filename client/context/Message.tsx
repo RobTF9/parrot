@@ -26,6 +26,12 @@ export const MessageProvider: React.FC = ({ children }) => {
     hideMessage();
   }, [location]);
 
+  useEffect(() => {
+    if (message.visible) {
+      setTimeout(() => setMessage({ ...message, visible: false }), 3000);
+    }
+  }, [message]);
+
   return (
     <MessageContext.Provider value={{ showMessage, hideMessage }}>
       <Message {...{ ...message, hide: hideMessage }} />
