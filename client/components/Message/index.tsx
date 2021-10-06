@@ -31,10 +31,12 @@ const Message: React.FC<Props> = ({ message, type, visible, hide }) => {
           }}
           type={type}
         >
-          <p className="mid">{message}</p>
-          <button type="button" onClick={hide}>
-            <FiX />
-          </button>
+          <div>
+            <p className="mid">{message}</p>
+            <button type="button" onClick={hide}>
+              <FiX />
+            </button>
+          </div>
         </MessageWrapper>
       )}
     </AnimatePresence>
