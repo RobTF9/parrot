@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import SplashPage from '../pages/SplashPage';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
+import ForgotPassword from '../pages/ForgotPassword';
 
 const NotAuthenticated: React.FC = () => (
   <Switch>
@@ -12,8 +13,14 @@ const NotAuthenticated: React.FC = () => (
     <Route path="/signup">
       <SignUpPage />
     </Route>
+    <Route path="/forgot-password">
+      <ForgotPassword />
+    </Route>
     <Route path="/">
       <SplashPage />
+    </Route>
+    <Route>
+      <Redirect to="/" />
     </Route>
   </Switch>
 );
