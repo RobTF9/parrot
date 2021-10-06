@@ -63,6 +63,7 @@ typings/
 dist
 .DS_Store
 .cache
+.parcel-cache
 
 server/services/translation/key.json
 
