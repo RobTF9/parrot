@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { get, post } from '../data/fetch';
 import { useParrotContext } from './Parrot';
 import { useMessageContext } from './Message';
@@ -17,6 +18,7 @@ const AuthContext = createContext<IAuthContext>({
 export const useAuthContext = (): IAuthContext => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const { push } = useHistory();
   const [authLoading, setAuthLoading] = useState(false);
   const { showMessage, hideMessage } = useMessageContext();
   const { activateParrot, deactivateParrot } = useParrotContext();
@@ -81,6 +83,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     );
 
     if (response.message) showMessage(response.message);
+
+    if (response.data) {
+      setTimeout(() => push('/'), 2000);
+    }
   };
 
   const checkAuth = async () => {

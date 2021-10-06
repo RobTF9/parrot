@@ -4,9 +4,13 @@ import SplashPage from '../pages/SplashPage';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
 import ForgotPassword from '../pages/ForgotPassword';
+import ResetPassword from '../pages/ResetPassword';
 
 const NotAuthenticated: React.FC = () => (
   <Switch>
+    <Route path="/reset">
+      <ResetPassword />
+    </Route>
     <Route path="/login">
       <LoginPage />
     </Route>

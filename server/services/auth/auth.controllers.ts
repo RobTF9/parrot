@@ -217,6 +217,7 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({
       message: SUCCESS_MESSAGE.PASSWORD_RESET_SUCCESSFULLY,
+      data: true,
     });
   } catch (error) {
     return next(error);
