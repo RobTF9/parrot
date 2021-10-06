@@ -2,7 +2,6 @@ import { Router } from 'express';
 import {
   createOne,
   getActive,
-  getShared,
   getYours,
   setActive,
   updateOne,
@@ -11,8 +10,6 @@ import {
 const router = Router();
 
 router.route('/').post(createOne).get(getYours);
-
-router.route('/shared').get(getShared);
 
 router.route('/active').get(getActive);
 

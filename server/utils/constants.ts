@@ -67,14 +67,3 @@ export const SUCCESS_MESSAGE = {
   PHRASE_MATCH: succesMessage('Matched, well done!'),
   PHRASE_ALREADY_MATCHED: succesMessage('Already completed!'),
 };
-
-export const GAME_TYPE = {
-  CONVERSATION: 'CONVERSATION',
-  SEQUENCE: 'SEQUENCE',
-  GRID: 'GRID',
-};
-
-export const GAME_ORDER = {
-  RANDOM: 'RANDOM',
-  MANUAL: 'MANUAL',
-};
