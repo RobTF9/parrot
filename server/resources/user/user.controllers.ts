@@ -38,9 +38,10 @@ export const updateUser: RequestHandler = async (req, res, next) => {
 
     await user.save();
 
-    return res
-      .status(200)
-      .json({ data: user, message: SUCCESS_MESSAGE.USER_UPDATED });
+    return res.status(200).json({
+      data: user.getPublicFields(),
+      message: SUCCESS_MESSAGE.USER_UPDATED,
+    });
   } catch (error) {
     return next(error);
   }

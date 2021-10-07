@@ -14,6 +14,15 @@ interface UserDocument extends Document {
   password: string;
   checkPassword: (password: string) => boolean;
   token?: ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+  getPublicFields: () => {
+    username: string;
+    email: string;
+    createdAt: Date;
+    updatedAt: Date;
+    _id: string;
+  };
 }
 
 const userSchema = new Schema<UserDocument, Model<UserDocument>>(
@@ -54,6 +63,16 @@ userSchema.methods.checkPassword = function (password) {
       resolve(same);
     });
   });
+};
+
+userSchema.methods.getPublicFields = function () {
+  return {
+    username: this.username,
+    email: this.email,
+    _id: this._id,
+    createdAt: this.createdAt,
+    updatedAt: this.updatedAt,
+  };
 };
 
 userSchema.pre('save', function (next) {
