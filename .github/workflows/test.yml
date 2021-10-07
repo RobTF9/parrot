@@ -4,6 +4,8 @@ on: [push]
 
 jobs:
   build:
+    env:
+      TRANSLATION_CREDS: ${{ secrets.TRANSLATION_CREDS }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
