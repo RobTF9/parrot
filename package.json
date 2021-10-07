@@ -1,8 +1,7 @@
 {
   "name": "parrot",
   "version": "1.0.0",
-  "description": "Lanuguages library and game builder",
-  "main": " index.ts",
+  "description": "An app for learning languages",
   "scripts": {
     "lint": "eslint client server --ext ts,tsx",
     "cy:open": "cypress open",
@@ -27,7 +26,7 @@
     "new": "node scripts/component.js",
     "clean": "rimraf .cache dist",
     "pretest": "yarn write && yarn reset:test && yarn seed:test && yarn build",
-    "test": "PORT=3000 NODE_ENV=test start-server-and-test 'yarn start' http://localhost:4000 'yarn cy:run'"
+    "test": "PORT=4000 NODE_ENV=test start-server-and-test 'yarn start' http://localhost:4000 'yarn cy:run'"
   },
   "author": "robtf9",
   "license": "ISC",
