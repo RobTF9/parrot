@@ -2,6 +2,12 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { get } from '../data/fetch';
 import { queryClient } from './Query';
 
+interface IParrotContext {
+  parrot?: ParrotSession;
+  activateParrot: (l: string) => void;
+  deactivateParrot: () => void;
+}
+
 const ParrotContext = createContext<IParrotContext>({
   activateParrot: () => null,
   deactivateParrot: () => null,

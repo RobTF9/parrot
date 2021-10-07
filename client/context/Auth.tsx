@@ -4,6 +4,17 @@ import { get, post } from '../data/fetch';
 import { useParrotContext } from './Parrot';
 import { useMessageContext } from './Message';
 
+interface IAuthContext {
+  signIn: (details: Email & Password) => void;
+  signUp: (details: Email & Password & Username) => void;
+  resetPasswordEmail: (details: Email) => void;
+  resetPassword: (details: Token & Password & Id) => void;
+  signOut: () => void;
+  authenticated?: boolean;
+  authLoading: boolean;
+  hideMessage: () => void;
+}
+
 const AuthContext = createContext<IAuthContext>({
   authenticated: false,
   authLoading: false,

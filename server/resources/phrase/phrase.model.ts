@@ -15,7 +15,6 @@ export interface PhraseDocument extends Document {
   createdBy: ObjectId;
   createdAt: Date;
   updatedBy: ObjectId | string;
-  tags: ObjectId[];
 }
 
 const phraseSchema = new Schema<PhraseDocument, Model<PhraseDocument>>(
@@ -47,12 +46,6 @@ const phraseSchema = new Schema<PhraseDocument, Model<PhraseDocument>>(
       required: true,
       ref: 'parrot',
     },
-    tags: [
-      {
-        type: SchemaTypes.ObjectId,
-        ref: 'tag',
-      },
-    ],
   },
   { timestamps: true, discriminatorKey: 'type', collection: 'phrase' }
 );
