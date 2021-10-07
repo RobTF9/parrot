@@ -29,6 +29,6 @@ describe('Login and activate parrot', () => {
 
   it('Can select a parrot and be redirected to the home page', () => {
     cy.get('button').contains('Bengali').click();
-    cy.get('h1').should('contain', 'Hey User');
+    cy.get('h1').should('contain', 'Hey Use');
   });
 });
