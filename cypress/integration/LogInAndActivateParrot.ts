@@ -6,7 +6,7 @@ describe('Login and activate parrot', () => {
   it('User can visit login page', () => {
     cy.visit('/');
     cy.get('a').contains('Login').click();
-    cy.get('h1').should('contain', 'Login to Parrot');
+    cy.get('h1').should('contain', 'Log in to Parrot');
   });
 
   it('Displays front end validation errors', () => {
