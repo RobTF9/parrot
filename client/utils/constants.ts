@@ -1,11 +1,10 @@
 export const CACHE = {
   USER: 'user',
-  LEXICON: 'parrot',
-  SHARED_LEXICON: 'share-parrot',
+  PARROT: 'parrot',
   GAME: 'game',
   PHRASE: 'phrase',
   GAMES: 'games',
-  PARROT_EDIT: 'PARROT_EDIT',
+  PARROT_EDIT: 'parrot-edit',
 };
 
 export const LANGUAGES = [

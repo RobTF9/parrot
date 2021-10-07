@@ -9,14 +9,14 @@ import {
 } from './crud';
 
 export const getParrots: APIReciever<ParrotResource[]> = () =>
-  getMany<ParrotResource>(CACHE.LEXICON, '/api/parrot');
+  getMany<ParrotResource>(CACHE.PARROT, '/api/parrot');
 
 export const createParrot: APIGiver<ParrotSubmission, ParrotResource> = (
   _,
   callback?: (res: ServerReponse<ParrotResource>) => void
 ) =>
   createOne<ParrotSubmission, ParrotResource>(
-    CACHE.LEXICON,
+    CACHE.PARROT,
     '/api/parrot',
     callback
   );
@@ -26,7 +26,7 @@ export const updateParrot: APIGiver<ParrotSubmission, ParrotResource> = (
   callback?: (res: ServerReponse<ParrotResource>) => void
 ) =>
   updateOne<ParrotSubmission, ParrotResource>(
-    CACHE.LEXICON,
+    CACHE.PARROT,
     `/api/parrot/${id}`,
     callback
   );
