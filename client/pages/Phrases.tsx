@@ -13,10 +13,15 @@ const Phrases: React.FC = () => {
     <Main>
       <Header>
         <h1 className="bold xlarge">Phrases</h1>
+        {phrases?.data.length === 0 && (
+          <p className="margin-t">You haven&apos;t added any phrases yet</p>
+        )}
       </Header>
-      <StretchBlock>
-        {phrases && <PhraseList {...{ phrases: phrases.data }} />}
-      </StretchBlock>
+      {phrases && (
+        <StretchBlock>
+          <PhraseList {...{ phrases: phrases.data }} />
+        </StretchBlock>
+      )}
     </Main>
   );
 };

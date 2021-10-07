@@ -13,6 +13,9 @@ const Games: React.FC = () => {
     <Main>
       <Header>
         <h1 className="xlarge bold">Games</h1>
+        {games?.data.length === 0 && (
+          <p className="margin-t">You haven&apos;t created any games yet</p>
+        )}
       </Header>
       {games && (
         <StretchBlock>

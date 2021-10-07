@@ -46,8 +46,9 @@ const CreateAParrot: React.FC = () => {
         <h1 className="xlarge bold">Create a parrot</h1>
         {!newParrot.language && (
           <p className="margin-t">
-            What language do you want to teach your parrot? (You can create
-            another one later)
+            {parrots?.data.length === LANGUAGES.length
+              ? "You've created a parrot for every currently available language"
+              : 'What language do you want to teach your parrot? (You can create another one later)'}
           </p>
         )}
       </Header>
