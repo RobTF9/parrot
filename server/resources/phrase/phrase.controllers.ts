@@ -4,7 +4,10 @@ import Phrase from './phrase.model';
 
 export const createPhrase: RequestHandler = async (req, res, next) => {
   try {
-    const alreadyCreated = await Phrase.findOne({ lang: req.body.lang });
+    const alreadyCreated = await Phrase.findOne({
+      parrot: req.session.parrot?._id,
+      lang: req.body.lang,
+    });
 
     if (alreadyCreated) {
       return res.status(400).json({ message: ERROR_MESSAGE.DUPLICATE_PHRASE });
