@@ -12,7 +12,7 @@ const config = {
   emailService: process.env.EMAIL_SERVICE,
   emailPassword: process.env.EMAIL_PASSWORD,
   client: process.env.CLIENT_URL,
-  port: process.env.PORT || process.env.NODE_ENV === 'test' ? 4000 : 3000,
+  port: process.env.PORT,
   sessionSecret:
     process.env.SESSION_SECRET || process.env.NODE_ENV === 'test'
       ? 'test'
