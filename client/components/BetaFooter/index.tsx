@@ -22,7 +22,7 @@ const BetaFooter: React.FC = () => {
       <p>
         Thank you for signing up to Parrot! We&apos;re currently in beta which
         means some things are still a work in progress.{' '}
-        <a href="https://github.com/RobTF9/parrot/issues/new">
+        <a href="https://github.com/RobTF9/parrot/issues/new?assignees=RobTF9&labels=bug&template=bug_report.md&title=">
           Report an issue
         </a>{' '}
         <button
