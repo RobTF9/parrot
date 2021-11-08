@@ -4,7 +4,7 @@ import config from '../../config';
 import { parrotActive } from '../auth/auth.middleware';
 
 const CREDENTIALS =
-  config.transationCreds && JSON.parse(JSON.stringify(config.transationCreds));
+  config.transationCreds && JSON.parse(config.transationCreds);
 
 const translate = new v2.Translate({
   credentials: CREDENTIALS,
