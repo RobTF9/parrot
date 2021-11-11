@@ -50,7 +50,7 @@ export const setActive: RequestHandler = async (req, res, next) => {
   try {
     const parrot = await Parrot.findOne({ _id: req.params.id });
 
-    if (!parrot) {
+    if (!parrot || `${parrot.createdBy}` !== `${req.session.user}`) {
       return res
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
@@ -92,7 +92,7 @@ export const updateOne: RequestHandler = async (req, res, next) => {
       { new: true }
     );
 
-    if (!parrot) {
+    if (!parrot || `${parrot.createdBy}` !== `${req.session.user}`) {
       return res
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
@@ -110,7 +110,7 @@ export const deleteOne: RequestHandler = async (req, res, next) => {
   try {
     const parrot = await Parrot.findByIdAndDelete(req.params.id);
 
-    if (!parrot) {
+    if (!parrot || `${parrot.createdBy}` !== `${req.session.user}`) {
       return res
         .status(404)
         .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
