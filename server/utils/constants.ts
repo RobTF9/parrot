@@ -66,4 +66,5 @@ export const SUCCESS_MESSAGE = {
   GAME_FINISHED: succesMessage('Game finished! Well done'),
   PHRASE_MATCH: succesMessage('Matched, well done!'),
   PHRASE_ALREADY_MATCHED: succesMessage('Already completed!'),
+  PARROT_DELETED: succesMessage('Parrot deleted successfully'),
 };

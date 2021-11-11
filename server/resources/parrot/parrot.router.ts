@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
   createOne,
+  deleteOne,
   getActive,
   getYours,
   setActive,
@@ -13,6 +14,6 @@ router.route('/').post(createOne).get(getYours);
 
 router.route('/active').get(getActive);
 
-router.route('/:id').get(setActive).put(updateOne);
+router.route('/:id').get(setActive).put(updateOne).delete(deleteOne);
 
 export default router;

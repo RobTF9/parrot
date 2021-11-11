@@ -1,5 +1,7 @@
 import { RequestHandler } from 'express';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
+import Game from '../game/game.model';
+import Phrase from '../phrase/phrase.model';
 import Parrot from './parrot.model';
 
 export const createOne: RequestHandler = async (req, res, next) => {
@@ -99,6 +101,27 @@ export const updateOne: RequestHandler = async (req, res, next) => {
     return res
       .status(200)
       .json({ data: parrot, message: { ...SUCCESS_MESSAGE.PARROT_UPDATED } });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+export const deleteOne: RequestHandler = async (req, res, next) => {
+  try {
+    const parrot = await Parrot.findByIdAndDelete(req.params.id);
+
+    if (!parrot) {
+      return res
+        .status(404)
+        .json({ message: ERROR_MESSAGE.RESOURCE_NOT_FOUND });
+    }
+
+    await Phrase.deleteMany({ parrot: parrot._id });
+    await Game.deleteMany({ parrot: parrot._id });
+
+    return res
+      .status(200)
+      .json({ data: parrot, message: { ...SUCCESS_MESSAGE.PARROT_DELETED } });
   } catch (error) {
     return next(error);
   }
