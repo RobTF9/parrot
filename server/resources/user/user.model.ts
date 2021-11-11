@@ -9,6 +9,7 @@ import {
 import bcrypt from 'bcryptjs';
 
 interface UserDocument extends Document {
+  _id: ObjectId;
   username: string;
   email: string;
   password: string;
