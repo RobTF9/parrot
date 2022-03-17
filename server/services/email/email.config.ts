@@ -3,8 +3,8 @@ import config from '../../config';
 
 export const transport = nodemailer.createTransport({
   host: config.emailService,
-  port: 25,
-  secure: false,
+  port: 465,
+  secure: true,
   auth: {
     user: config.email,
     pass: config.emailPassword,
