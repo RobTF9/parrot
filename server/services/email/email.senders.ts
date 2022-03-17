@@ -7,10 +7,17 @@ import {
 const sendEmail = (
   recipient: string,
   subject: string,
-  template: string
+  template: string,
+  header: string
 ): void => {
   transport.sendMail(
-    { from: sendAddress, to: recipient, subject, html: template },
+    {
+      from: sendAddress,
+      to: recipient,
+      subject,
+      html: template,
+      headers: { 'X-PM-Message-Stream': header },
+    },
     (error, info) => {
       if (error) {
         console.log(error);
@@ -29,7 +36,8 @@ export const resetPasswordEmail = (
   sendEmail(
     recipient,
     'Reset your password',
-    resetPasswordTemplate(name, link)
+    resetPasswordTemplate(name, link),
+    'forgot-password'
   );
 
 export const parrotSharedWithYou = (
@@ -41,5 +49,6 @@ export const parrotSharedWithYou = (
   sendEmail(
     recipient,
     `${sender} shared a parrot with you`,
-    parrotSharedWithYouTemplate(sender, name, link)
+    parrotSharedWithYouTemplate(sender, name, link),
+    'null'
   );
