@@ -1,12 +1,13 @@
 import session from 'express-session';
 import ConnectSession from 'connect-mongodb-session';
+import { ObjectId } from 'mongoose';
 import config from '../config';
 
 declare module 'express-session' {
   export interface SessionData {
-    user: { [key: string]: string };
+    user: ObjectId;
     parrot: {
-      _id: { [key: string]: string };
+      _id: ObjectId;
       language: {
         name: string;
         htmlCode: string;
