@@ -10,6 +10,7 @@ const sendEmail = (
   template: string,
   header: string
 ): void => {
+  console.log(sendAddress);
   transport.sendMail(
     {
       from: sendAddress,
