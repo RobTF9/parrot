@@ -10,10 +10,9 @@ const sendEmail = (
   template: string,
   header: string
 ): void => {
-  console.log(sendAddress);
   transport.sendMail(
     {
-      from: sendAddress,
+      from: 'support@parrot.to',
       to: recipient,
       subject,
       html: template,
