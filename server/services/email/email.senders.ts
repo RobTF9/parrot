@@ -1,3 +1,4 @@
+import config from '../../config';
 import { transport } from './email.config';
 import { resetPasswordTemplate, onboardingTemplate } from './email.templates';
 
@@ -37,14 +38,10 @@ export const resetPasswordEmail = (
     'forgot-password'
   );
 
-export const onboardingEmail = (
-  recipient: string,
-  link: string,
-  name: string
-): void =>
+export const onboardingEmail = (recipient: string, name: string): void =>
   sendEmail(
     recipient,
     'Welcome to Parrot',
-    onboardingTemplate(name, link),
+    onboardingTemplate(name, config.client || ''),
     'onboarding'
   );
