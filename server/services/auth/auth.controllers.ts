@@ -4,7 +4,7 @@ import { RequestHandler } from 'express';
 import User from '../../resources/user/user.model';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constants';
 import config from '../../config';
-import { resetPasswordEmail } from '../email/email.senders';
+import { onboardingEmail, resetPasswordEmail } from '../email/email.senders';
 import Token from '../../resources/token/token.model';
 
 export const signIn: RequestHandler = async (req, res, next) => {
@@ -73,6 +73,8 @@ export const signUp: RequestHandler = async (req, res, next) => {
 
     const user = await User.create(req.body);
     req.session.user = user._id;
+
+    await onboardingEmail(user.email, user.username);
 
     return res.status(201).send({
       auth: true,

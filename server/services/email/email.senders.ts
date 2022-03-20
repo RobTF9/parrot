@@ -1,8 +1,6 @@
-import { transport, sendAddress } from './email.config';
-import {
-  resetPasswordTemplate,
-  parrotSharedWithYouTemplate,
-} from './email.templates';
+import config from '../../config';
+import { transport } from './email.config';
+import { resetPasswordTemplate, onboardingTemplate } from './email.templates';
 
 const sendEmail = (
   recipient: string,
@@ -40,15 +38,10 @@ export const resetPasswordEmail = (
     'forgot-password'
   );
 
-export const parrotSharedWithYou = (
-  recipient: string,
-  link: string,
-  sender: string,
-  name: string
-): void =>
+export const onboardingEmail = (recipient: string, name: string): void =>
   sendEmail(
     recipient,
-    `${sender} shared a parrot with you`,
-    parrotSharedWithYouTemplate(sender, name, link),
-    'null'
+    'Welcome to Parrot',
+    onboardingTemplate(name, config.client || ''),
+    'onboarding'
   );
