@@ -3,11 +3,13 @@ import { useHistory } from 'react-router-dom';
 import GameTrack from '../components/GameTrack';
 import Listener from '../components/Listener';
 import Loading from '../components/Loading';
+import { useParrotContext } from '../context/Parrot';
 import { getGame, updateGame } from '../data/gameResource';
 import useGameProgress from '../hooks/useGameProgress';
 import { Footer, Main, StretchBlock } from '../styles/Layout.styles';
 
 const PlayGame: React.FC = () => {
+  const { parrot } = useParrotContext();
   const { push } = useHistory();
   const [game, isLoading] = getGame();
   const [update, updateLoading] = updateGame(game?.data._id, (res) => {
@@ -34,6 +36,7 @@ const PlayGame: React.FC = () => {
               index === progressIndex && (
                 <Listener
                   {...{
+                    parrot,
                     phrase,
                     phraseCorrect,
                     phraseIncorrect,
