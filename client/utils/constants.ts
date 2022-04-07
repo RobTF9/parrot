@@ -12,4 +12,5 @@ export const LANGUAGES = [
   { name: 'Hindi', htmlCode: 'hi', langCode: 'hi-IN' },
   { name: 'Korean', htmlCode: 'ko', langCode: 'ko' },
   { name: 'Mandarin', htmlCode: 'zh', langCode: 'zh-CN' },
+  { name: 'Italian', htmlCode: 'it', langCode: 'it-IT', isRomanLanguage: true },
 ];
