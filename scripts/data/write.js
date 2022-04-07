@@ -84,6 +84,27 @@ const phrase = `[
       "$date": "${date}"
     },
     "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60185d89a7fba10015c88c18"
+    },
+    "parrot": {
+      "$oid": "6093e4e3103adf787edeb010"
+    },
+    "lang": "Ciao",
+    "pron": "cià·o",
+    "tran": "Hello",
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "${date}"
+    },
+    "updatedAt": {
+      "$date": "${date}"
+    },
+    "__v": 0
   }
 ]`;
 
@@ -108,6 +129,29 @@ const parrots = `[
     },
     "goals": {
       "phrase": 3,
+      "games": 1
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6093e4e3103adf787edeb010"
+    },
+    "createdBy": {
+      "$oid": "6016b9410266200015c5e7f9"
+    },
+    "createdAt": {
+      "$date": "${date}"
+    },
+    "updatedAt": {
+      "$date": "${date}"
+    },
+    "language": {
+      "name": "Italian",
+      "htmlCode": "it",
+      "langCode": "it-IT"
+    },
+    "goals": {
+      "phrase": 1,
       "games": 1
     }
   }

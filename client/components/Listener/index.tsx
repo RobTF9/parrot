@@ -9,12 +9,14 @@ interface ProgressPhrase extends PhraseResource {
 }
 
 interface Props {
+  parrot: ParrotSession;
   phrase: ProgressPhrase;
   phraseCorrect: (lang: string) => void;
   phraseIncorrect: (lang: string) => void;
 }
 
 const Listener: React.FC<Props> = ({
+  parrot,
   phrase,
   phraseCorrect,
   phraseIncorrect,
@@ -30,7 +32,15 @@ const Listener: React.FC<Props> = ({
   return (
     <ListenerWrapper>
       <p className="xxlarge">
-        Can you say <strong>{phrase.lang}</strong>
+        {parrot.language.isRomanLanguage ? (
+          <>
+            Can you say <strong>{phrase.tran}</strong> in {parrot.language.name}
+          </>
+        ) : (
+          <>
+            Can you say <strong>{phrase.lang}</strong>
+          </>
+        )}
         <br />
         <span className="small">{phrase.tran}</span>
       </p>
