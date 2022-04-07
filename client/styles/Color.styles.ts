@@ -50,6 +50,12 @@ const Color = createGlobalStyle`
     --mandarin-bg-25: rgba(225, 72, 60, 0.25);
     --mandarin-light: rgba(255, 227, 82, 1);
     --mandarin-dark: rgba(255, 175, 82, 1);
+
+    --italian-bg: rgba(0, 146, 70, 1);
+    --italian-bg-50: rgba(225, 72, 60, 0.5);
+    --italian-bg-25: rgba(225, 72, 60, 0.25);
+    --italian-light: rgba(206, 43, 55, 1);
+    --italian-dark: rgba(255, 255, 255, 1);
   }
 `;
 
