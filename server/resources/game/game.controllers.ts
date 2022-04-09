@@ -9,7 +9,10 @@ export const createGame: RequestHandler = async (req, res, next) => {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    const gamePhrases = await Phrase.find({ createdAt: { $gte: today } });
+    const gamePhrases = await Phrase.find({
+      createdAt: { $gte: today },
+      parrot: req.session.parrot?._id,
+    });
     const parrot = await Parrot.findById(req.session.parrot?._id);
 
     if (parrot && parrot.goals && gamePhrases.length < parrot.goals.phrase) {
