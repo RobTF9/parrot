@@ -5709,6 +5709,11 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+cypress-mailosaur@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/cypress-mailosaur/-/cypress-mailosaur-2.7.0.tgz#ab564589b299635d38765ae5f2c21e833f0a2268"
+  integrity sha512-QopxYYvzgF1RWYubgyz9tkNr5GlXcCl94RmIPYgwjNbIuJ3CTOkxeaMsaUd+zpVsu6Xhw+4nzAfYRHjUyFc//A==
+
 cypress@^8.4.1:
   version "8.4.1"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-8.4.1.tgz#8b5898bf49359cadc28f02ba05d51f63b8e3a717"

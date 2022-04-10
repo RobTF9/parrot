@@ -20,21 +20,3 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 };
-
-const makeEmailAccount = require('./email-account');
-module.exports = async (on, config) => {
-  const emailAccount = await makeEmailAccount();
-
-  on('task', {
-    getUserEmail() {
-      return emailAccount.email;
-    },
-
-    getLastEmail() {
-      return emailAccount.getLastEmail();
-    },
-  });
-
-  // important: return the changed config
-  return config;
-};

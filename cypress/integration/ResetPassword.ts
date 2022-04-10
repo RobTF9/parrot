@@ -1,13 +1,7 @@
 describe('Reset password', () => {
-  let userEmail;
-
-  before(() => {
-    cy.task('getUserEmail').then((email) => {
-      expect(email).to.be.a('string');
-      userEmail = email;
-      cy.log('User');
-    });
-  });
+  const serverId = 'h5wjvmse';
+  const serverDomain = 'h5wjvmse.mailosaur.net';
+  const supportEmail = `support@${serverDomain}`;
 
   it('User can visit forgotten password page', () => {
     cy.visit('/');
@@ -20,5 +14,8 @@ describe('Reset password', () => {
     cy.get('input[name=email]').type('user@email.com');
     cy.get('button').contains('Submit details').click();
     cy.get('p').should('contain', 'Reset link sent');
+    cy.mailosaurGetMessage(serverId, {
+      sentTo: supportEmail,
+    }).then((email) => cy.log(email.subject));
   });
 });
