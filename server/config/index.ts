@@ -11,12 +11,12 @@ const config = {
   email: process.env.EMAIL,
   emailService: process.env.EMAIL_SERVICE,
   emailPassword: process.env.EMAIL_PASSWORD,
-  client: process.env.CLIENT_URL,
+  client:
+    process.env.NODE_ENV === 'test'
+      ? 'http://localhost:4000/'
+      : process.env.CLIENT_URL,
   port: process.env.PORT,
-  sessionSecret:
-    process.env.SESSION_SECRET || process.env.NODE_ENV === 'test'
-      ? 'test'
-      : 'dev',
+  sessionSecret: process.env.SESSION_SECRET || 'dev',
   isProd: process.env.NODE_ENV === 'production',
   transationCreds: process.env.TRANSLATION_CREDS,
 };

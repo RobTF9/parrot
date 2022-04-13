@@ -178,6 +178,7 @@ export const requestPasswordReset: RequestHandler = async (req, res, next) => {
 export const passwordReset: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.password || !req.body.token || !req.body._id) {
+      console.log('Body incorrect');
       return res
         .status(400)
         .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
@@ -186,6 +187,7 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
     const user = await User.findOne({ _id: req.body._id });
 
     if (!user || !user.token) {
+      console.log('No user');
       return res
         .status(400)
         .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
@@ -194,6 +196,7 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
     const token = await Token.findById(user?.token);
 
     if (!token) {
+      console.log('No token');
       return res
         .status(400)
         .json({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
@@ -202,7 +205,10 @@ export const passwordReset: RequestHandler = async (req, res, next) => {
     const tokenValid = await bcrypt.compare(req.body.token, token.value);
 
     if (!tokenValid) {
-      res.status(400).send({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
+      console.log('Token not valid');
+      return res
+        .status(400)
+        .send({ message: ERROR_MESSAGE.CANNOT_RESET_PASSWORD });
     }
 
     await token.delete();

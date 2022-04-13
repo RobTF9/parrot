@@ -18,6 +18,21 @@ const users = `[
       "$date": "${date}"
     },
     "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6016b9410266200015c5e7f6"
+    },
+    "username": "CypressMailtrapUser",
+    "email": "user@h5wjvmse.mailosaur.net",
+    "password": "$2a$08$swkXPjd4Hb3z28oHTJSBR.O.Q2st79CQk2i9DOoyecx6htPWSufcm",
+    "createdAt": {
+      "$date": "${date}"
+    },
+    "updatedAt": {
+      "$date": "${date}"
+    },
+    "__v": 0
   }
 ]`;
 
