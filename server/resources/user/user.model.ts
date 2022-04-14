@@ -17,9 +17,11 @@ interface UserDocument extends Document {
   token?: ObjectId;
   createdAt: Date;
   updatedAt: Date;
+  role: 'overlord' | 'teacher';
   getPublicFields: () => {
     username: string;
     email: string;
+    role?: string;
     createdAt: Date;
     updatedAt: Date;
     _id: string;
@@ -33,6 +35,10 @@ const userSchema = new Schema<UserDocument, Model<UserDocument>>(
       required: true,
       unique: true,
       trim: true,
+    },
+    role: {
+      type: String,
+      enum: ['overlord', 'teacher'],
     },
     email: {
       type: String,
