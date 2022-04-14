@@ -3,11 +3,13 @@ import { useHistory, useParams } from 'react-router-dom';
 import GameTrack from '../components/GameTrack';
 import Listener from '../components/Listener';
 import Loading from '../components/Loading';
+import { useParrotContext } from '../context/Parrot';
 import { getGameById, updateGame } from '../data/gameResource';
 import useGameProgress from '../hooks/useGameProgress';
 import { Footer, Main, StretchBlock } from '../styles/Layout.styles';
 
 const ReplayGame: React.FC = () => {
+  const { parrot } = useParrotContext();
   const { push } = useHistory();
   const { id } = useParams<{ id: string }>();
   const [game, isLoading] = getGameById(id);
@@ -29,12 +31,14 @@ const ReplayGame: React.FC = () => {
   return (
     <Main>
       <StretchBlock>
-        {progress &&
+        {parrot &&
+          progress &&
           progress.map(
             (phrase, index) =>
               index === progressIndex && (
                 <Listener
                   {...{
+                    parrot,
                     phrase,
                     phraseCorrect,
                     phraseIncorrect,
