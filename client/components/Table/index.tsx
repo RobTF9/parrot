@@ -7,6 +7,7 @@ interface Props {
   columns: {
     Header: string;
     accessor: string;
+    Cell?: any;
   }[];
 }
 
