@@ -11,6 +11,7 @@ const users = `[
     "username": "User",
     "email": "user@email.com",
     "password": "$2a$08$swkXPjd4Hb3z28oHTJSBR.O.Q2st79CQk2i9DOoyecx6htPWSufcm",
+    "role": "overlord",
     "createdAt": {
       "$date": "${date}"
     },
