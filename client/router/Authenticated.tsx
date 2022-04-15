@@ -16,6 +16,7 @@ import EditParrot from '../pages/EditParrot';
 import Phrases from '../pages/Phrases';
 import EditPhrase from '../pages/EditPhrase';
 import Settings from '../pages/Settings';
+import Admin from '../pages/Admin';
 
 const Authenticated: React.FC = () => {
   const { signOut } = useAuthContext();
@@ -71,6 +72,9 @@ const Authenticated: React.FC = () => {
         </Route>
         <Route path="/play">
           <PlayGame />
+        </Route>
+        <Route path="/admin">
+          <Admin />
         </Route>
         <Route exact path="/">
           <HomePage />
