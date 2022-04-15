@@ -4,6 +4,7 @@ export {};
 interface Resource {
   _id: string;
   createdAt: string;
+  createdBy: string;
   updatedAt: string;
 }
 

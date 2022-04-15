@@ -30,7 +30,8 @@ const PlayGame: React.FC = () => {
   return (
     <Main>
       <StretchBlock>
-        {progress &&
+        {parrot &&
+          progress &&
           progress.map(
             (phrase, index) =>
               index === progressIndex && (
