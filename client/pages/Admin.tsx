@@ -33,6 +33,7 @@ const Admin: React.FC = () => {
               {...{
                 data: data?.parrots,
                 columns: [
+                  { Header: '_id', accessor: '_id' },
                   { Header: 'Language', accessor: 'language.name' },
                   {
                     Header: 'Created by',
@@ -62,6 +63,7 @@ const Admin: React.FC = () => {
               {...{
                 data: data?.phrases,
                 columns: [
+                  { Header: '_id', accessor: '_id' },
                   { Header: 'Phrase', accessor: 'lang' },
                   { Header: 'Translation', accessor: 'tran' },
                   { Header: 'Pronounciation', accessor: 'pron' },
@@ -80,6 +82,43 @@ const Admin: React.FC = () => {
                       data.parrots.find(
                         ({ _id }) => _id === row.original.parrot
                       )?.language.name || '',
+                  },
+                ],
+              }}
+            />
+          </section>
+        )}
+        {data?.phrases[0] && (
+          <section className="margin-b">
+            <h2 className="bold large margin-b">Games</h2>
+            <Table
+              {...{
+                data: data?.games,
+                columns: [
+                  { Header: '_id', accessor: '_id' },
+                  {
+                    Header: 'Created by',
+                    accessor: 'createdBy',
+                    Cell: ({ row }: { row: { original: GameResource } }) =>
+                      data.users.find(
+                        ({ _id }) => _id === row.original.createdBy
+                      )?.username || '',
+                  },
+                  {
+                    Header: 'Language',
+                    accessor: 'parrot',
+                    Cell: ({ row }: { row: { original: GameResource } }) =>
+                      data.parrots.find(
+                        ({ _id }) => _id === row.original.parrot
+                      )?.language.name || '',
+                  },
+                  {
+                    Header: 'No. times played',
+                    accessor: 'results.length',
+                  },
+                  {
+                    Header: 'No. phrases',
+                    accessor: 'phrases.length',
                   },
                 ],
               }}
