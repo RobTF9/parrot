@@ -52,10 +52,16 @@ const Color = createGlobalStyle`
     --mandarin-dark: rgba(255, 175, 82, 1);
 
     --italian-bg: rgba(0, 146, 70, 1);
-    --italian-bg-50: rgba(225, 72, 60, 0.5);
-    --italian-bg-25: rgba(225, 72, 60, 0.25);
+    --italian-bg-50: rgba(0, 146, 70, 0.5);
+    --italian-bg-25: rgba(0, 146, 70, 0.25);
     --italian-light: rgba(206, 43, 55, 1);
     --italian-dark: rgba(255, 255, 255, 1);
+
+    --german-bg: rgba(255, 204, 0, 1);
+    --german-bg-50: rgba(255, 204, 0, 0.5);
+    --german-bg-25: rgba(255, 204, 0, 0.25);
+    --german-light: rgba(206, 43, 55, 1);
+    --german-dark: rgba(60, 60, 60, 1);
   }
 `;
 
