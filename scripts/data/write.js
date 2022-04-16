@@ -141,7 +141,8 @@ const parrots = `[
     "language": {
       "name": "Bengali",
       "htmlCode": "bn",
-      "langCode": "bn-BN"
+      "langCode": "bn-BN",
+      "isRomanLanguage": false
     },
     "goals": {
       "phrase": 3,
@@ -164,7 +165,8 @@ const parrots = `[
     "language": {
       "name": "Italian",
       "htmlCode": "it",
-      "langCode": "it-IT"
+      "langCode": "it-IT",
+      "isRomanLanguage": true
     },
     "goals": {
       "phrase": 1,

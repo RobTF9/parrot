@@ -30,7 +30,7 @@ declare global {
     name: string;
     htmlCode: string;
     langCode: string;
-    isRomanLanguage?: boolean;
+    isRomanLanguage: boolean;
   }
 
   /** The active parrot session, used to set

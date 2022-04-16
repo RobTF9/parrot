@@ -62,6 +62,7 @@ export const setActive: RequestHandler = async (req, res, next) => {
         name: parrot.language.name,
         htmlCode: parrot.language.htmlCode,
         langCode: parrot.language.langCode,
+        isRomanLanguage: parrot.language.isRomanLanguage,
       },
     };
 

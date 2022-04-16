@@ -12,6 +12,7 @@ declare module 'express-session' {
         name: string;
         htmlCode: string;
         langCode: string;
+        isRomanLanguage: boolean;
       };
     };
   }

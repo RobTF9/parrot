@@ -12,6 +12,7 @@ interface ParrotDocument extends Document {
     name: string;
     htmlCode: string;
     langCode: string;
+    isRomanLanguage: boolean;
   };
   createdBy: ObjectId;
   sharedWith: ObjectId[];
@@ -38,6 +39,10 @@ const parrotSchema = new Schema<ParrotDocument, Model<ParrotDocument>>(
       },
       langCode: {
         type: String,
+        required: true,
+      },
+      isRomanLanguage: {
+        type: Boolean,
         required: true,
       },
     },

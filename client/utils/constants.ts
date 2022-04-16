@@ -8,9 +8,19 @@ export const CACHE = {
 };
 
 export const LANGUAGES = [
-  { name: 'Bengali', htmlCode: 'bn', langCode: 'bn-BN' },
-  { name: 'Hindi', htmlCode: 'hi', langCode: 'hi-IN' },
-  { name: 'Korean', htmlCode: 'ko', langCode: 'ko' },
-  { name: 'Mandarin', htmlCode: 'zh', langCode: 'zh-CN' },
+  {
+    name: 'Bengali',
+    htmlCode: 'bn',
+    langCode: 'bn-BN',
+    isRomanLanguage: false,
+  },
+  { name: 'Hindi', htmlCode: 'hi', langCode: 'hi-IN', isRomanLanguage: false },
+  { name: 'Korean', htmlCode: 'ko', langCode: 'ko', isRomanLanguage: false },
+  {
+    name: 'Mandarin',
+    htmlCode: 'zh',
+    langCode: 'zh-CN',
+    isRomanLanguage: false,
+  },
   { name: 'Italian', htmlCode: 'it', langCode: 'it-IT', isRomanLanguage: true },
 ];
