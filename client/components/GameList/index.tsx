@@ -2,7 +2,7 @@ import React from 'react';
 import { GameListWrapper } from './styles';
 import formatDate from '../../utils/formatDate';
 import Button from '../Button';
-import PhraseList from '../PhraseList';
+import { Card } from '../../styles/Layout.styles';
 
 interface Props {
   games: GameResource[];
@@ -12,15 +12,15 @@ const GameList: React.FC<Props> = ({ games }) => {
   return (
     <GameListWrapper>
       {games.map((game) => (
-        <li key={game._id} className="border-b">
+        <Card key={game._id} as="li">
           <h3 className="large bold">
             {game.phrases.length} phrase{game.phrases.length !== 1 ? 's' : ''}
           </h3>
-          <PhraseList {...{ phrases: game.phrases, noLinks: true }} />
-          <h3 className="medium bold">
+          {/* <PhraseList {...{ phrases: game.phrases, noLinks: true }} /> */}
+          <p>
             Played {game.results.length} time
             {game.results.length !== 1 ? 's' : ''}
-          </h3>
+          </p>
           <ol>
             {[...game.results].reverse().map((result) => (
               <li
@@ -39,7 +39,7 @@ const GameList: React.FC<Props> = ({ games }) => {
             ))}
           </ol>
           <Button to={`/replay/${game._id}`}>Replay game</Button>
-        </li>
+        </Card>
       ))}
     </GameListWrapper>
   );

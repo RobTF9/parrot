@@ -124,6 +124,40 @@ const phrase = `[
   }
 ]`;
 
+const game = [
+  {
+    _id: {
+      $oid: '625be07ba1113561379082ab',
+    },
+    parrot: {
+      $oid: '6093e4e3103adf787edeb009',
+    },
+    createdBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    updateBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    createdAt: {
+      $date: date,
+    },
+    updatedAt: {
+      $date: date,
+    },
+    phrases: [
+      {
+        $oid: '60185d89a7fba10015c88c17',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c16',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c15',
+      },
+    ],
+  },
+];
+
 const parrots = `[
   {
     "_id": {
@@ -184,5 +218,9 @@ fs.writeFile(`./scripts/data/phrase.json`, phrase, (err) => {
 });
 
 fs.writeFile(`./scripts/data/parrots.json`, parrots, (err) => {
+  if (err) throw err;
+});
+
+fs.writeFile(`./scripts/data/game.json`, JSON.stringify(game), (err) => {
   if (err) throw err;
 });

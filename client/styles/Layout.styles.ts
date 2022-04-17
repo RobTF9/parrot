@@ -85,3 +85,9 @@ export const Footer = styled.footer`
     margin-left: var(--large);
   }
 `;
+
+export const Card = styled.div`
+  box-shadow: 0 0 var(--medium) var(--core-mid-20);
+  padding: var(--medium);
+  border-radius: var(--small);
+`;

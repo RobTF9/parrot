@@ -23,3 +23,4 @@ function postCollection(collection) {
 postCollection('users');
 postCollection('parrots');
 postCollection('phrase');
+postCollection('game');
