@@ -43,6 +43,7 @@ const useTranslateService: UseTranslateService = (parrot) => {
 
   // function to call translation service
   const getTranslations = async () => {
+    if (translations) return;
     const response = await post<
       TranslationRequest,
       ServerReponse<TranslationResponse>
