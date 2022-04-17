@@ -1,5 +1,10 @@
 export {};
 
+declare module '*.svg' {
+  const content: any;
+  export default content;
+}
+
 /** Base mongoose resource, always contain timestamps and _id */
 interface Resource {
   _id: string;
