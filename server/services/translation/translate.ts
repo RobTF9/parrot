@@ -13,6 +13,8 @@ const translate = new v2.Translate({
 
 export const translateController: RequestHandler = async (req, res, next) => {
   try {
+    if (!req.body) return res.status(400);
+
     const response = await translate.translate([...req.body], {
       from: req.session.parrot?.language.htmlCode,
       to: 'en',
