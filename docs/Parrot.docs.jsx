@@ -64,3 +64,15 @@ export const Spanish = () => (
     <Parrot speaking language="Spanish" />
   </Wrapper>
 );
+
+export const Japanese = () => (
+  <Wrapper>
+    <Parrot speaking language="Japanese" />
+  </Wrapper>
+);
+
+export const Turkish = () => (
+  <Wrapper>
+    <Parrot speaking language="Turkish" />
+  </Wrapper>
+);

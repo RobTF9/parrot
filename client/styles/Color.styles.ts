@@ -74,6 +74,18 @@ const Color = createGlobalStyle`
     --spanish-bg-25: rgba(170, 21, 27, 0.25);
     --spanish-light: rgba(241, 191, 0, 1);
     --spanish-dark: rgba(255, 220, 0, 1);
+
+    --japanese-bg: rgba(188, 0, 45, 1);
+    --japanese-bg-50: rgba(188, 0, 45, 0.5);
+    --japanese-bg-25: rgba(188, 0, 45, 0.25);
+    --japanese-light: rgba(235, 235, 235, 1);
+    --japanese-dark: rgba(245, 245, 245, 1);
+
+    --turkish-bg: rgba(200, 16, 46, 1);
+    --turkish-bg-50: rgba(200, 16, 46, 0.5);
+    --turkish-bg-25: rgba(200, 16, 46, 0.25);
+    --turkish-light: rgba(160, 0, 26, 1);
+    --turkish-dark: rgba(245, 245, 245, 1);
   }
 `;
 
