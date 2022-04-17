@@ -23,4 +23,14 @@ export const LANGUAGES = [
     isRomanLanguage: false,
   },
   { name: 'Italian', htmlCode: 'it', langCode: 'it-IT', isRomanLanguage: true },
+  { name: 'French', htmlCode: 'fr', langCode: 'fr-FR', isRomanLanguage: true },
+  { name: 'German', htmlCode: 'de', langCode: 'de-DE', isRomanLanguage: true },
+  { name: 'Spanish', htmlCode: 'es', langCode: 'es-ES', isRomanLanguage: true },
+  { name: 'Turkish', htmlCode: 'tr', langCode: 'tr-TR', isRomanLanguage: true },
+  {
+    name: 'Japanese',
+    htmlCode: 'ja',
+    langCode: 'ja-JP',
+    isRomanLanguage: true,
+  },
 ];
