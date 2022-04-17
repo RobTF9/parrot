@@ -62,6 +62,18 @@ const Color = createGlobalStyle`
     --german-bg-25: rgba(255, 204, 0, 0.25);
     --german-light: rgba(206, 43, 55, 1);
     --german-dark: rgba(60, 60, 60, 1);
+
+    --french-bg: rgba(0, 70, 146, 1);
+    --french-bg-50: rgba(0, 70, 146, 0.5);
+    --french-bg-25: rgba(0, 70, 146, 0.25);
+    --french-light: rgba(206, 43, 55, 1);
+    --french-dark: rgba(255, 255, 255, 1);
+
+    --spanish-bg: rgba(170, 21, 27, 1);
+    --spanish-bg-50: rgba(170, 21, 27, 0.5);
+    --spanish-bg-25: rgba(170, 21, 27, 0.25);
+    --spanish-light: rgba(241, 191, 0, 1);
+    --spanish-dark: rgba(255, 220, 0, 1);
   }
 `;
 

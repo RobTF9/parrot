@@ -52,3 +52,15 @@ export const German = () => (
     <Parrot speaking language="German" />
   </Wrapper>
 );
+
+export const French = () => (
+  <Wrapper>
+    <Parrot speaking language="French" />
+  </Wrapper>
+);
+
+export const Spanish = () => (
+  <Wrapper>
+    <Parrot speaking language="Spanish" />
+  </Wrapper>
+);
