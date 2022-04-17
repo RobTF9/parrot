@@ -23,6 +23,12 @@ export const Bangla = () => (
   </Wrapper>
 );
 
+export const Italian = () => (
+  <Wrapper>
+    <Parrot speaking language="Italian" />
+  </Wrapper>
+);
+
 export const Hindi = () => (
   <Wrapper>
     <Parrot speaking language="Hindi" />
@@ -38,5 +44,35 @@ export const Korean = () => (
 export const Mandarin = () => (
   <Wrapper>
     <Parrot speaking language="Mandarin" />
+  </Wrapper>
+);
+
+export const German = () => (
+  <Wrapper>
+    <Parrot speaking language="German" />
+  </Wrapper>
+);
+
+export const French = () => (
+  <Wrapper>
+    <Parrot speaking language="French" />
+  </Wrapper>
+);
+
+export const Spanish = () => (
+  <Wrapper>
+    <Parrot speaking language="Spanish" />
+  </Wrapper>
+);
+
+export const Japanese = () => (
+  <Wrapper>
+    <Parrot speaking language="Japanese" />
+  </Wrapper>
+);
+
+export const Turkish = () => (
+  <Wrapper>
+    <Parrot speaking language="Turkish" />
   </Wrapper>
 );
