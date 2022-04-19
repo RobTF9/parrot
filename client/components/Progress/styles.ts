@@ -1,25 +1,20 @@
 import styled from 'styled-components';
+import { Card } from '../../styles/Layout.styles';
 
 export const ProgressWrapper = styled.div`
-  & > div {
-    margin-bottom: var(--large);
+  ${Card} {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
 
+    a,
     .error {
-      color: var(--error);
-      margin-top: var(--small);
+      align-self: flex-end;
     }
+  }
 
-    & > p {
-      width: 100%;
-    }
-
-    & > button,
-    & > a {
-      margin-top: var(--small);
-    }
+  .error {
+    color: var(--error);
+    margin-top: var(--small);
   }
 
   .complete {

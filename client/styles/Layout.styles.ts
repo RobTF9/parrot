@@ -86,7 +86,7 @@ export const Footer = styled.footer`
   }
 `;
 
-export const Card = styled.div`
+export const Card = styled.div<{ background?: 'blue' }>`
   box-shadow: 0 0 var(--medium) var(--core-mid-20);
   padding: var(--medium);
   border-radius: var(--small);

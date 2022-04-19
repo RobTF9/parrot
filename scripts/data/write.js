@@ -369,7 +369,7 @@ const parrots = `[
       "isRomanLanguage": true
     },
     "goals": {
-      "phrase": 1,
+      "phrase": 2,
       "games": 1
     }
   }

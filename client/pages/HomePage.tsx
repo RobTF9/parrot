@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { useParrotContext } from '../context/Parrot';
 import { getPhrases } from '../data/phraseResource';
-import { Header, Main, UpperBlock } from '../styles/Layout.styles';
+import { Card, Header, Main, UpperBlock } from '../styles/Layout.styles';
 import Parrot from '../components/Parrot';
 import { getUser } from '../data/userResource';
 import useProgressService from '../hooks/useProgressService';
@@ -42,7 +42,11 @@ const HomePage: React.FC = () => {
       {progress && (
         <UpperBlock>
           <Progress {...{ progress }} />
-          <Link to="/edit">Edit goals</Link>
+
+          <p className="border-t">
+            Are the goals you set holding you back?{' '}
+            <Link to="/edit">Edit goals</Link>
+          </p>
         </UpperBlock>
       )}
     </Main>
