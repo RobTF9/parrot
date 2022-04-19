@@ -2,6 +2,7 @@ const fs = require('fs');
 
 const now = new Date();
 const date = now.toISOString();
+const yesterday = new Date(now - 1);
 
 const users = `[
   {
@@ -144,6 +145,171 @@ const game = [
     updatedAt: {
       $date: date,
     },
+    results: [
+      {
+        correct: [
+          {
+            $oid: '60185d89a7fba10015c88c17',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c16',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c15',
+          },
+        ],
+        played: true,
+        createdAt: date,
+        attempted: [
+          {
+            $oid: '60185d89a7fba10015c88c17',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c16',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c15',
+          },
+        ],
+      },
+      {
+        correct: [
+          {
+            $oid: '60185d89a7fba10015c88c17',
+          },
+        ],
+        played: true,
+        createdAt: yesterday,
+        attempted: [
+          {
+            $oid: '60185d89a7fba10015c88c17',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c16',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c15',
+          },
+        ],
+      },
+    ],
+    phrases: [
+      {
+        $oid: '60185d89a7fba10015c88c17',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c16',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c15',
+      },
+    ],
+  },
+  {
+    _id: {
+      $oid: '625be07ba1113561379082ac',
+    },
+    parrot: {
+      $oid: '6093e4e3103adf787edeb009',
+    },
+    createdBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    updateBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    createdAt: {
+      $date: date,
+    },
+    updatedAt: {
+      $date: date,
+    },
+    results: [
+      {
+        correct: [
+          {
+            $oid: '60185d89a7fba10015c88c17',
+          },
+        ],
+        played: true,
+        createdAt: date,
+        attempted: [
+          {
+            $oid: '60185d89a7fba10015c88c17',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c16',
+          },
+          {
+            $oid: '60185d89a7fba10015c88c15',
+          },
+        ],
+      },
+    ],
+    phrases: [
+      {
+        $oid: '60185d89a7fba10015c88c17',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c16',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c15',
+      },
+    ],
+  },
+  {
+    _id: {
+      $oid: '625be07ba1113561379082ad',
+    },
+    parrot: {
+      $oid: '6093e4e3103adf787edeb009',
+    },
+    createdBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    updateBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    createdAt: {
+      $date: date,
+    },
+    updatedAt: {
+      $date: date,
+    },
+    results: [],
+    phrases: [
+      {
+        $oid: '60185d89a7fba10015c88c17',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c16',
+      },
+      {
+        $oid: '60185d89a7fba10015c88c15',
+      },
+    ],
+  },
+  {
+    _id: {
+      $oid: '625be07ba1113561379082ae',
+    },
+    parrot: {
+      $oid: '6093e4e3103adf787edeb009',
+    },
+    createdBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    updateBy: {
+      $oid: '6016b9410266200015c5e7f9',
+    },
+    createdAt: {
+      $date: date,
+    },
+    updatedAt: {
+      $date: date,
+    },
+    results: [],
     phrases: [
       {
         $oid: '60185d89a7fba10015c88c17',

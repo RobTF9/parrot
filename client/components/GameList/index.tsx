@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GameListWrapper } from './styles';
 import formatDate from '../../utils/formatDate';
-import Button from '../Button';
 import { Card } from '../../styles/Layout.styles';
 
 interface Props {
@@ -13,14 +13,15 @@ const GameList: React.FC<Props> = ({ games }) => {
     <GameListWrapper>
       {games.map((game) => (
         <Card key={game._id} as="li">
-          <h3 className="large bold">
-            {game.phrases.length} phrase{game.phrases.length !== 1 ? 's' : ''}
-          </h3>
-          {/* <PhraseList {...{ phrases: game.phrases, noLinks: true }} /> */}
-          <p>
-            Played {game.results.length} time
-            {game.results.length !== 1 ? 's' : ''}
-          </p>
+          <header>
+            <h3 className="large bold">
+              {game.phrases.length} phrase{game.phrases.length !== 1 ? 's' : ''}
+            </h3>
+            <p>
+              Played {game.results.length} time
+              {game.results.length !== 1 ? 's' : ''}
+            </p>
+          </header>
           <ol>
             {[...game.results].reverse().map((result) => (
               <li
@@ -31,14 +32,14 @@ const GameList: React.FC<Props> = ({ games }) => {
                     : 'error'
                 }
               >
-                <p className="bold">
+                <p className="bold small">
                   {result.correct.length} / {result.attempted.length} correct
                 </p>
-                <p className="small">At {formatDate(result.createdAt)}</p>
+                <p className="small">on {formatDate(result.createdAt)}</p>
               </li>
             ))}
           </ol>
-          <Button to={`/replay/${game._id}`}>Replay game</Button>
+          <Link to={`/replay/${game._id}`}>Replay game</Link>
         </Card>
       ))}
     </GameListWrapper>
