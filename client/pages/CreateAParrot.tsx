@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Footer, Main, Header, StretchBlock } from '../styles/Layout.styles';
+import {
+  Footer,
+  Main,
+  Header,
+  StretchBlock,
+  Card,
+  Block,
+} from '../styles/Layout.styles';
 import { getParrots, createParrot } from '../data/parrotResource';
 import Parrot from '../components/Parrot';
 import Input from '../components/Input';
@@ -54,25 +61,27 @@ const CreateAParrot: React.FC = () => {
       </Header>
       {!newParrot.language ? (
         parrots && (
-          <StretchBlock columns="1fr 1fr">
+          <Block columns="repeat(auto-fit, minmax(16rem, 1fr))">
             {LANGUAGES.map((language) => {
               if (
                 !parrots.data.find((l) => l.language.name === language.name)
               ) {
                 return (
-                  <TouchableOpacity
-                    key={language.name}
-                    type="button"
-                    onClick={() => setParrotLanguage(language)}
-                  >
-                    <Parrot language={language.name} />
-                    <p className="mid">{language.name}</p>
-                  </TouchableOpacity>
+                  <Card>
+                    <TouchableOpacity
+                      key={language.name}
+                      type="button"
+                      onClick={() => setParrotLanguage(language)}
+                    >
+                      <Parrot language={language.name} />
+                      <p className="mid">{language.name}</p>
+                    </TouchableOpacity>
+                  </Card>
                 );
               }
               return null;
             })}
-          </StretchBlock>
+          </Block>
         )
       ) : (
         <>

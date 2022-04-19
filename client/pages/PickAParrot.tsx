@@ -3,7 +3,7 @@ import Parrot from '../components/Parrot';
 import { useParrotContext } from '../context/Parrot';
 import { getParrots } from '../data/parrotResource';
 import { TouchableOpacity } from '../styles/Interactive.styles';
-import { Main, StretchBlock, Header } from '../styles/Layout.styles';
+import { Main, Header, Card, Block } from '../styles/Layout.styles';
 import Loading from '../components/Loading';
 
 const PickAParrot: React.FC = () => {
@@ -17,28 +17,30 @@ const PickAParrot: React.FC = () => {
         <Header>
           <h1 className="xlarge bold">Pick which parrot to teach today</h1>
         </Header>
-        <StretchBlock columns="1fr 1fr">
+        <Block columns="repeat(auto-fit, minmax(16rem, 1fr))">
           {parrots &&
             parrots.data.map(({ _id, language }) =>
               parrot?._id === _id ? (
-                <div key={_id}>
+                <Card key={_id}>
                   <Parrot {...{ language: language.name }} />
                   <p className="mid center">
                     Teaching: <strong>{language.name}</strong>
                   </p>
-                </div>
+                </Card>
               ) : (
-                <TouchableOpacity
-                  type="button"
-                  key={_id}
-                  onClick={() => activateParrot(_id)}
-                >
-                  <Parrot {...{ language: language.name }} />
-                  <p className="mid">{language.name}</p>
-                </TouchableOpacity>
+                <Card>
+                  <TouchableOpacity
+                    type="button"
+                    key={_id}
+                    onClick={() => activateParrot(_id)}
+                  >
+                    <Parrot {...{ language: language.name }} />
+                    <p className="mid">{language.name}</p>
+                  </TouchableOpacity>
+                </Card>
               )
             )}
-        </StretchBlock>
+        </Block>
       </Main>
     </>
   );
