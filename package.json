@@ -17,7 +17,7 @@
     "start": "node dist/server/index.js",
     "reset:test": "mongo parrot-test --eval \"db.dropDatabase();\"",
     "reset:dev": "mongo parrot-dev --eval \"db.dropDatabase();\"",
-    "seed:test": "node scripts/seed.js parrot-test",
+    "seed:test": "yarn reset:dev && node scripts/seed.js parrot-test",
     "seed:dev": "yarn reset:dev && node scripts/seed.js parrot-dev",
     "docs": "start-storybook -p 3001",
     "build:docs": "build-storybook",
