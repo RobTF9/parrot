@@ -1,5 +1,4 @@
 import { RequestHandler } from 'express';
-import { Query } from 'mongoose';
 import { SUCCESS_MESSAGE, ERROR_MESSAGE } from '../../utils/constants';
 import Phrase from './phrase.model';
 
