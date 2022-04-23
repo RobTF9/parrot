@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongoose';
+
 export {};
 
 declare module '*.svg' {
@@ -136,6 +138,13 @@ declare global {
     pron: string;
     /** The translation of the phrase into English */
     tran: string;
+  }
+
+  type RegexQuery = { $regex: RegExp };
+
+  interface PhraseQuery {
+    parrot?: ObjectId;
+    $or?: [{ lang: RegexQuery }, { pron: RegexQuery }, { tran: RegexQuery }];
   }
 
   /** Required for creating or updating a new Phrase */

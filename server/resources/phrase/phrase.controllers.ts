@@ -1,4 +1,5 @@
 import { RequestHandler } from 'express';
+import { Query } from 'mongoose';
 import { SUCCESS_MESSAGE, ERROR_MESSAGE } from '../../utils/constants';
 import Phrase from './phrase.model';
 
@@ -52,9 +53,20 @@ export const updateOne: RequestHandler = async (req, res, next) => {
 
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
-    const phrases = await Phrase.find({
+    const query: PhraseQuery = {
       parrot: req.session.parrot?._id,
-    })
+    };
+
+    if (req.query.phrase) {
+      const regex = new RegExp(`${req.query.phrase}`, 'i');
+      query.$or = [
+        { lang: { $regex: regex } },
+        { pron: { $regex: regex } },
+        { tran: { $regex: regex } },
+      ];
+    }
+
+    const phrases = await Phrase.find(query)
       .populate({ path: 'updatedBy', select: 'username' })
       .sort({ createdAt: 'desc' })
       .lean()
