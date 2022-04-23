@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Input from '../components/Input';
 import Loading from '../components/Loading';
 import PhraseList from '../components/PhraseList';
 import { getPhrases } from '../data/phraseResource';
 import { Main, Header, StretchBlock } from '../styles/Layout.styles';
 
 const Phrases: React.FC = () => {
-  const [phrases, isLoading] = getPhrases();
+  const [query, setQuery] = useState<string | undefined>();
+  const [phrases, isLoading, refetch] = getPhrases(query);
+
+  useEffect(() => {
+    refetch();
+  }, [query]);
 
   if (isLoading) return <Loading />;
 
@@ -19,6 +25,16 @@ const Phrases: React.FC = () => {
       </Header>
       {phrases && (
         <StretchBlock>
+          <Input
+            {...{
+              label: 'Search phrases',
+              name: 'search',
+              value: query,
+              onChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+                setQuery(event.target.value);
+              },
+            }}
+          />
           <PhraseList {...{ phrases: phrases.data }} />
         </StretchBlock>
       )}

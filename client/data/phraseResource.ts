@@ -18,8 +18,12 @@ export const createPhrase: APIGiver<PhraseSubmission, PhraseResource> = (
     callback
   );
 
-export const getPhrases: APIReciever<PhraseResource[]> = () =>
-  getMany<PhraseResource>(CACHE.PHRASE, '/api/phrase');
+export const getPhrases: APIReciever<PhraseResource[]> = (query?: string) =>
+  getMany<PhraseResource>(
+    CACHE.PHRASE,
+    '/api/phrase',
+    query && `?phrase=${query}`
+  );
 
 export const getPhrase: APIReciever<PhraseResource> = (id) =>
   getOne<PhraseResource>(CACHE.PHRASE + id, `/api/phrase/${id}`);

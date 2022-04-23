@@ -4,25 +4,36 @@ import { queryClient } from '../context/Query';
 import { useMessageContext } from '../context/Message';
 
 export interface APIReciever<T> {
-  (id?: string): [data: { data: T } | undefined, isLoading: boolean];
+  (id?: string): [
+    data: { data: T } | undefined,
+    isLoading: boolean,
+    refetch: () => void
+  ];
 }
 
 export function getMany<T>(
   cache: string,
-  endpoint: string
-): [data: { data: Array<T> } | undefined, isLoading: boolean] {
-  const { data, isLoading } = useQuery(cache, () =>
-    get<{ data: Array<T> }>(endpoint)
+  endpoint: string,
+  query?: string
+): [
+  data: { data: Array<T> } | undefined,
+  isLoading: boolean,
+  refetch: () => void
+] {
+  const { data, isLoading, refetch } = useQuery(cache, () =>
+    get<{ data: Array<T> }>(query ? endpoint + query : endpoint)
   );
-  return [data, isLoading];
+  return [data, isLoading, refetch];
 }
 
 export function getOne<T>(
   cache: string,
   endpoint: string
-): [data: { data: T } | undefined, isLoading: boolean] {
-  const { data, isLoading } = useQuery(cache, () => get<{ data: T }>(endpoint));
-  return [data, isLoading];
+): [data: { data: T } | undefined, isLoading: boolean, refetch: () => void] {
+  const { data, isLoading, refetch } = useQuery(cache, () =>
+    get<{ data: T }>(endpoint)
+  );
+  return [data, isLoading, refetch];
 }
 
 export interface APIGiver<T, U> {
