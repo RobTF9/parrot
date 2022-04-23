@@ -26,8 +26,8 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          build: yarn build
-          start: yarn start
+      - run: yarn install
+
+      - run: yarn test:run
+        env:
+          CI: true
