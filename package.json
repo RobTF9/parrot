@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint client server --ext ts,tsx",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome",
+    "cy:run": "cypress run",
     "dev:client": "node scripts/devServer.js",
     "dev:server": "nodemon",
     "predev": "yarn clean",
