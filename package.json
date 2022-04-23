@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint client server --ext ts,tsx",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome",
+    "cy:run": "cypress run",
     "dev:client": "node scripts/devServer.js",
     "dev:server": "nodemon",
     "predev": "yarn clean",
@@ -17,15 +17,13 @@
     "start": "node dist/server/index.js",
     "reset:test": "mongo parrot-test --eval \"db.dropDatabase();\"",
     "reset:dev": "mongo parrot-dev --eval \"db.dropDatabase();\"",
-    "write": "node scripts/data/write.js ",
-    "seed:test": "node scripts/seed.js parrot-test",
-    "preseed:dev": "yarn write",
+    "seed:test": "yarn reset:dev && node scripts/seed.js parrot-test",
     "seed:dev": "yarn reset:dev && node scripts/seed.js parrot-dev",
     "docs": "start-storybook -p 3001",
     "build:docs": "build-storybook",
     "new": "node scripts/component.js",
     "clean": "rimraf .cache dist",
-    "pretest": "yarn write && yarn reset:test && yarn seed:test && yarn build",
+    "pretest": "yarn reset:test && yarn seed:test && yarn build",
     "test:run": "yarn pretest && PORT=4000 NODE_ENV=test start-server-and-test 'yarn start' http://localhost:4000 'yarn cy:run'",
     "test:open": "yarn pretest && PORT=4000 NODE_ENV=test start-server-and-test 'yarn start' http://localhost:4000 'yarn cy:open'"
   },
@@ -120,9 +118,5 @@
     "react-table": "^7.7.0",
     "regenerator-runtime": "^0.13.7",
     "styled-components": "^5.2.3"
-  },
-  "volta": {
-    "node": "12.22.1",
-    "yarn": "1.22.10"
   }
 }

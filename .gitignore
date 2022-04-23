@@ -70,4 +70,4 @@ server/services/translation/key.json
 cypress/videos
 cypress/screenshots
 
-scripts/data/**.json
+scripts/seed-data/**.json
