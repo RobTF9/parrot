@@ -18,10 +18,10 @@ const users = [
     password: '$2a$08$swkXPjd4Hb3z28oHTJSBR.O.Q2st79CQk2i9DOoyecx6htPWSufcm',
     role: 'overlord',
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     __v: 0,
   },
@@ -33,10 +33,10 @@ const users = [
     email: 'user@h5wjvmse.mailosaur.net',
     password: '$2a$08$swkXPjd4Hb3z28oHTJSBR.O.Q2st79CQk2i9DOoyecx6htPWSufcm',
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     __v: 0,
   },
@@ -57,10 +57,10 @@ const phrase = [
       $oid: '6016b9410266200015c5e7f9',
     },
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     __v: 0,
   },
@@ -78,10 +78,10 @@ const phrase = [
       $oid: '6016b9410266200015c5e7f9',
     },
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     __v: 0,
   },
@@ -99,10 +99,10 @@ const phrase = [
       $oid: '6016b9410266200015c5e7f9',
     },
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     __v: 0,
   },
@@ -120,10 +120,10 @@ const phrase = [
       $oid: '6016b9410266200015c5e7f9',
     },
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     __v: 0,
   },
@@ -337,10 +337,10 @@ const parrots = [
       $oid: '6016b9410266200015c5e7f9',
     },
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     language: {
       name: 'Bengali',
@@ -361,10 +361,10 @@ const parrots = [
       $oid: '6016b9410266200015c5e7f9',
     },
     createdAt: {
-      $date: '${date}',
+      $date: date,
     },
     updatedAt: {
-      $date: '${date}',
+      $date: date,
     },
     language: {
       name: 'Italian',
