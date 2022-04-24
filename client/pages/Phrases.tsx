@@ -8,16 +8,16 @@ import { Main, Header, StretchBlock } from '../styles/Layout.styles';
 
 const Phrases: React.FC = () => {
   const [query, setQuery, isLoading, phrases] = useSearchQuery(getPhrases);
-
   if (isLoading) return <Loading />;
 
   return (
     <Main>
       <Header>
         <h1 className="bold xlarge">Phrases</h1>
-        {phrases?.data.length === 0 && (
-          <p className="margin-t">You haven&apos;t added any phrases yet</p>
-        )}
+        {!phrases ||
+          (phrases?.data.length === 0 && (
+            <p className="margin-t">You haven&apos;t added any phrases yet</p>
+          ))}
       </Header>
       {phrases && (
         <StretchBlock>
