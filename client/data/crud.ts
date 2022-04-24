@@ -5,10 +5,9 @@ import { useMessageContext } from '../context/Message';
 
 export interface APIReciever<T> {
   (id?: string): [
-    data: { data: T } | undefined,
+    data: { data: T; searched?: boolean } | undefined,
     isLoading: boolean,
-    refetch: () => void,
-    searched?: boolean
+    refetch: () => void
   ];
 }
 
@@ -17,7 +16,7 @@ export function getMany<T>(
   endpoint: string,
   query?: string
 ): [
-  data: { data: Array<T> } | undefined,
+  data: { data: Array<T>; searched?: true } | undefined,
   isLoading: boolean,
   refetch: () => void
 ] {

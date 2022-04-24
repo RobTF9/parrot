@@ -58,6 +58,7 @@ declare global {
     /** Data returned from the response */
     data?: D;
     parrot?: ParrotSession;
+    searched?: boolean;
   }
 
   /** An array of strings to be translated */

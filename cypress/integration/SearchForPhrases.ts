@@ -9,7 +9,7 @@ describe('User can search for phrases', () => {
   it('User can enter a search term that shows no phrases', () => {
     cy.visit('/phrases');
     cy.get('input[name=search]').type('no');
-    cy.get('p.margin-t').should('contain', "You haven't added any phrases yet");
+    cy.get('em.small').should('contain', 'No phrases returned from search');
   });
 
   it('User can enter a search term that shows phrases', () => {

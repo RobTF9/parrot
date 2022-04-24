@@ -14,10 +14,9 @@ const Phrases: React.FC = () => {
     <Main>
       <Header>
         <h1 className="bold xlarge">Phrases</h1>
-        {!phrases ||
-          (phrases?.data.length === 0 && (
-            <p className="margin-t">You haven&apos;t added any phrases yet</p>
-          ))}
+        {phrases?.data.length === 0 && !phrases.searched && (
+          <p className="margin-t">You haven&apos;t added any phrases yet</p>
+        )}
       </Header>
       {phrases && (
         <StretchBlock>
@@ -26,6 +25,10 @@ const Phrases: React.FC = () => {
               label: 'Search phrases',
               name: 'search',
               value: query,
+              error:
+                phrases.data.length === 0
+                  ? 'No phrases returned from search'
+                  : undefined,
               onChange: (event: React.ChangeEvent<HTMLInputElement>) => {
                 setQuery(event.target.value);
               },

@@ -8,7 +8,7 @@ function useSearchQuery<T>(
   query: string,
   setQuery: (query: string) => void,
   isLoading: boolean,
-  data?: { data: T }
+  data?: { data: T; searched?: boolean }
 ] {
   const [query, setQuery] = useState<string>('');
   const debouncedValue = useDebounce<string>(query, 300);
