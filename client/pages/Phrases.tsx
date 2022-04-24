@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Input from '../components/Input';
 import Loading from '../components/Loading';
 import PhraseList from '../components/PhraseList';
 import { getPhrases } from '../data/phraseResource';
+import useSearchQuery from '../hooks/useSearchQuery';
 import { Main, Header, StretchBlock } from '../styles/Layout.styles';
 
 const Phrases: React.FC = () => {
-  const [query, setQuery] = useState<string | undefined>();
-  const [phrases, isLoading, refetch] = getPhrases(query);
-
-  useEffect(() => {
-    refetch();
-  }, [query]);
+  const [query, setQuery, isLoading, phrases] = useSearchQuery(getPhrases);
 
   if (isLoading) return <Loading />;
 
