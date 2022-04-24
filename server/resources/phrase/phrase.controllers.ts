@@ -52,6 +52,8 @@ export const updateOne: RequestHandler = async (req, res, next) => {
 
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
+    let searched = false;
+
     const query: PhraseQuery = {
       parrot: req.session.parrot?._id,
     };
@@ -63,6 +65,8 @@ export const getMany: RequestHandler = async (req, res, next) => {
         { pron: { $regex: regex } },
         { tran: { $regex: regex } },
       ];
+
+      searched = true;
     }
 
     const phrases = await Phrase.find(query)
@@ -71,7 +75,7 @@ export const getMany: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    return res.status(200).json({ data: phrases });
+    return res.status(200).json({ data: phrases, searched });
   } catch (error) {
     return next(error);
   }

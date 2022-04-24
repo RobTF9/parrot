@@ -7,7 +7,8 @@ export interface APIReciever<T> {
   (id?: string): [
     data: { data: T } | undefined,
     isLoading: boolean,
-    refetch: () => void
+    refetch: () => void,
+    searched?: boolean
   ];
 }
 
