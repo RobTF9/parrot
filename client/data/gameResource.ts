@@ -2,10 +2,10 @@ import { CACHE } from '../utils/constants';
 import { getOne, APIReciever, APIGiver, updateOne, getMany } from './crud';
 
 export const getGame: APIReciever<GameResource> = () =>
-  getOne(CACHE.GAME, '/api/game/create');
+  getOne<GameResource>(CACHE.GAME, '/api/game/create');
 
 export const getGameById: APIReciever<GameResource> = (id) =>
-  getOne(CACHE.GAME, `/api/game/${id}`);
+  getOne<GameResource>(CACHE.GAME, `/api/game/${id}`);
 
 export const updateGame: APIGiver<GameSubmission, GameResource> = (
   id,
@@ -13,4 +13,4 @@ export const updateGame: APIGiver<GameSubmission, GameResource> = (
 ) => updateOne(CACHE.GAME + id, `/api/game/${id}`, callback);
 
 export const getAllGames: APIReciever<GameResource[]> = () =>
-  getMany(CACHE.GAMES, '/api/game');
+  getMany<GameResource>(CACHE.GAMES, '/api/game');

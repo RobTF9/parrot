@@ -52,15 +52,30 @@ export const updateOne: RequestHandler = async (req, res, next) => {
 
 export const getMany: RequestHandler = async (req, res, next) => {
   try {
-    const phrases = await Phrase.find({
+    let searched = false;
+
+    const query: PhraseQuery = {
       parrot: req.session.parrot?._id,
-    })
+    };
+
+    if (req.query.phrase) {
+      const regex = new RegExp(`${req.query.phrase}`, 'i');
+      query.$or = [
+        { lang: { $regex: regex } },
+        { pron: { $regex: regex } },
+        { tran: { $regex: regex } },
+      ];
+
+      searched = true;
+    }
+
+    const phrases = await Phrase.find(query)
       .populate({ path: 'updatedBy', select: 'username' })
       .sort({ createdAt: 'desc' })
       .lean()
       .exec();
 
-    return res.status(200).json({ data: phrases });
+    return res.status(200).json({ data: phrases, searched });
   } catch (error) {
     return next(error);
   }
