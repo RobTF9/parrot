@@ -59,6 +59,8 @@ export const SUCCESS_MESSAGE = {
   USER_UPDATED: succesMessage('Your details have been updated'),
   USER_DELETED: succesMessage('User deleted successfully'),
   TAG_CREATED: succesMessage('Tag created succesfully'),
+  TAG_UPDATED: succesMessage('Tag updated succesfully'),
+  TAG_REUSED: succesMessage('Existing tag added to phrase'),
   PHRASE_CREATED: succesMessage('Phrase created succesfully'),
   GAME_CREATED: succesMessage('Game created succesfully'),
   PHRASE_UPDATED: succesMessage('Phrase updated succesfully'),

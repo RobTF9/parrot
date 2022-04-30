@@ -18,6 +18,7 @@ const tagSchema = new Schema<TagDocument, Model<TagDocument>>(
     value: {
       type: String,
       required: true,
+      unique: true,
     },
     parrot: {
       type: SchemaTypes.ObjectId,

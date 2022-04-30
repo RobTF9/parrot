@@ -379,6 +379,8 @@ const parrots = [
   },
 ];
 
+const tags = [];
+
 async function postCollection(collection, object) {
   await fs.writeFile(
     `./scripts/seed-data/${collection}.json`,
@@ -408,3 +410,4 @@ postCollection('users', users);
 postCollection('parrots', parrots);
 postCollection('phrase', phrase);
 postCollection('game', game);
+postCollection('tag', tags);
